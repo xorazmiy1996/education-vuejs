@@ -1,0 +1,167 @@
+<script setup>
+
+</script>
+
+<template>
+    <header>
+        <div class="logo">
+            <img src="../assets/logo.png">
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <div class="logo">
+                <img src="../assets/logo.png">
+            </div>
+            <ul>
+                <li>
+                    <a href="#" class="active">Home</a>
+                </li>
+                <li>
+                    <a href="#">Products</a>
+                </li>
+                <li>
+                    <a href="#">Feature</a>
+                </li>
+                <li>
+                    <a href="#">Pricing</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+
+    </header>
+</template>
+
+<style scoped>
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../assets/font_face/poppins/Poppins-Bold.ttf");
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins-Bold";
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    width: 80%;
+    height: 70px;
+    background: #fefefe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-radius: 0 0 10px 10px;
+    margin: auto;
+}
+
+.logo {
+    width: 120px;
+    margin-top: 8px;
+}
+
+nav .logo {
+    display: none;
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li a {
+    color: #212526;
+    display: block;
+    font-weight: 600;
+    padding: 8px 16px;
+    transition: 0.2s;
+    border-radius: 30px;
+}
+
+nav ul li a:hover {
+    background: #f6f4ff;
+}
+
+nav ul li a.active {
+    background: #675cff;
+    color: #fff;
+}
+
+.hamburger {
+    display: none;
+    height: fit-content;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.hamburger:hover {
+    background: #f6f4ff;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 2px;
+    margin: 6px 0;
+    background: #212526;
+}
+
+@media only screen and (max-width: 1100px) {
+    header {
+        width: 90%;
+        padding: 0 20px;
+    }
+    nav{
+        position: absolute;
+        left: -300px;
+        top: 0;
+        z-index: 999;
+        width: 280px;
+        height: 100vh;
+        background-color: #fefefe;
+        transition: 0.2s;
+        box-shadow: 2px 0 20px 0rgba(0,0,0,0.05);
+    }
+    #nav_check:checked ~ nav{
+        left: 0;
+    }
+
+
+    nav .logo{
+        display: block;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+    }
+    nav ul{
+        display: block;
+        padding: 0 20px;
+        margin-top: 30px    ;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+}
+
+
+</style>
