@@ -1,23 +1,28 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import NavBar from "@/components/NavBar.vue";
+import {RouterLink, RouterView} from 'vue-router'
+
+
+import NewNavbar from "@/components/NewNavbar.vue";
+import Footer from "@/components/footer/Footer.vue";
+import Nawbar from "@/components/Nawbar.vue";
 </script>
 
 <template>
-<NavBar/>
+  <Nawbar/>
 
-  <content>
-         <RouterView />
-  </content>
+
+  <RouterView/>
+
+  <Footer/>
+
+
+
+
 
 
 </template>
 
 <style scoped>
 
-content{
-
-}
 
 </style>

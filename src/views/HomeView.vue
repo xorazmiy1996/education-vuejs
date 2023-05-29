@@ -1,10 +1,33 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<script>
+import {defineComponent} from 'vue'
+import Section6 from "@/components/section/Section6.vue";
+import Section1 from "@/components/section/Section1.vue";
+import Section2 from "@/components/section/Section2.vue";
+import Section3 from "@/components/section/Section3.vue";
+import CardSwiper from "@/components/swiper/CardSwiper.vue";
+import Section4 from "@/components/section/Section4.vue";
+
+
+export default defineComponent({
+  name: "HomeVue",
+  components: {Section4, CardSwiper, Section3, Section2, Section1, Section6}
+})
 </script>
 
 <template>
-  <main>
-      <h1>Home</h1>
-    <TheWelcome />
-  </main>
+  <Section1/>
+  <Section2/>
+  <Section6/>
+  <Section3/>
+  <Section4/>
+  <CardSwiper/>
+
+
+
+
+
 </template>
+
+<style scoped>
+
+</style>
