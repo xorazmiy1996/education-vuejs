@@ -18,6 +18,7 @@ export default defineComponent({
 
         const {data} = await axios.get('http://185.103.254.135:8080/api/quiz/question/')
         const  newArr = data.map(item =>({
+          id:item.id,
           question_text:item.question_text,
           answers:item.answers,
         }))

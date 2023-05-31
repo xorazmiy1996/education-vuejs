@@ -18,7 +18,7 @@ export default defineComponent({
 <template>
 
 <div class="card">
-        <h5 class="card-header">1-savol</h5>
+        <h5 class="card-header">{{ item_test.id }}-savol</h5>
         <div class="card-body">
           <h5 class="card-title">{{ item_test.question_text }}</h5>
           <div class="test-choose">
