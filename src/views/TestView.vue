@@ -1,438 +1,51 @@
 <script>
 import {defineComponent} from 'vue'
+import axios from "axios";
+import ItemTest from "@/components/test/ItemTest.vue";
 
 export default defineComponent({
-  name: "TestView"
+  name: "TestView",
+  components: {ItemTest},
+  data(){
+    return{
+      testArr:[],
+    }
+
+  },
+  methods: {
+    async test() {
+      try {
+
+        const {data} = await axios.get('http://185.103.254.135:8080/api/quiz/question/')
+        const  newArr = data.map(item =>({
+          question_text:item.question_text,
+          answers:item.answers,
+        }))
+        console.log(newArr)
+        this.testArr = newArr
+      } catch (error) {
+        alert(error.message)
+      }
+
+
+    }
+  },
+  mounted() {
+    this.test()
+  }
 })
 </script>
 
 <template>
- <section>
+  <section>
     <div class="container">
       <div class="head-h1">
         <h1>Testga xushkelibsiz!</h1>
       </div>
 
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
+        <ItemTest v-for="item_test in testArr" v-bind:item_test="item_test" />
 
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
 
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <div class="card">
-        <h5 class="card-header">1-savol</h5>
-        <div class="card-body">
-          <h5 class="card-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores molestias nesciunt
-            sed sequi veritatis voluptates?</h5>
-          <div class="test-choose">
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-1
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-2
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-3
-                </label>
-              </div>
-            </div>
-            <div class="test-li">
-              <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Response-4
-                </label>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
       <div class="send-btn">
         <a href="#" class="btn btn-primary">Send</a>
       </div>
@@ -446,7 +59,7 @@ export default defineComponent({
 </template>
 
 <style scoped>
- section{
+section {
   background-color: #eee;
 }
 
@@ -454,7 +67,7 @@ export default defineComponent({
   text-align: center;
 }
 
-.container .head-h1 h1{
+.container .head-h1 h1 {
   font-size: 40px;
   font-weight: 900;
   padding: 30px;
@@ -504,4 +117,12 @@ export default defineComponent({
   width: 100px;
   height: 40px;
 }
+
+@media screen and(max-width: 1060px ) {
+  .container .card .card-body .test-choose {
+    flex-direction: column;
+  }
+
+}
+
 </style>
