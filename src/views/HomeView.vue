@@ -17,13 +17,24 @@ export default defineComponent({
 <template>
   <Section1/>
   <Section2/>
+  <br>
+  <br>
+  <br>
   <Section6/>
+  <br>
+  <br>
+  <br>
+  <br>
   <Section3/>
+  <br>
+  <br>
+  <br>
   <Section4/>
+  <br>
+  <br>
+  <br>
+
   <CardSwiper/>
-
-
-
 
 
 </template>

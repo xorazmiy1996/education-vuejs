@@ -1,55 +1,124 @@
 <script>
 import {defineComponent} from 'vue'
 import axios from "axios";
-import ItemTest from "@/components/test/ItemTest.vue";
+
+
 
 export default defineComponent({
   name: "TestView",
-  components: {ItemTest},
-  data(){
-    return{
-      testArr:[],
+
+  data() {
+    return {
+      testArr: [],
+      userAnswers: [],
     }
 
   },
   methods: {
     async test() {
       try {
-
         const {data} = await axios.get('http://185.103.254.135:8080/api/quiz/question/')
-        const  newArr = data.map(item =>({
-          id:item.id,
-          question_text:item.question_text,
-          answers:item.answers,
+        const newArr = data.map(item => ({
+          id: item.id,
+          question_text: item.question_text,
+          answers: item.answers,
         }))
-        console.log(newArr)
         this.testArr = newArr
       } catch (error) {
         alert(error.message)
       }
 
 
-    }
+    },
+    async submitData() {
+
+       const resultArr = []
+
+      const newAnswer =this.testArr.map((question, index) => ({
+          question_id: question.id,
+          answer_id: this.userAnswers[index]
+        }))
+
+      for (let i = 0; i < newAnswer.length ; i++) {
+          if(newAnswer[i].answer_id !== undefined){
+            resultArr.push(newAnswer[i])
+          }
+      }
+
+       const submission = {
+        answers: resultArr
+      }
+      // Test  javoblarini  backendga   yuborish
+      try {
+        const response = await axios.post('http://185.103.254.135:8080/api/quiz/answer/?type=Speaking', submission);
+        if(response.status === 200){
+
+          this.$store.commit('setResulTest', response.data.result );
+            this.$router.push({name:'resul_test'});
+          console.log(this.$router.state.result_test)
+        }
+        console.log(response.status);
+        console.log(response.data);
+
+      } catch (error) {
+        console.log(error.message);
+      }
+
+
+    },
   },
   mounted() {
     this.test()
+     console.log("salom")
   }
 })
 </script>
 
 <template>
+
   <section>
-    <div class="container">
-      <div class="head-h1">
+    <br>
+    <br>
+
+    <div class="container text-center">
         <h1>Testga xushkelibsiz!</h1>
-      </div>
+  </div>
+    <br>
+    <br>
+    <div class="container">
+      <form action="" @submit.prevent="submitData">
+        <div v-for="(question, index) in testArr" :key="index">
+          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+            <h5 class="card-header"> {{ index + 1 }}-savol</h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ question.question_text }}</h5>
+              <div class="test-choose">
+                <div class="test-li" v-for="(answer, optionIndex) in question.answers" :key="optionIndex">
+                  <div class="form-check">
+                    <label>
+                      <input
+                          type="radio"
+                          :name="'question-' + index"
+                          :value="answer.id"
+                          v-model="userAnswers[index]"
+                      />
+                      {{ answer.text }}
+                    </label>
 
-        <ItemTest v-for="item_test in testArr" v-bind:item_test="item_test" />
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
 
 
-      <div class="send-btn">
-        <a href="#" class="btn btn-primary">Send</a>
-      </div>
+      </form>
+
 
       <br>
       <br>
@@ -61,69 +130,52 @@ export default defineComponent({
 
 <style scoped>
 section {
-  background-color: #eee;
+  background-color: #fff;
 }
 
-.container .head-h1 {
-  text-align: center;
+
+
+
+.card{
+  margin: 10px;
+}
+.card-header{
+  background-color: #f8f9fa;
 }
 
-.container .head-h1 h1 {
-  font-size: 40px;
-  font-weight: 900;
-  padding: 30px;
+h1{
+  font-weight: 700;
+  font-size: 40px ;
+  color: dodgerblue;
 }
 
-.container .card {
-  margin: 20px;
-  border-radius: 25px 25px 0 0;
 
 
-}
 
-.container .card .card-header {
-  background-color: #fd5f00;
-  border-radius: 25px 25px 0 0;
-}
-
-.container .card .card-body .test-choose {
-  display: flex;
-  flex-direction: row;
-}
 
 .container .card .card-body .test-choose .test-li {
   display: flex;
   align-items: center;
   flex-direction: row;
-  padding: 15px;
-  margin: 20px;
   font-size: 20px;
 }
 
 .container .card .card-body .test-choose .test-li input {
-  width: 25px;
-  height: 25px;
+  width: 18px;
+  height: 18px;
 }
 
-.container .card .card-body .test-choose .test-li label {
-  margin-left: 20px;
-}
 
-.send-btn {
-  display: flex;
-  justify-content: center;
-}
+
 
 .send-btn a {
   width: 100px;
   height: 40px;
 }
 
-@media screen and(max-width: 1060px ) {
-  .container .card .card-body .test-choose {
-    flex-direction: column;
-  }
 
-}
+
+
+
 
 </style>

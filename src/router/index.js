@@ -4,7 +4,13 @@ import HomeVue from "@/views/HomeView.vue";
 import TestView from "@/views/TestView.vue";
 import ContactVue from "@/views/ContactView.vue";
 import CourseView from "@/views/CourseView.vue";
-import TeacherSignUp from "@/views/TeacherSignUpView.vue";
+
+import ResulTest from "@/views/ResulTest.vue";
+import TeacherRegistration from "@/components/teacher/TeacherRegistration.vue";
+import Speaking from "@/views/Speaking.vue";
+import IndividuallyOrGroups from "@/views/IndividuallyOrGroups.vue";
+import StudentRegistration from "@/components/student/StudentRegistration.vue";
+
 
 
 const router = createRouter({
@@ -30,11 +36,34 @@ const router = createRouter({
             name: 'course',
             component: CourseView
         },
-         {
-            path: '/sign_up',
-            name: 'sign_up',
-            component: TeacherSignUp
+        {
+            path: '/speaking',
+            name: 'speaking',
+            component: Speaking
         },
+
+        {
+            path: '/resul_test',
+            name: 'resul_test',
+            component: ResulTest
+        },
+         {
+            path: '/teacher_registration',
+            name: 'teacher_registration',
+            component: TeacherRegistration
+        },
+         {
+            path: '/student_registration',
+            name: 'student_registration',
+            component: StudentRegistration
+        },
+         {
+            path: '/individual_or_group',
+            name: 'individual_or_group',
+            component: IndividuallyOrGroups
+        },
+
+
     ]
 })
 

@@ -12,47 +12,59 @@ export default defineComponent({
       <span>Navbar</span>
     </div>
     <div class="nav-router">
-          <router-link to="/" class="activate">Home</router-link>
-          <router-link to="/course">Course</router-link>
-          <router-link to="/tests">Contact</router-link>
+      <router-link to="/" class="activate">Home</router-link>
+      <router-link to="/individual_or_group">Speaking</router-link>
+      <router-link to="#">Writing</router-link>
 
     </div>
   </nav>
 </template>
 
 <style scoped>
-nav{
+nav {
+  position: fixed;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  background-color: #0d1128;
+   background-color: hsla(230, 40%, 50%, 1);
+  z-index: 10;
+  width: 100%;
+
+
+
 }
-nav .nav-icon span{
-  color: white;
-}
-nav .nav-router{
+
+
+
+nav .nav-router {
   display: flex;
   align-items: center;
   height: 70px;
 }
-nav .nav-router a{
-  font-size: 20px;
+
+nav .nav-router a {
+  font-size: 18px;
+  font-weight: 700;
   margin: 12px;
   padding: 10px;
   color: white;
+  text-decoration: none;
 }
-nav .nav-router a:hover{
+
+nav .nav-router a:hover {
   color: #fd5f00;
 }
-.activate{
-  color: #fd5f00 !important;
+
+.activate {
+  color: #fd5f00;
 }
-nav .nav-icon span{
+
+nav .nav-icon span {
   font-size: 40px;
   margin-left: 10px;
   font-weight: 900;
-  color: #fd5f00;
+  color: white;
 }
 
 </style>

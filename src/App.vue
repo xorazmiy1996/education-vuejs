@@ -2,18 +2,19 @@
 import {RouterLink, RouterView} from 'vue-router'
 
 
-import NewNavbar from "@/components/NewNavbar.vue";
+
 import Footer from "@/components/footer/Footer.vue";
 import Nawbar from "@/components/Nawbar.vue";
 </script>
 
 <template>
   <Nawbar/>
+  <section >
+     <RouterView/>
+  </section>
 
 
-  <RouterView/>
-
-  <Footer/>
+<!--  <Footer/>-->
 
 
 
@@ -23,6 +24,9 @@ import Nawbar from "@/components/Nawbar.vue";
 </template>
 
 <style scoped>
-
+section{
+  position: relative;
+  top: 70px;
+}
 
 </style>
