@@ -54,7 +54,7 @@ export default defineComponent({
         if(response.status === 200){
 
           this.$store.commit('setResulTest', response.data.result );
-            this.$router.push({name:'resul_test'});
+            this.$router.push({name:'result_test_individual_speaking'});
           console.log(this.$router.state.result_test)
         }
         console.log(response.status);
@@ -133,9 +133,6 @@ section {
   background-color: #fff;
 }
 
-
-
-
 .card{
   margin: 10px;
 }
@@ -148,10 +145,6 @@ h1{
   font-size: 40px ;
   color: dodgerblue;
 }
-
-
-
-
 
 .container .card .card-body .test-choose .test-li {
   display: flex;

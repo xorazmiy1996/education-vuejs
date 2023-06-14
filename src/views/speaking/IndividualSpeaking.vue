@@ -19,13 +19,13 @@ export default defineComponent({
       <div class="card  shadow p-3 mb-5 bg-body-tertiary rounded  mb-3" style="max-width: 800px;">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="@/assets/image/home_image/course_image1.png" class="img-fluid p-2 rounded-start" alt="...">
+            <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2 rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">Test</h5>
               <p class="card-text">Test topshirish orqali o'zingizga mos kurslarni tanlang. Bu testda sizga 10 ta savol berliladi. Siz to'g'ri togan savollarga qarab veb saytimiz sizga individual kurslarni aftomatik ravishda taklif etadi.</p>
-              <router-link to="/tests" class="btn btn-primary">Begin <i
+              <router-link to="/test_individual_speaking" class="btn btn-primary">Begin <i
                   class="fa fa-arrow-right-long"></i></router-link>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default defineComponent({
       <div class="row row-cols-1 row-cols-md-4 ">
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 
@@ -54,7 +54,7 @@ export default defineComponent({
         </div>
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 
@@ -69,7 +69,7 @@ export default defineComponent({
         </div>
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 
@@ -84,7 +84,7 @@ export default defineComponent({
         </div>
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 
@@ -99,7 +99,7 @@ export default defineComponent({
         </div>
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 
@@ -114,7 +114,7 @@ export default defineComponent({
         </div>
         <div class="col mb-4">
           <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">Description</h5>
 

@@ -10,6 +10,7 @@ import Nawbar from "@/components/Nawbar.vue";
 <template>
   <Nawbar/>
   <section >
+
      <RouterView/>
   </section>
 
@@ -27,6 +28,7 @@ import Nawbar from "@/components/Nawbar.vue";
 section{
   position: relative;
   top: 70px;
+  background-color: #f8f9fa;
 }
 
 </style>

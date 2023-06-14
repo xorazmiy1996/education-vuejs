@@ -2,7 +2,7 @@
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: "IndividuallyOrGroups"
+  name: "WritingTask1OrTask2"
 })
 </script>
 
@@ -10,7 +10,7 @@ export default defineComponent({
   <br>
   <br>
  <div class="container  text-center">
-         <h1>Individual or Group speaking</h1>
+         <h1>Task-1 and Task-2 writing</h1>
   </div>
   <br>
   <section>
@@ -18,17 +18,17 @@ export default defineComponent({
         <div class="d-flex justify-content-center align-items-center flex-wrap">
           <div class="card shadow  bg-body-tertiary rounded" style="max-width: 28rem;">
             <div class="card-image d-flex justify-content-center">
-              <img src="@/assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
+              <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
                    alt="...">
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">Individual speaking</h5>
-              <p>Shaxsiy tayyorlash bu, o'quvchilarga o'zlariga mos o'rganish yo'nalishlarini o'rganishga imkoniyat beradi va ularning ilmiy va amaliy bilimlari oshiriladi.O'quvchilarni individual tayyorlashda, ularning o'ziga mos o'rganish usullariga va o'rganish shakllariga qarab, ularning shaxsiy o'rganish stili va xususiyatlari hisobga olingan holda, ularning o'zlashtirish va rivojlantirishlari uchun bir necha usullar ishlatiladi.</p>
+              <h5 class="card-title text-center">Task-1</h5>
+              <p>Sizga 20 daqiqa beriladi. Task 1-da, umumiy ravishda 150 so'zdan ko'p bo'lmagan yozuv tayyorlash kerak bo'ladi. Bu savolda yozuvchi ko'rgan yoki ko'rganlari tasvirlash, ta'riflash, taqqoslash yoki soliqqa oid ma'lumotlarni taqdim etish talab qilinadi.</p>
               <br>
             </div>
             <div class="card-footer d-flex justify-content-center ">
 
-              <router-link to="/speaking" id="btn" class="btn btn-primary">Begin <i
+              <router-link to="/task_1" id="btn" class="btn btn-primary">Begin <i
                   class="fa fa-arrow-right-long"></i>
               </router-link>
 
@@ -37,12 +37,12 @@ export default defineComponent({
           </div>
           <div class="card shadow  bg-body-tertiary rounded" style="width: 28rem;">
             <div class="card-image  d-flex justify-content-center">
-              <img src="@/assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
+              <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
                    alt="...">
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">Group speaking</h5>
-             <p>Guruh tayyorlash esa, o'quvchilarning bir-biriga yordam berish va bir-biriga o'zaro fikrlashishlari uchun yaratilgan o'rganish usuli hisoblanadi. Bu usul, o'quvchilarning bir-biri bilan hamkorlik qilish va ularning o'zlariga mos o'rganish yo'nalishida ko'plab ma'lumotlarni almashishlariga imkoniyat beradi. Guruh tayyorlash jarayoni o'quvchilarning ijtimoiy xarakterlarini ham rivojlantiradi va ularning jamiyatda o'z o'rni va vazifalarini o'rganishiga yordam beradi.</p>
+              <h5 class="card-title text-center">Task-2</h5>
+             <p>Sizga 40 daqiqa beriladi.Task 2-da esa, 250 so'zdan ko'p yozuv tayyorlash kerak bo'ladi. Bu savol esa, ko'rsatilgan muammoga (masalaga) ta'riflash, uni hal qilish yo'llarini qidirish, muammoga o'z fikr-mulohazasini bildirish va boshqalar bilan fikr almashish talablari beriladi. </p>
 
 
             </div>
@@ -115,5 +115,4 @@ p{
 .card-body .card-ul .card-ul-li .check-text {
   font-size: 18px;
 }
-
 </style>

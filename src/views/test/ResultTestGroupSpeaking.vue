@@ -1,17 +1,18 @@
 <script>
-export default {
+import {defineComponent} from 'vue'
+
+export default defineComponent({
+  name: "ResultTestGroupSpeaking",
   data() {
     return {
-      result_tes: this.$store.state.result_test
+      result_tes: this.$store.state.result_tes
     }
   },
-
-
-};
+})
 </script>
 
 <template>
-  <div>
+ <div>
     <section>
       <br>
       <br>
@@ -24,7 +25,7 @@ export default {
           <div v-if="result_tes <= 2">
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
@@ -41,7 +42,7 @@ export default {
           <div v-else-if="result_tes > 2 && result_tes <= 5">
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
@@ -58,7 +59,7 @@ export default {
           <div v-else-if="result_tes > 5 && result_tes <= 7">
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
@@ -75,7 +76,7 @@ export default {
           <div v-else-if="result_tes > 7 && result_tes <= 9">
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
@@ -92,7 +93,7 @@ export default {
           <div v-else-if="result_tes >= 10">
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
@@ -107,7 +108,7 @@ export default {
             </div>
             <div class="col mb-4">
               <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-                <img id="youtube_image" src="@/assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
+                <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Description</h5>
 
