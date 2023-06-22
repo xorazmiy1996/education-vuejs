@@ -2,7 +2,7 @@
 import {defineComponent} from 'vue'
 import Input from "@/ui-componets/Input.vue";
 import {mapGetters, mapState} from "vuex";
-import ValidationError from "@/components/student/ValidationError.vue";
+import ValidationError from "@/components/login/ValidationError.vue";
 
 export default defineComponent({
   name: "VerifyCode",
@@ -23,23 +23,7 @@ export default defineComponent({
       console.log(data)
       this.$store.dispatch("auth/verificationCode", data)
           .then(response => {
-            // console.log('Response active', response.data)
-
-            const data = {
-              "email": localStorage.getItem('email'),
-              "password": localStorage.getItem('password')
-            }
-            console.log(data)
-
-            this.$store.dispatch("auth/getToken", data)
-                .then(response => {
-                  // console.log(response.data)
-
-                })
-                .catch(error => console.log(error.response))
-
-
-            this.$router.push({name: 'home'})
+            this.$router.push({name: 'login'})
           })
           .catch(err => console.log("Error2", err))
 

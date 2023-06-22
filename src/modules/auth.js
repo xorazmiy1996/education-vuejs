@@ -1,49 +1,65 @@
 import AuthService from "@/service/auth";
 
+
+
 const state = {
     isLoading: false,
-    student: null,
+    user: null,
     errors: null,
     isLoggedIn: null,
 };
 
+const getters = {
+
+    isLoggedIn: state => {
+        return Boolean(state.isLoggedIn)
+    },
+    isAnonymous: state => {
+        return state.isLoggedIn === false
+    },
+    user:state =>{
+        return state.user
+    }
+
+}
+
 const mutations = {
     registerStart(state) {
         state.isLoading = true
-        state.student = null
+        state.user = null
         state.errors = null
-        state.isLoggedIn=null
+        state.isLoggedIn = null
 
     },
     registerSuccess(state, payload) {
         state.isLoading = false
-        state.student = payload
-        state.isLoggedIn=true
+        state.user = payload
+        state.isLoggedIn = true
 
     },
     registerFailure(state, payload) {
         state.isLoading = false
         state.errors = payload
-        state.isLoggedIn=false
+        state.isLoggedIn = false
     },
     loginStart(state) {
         state.isLoading = true
-        state.student = null
+        state.user = null
         state.errors = null
-        state.isLoggedIn=null
+        state.isLoggedIn = null
     },
-    loginSuccess(state, payload) {
+    loginSuccess(state) {
         state.isLoading = false
-        state.student = payload
-        state.isLoggedIn=true
+        // state.user = payload
+        state.isLoggedIn = true
     },
     loginFailure(state, payload) {
         state.isLoading = false
         state.errors = payload
-        state.isLoggedIn=false
+        state.isLoggedIn = false
     },
     // kk
-      verificationCodeStart(state) {
+    verificationCodeStart(state) {
         state.isLoading = true
         state.errors = null
 
@@ -55,8 +71,27 @@ const mutations = {
     verificationCodeFailure(state, payload) {
         state.isLoading = false
         state.errors = payload
-        state.isLoggedIn=false
+        state.isLoggedIn = false
     },
+    currentUserStart(state) {
+        state.isLoading = true
+    },
+    currentUserSuccess(state, payload) {
+        state.isLoading = false
+        state.user = payload
+        state.isLoggedIn = true
+    },
+    currentUserFailure(state) {
+        state.isLoading = false
+        state.user = null
+        state.isLoggedIn = false
+    },
+    logout(state) {
+        state.user = null
+        state.isLoading = null
+        state.isLoggedIn= false
+
+    }
 
 
 };
@@ -83,12 +118,12 @@ const actions = {
         return new Promise((resolve, reject) => {
             context.commit("loginStart")
             AuthService.login(student_data)
-                .then(response => {
-                    context.commit("loginSuccess", response.data)
-                     localStorage.setItem("token", response.data.access)
+                        .then(response => {
+                    context.commit("loginSuccess")
+                    localStorage.setItem("token", response.data.access)
                     resolve(response.data)
 
-                })
+                    })
                 .catch(error => {
                     context.commit("loginFailure", error.response.data)
                     reject(error.response.data)
@@ -100,7 +135,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             AuthService.sendCodeEmail(mail)
                 .then(response => {
-                    resolve(response.data)
+                        resolve(response.data)
                 })
                 .catch(error => {
                     reject(error.response.data)
@@ -109,37 +144,36 @@ const actions = {
     },
     verificationCode(context, code) {
         return new Promise((resolve, reject) => {
-             context.commit("verificationCodeStart")
+            context.commit("verificationCodeStart")
             AuthService.verificationCode(code)
                 .then(response => {
-                     context.commit("verificationCodeSuccess", response.data)
+                    context.commit("verificationCodeSuccess", response.data)
                     resolve(response.data)
                 })
                 .catch(error => {
                     reject(error.response.data)
-                     context.commit("verificationCodeFailure", error.response.data)
+                    context.commit("verificationCodeFailure", error.response.data)
                 })
 
 
         })
     },
-    getToken(context, data) {
-        return new Promise((resolve, reject) => {
-            AuthService.getToken(data)
-                .then(response => {
-                    // console.log(response.data)
-                    // console.log(response.data.access)
-                    localStorage.setItem("token", response.data.access)
-                    localStorage.setItem("username", '')
-                    localStorage.setItem("password", '')
-                    resolve(response.data)
-                })
-                .catch(error => {
-                    console.log(error.response.data)
-                    reject(error.response.data)
+    getUser(context) {
+        return new Promise((resolve) => {
+            context.commit('currentUserStart')
+            AuthService.getUser().then(response => {
+                context.commit("currentUserSuccess", response.data)
+                localStorage.setItem('userType',response.data.type)
+                resolve(response.data)
 
-                })
+            }).catch(() => {
+                context.commit('currentUserFailure')
+            })
         })
+      },
+    logout(context) {
+        context.commit('logout')
+        localStorage.removeItem('token')
     }
 }
 export default {
@@ -147,5 +181,5 @@ export default {
     state,
     mutations,
     actions,
-    // getters
+    getters
 }

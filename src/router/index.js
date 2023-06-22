@@ -4,12 +4,13 @@ import HomeVue from "@/views/HomeView.vue";
 
 import ContactVue from "@/views/ContactView.vue";
 import CourseView from "@/views/CourseView.vue";
+import store from "@/store/main";
 
 
-import TeacherRegistration from "@/components/teacher/TeacherRegistration.vue";
+import TeacherPanel from "@/components/teacher/TeacherPanel.vue";
 
 import IndividuallyOrGroups from "@/views/speaking/IndividualOrGroupsSpeaking.vue";
-import StudentRegistration from "@/components/student/StudentRegistration.vue";
+import UserRegistration from "@/components/registration/UserRegistration.vue";
 import IndividualSpeaking from "@/views/speaking/IndividualSpeaking.vue";
 
 import ResulTestSpeaking from "@/views/test/ResultTestIndividualSpeaking.vue";
@@ -23,8 +24,14 @@ import WritingTask1OrTask2 from "@/views/writing/WritingTask1OrTask2.vue";
 import Task1 from "@/views/writing/Task1.vue";
 import PaymeTask1Task2 from "@/views/payme/PaymeTask1Task2.vue";
 import VerifyCode from "@/components/verify-email/VerifyCode.vue";
-import LoginStudent from "@/components/login/LoginStudent.vue";
+import LoginStudent from "@/components/login/LoginUser.vue";
 
+import Unauthorized from "@/components/401/Unauthorized.vue";
+
+import StudentPanel from "@/components/student/StudentPanel.vue";
+import AdminPanel from "@/components/admin/AdminPanel.vue";
+import AdminCabinet from "@/components/admin/AdminCabinet.vue";
+import DetailCabinet from "@/components/admin/DetailCabinet.vue";
 
 
 const router = createRouter({
@@ -32,7 +39,7 @@ const router = createRouter({
     routes: [
         {
             path: '/',
-                name: 'home',
+            name: 'home',
             component: HomeVue
         },
         {
@@ -40,7 +47,7 @@ const router = createRouter({
             name: 'test_individual_speaking',
             component: TestIndividualSpeaking
         },
-         {
+        {
             path: '/test_group_speaking',
             name: 'test_group_speaking',
             component: TestGroupSpeaking
@@ -55,7 +62,7 @@ const router = createRouter({
             name: 'course',
             component: CourseView
         },
-         {
+        {
             path: '/login',
             name: 'login',
             component: LoginStudent
@@ -86,17 +93,14 @@ const router = createRouter({
             name: 'result_test_group_speaking',
             component: ResultTestGroupSpeaking
         },
-         {
-            path: '/teacher_registration',
-            name: 'teacher_registration',
-            component: TeacherRegistration
+        // student
+        {
+            path: '/user_registration',
+            name: 'user_registration',
+            component: UserRegistration
         },
-         {
-            path: '/student_registration',
-            name: 'student_registration',
-            component: StudentRegistration
-        },
-         {
+
+        {
             path: '/individual_or_group_speaking',
             name: 'individual_or_group_speaking',
             component: IndividualOrGroupsSpeaking
@@ -116,9 +120,60 @@ const router = createRouter({
             name: 'payme_task1_task2',
             component: PaymeTask1Task2
         },
+        // 401 unauthorized
+        {
+            path: '/unauthorized',
+            name: 'unauthorized',
+            component: Unauthorized
+        },
+        // admin
+        {
+            path: '/admin',
+            name: 'admin',
+            component: AdminPanel,
+            meta: {requiresAdmin: true}
+        },
+        {
+            path: '/admin_cabinet',
+            name: 'admin_cabinet',
+            component: AdminCabinet,
+
+        },
+        // student
+        {
+            path: '/student_panel',
+            name: 'student_panel',
+            component: StudentPanel,
+            meta: {requiresAdmin: true}
+        },
+         {
+            path: '/educations/cabinet/:id',
+            name: 'cabinet',
+            component: DetailCabinet,
+          
+        },
+
+        // teacher
+        {
+            path: '/teacher_panel',
+            name: 'teacher_panel',
+            component: TeacherPanel,
+            meta: {requiresAdmin: true}
+        },
 
 
     ]
-})
+});
+
+router.beforeEach((to, from, next) => {
+    const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+    const isAuthenticated = store.state.auth.isLoggedIn; // ro'yxatdan o'tganmi yo'qmi?
+
+    if (requiresAdmin && !isAuthenticated) {
+        next({name: 'login'});
+    } else {
+        next();
+    }
+});
 
 export default router

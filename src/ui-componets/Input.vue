@@ -18,7 +18,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <input :type=type class="form-control" :value="modelValue" @input="updateInput">
+    <input :type=type class="form-control" :value="modelValue" @input="updateInput">
 </template>
 
 <style scoped>

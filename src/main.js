@@ -9,7 +9,8 @@ import uiComponets from "@/ui-componets";
 const app = createApp(App)
 uiComponets.map(componet=>{app.component(componet.name, componet)})
 
-app.use(router)
+
 app.use(store)
+app.use(router)
 
 app.mount('#app')

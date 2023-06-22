@@ -1,8 +1,21 @@
 <script>
 import {defineComponent} from 'vue'
+import CourseCard from "@/components/card/CourseCard.vue";
+import {mapState} from "vuex";
+import Loader from "@/ui-componets/Loader.vue";
 
 export default defineComponent({
-  name: "Speaking"
+  name: "Speaking",
+  components: {Loader, CourseCard},
+  mounted() {
+      this.$store.dispatch('cabinet/getAllCabinets')
+  },
+  computed:{
+     ...mapState('cabinet',['isLoading','cabinets','error','isLoading'])
+
+  },
+
+
 })
 </script>
 
@@ -10,9 +23,8 @@ export default defineComponent({
   <section>
     <br>
     <br>
-
     <div class="container text-center">
-      <h1>Speaking individual cours</h1>
+      <h1>Speaking individual course</h1>
     </div>
     <br>
     <div class="d-flex justify-content-center mt-5">
@@ -24,7 +36,9 @@ export default defineComponent({
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title">Test</h5>
-              <p class="card-text">Test topshirish orqali o'zingizga mos kurslarni tanlang. Bu testda sizga 10 ta savol berliladi. Siz to'g'ri togan savollarga qarab veb saytimiz sizga individual kurslarni aftomatik ravishda taklif etadi.</p>
+              <p class="card-text">Test topshirish orqali o'zingizga mos kurslarni tanlang. Bu testda sizga 10 ta savol
+                berliladi. Siz to'g'ri togan savollarga qarab veb saytimiz sizga individual kurslarni aftomatik ravishda
+                taklif etadi.</p>
               <router-link to="/test_individual_speaking" class="btn btn-primary">Begin <i
                   class="fa fa-arrow-right-long"></i></router-link>
             </div>
@@ -35,102 +49,15 @@ export default defineComponent({
 
     </div>
 
+
+
     <div class="container">
-      <div class="row row-cols-1 row-cols-md-4 ">
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Beginner-A1</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Elementary-A2</li>
-            <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Intermediate-B1</li>
-             <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Upper-Intermediate-B2</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Advanced-C1</li>
-             <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-outline-danger">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Proficient-C2</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-
-
-
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <Loader  v-if="isLoading" class="offset-md-6" />
+         <CourseCard v-for="cabinet in cabinets" :cabinet="cabinet" :key="cabinet.id"/>
       </div>
+
+
     </div>
   </section>
 </template>
@@ -142,18 +69,19 @@ export default defineComponent({
   color: dodgerblue;
 
 }
-h5{
+
+h5 {
   color: dodgerblue;
 }
-p{
+
+p {
   color: dodgerblue;
 }
-li{
+
+li {
   color: dodgerblue;
   background-color: #f8f9fa;
 }
-
-
 
 
 </style>
