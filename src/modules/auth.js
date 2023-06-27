@@ -108,7 +108,7 @@ const actions = {
                 })
                 .catch(error => {
                     context.commit("registerFailure", error.response.data)
-                    reject(error.response.data)
+                        reject(error.response.data)
                 })
 
 

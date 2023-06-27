@@ -6,12 +6,15 @@ import course from "@/modules/course";
 import teacher from "@/modules/teacher";
 
 
+
 const store = createStore({
     state: {},
+    getters: {},
     mutations: {},
     actions: {},
-    getters:{},
-    modules: {result_test, auth, cabinet,course, teacher},
+
+
+    modules: {result_test, auth, cabinet, course, teacher},
 
 })
 export default store

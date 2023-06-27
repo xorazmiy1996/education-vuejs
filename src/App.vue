@@ -11,6 +11,9 @@ import TeacherNavbar from "@/components/TeacherNavbar.vue";
 
 export default {
   components: {TeacherNavbar, StudentNavbar, AdminNavbar, Navbar},
+  data() {
+    return {}
+  },
   created() {
     this.$store.dispatch("auth/getUser")
   },
@@ -26,24 +29,29 @@ export default {
 
 <template>
 
-  <Navbar/>
+  <!-- <Navbar/>-->
+<!--  <Navbar/>-->
+<!--  <router-view/>-->
+  <component :is="this.$route.meta.Layout">
+    <router-view/>
+  </component>
 
-  <div v-if="user">
-      <AdminNavbar v-if="user.type === 'admin'" class="vertical_navbar" />
-      <StudentNavbar v-if="user.type === 'student'" class="vertical_navbar" />
-      <TeacherNavbar v-if="user.type === 'teacher'" class="vertical_navbar" />
-  </div>
+  <!--  <div v-if="user">-->
+  <!--      <AdminNavbar v-if="user.type === 'admin'" class="vertical_navbar" />-->
+  <!--      <StudentNavbar v-if="user.type === 'student'" class="vertical_navbar" />-->
+  <!--      <TeacherNavbar v-if="user.type === 'teacher'" class="vertical_navbar" />-->
+  <!--  </div>-->
 
-  <section v-if="!user">
-    <RouterView/>
-  </section>
+  <!--  <section v-if="!user">-->
+  <!--    <RouterView/>-->
+  <!--  </section>-->
 
-  <section v-if="user">
-    <div class="router-view">
-      <RouterView/>
-    </div>
+  <!--  <section v-if="user">-->
+  <!--    <div class="router-view">-->
+  <!--      <RouterView/>-->
+  <!--    </div>-->
 
-  </section>
+  <!--  </section>-->
 
 
   <!--  <Footer/>-->
@@ -52,22 +60,18 @@ export default {
 </template>
 
 <style scoped>
-section {
-  position: relative;
-  top: 70px;
-  background-color: #f8f9fa;
-}
+/*section {*/
+/*  position: relative;*/
+/*  top: 70px;*/
+/*  background-color: #f8f9fa;*/
+/*}*/
 
-.vertical_navbar {
-  position: fixed;
-  top: 70px;
-  z-index: 700;
-}
+/*.vertical_navbar {*/
+/*  position: fixed;*/
+/*  top: 70px;*/
+/*  z-index: 700;*/
+/*}*/
 
-.router-view {
-  position: relative;
-  margin-left: 25%;
 
-}
 
 </style>

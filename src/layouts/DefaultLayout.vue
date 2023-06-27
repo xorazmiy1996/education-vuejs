@@ -1,12 +1,10 @@
 <script>
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
-import {getterTypes} from "@/modules/types";
-import userNavbar from "@/router/index"
 
 export default defineComponent({
-  name: "Navbar",
-  computed: {
+  name: "DefaultLayout",
+   computed: {
     ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
   },
 
@@ -15,8 +13,6 @@ export default defineComponent({
       return this.$store.dispatch("auth/logout")
     }
   }
-
-
 })
 </script>
 
@@ -65,9 +61,13 @@ export default defineComponent({
 
     </div>
   </nav>
+  <div style="position: relative; top: 70px">
+    <slot/>
+  </div>
 </template>
 
 <style scoped>
+
 nav {
   position: fixed;
   display: flex;
@@ -119,6 +119,5 @@ i:hover {
 .dropdown-menu li a {
   color: deepskyblue;
 }
-
 
 </style>

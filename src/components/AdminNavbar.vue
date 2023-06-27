@@ -1,18 +1,43 @@
 <script>
 import {defineComponent} from 'vue'
+import {mapGetters} from "vuex";
 
 export default defineComponent({
-  name: "VerticalNavbar"
+  name: "VerticalNavbar",
+  computed: {
+    ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
+  },
+
+  methods: {
+    logout() {
+      return this.$store.dispatch("auth/logout")
+    }
+  }
 })
 </script>
 
 <template>
-<ul>
-   <li><router-link class="active" to="#">Admin</router-link></li>
-  <li><router-link to="/admin_cabinet">Kabinet</router-link></li>
-  <li><router-link to="#">Contact</router-link></li>
-  <li><router-link to="#">About</router-link></li>
-</ul>
+  <ul>
+
+    <li>
+      <router-link class="active" to="/admin">Admin</router-link>
+    </li>
+    <li>
+      <router-link to="/admin_cabinet">Cabinet</router-link>
+    </li>
+    <li>
+      <router-link to="/admin_course">Course</router-link>
+    </li>
+    <li>
+      <router-link to="#">Contact</router-link>
+    </li>
+    <li>
+      <router-link to="#">About</router-link>
+    </li>
+  </ul>
+  <div>
+    <slot/>
+  </div>
 </template>
 
 <style scoped>

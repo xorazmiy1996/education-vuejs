@@ -1,20 +1,3 @@
-<script>
-import {defineComponent} from 'vue'
-
-export default defineComponent( {
-  name: "Modal",
-   props: {
-    isOpen: Boolean,
-    title: String
-  },
-  methods: {
-    close() {
-      this.$emit('close')
-    }
-  }
-})
-</script>
-
 <template>
   <div v-if="isOpen" class="modal-overlay">
     <div class="modal-container">
@@ -28,6 +11,20 @@ export default defineComponent( {
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    isOpen: Boolean,
+    title: String
+  },
+  methods: {
+    close() {
+      this.$emit('close')
+    }
+  }
+}
+</script>
 
 <style scoped>
 .modal-overlay {
@@ -47,7 +44,7 @@ export default defineComponent( {
   background-color: #fff;
   border-radius: 5px;
   padding: 20px;
-  max-width: 500px;
+  min-width: 500px;
   max-height: 80vh;
   overflow-y: auto;
 }
