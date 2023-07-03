@@ -37,6 +37,7 @@ export default defineComponent({
             <input type="text" class="form-control bg-body-tertiary" v-model="topic_text"
                    placeholder="Enter topic" aria-label="Recipient's username"
                    aria-describedby="button-addon2">
+
             </div>
           <br>
           <br>
