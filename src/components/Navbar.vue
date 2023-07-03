@@ -21,54 +21,11 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav>
-    <div class="nav-icon">
-      <span v-if="!user">Navbar</span>
-      <div v-if="user">
-        <span v-if="user.type === 'admin' ">Admin</span>
-        <span v-if="user.type === 'student'">Student</span>
-        <span v-if="user.type === 'teacher'">Teacher</span>
-      </div>
-    </div>
 
-    <div class="nav-router me-5">
-        <router-link to="/" class="a ctivate">Home</router-link>
-        <router-link to="/individual_or_group_speaking">Speaking</router-link>
-        <router-link to="/writing_task1_task2">Writing</router-link>
-
-
-
-
-      <template v-if='isLoggedIn '>
-        <div class="dropdown">
-          <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">
-            <i class="fa fa-user-circle fa-3x" style="color: white"></i>
-          </a>
-
-          <ul class="dropdown-menu">
-            <li>
-              <router-link  class="dropdown-item" to="/admin">Kirish</router-link>
-            </li>
-            <li>
-              <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
-            </li>
-          </ul>
-        </div>
-
-      </template>
-      <template v-if='isAnonymous'>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/user_registration">Sign up</router-link>
-      </template>
-
-
-    </div>
-  </nav>
 </template>
 
 <style scoped>
-nav {
+nav-head {
   position: fixed;
   display: flex;
   align-items: center;
@@ -82,13 +39,13 @@ nav {
 }
 
 
-nav .nav-router {
+nav-head .nav-router {
   display: flex;
   align-items: center;
   height: 70px;
 }
 
-nav .nav-router a {
+nav-head .nav-router a {
   font-size: 18px;
   font-weight: 700;
   margin: 12px;
@@ -97,7 +54,7 @@ nav .nav-router a {
   text-decoration: none;
 }
 
-nav .nav-router a:hover {
+nav-head .nav-router a:hover {
   color: #fd5f00;
 }
 
@@ -105,7 +62,7 @@ nav .nav-router a:hover {
   color: #fd5f00;
 }
 
-nav .nav-icon span {
+nav-head .nav-icon span {
   font-size: 40px;
   margin-left: 10px;
   font-weight: 900;

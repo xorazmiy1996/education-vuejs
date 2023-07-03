@@ -35,6 +35,8 @@ import DetailCabinet from "@/components/admin/DetailCabinet.vue";
 import AdminCourse from "@/components/admin/AdminCourse.vue";
 import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AdminLayout from "@/layouts/AdminLayout.vue";
+import StudentLayout from "@/layouts/StudentLayout.vue";
+import MyCourseStudent from "@/components/student/MyCourseStudent.vue";
 
 
 
@@ -197,14 +199,20 @@ const router = createRouter({
             path: '/admin_cabinet',
             name: 'admin_cabinet',
             component: AdminCabinet,
-            meta: {requiresAdmin: true}
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+            }
 
         },
         {
             path: '/admin_course',
             name: 'admin_course',
             component: AdminCourse,
-            meta: {requiresAdmin: true}
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+            }
 
         },
         // student
@@ -212,12 +220,29 @@ const router = createRouter({
             path: '/student_panel',
             name: 'student_panel',
             component: StudentPanel,
-            meta: {requiresAdmin: true}
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
         },
+        {
+            path: '/my_course_student',
+            name: 'my_course_student',
+            component: MyCourseStudent,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
+        },
+
+
         {
             path: '/educations/cabinet/:id',
             name: 'cabinet',
             component: DetailCabinet,
+            meta:{
+                Layout:DefaultLayout
+            }
 
         },
 

@@ -4,10 +4,11 @@ import Input from "@/ui-componets/Input.vue";
 import ValidationError from "@/components/login/ValidationError.vue";
 import {Form, Field, ErrorMessage} from "vee-validate";
 import {mapGetters} from "vuex";
+import Loader from "@/ui-componets/Loader.vue";
 
 export default defineComponent({
   name: "LoginUser",
-  components: {ValidationError, Input, Form, Field, ErrorMessage},
+  components: {Loader, ValidationError, Input, Form, Field, ErrorMessage},
   data() {
     return {
       email: '',
@@ -26,7 +27,7 @@ export default defineComponent({
       const user = this.$store.state.auth.user
       return user
     },
-    ...mapGetters('auth', ['user']),
+    ...mapGetters('auth', ['user','isLoading']),
 
   },
   methods: {
@@ -80,8 +81,7 @@ export default defineComponent({
   <section>
     <br>
     <br>
-    <div class="container text-center">
-    </div>
+        <Loader v-if="isLoading" class="offset-md-6"/>
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-2"></div>

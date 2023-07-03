@@ -14,7 +14,7 @@ export default {
   data() {
     return {}
   },
-  created() {
+  updated() {
     this.$store.dispatch("auth/getUser")
   },
 

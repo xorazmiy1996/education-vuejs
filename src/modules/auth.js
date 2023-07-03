@@ -10,6 +10,9 @@ const state = {
 };
 
 const getters = {
+     isLoading:state =>{
+        return state.isLoading
+    },
 
     isLoggedIn: state => {
         return Boolean(state.isLoggedIn)
@@ -42,6 +45,9 @@ const mutations = {
         state.errors = payload
         state.isLoggedIn = false
     },
+
+
+
     loginStart(state) {
         state.isLoading = true
         state.user = null
@@ -125,6 +131,7 @@ const actions = {
 
                     })
                 .catch(error => {
+                      console.log("Error--6",error.response.data)
                     context.commit("loginFailure", error.response.data)
                     reject(error.response.data)
                 })

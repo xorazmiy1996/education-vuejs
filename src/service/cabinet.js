@@ -5,6 +5,13 @@ const CabinetService={
     },
     createCabinet(data){
         return axios.post('/educations/cabinet/', data)
+    },
+    detailCabinet(id){
+        return axios.get(`/educations/cabinet/${id}/`)
+    },
+    addStudentCabinet(id){
+        return axios.post(`/educations/cabinet/${id}/add_student/`)
+
     }
 }
 

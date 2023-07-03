@@ -1,16 +1,15 @@
 <script>
 import {defineComponent} from 'vue'
-import {mapGetters} from "vuex";
 import Input from "@/ui-componets/Input.vue";
+import {mapGetters} from "vuex";
 
 export default defineComponent({
-  name: "AdminLayout",
-  components: {Input},
+  name: "StudentLayout",
+    components: {Input},
   computed: {
     ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
   },
-
-  methods: {
+    methods: {
     logout() {
       return this.$store.dispatch("auth/logout")
     },
@@ -53,7 +52,7 @@ export default defineComponent({
 
           <ul class="dropdown-menu">
             <li>
-              <router-link  class="dropdown-item" to="/admin">Kirish</router-link>
+              <router-link  class="dropdown-item" to="/student_panel">Kirish</router-link>
             </li>
             <li>
               <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
@@ -97,35 +96,30 @@ export default defineComponent({
           </li>
           <ul class="menu-link">
             <li class="nav-link">
-              <router-link to="/admin">
+              <router-link to="/student_panel">
                 <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">Admin</span>
+                <span class="text nav-text">Dashboard</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="/admin_cabinet">
+              <router-link to="/my_course_student">
                 <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">Add Cabinet</span>
+                <span class="text nav-text">My Course</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="/admin_course">
-                <i class="fa fa-bell icon"></i>
-                <span class="text nav-text">Add Course</span>
+              <router-link to="#">
+                <i class="fa fa-wallet icon"></i>
+                <span class="text nav-text">My Essay</span>
               </router-link>
             </li>
-            <li class="nav-link">
-              <router-link to="">
-                  <i class="fa fa-wallet icon"></i>
-                <span class="text nav-text">All Essay</span>
-              </router-link>
-            </li>
+
 
           </ul>
         </div>
         <div class="bottom-content">
           <li class="">
-            <router-link to="">
+            <router-link to="#">
               <i class="fa fa-sign-out-alt icon"></i>
               <span class="text nav-text">Log out</span>
             </router-link>
@@ -149,12 +143,11 @@ export default defineComponent({
       <slot/>
     </main>
   </section>
-
 </template>
 
 <style scoped>
 section {
-  height: 100%;
+  height: 100vh;
   background-color: var(--body-color);
   transition: var(--tran-05);
 }
@@ -401,7 +394,7 @@ section.dark .switch::before {
   position: relative;
   top: 70px;
   padding: 10px 14px;
-  height: 100vh;
+  height: 100%;
   left: 250px;
   width: calc(100% - 250px);
   background: var(--body-color);
@@ -467,7 +460,5 @@ i:hover {
 .dropdown-menu li a {
   color: deepskyblue;
 }
-
-
 
 </style>

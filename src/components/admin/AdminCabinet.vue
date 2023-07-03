@@ -61,12 +61,12 @@ export default defineComponent({
 
 
     },
-      openModal() {
-        this.isModalOpen = true
-      },
-      closeModal() {
-        this.isModalOpen = false
-      }
+    openModal() {
+      this.isModalOpen = true
+    },
+    closeModal() {
+      this.isModalOpen = false
+    }
 
 
   }
@@ -78,9 +78,11 @@ export default defineComponent({
 <template>
   <div class="container">
     <div class="modal-cabinet">
-      <div class="modal-button">
-        <button @click="openModal" class="btn btn-primary">Create Cabinet</button>
-      </div>
+
+      <button @click="openModal" class="btn btn-primary">Create Cabinet</button>
+      <br>
+      <br>
+
       <div class="modal-body">
         <modal :is-open="isModalOpen" title="My Modal" @close="closeModal">
           <form @submit.prevent="submitHandler">
@@ -160,7 +162,7 @@ export default defineComponent({
 
 
     <div class="tabel-cabinet">
-       <Loader v-if="isLoading" class="offset-md-6"/>
+      <Loader v-if="isLoading" class="offset-md-6"/>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -188,7 +190,18 @@ export default defineComponent({
           <td>{{ cabinet.course.duration }} day</td>
           <td>{{ cabinet.teacher.first_name }}</td>
           <td>{{ cabinet.start_date }}</td>
-          <td>{{ cabinet.weekdays }}</td>
+          <td>
+            <span v-for="day in cabinet.weekdays" class="badge text-bg-primary">
+                        <b v-if="day === '0'">1</b>
+                        <b v-if="day === '1'">2</b>
+                        <b v-if="day === '2'">3</b>
+                        <b v-if="day === '3'">4</b>
+                        <b v-if="day === '4'">5</b>
+                        <b v-if="day === '5'">6</b>
+                        <b v-if="day === '6'">7</b>
+                    </span>
+
+          </td>
           <td>{{ cabinet.time }}</td>
           <td>{{ cabinet.course.price }} so'm</td>
           <td>
@@ -235,11 +248,9 @@ input[type='checkbox'] {
   margin: 5px;
   cursor: pointer;
 }
-
-.modal-cabinet .modal-button {
-  position: relative;
-  top: 10px;
-
+tr span{
+  margin-left: 3px;
 }
+
 
 </style>
