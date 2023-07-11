@@ -46,7 +46,7 @@ export default defineComponent({
             </div>
             <div class="card-footer d-flex justify-content-center ">
 
-              <router-link to="/individual_or_group" id="btn" class="btn btn-primary">Begin <i
+              <router-link to="/individual_or_group_speaking" id="btn" class="btn btn-primary">Begin <i
                   class="fa fa-arrow-right-long"></i>
               </router-link>
 

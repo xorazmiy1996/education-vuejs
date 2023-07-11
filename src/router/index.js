@@ -1,15 +1,47 @@
 import {createRouter, createWebHistory} from 'vue-router'
 
 import HomeVue from "@/views/HomeView.vue";
-import TestView from "@/views/TestView.vue";
+
 import ContactVue from "@/views/ContactView.vue";
 import CourseView from "@/views/CourseView.vue";
+import store from "@/store/main";
 
-import ResulTest from "@/views/ResulTest.vue";
-import TeacherRegistration from "@/components/teacher/TeacherRegistration.vue";
-import Speaking from "@/views/Speaking.vue";
-import IndividuallyOrGroups from "@/views/IndividuallyOrGroups.vue";
-import StudentRegistration from "@/components/student/StudentRegistration.vue";
+
+import TeacherPanel from "@/components/teacher/TeacherPanel.vue";
+
+
+import UserRegistration from "@/components/registration/UserRegistration.vue";
+import IndividualSpeaking from "@/views/speaking/IndividualSpeaking.vue";
+
+
+import GroupSpeaking from "@/views/speaking/GroupSpeaking.vue";
+import TestIndividualSpeaking from "@/views/test/TestIndividualSpeaking.vue";
+import ResultTestIndividualSpeaking from "@/views/test/ResultTestIndividualSpeaking.vue";
+import TestGroupSpeaking from "@/views/test/TestGroupSpeaking.vue";
+import ResultTestGroupSpeaking from "@/views/test/ResultTestGroupSpeaking.vue";
+import IndividualOrGroupsSpeaking from "@/views/speaking/IndividualOrGroupsSpeaking.vue";
+import WritingTask1OrTask2 from "@/views/writing/WritingTask1OrTask2.vue";
+import Task1 from "@/views/writing/Task1.vue";
+import PaymeTask1Task2 from "@/views/payme/PaymeTask1Task2.vue";
+import VerifyCode from "@/components/verify-email/VerifyCode.vue";
+import LoginStudent from "@/components/login/LoginUser.vue";
+
+import Unauthorized from "@/components/401/Unauthorized.vue";
+
+import StudentPanel from "@/components/student/StudentPanel.vue";
+import AdminPanel from "@/components/admin/AdminPanel.vue";
+import AdminCabinet from "@/components/admin/AdminCabinet.vue";
+import DetailCabinet from "@/components/admin/DetailCabinet.vue";
+import AdminCourse from "@/components/admin/AdminCourse.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import AdminLayout from "@/layouts/AdminLayout.vue";
+import StudentLayout from "@/layouts/StudentLayout.vue";
+import MyCourseStudent from "@/components/student/MyCourseStudent.vue";
+import StudentAllEssay from "@/components/student/StudentAllEssay.vue";
+import AdminAllEssays from "@/components/admin/AdminAllEssays.vue";
+import StudentEssayDetail from "@/components/student/StudentEssayDetail.vue";
+import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
+
 
 
 
@@ -19,52 +51,276 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: HomeVue
+            component: HomeVue,
+            meta:{
+                Layout:DefaultLayout
+            }
         },
         {
-            path: '/tests',
-            name: 'tests',
-            component: TestView
+            path: '/test_individual_speaking',
+            name: 'test_individual_speaking',
+            component: TestIndividualSpeaking,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/test_group_speaking',
+            name: 'test_group_speaking',
+            component: TestGroupSpeaking,
+             meta:{
+                Layout:DefaultLayout
+            }
         },
         {
             path: '/contact',
             name: 'contact',
-            component: ContactVue
+            component: ContactVue,
+             meta:{
+                Layout:DefaultLayout
+            }
         },
         {
             path: '/course',
             name: 'course',
-            component: CourseView
+            component: CourseView,
+             meta:{
+                Layout:DefaultLayout
+            }
         },
         {
-            path: '/speaking',
-            name: 'speaking',
-            component: Speaking
+            path: '/login',
+            name: 'login',
+            component: LoginStudent,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/verify_code',
+            name: 'verify_code',
+            component: VerifyCode,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/individual_speaking',
+            name: 'individual_speaking',
+            component: IndividualSpeaking,
+             meta:{
+                 // requiresAdmin: true,
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/group_speaking',
+            name: 'group_speaking',
+            component: GroupSpeaking,
+             meta:{
+                Layout:DefaultLayout
+            }
         },
 
         {
-            path: '/resul_test',
-            name: 'resul_test',
-            component: ResulTest
+            path: '/result_test_individual_speaking',
+            name: 'result_test_individual_speaking',
+            component: ResultTestIndividualSpeaking,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/result_test_group_speaking',
+            name: 'result_test_group_speaking',
+            component: ResultTestGroupSpeaking,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        // student
+        {
+            path: '/user_registration',
+            name: 'user_registration',
+            component: UserRegistration,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+
+        {
+            path: '/individual_or_group_speaking',
+            name: 'individual_or_group_speaking',
+            component: IndividualOrGroupsSpeaking,
+            meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/writing_task1_task2',
+            name: 'writing_task1_task2',
+            component: WritingTask1OrTask2,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/task_1',
+            name: 'task_1',
+            component: Task1,
+             meta:{
+                 requiresAdmin: true,
+                Layout:DefaultLayout
+            }
+        },
+        {
+            path: '/payme_task1_task2',
+            name: 'payme_task1_task2',
+            component: PaymeTask1Task2,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        // 401 unauthorized
+        {
+            path: '/unauthorized',
+            name: 'unauthorized',
+            component: Unauthorized,
+             meta:{
+                Layout:DefaultLayout
+            }
+        },
+        // admin
+        {
+            path: '/admin',
+            name: 'admin',
+            component: AdminPanel,
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+
+            }
         },
          {
-            path: '/teacher_registration',
-            name: 'teacher_registration',
-            component: TeacherRegistration
+            path: '/admin_all_essays',
+            name: 'admin_all_essays',
+            component: AdminAllEssays,
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+
+            }
+        },
+        {
+            path: '/admin_essay_detail/:id',
+            name: 'admin_essay_detail',
+            component: AdminEssayDetail,
+            meta: {
+                requiresAdmin: true,
+                Layout: AdminLayout
+            }
+        },
+        {
+            path: '/admin_cabinet',
+            name: 'admin_cabinet',
+            component: AdminCabinet,
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+            }
+
+        },
+        {
+            path: '/admin_course',
+            name: 'admin_course',
+            component: AdminCourse,
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+            }
+
+        },
+
+        // student
+        {
+            path: '/student_panel',
+            name: 'student_panel',
+            component: StudentPanel,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
+        },
+        {
+            path: '/my_course_student',
+            name: 'my_course_student',
+            component: MyCourseStudent,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
         },
          {
-            path: '/student_registration',
-            name: 'student_registration',
-            component: StudentRegistration
+            path: '/student_essay_detail/:id',
+            name: 'student_essay_detail',
+            component: StudentEssayDetail,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
         },
-         {
-            path: '/individual_or_group',
-            name: 'individual_or_group',
-            component: IndividuallyOrGroups
+
+
+
+        {
+            path: '/educations/cabinet/:id',
+            name: 'cabinet',
+            component: DetailCabinet,
+            meta:{
+                requiresAdmin: true,
+                Layout:DefaultLayout
+            }
+
+        },
+          {
+            path: '/student_all_essay',
+            name: 'student_all_essay',
+            component: StudentAllEssay,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
+
+        },
+
+        // teacher
+        {
+            path: '/teacher_panel',
+            name: 'teacher_panel',
+            component: TeacherPanel,
+            meta: {requiresAdmin: true}
         },
 
 
     ]
-})
+});
+
+
+router.beforeEach((to, from, next) => {
+    const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+    const isAuthenticated = store.state.auth.isLoggedIn; // ro'yxatdan o'tganmi yo'qmi?
+
+    if (requiresAdmin && !isAuthenticated) {
+        next({name: 'login'});
+    } else {
+        next();
+    }
+
+
+});
 
 export default router
+
+
+
+
