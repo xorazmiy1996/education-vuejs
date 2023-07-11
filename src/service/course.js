@@ -8,6 +8,10 @@ const CourseService = {
 
     getAllCourse(){
         return axios.get('/educations/course/')
+    },
+    deleteCurse(id){
+        return axios.delete(`/educations/course/${id}/`)
     }
+
 }
 export default CourseService

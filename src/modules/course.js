@@ -38,6 +38,21 @@ const mutations = {
         state.isLoading = false
         state.errors = payload
     },
+     // delete course
+     deleteCourseStart(state) {
+        state.isLoading = true
+        state.errors = null
+    },
+
+    deleteCourseSuccess(state) {
+        state.isLoading = false
+        state.errors = null
+    },
+    deleteCourseFailure(state) {
+        state.isLoading = false
+
+    },
+
 
 
 }
@@ -57,6 +72,19 @@ const actions = {
                 })
         })
     },
+    deleteCurse(context, id){
+        return new Promise(resolve => {
+            context.commit('deleteCourseStart')
+            CourseService.deleteCurse(id)
+                .then(() =>{
+                    context.commit('deleteCourseSuccess')
+                    resolve()
+                })
+
+        })
+
+
+    },
 
 
     getAllCourse(context) {
@@ -72,7 +100,9 @@ const actions = {
                 })
         })
 
-    }
+    },
+
+
 }
 export default {
     namespaced: true,

@@ -5,11 +5,12 @@ import {mapGetters} from "vuex";
 import ValidationError from "@/components/login/ValidationError.vue";
 import Modal from "@/ui-componets/Modal.vue";
 import Loader from "@/ui-componets/Loader.vue";
+import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
 
 
 export default defineComponent({
   name: "AdminCabinet",
-  components: {Loader, ValidationError, Input, Modal},
+  components: {DeleteModal, Loader, ValidationError, Input, Modal},
   data() {
     return {
       weekDays: [],
@@ -17,19 +18,24 @@ export default defineComponent({
       course_id: null,
       teacher_id: null,
       start_date: null,
-      isModalOpen: false
+      isModalOpen: false,
+      isDeleteModalOpen: false,
+
+      delete_id: ''
 
 
     }
   },
   created() {
+
     this.$store.dispatch("course/getAllCourse")
     this.$store.dispatch("teacher/getAllTeachers")
-    this.$store.dispatch("cabinet/getAllCabinets")
   },
   mounted() {
-
+    this.$store.dispatch("cabinet/getAllCabinets")
   },
+
+
   computed: {
     ...mapGetters("course", ['courses']),
     ...mapGetters("teacher", ['teachers']),
@@ -47,17 +53,21 @@ export default defineComponent({
         "start_date": this.start_date,
         "weekdays": this.weekDays,
       }
-
-      console.log(data)
       this.$store
           .dispatch("cabinet/createCabinet", data)
           .then(response => {
             this.closeModal()
             this.$store.dispatch("cabinet/getAllCabinets")
-
-
           })
           .catch(error => console.log("cabinet create error", error))
+    },
+
+    deleteCabinet() {
+      return this.$store.dispatch('cabinet/deleteCabinet', this.delete_id)
+          .then(() => {
+            this.$store.dispatch("cabinet/getAllCabinets")
+            this.closeDeleteModal()
+          })
 
 
     },
@@ -66,7 +76,15 @@ export default defineComponent({
     },
     closeModal() {
       this.isModalOpen = false
-    }
+    },
+    // delete modal
+    openDeleteModal(id) {
+      this.delete_id = id
+      this.isDeleteModalOpen = true
+    },
+    closeDeleteModal() {
+      this.isDeleteModalOpen = false
+    },
 
 
   }
@@ -76,6 +94,13 @@ export default defineComponent({
 </script>
 
 <template>
+  <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
+    <p>Ushbu cabinetni o'chirmoqchimisiz?</p>
+    <div class="d-flex">
+      <button @click="deleteCabinet" type="button" class="btn btn-outline-success success-button">Yes</button>
+      <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+    </div>
+  </delete-modal>
   <div class="container">
     <div class="modal-cabinet">
 
@@ -207,7 +232,7 @@ export default defineComponent({
           <td>
             <div class="icon">
               <i class="fa fa-pen-square"></i>
-              <i class="fa fa-trash"></i>
+              <i @click="openDeleteModal(cabinet.id)" class="fa fa-trash"></i>
             </div>
 
 
@@ -248,8 +273,13 @@ input[type='checkbox'] {
   margin: 5px;
   cursor: pointer;
 }
-tr span{
+
+tr span {
   margin-left: 3px;
+}
+
+.success-button {
+  margin-right: 20px;
 }
 
 

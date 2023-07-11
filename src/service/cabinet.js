@@ -12,6 +12,9 @@ const CabinetService={
     addStudentCabinet(id){
         return axios.post(`/educations/cabinet/${id}/add_student/`)
 
+    },
+    deleteCabinet(id){
+        return axios.delete(`/educations/cabinet/${id}/`)
     }
 }
 

@@ -18,7 +18,7 @@ export default defineComponent({
       <img src="@/assets/image/home_image/course.png" alt="">
       <div class="card-body">
         <p class="card-text">
-          <b>Teacher:</b> {{ courses.teacher }}
+          <b>Teacher:</b> {{ courses.teacher.first_name }} {{ courses.teacher.last_name }}
         </p>
       </div>
       <ul class="list-group list-group-flush  d-flex justify-content-space-evenly">
@@ -27,7 +27,13 @@ export default defineComponent({
             <b>course:</b>
           </div>
           <small class="text-body-secondary">
-            {{ courses.course }}
+            <ul>
+              <li><b>name:</b> <span class="badge text-bg-primary">{{ courses.course.name }}</span></li>
+              <li><b>level</b> <span class="badge text-bg-primary">{{courses.course.level}}</span> </li>
+              <li><b>price</b> <span class="badge text-bg-primary">{{courses.course.price}}</span> </li>
+            </ul>
+
+
           </small>
 
         </li>
@@ -83,5 +89,10 @@ export default defineComponent({
 </template>
 
 <style scoped>
-
+ul{
+  list-style: none;
+}
+ul li {
+  list-style: none;
+}
 </style>

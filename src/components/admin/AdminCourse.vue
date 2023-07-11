@@ -4,10 +4,11 @@ import Modal from "@/ui-componets/Modal.vue";
 import ValidationError from "@/components/login/ValidationError.vue";
 import Input from "@/ui-componets/Input.vue";
 import {mapGetters} from "vuex";
+import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
 
 export default defineComponent({
   name: "AdminCourse",
-  components: {Input, ValidationError, Modal},
+  components: {DeleteModal, Input, ValidationError, Modal},
   data() {
     return {
       name: '',
@@ -18,6 +19,10 @@ export default defineComponent({
       skills: [],
       type: '',
       isModalOpen: false,
+
+
+      isDeleteModalOpen: false,
+      delete_id: ''
     }
   },
   created() {
@@ -40,7 +45,6 @@ export default defineComponent({
         "type": this.type,
 
       }
-      console.log(data)
       this.$store
           .dispatch("course/createCourse", data)
           .then(response => {
@@ -60,6 +64,22 @@ export default defineComponent({
     },
     closeModal() {
       this.isModalOpen = false
+    },
+    // delete modal
+    openDeleteModal(id) {
+      this.delete_id = id
+      this.isDeleteModalOpen = true
+    },
+    closeDeleteModal() {
+      this.isDeleteModalOpen = false
+    },
+    deleteCourse() {
+
+      this.$store.dispatch('course/deleteCurse', this.delete_id)
+          .then(()=>{
+            this.closeDeleteModal()
+            this.$store.dispatch("course/getAllCourse")
+          })
     }
 
   },
@@ -67,6 +87,15 @@ export default defineComponent({
 </script>
 
 <template>
+
+  <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
+    <p>Ushbu courseni o'chirmoqchimisiz?</p>
+    <div class="d-flex">
+      <button  @click="deleteCourse" type="button" class="btn btn-outline-success success-button delete-button">Yes</button>
+      <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+    </div>
+
+  </delete-modal>
 
 
   <div class="container">
@@ -81,12 +110,12 @@ export default defineComponent({
             <div class="mb-3">
               <label for="exampleInputName" class="form-label">Name</label>
               <input v-model="name" type="text" class="form-control" id="exampleInputName">
-                            <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.name"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.name"/>
             </div>
             <div class="mb-3">
               <label for="exampleInputDescription" class="form-label">Description</label>
               <input v-model="description" type="text" class="form-control" id="exampleInputDescription">
-                            <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.description"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.description"/>
             </div>
 
 
@@ -100,21 +129,21 @@ export default defineComponent({
                 <option>B2</option>
                 <option>C1</option>
               </select>
-                            <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.level"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.level"/>
             </div>
 
 
             <div class="mb-3">
               <label for="exampleInputDuration" class="form-label">Duration</label>
               <input v-model="duration" type="number" class="form-control" id="exampleInputDuration">
-                            <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
             </div>
 
 
             <div class="mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
               <label for="exampleInputSkills" class="form-label">Skills</label>
               <br>
-                              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.skills"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.skills"/>
               <br>
               <input type="checkbox" class="form-check-input" id="skill_group" value="listening" v-model="skills">
               <label class="form-label" for="skill_group">Listening</label>
@@ -123,14 +152,13 @@ export default defineComponent({
               <input type="checkbox" class="form-check-input" id="skill_individual" value="speaking" v-model="skills">
               <label class="form-label" for="skill_individual">Speaking</label>
 
-                <br>
+              <br>
               <input type="checkbox" class="form-check-input" id="skill_reading" value="reading" v-model="skills">
               <label class="form-label" for="skill_reading">Reading</label>
               <br>
 
               <input type="checkbox" class="form-check-input" id="skill_writing" value="writing" v-model="skills">
               <label class="form-label" for="skill_writing">Writing</label>
-
 
 
             </div>
@@ -148,7 +176,7 @@ export default defineComponent({
             <div class="mb-3">
               <label for="exampleInputPrice" class="form-label">Price</label>
               <input v-model="price" type="number" class="form-control" id="exampleInputPrice">
-                            <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
+              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
             </div>
 
 
@@ -167,6 +195,7 @@ export default defineComponent({
         <th scope="col">Level</th>
         <th scope="col">Course type</th>
         <th scope="col">Price</th>
+        <th scope="col">Edit</th>
 
       </tr>
       </thead>
@@ -179,6 +208,14 @@ export default defineComponent({
         <td>{{ course.level }}</td>
         <td>{{ course.type }}</td>
         <td>{{ course.price }}</td>
+        <td>
+          <div class="icon">
+            <i class="fa fa-pen-square"></i>
+            <i @click="openDeleteModal(course.id)" class="fa fa-trash"></i>
+          </div>
+        </td>
+
+
       </tr>
 
       </tbody>
@@ -196,5 +233,14 @@ export default defineComponent({
   margin-bottom: 15px;
 
 }
+
+.icon i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.delete-button{
+  margin-right: 10px;
+}
+
 
 </style>

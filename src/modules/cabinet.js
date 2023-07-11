@@ -86,6 +86,17 @@ const mutations = {
         state.addStudentCabinetError = payload
     },
 
+    // delete cabinet
+
+       deleteCabinetStart(state) {
+        state.isLoading = true
+    },
+    deleteCabinetSuccess(state) {
+        state.isLoading = false
+    },
+
+
+
 
 }
 
@@ -148,6 +159,19 @@ const actions = {
                     context.commit('addStudentCabinetFailure', error.response.data)
                     reject(error.response.data)
                 })
+        })
+    },
+    deleteCabinet(context, id){
+        return new Promise(resolve =>{
+            context.commit('deleteCabinetStart')
+            CabinetService.deleteCabinet(id)
+                .then(() =>{
+                     context.commit('deleteCabinetSuccess')
+                    resolve()
+
+                })
+
+
         })
     }
 }

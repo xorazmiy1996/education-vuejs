@@ -37,6 +37,10 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AdminLayout from "@/layouts/AdminLayout.vue";
 import StudentLayout from "@/layouts/StudentLayout.vue";
 import MyCourseStudent from "@/components/student/MyCourseStudent.vue";
+import StudentAllEssay from "@/components/student/StudentAllEssay.vue";
+import AdminAllEssays from "@/components/admin/AdminAllEssays.vue";
+import StudentEssayDetail from "@/components/student/StudentEssayDetail.vue";
+import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
 
 
 
@@ -105,6 +109,7 @@ const router = createRouter({
             name: 'individual_speaking',
             component: IndividualSpeaking,
              meta:{
+                 // requiresAdmin: true,
                 Layout:DefaultLayout
             }
         },
@@ -164,6 +169,7 @@ const router = createRouter({
             name: 'task_1',
             component: Task1,
              meta:{
+                 requiresAdmin: true,
                 Layout:DefaultLayout
             }
         },
@@ -195,6 +201,25 @@ const router = createRouter({
 
             }
         },
+         {
+            path: '/admin_all_essays',
+            name: 'admin_all_essays',
+            component: AdminAllEssays,
+            meta: {
+                requiresAdmin: true,
+                Layout:AdminLayout
+
+            }
+        },
+        {
+            path: '/admin_essay_detail/:id',
+            name: 'admin_essay_detail',
+            component: AdminEssayDetail,
+            meta: {
+                requiresAdmin: true,
+                Layout: AdminLayout
+            }
+        },
         {
             path: '/admin_cabinet',
             name: 'admin_cabinet',
@@ -215,6 +240,7 @@ const router = createRouter({
             }
 
         },
+
         // student
         {
             path: '/student_panel',
@@ -234,6 +260,16 @@ const router = createRouter({
                 Layout:StudentLayout
             }
         },
+         {
+            path: '/student_essay_detail/:id',
+            name: 'student_essay_detail',
+            component: StudentEssayDetail,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
+            }
+        },
+
 
 
         {
@@ -241,7 +277,18 @@ const router = createRouter({
             name: 'cabinet',
             component: DetailCabinet,
             meta:{
+                requiresAdmin: true,
                 Layout:DefaultLayout
+            }
+
+        },
+          {
+            path: '/student_all_essay',
+            name: 'student_all_essay',
+            component: StudentAllEssay,
+            meta: {
+                requiresAdmin: true,
+                Layout:StudentLayout
             }
 
         },

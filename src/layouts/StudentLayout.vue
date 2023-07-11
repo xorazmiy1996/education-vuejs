@@ -108,7 +108,7 @@ export default defineComponent({
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="#">
+              <router-link to="/student_all_essay">
                 <i class="fa fa-wallet icon"></i>
                 <span class="text nav-text">My Essay</span>
               </router-link>

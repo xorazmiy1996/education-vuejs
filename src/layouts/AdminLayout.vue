@@ -79,8 +79,8 @@ export default defineComponent({
           <img src="@/assets/coding-lab.png" alt="logo">
         </span>
           <div class="text header-text">
-            <span class="name">{{user.first_name}}</span>
-            <span class="profession">{{user.last_name}}</span>
+            <span class="name">Coding</span>
+            <span class="profession">Lab</span>
 
           </div>
         </div>
@@ -105,17 +105,17 @@ export default defineComponent({
             <li class="nav-link">
               <router-link to="/admin_cabinet">
                 <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">Add Cabinet</span>
+                <span class="text nav-text">Cabinet</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_course">
                 <i class="fa fa-bell icon"></i>
-                <span class="text nav-text">Add Course</span>
+                <span class="text nav-text">Course</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="">
+              <router-link to="/admin_all_essays">
                   <i class="fa fa-wallet icon"></i>
                 <span class="text nav-text">All Essay</span>
               </router-link>

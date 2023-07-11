@@ -7,6 +7,7 @@ import Modal from "@/ui-componets/Modal.vue";
 import Input from "@/ui-componets/Input.vue";
 import ErrorAlertModal from "@/ui-componets/alert-modal/ErrorAlertModal.vue";
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
+import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
 
 export default defineComponent({
   name: "DetailCabinet",
@@ -16,9 +17,10 @@ export default defineComponent({
       isSuccessModalOpen: false,
 
 
+
     }
   },
-  components: {SuccessAlertModal, ErrorAlertModal, Input, Modal, ValidationError, Loader},
+  components: {DeleteModal, SuccessAlertModal, ErrorAlertModal, Input, Modal, ValidationError, Loader},
   computed: {
     ...mapGetters('cabinet', ['detailCabinet', 'isLoading', 'addStudentCabinetError'])
   },
@@ -44,12 +46,13 @@ export default defineComponent({
       this.isModalOpen = false
     },
     // Success modal
-     openSuccessModal() {
+    openSuccessModal() {
       this.isSuccessModalOpen = true
     },
     closeSuccessModal() {
       this.isSuccessModalOpen = false
-    }
+    },
+
   }
 
 })
@@ -57,13 +60,12 @@ export default defineComponent({
 
 <template>
 
-    <error-alert-modal :is-open="isModalOpen" title="Failure" @close="closeModal">
-      <p>{{ addStudentCabinetError.detail }}</p>
-    </error-alert-modal>
-   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
-      <p>Success add course</p>
-    </success-alert-modal>
-
+  <error-alert-modal :is-open="isModalOpen" title="Failure" @close="closeModal">
+    <p>{{ addStudentCabinetError.detail }}</p>
+  </error-alert-modal>
+  <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
+    <p>Success add course</p>
+  </success-alert-modal>
 
 
 

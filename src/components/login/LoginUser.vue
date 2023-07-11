@@ -105,10 +105,10 @@ export default defineComponent({
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
-                  <ErrorMessage name="password"/>
+                    <ErrorMessage name="password"/>
                   <ValidationError v-if="validationError" :validationError="validationError.password"/>
                 </div>
-                <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
+                  <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
               </Form>
 
             </div>
@@ -119,7 +119,7 @@ export default defineComponent({
 
 
     </div>
-    <br>
+      <br>
     <br>
   </section>
 </template>
