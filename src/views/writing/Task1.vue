@@ -28,7 +28,8 @@ export default defineComponent({
       const essay = {
         "essays": [{
           "topic": this.topic_title,
-          "body": this.topic_text
+          "body": this.topic_text,
+          "type":'task1'
         }]
       }
 
