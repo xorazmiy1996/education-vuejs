@@ -16,7 +16,7 @@ export default defineComponent({
   <section>
     <div class="container mb-5">
         <div class="d-flex justify-content-center align-items-center flex-wrap">
-          <div class="card shadow  bg-body-tertiary rounded" style="max-width: 28rem;">
+          <div class="card shadow  bg-body-tertiary rounded" style="max-width: 24rem;">
             <div class="card-image d-flex justify-content-center">
               <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
                    alt="...">
@@ -35,7 +35,7 @@ export default defineComponent({
 
             </div>
           </div>
-          <div class="card shadow  bg-body-tertiary rounded" style="width: 28rem;">
+          <div class="card shadow  bg-body-tertiary rounded" style="width: 24rem;">
             <div class="card-image  d-flex justify-content-center">
               <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
                    alt="...">
@@ -48,7 +48,26 @@ export default defineComponent({
             </div>
             <div class="card-footer d-flex justify-content-center">
 
-              <router-link to="#" class="btn btn-primary">Begin <i class="fa fa-arrow-right-long"></i>
+              <router-link to="/task_2" class="btn btn-primary">Begin <i class="fa fa-arrow-right-long"></i>
+              </router-link>
+
+
+            </div>
+          </div>
+          <div class="card shadow  bg-body-tertiary rounded" style="width: 24rem;">
+            <div class="card-image  d-flex justify-content-center">
+              <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2" style="max-width: 200px"
+                   alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">Task-3</h5>
+             <p>Sizga 6 daqiqa beriladi.Task 2-da esa, 250 so'zdan ko'p yozuv tayyorlash kerak bo'ladi. Bu savol esa, ko'rsatilgan muammoga (masalaga) ta'riflash, uni hal qilish yo'llarini qidirish, muammoga o'z fikr-mulohazasini bildirish va boshqalar bilan fikr almashish talablari beriladi. </p>
+
+
+            </div>
+            <div class="card-footer d-flex justify-content-center">
+
+              <router-link to="/task_3" class="btn btn-primary">Begin <i class="fa fa-arrow-right-long"></i>
               </router-link>
 
 
@@ -59,6 +78,7 @@ export default defineComponent({
 
 
   </section>
+
 </template>
 
 <style scoped>

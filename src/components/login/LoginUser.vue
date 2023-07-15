@@ -20,14 +20,14 @@ export default defineComponent({
       return this.$store.state.auth.isLoading
     },
     validationError() {
-      const errors = this.$store.state.auth.errors
+      const errors = this.$store.state.auth.errorsLogin
       return errors
     },
     userData() {
       const user = this.$store.state.auth.user
       return user
     },
-    ...mapGetters('auth', ['user','isLoading']),
+    ...mapGetters('auth', ['user','isLoading','errorsLogin']),
 
   },
   methods: {

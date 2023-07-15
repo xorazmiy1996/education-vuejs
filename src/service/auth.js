@@ -2,7 +2,10 @@ import axios from "@/service/axios";
 
 const AuthService = {
     register(student) {
-        return axios.post('/accounts/register/', student)
+        return axios.post('/accounts/register/', student,{headers: {
+            "Content-Type":"multipart/form-data"
+            }
+        })
     },
     sendCodeEmail(mail) {
         return axios.post('/accounts/verify_email/', mail)

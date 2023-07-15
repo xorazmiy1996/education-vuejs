@@ -5,7 +5,9 @@ import AuthService from "@/service/auth";
 const state = {
     isLoading: false,
     user: null,
-    errors: null,
+    errors:null,
+    errorsLogin: null,
+    errorsRegister: null,
     isLoggedIn: null,
 };
 
@@ -22,6 +24,12 @@ const getters = {
     },
     user:state =>{
         return state.user
+    },
+    errorsRegister:state =>{
+        return state.errorsRegister
+    },
+    errorsLogin:state =>{
+        return state.errorsLogin
     }
 
 }
@@ -30,7 +38,7 @@ const mutations = {
     registerStart(state) {
         state.isLoading = true
         state.user = null
-        state.errors = null
+        state.errorsRegister = null
         state.isLoggedIn = null
 
     },
@@ -42,7 +50,7 @@ const mutations = {
     },
     registerFailure(state, payload) {
         state.isLoading = false
-        state.errors = payload
+        state.errorsRegister = payload
         state.isLoggedIn = false
     },
 
@@ -51,7 +59,7 @@ const mutations = {
     loginStart(state) {
         state.isLoading = true
         state.user = null
-        state.errors = null
+        state.errorsLogin = null
         state.isLoggedIn = null
     },
     loginSuccess(state) {
@@ -61,7 +69,7 @@ const mutations = {
     },
     loginFailure(state, payload) {
         state.isLoading = false
-        state.errors = payload
+        state.errorsLogin = payload
         state.isLoggedIn = false
     },
     // kk
@@ -107,6 +115,7 @@ const actions = {
     register(context, student) {
         return new Promise((resolve, reject) => {
             context.commit("registerStart")
+            console.log(student)
             AuthService.register(student)
                 .then(response => {
                     context.commit("registerSuccess", response.data)

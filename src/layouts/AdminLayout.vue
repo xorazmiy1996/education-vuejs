@@ -104,19 +104,19 @@ export default defineComponent({
             </li>
             <li class="nav-link">
               <router-link to="/admin_cabinet">
-                <i class="fa fa-home-alt icon"></i>
+                <i class="fa fa-briefcase icon"></i>
                 <span class="text nav-text">Cabinet</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_course">
-                <i class="fa fa-bell icon"></i>
+                <i class="fa fa-landmark-alt icon"></i>
                 <span class="text nav-text">Course</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_all_essays">
-                  <i class="fa fa-wallet icon"></i>
+                  <i class="fa fa-feather icon"></i>
                 <span class="text nav-text">All Essay</span>
               </router-link>
             </li>

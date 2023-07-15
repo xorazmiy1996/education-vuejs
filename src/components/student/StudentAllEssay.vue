@@ -64,16 +64,16 @@ export default defineComponent({
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Write-20</th>
-          <th scope="col">Write-40</th>
+          <th scope="col">Write</th>
+          <th scope="col">Write</th>
           <th scope="col">Data</th>
 
         </tr>
         </thead>
         <tbody>
-        <template  v-for="essay in allEssays">
+        <template v-for="(essay, index) in allEssays">
           <tr v-if="essay.essays.length === 2" :key="essay.id">
-            <td>{{ essay.id }}</td>
+            <td>{{ index + 1 }}</td>
             <td v-for="x in essay.essays">
               <ul>
                 <li style="color: red" v-if="x.score == null">
@@ -86,11 +86,11 @@ export default defineComponent({
             </td>
           </tr>
           <tr v-else>
-             <td>{{ essay.id }}</td>
+          <td>{{ index + 1 }}</td>
             <td v-for="x in essay.essays">
               <ul>
                 <li style="color: red" v-if="x.score == null">
-                  <button  @click="studentEssayDetail(x.id)" class="btn btn-outline-danger">tekshirilmagan</button>
+                  <button @click="studentEssayDetail(x.id)" class="btn btn-outline-danger">tekshirilmagan</button>
                 </li>
                 <li style="color: deepskyblue" v-else>
                   <button @click="studentEssayDetail(x.id)" class="btn btn-outline-primary">{{ x.score }} ball</button>
@@ -130,7 +130,7 @@ ul li {
 
 }
 
-ul li button{
+ul li button {
   list-style: none;
 
 }
@@ -139,8 +139,6 @@ ul li a {
   text-decoration: none;
   color: red;
 }
-
-
 
 
 </style>

@@ -64,7 +64,7 @@ export default defineComponent({
     <form @submit.prevent="submitHandler">
       <div class="mb-3">
         <label for="exampleFormControlScore" class="form-label">Score</label>
-        <input v-model="score" type="number" class="form-control" id="exampleFormControlScore" placeholder="0-9 ball">
+        <input v-model="score"  type="number" step="any" class="form-control" id="exampleFormControlScore" placeholder="0-9 ball">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
@@ -88,7 +88,7 @@ export default defineComponent({
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <h5 class="card-header" v-if="essaysDetail.type === '1'">20 minutdda yozilgan insho </h5>
+          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">20 minutdda yozilgan insho </h5>
           <h5 class="card-header" v-else>40 minutdda yozilgan insho</h5>
           <div class="card-body">
             <p class="card-text">
@@ -125,5 +125,8 @@ export default defineComponent({
 </template>
 
 <style scoped>
-
+h1{
+  font-weight: 900;
+  color: deepskyblue;
+}
 </style>

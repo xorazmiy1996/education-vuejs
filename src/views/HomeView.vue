@@ -25,7 +25,6 @@ export default defineComponent({
   <br>
   <br>
   <br>
-  <Section3/>
   <br>
   <br>
   <br>

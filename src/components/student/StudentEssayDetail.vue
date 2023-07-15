@@ -17,6 +17,7 @@ export default defineComponent({
 <template>
 
   <div class="container" v-if="essaysDetail">
+
     <div class="text-center mt-3">
       <h1>{{ essaysDetail.topic }}</h1>
 
@@ -24,7 +25,7 @@ export default defineComponent({
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <h5 class="card-header" v-if="essaysDetail.type === '1'">20 minutdda yozilgan insho </h5>
+          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">20 minutdda yozilgan insho </h5>
           <h5 class="card-header" v-else>40 minutdda yozilgan insho</h5>
           <div class="card-body">
             <p class="card-text">
