@@ -1,10 +1,10 @@
 <script>
 import {defineComponent} from 'vue'
-import {Form, Field, ErrorMessage} from "vee-validate";
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
+import {ErrorMessage, Field, Form} from "vee-validate";
 
 export default defineComponent({
-  name: "Task1",
+  name: "Task3",
   components: {
     SuccessAlertModal,
     Form,
@@ -15,12 +15,15 @@ export default defineComponent({
 
   data() {
     return {
-      topic_title: '',
-      topic_text: '',
+      topic_1: '',
+      text_1: '',
+
+      topic_2: '',
+      text_2: '',
       isSuccessModalOpen: false,
 
       endTime: 20,
-      isDisable:false,
+      isDisable: false,
 
     }
   },
@@ -35,7 +38,7 @@ export default defineComponent({
       let daqiqa = Math.floor(this.endTime / 60); // daqiqa hisobi
       let soniyalar = this.endTime % 60; // qoldiq soniya hisobi
 
-      console.log(daqiqa + " daqiqa " + soniyalar + " soniya");
+
 
       return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
@@ -50,11 +53,18 @@ export default defineComponent({
   methods: {
     submitHandler() {
       const essay = {
-        "essays": [{
-          "topic": this.topic_title,
-          "body": this.topic_text,
-          "type": 'task1'
-        }]
+        "essays": [
+          {
+            "topic": this.topic_1,
+            "body": this.text_1,
+            "type": 'task1'
+          },
+          {
+            "topic": this.topic_2,
+            "body": this.text_2,
+            "type": 'task2'
+          }
+        ]
       }
 
       this.$store.dispatch("essay/createEssay", essay)
@@ -69,8 +79,10 @@ export default defineComponent({
                 .then(response => {
 
                   this.openSuccessModal()
-                  this.topic_title = ''
-                  this.topic_text = ''
+                  this.topic_1 = ''
+                  this.text_1 = ''
+                  this.topic_2 = ''
+                  this.text_2 = ''
                 })
                 .catch(error => {
 
@@ -95,11 +107,7 @@ export default defineComponent({
 
       return true;
     },
-
-
   },
-
-
 })
 </script>
 
@@ -137,38 +145,41 @@ export default defineComponent({
   </div>
   <br>
   <section>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <div class="d-flex flex-row-reverse">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+            <div class="d-flex flex-row-reverse">
 
-          <div><h5>{{ countdownText }}</h5> </div>
+          <div><h5>{{ countdownText }}</h5></div>
         </div>
-        <form @submit.prevent="submitHandler">
-          <div class="mb-3">
-            <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>
-            <input :disabled="isDisable" v-model="topic_title" name="topic_title" :rules="isRequired" type="text" class="form-control"
-                   :required="true"
-                   id="exampleInputTopicTitle"/>
-            <!--            <ErrorMessage name="topic_title"/>-->
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-            <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text" class="form-control"
-                      :required="true"
-                      id="exampleInputTopicText"/>
+          <form @submit.prevent="submitHandler" class="row g-3">
+            <div class="col-md-6">
+              <label for="inputTopic1" class="form-label">Topic1</label>
+              <input :disabled="isDisable" v-model="topic_1" type="text" class="form-control" id="inputTopic1" :required="true">
+              <br>
+              <label for="inputTask1" class="form-label">inputTask1</label>
+              <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1" :required="true"></textarea>
+            </div>
+            <div class="col-md-6">
+              <label for="inputTopic2" class="form-label">Topic2</label>
+              <input :disabled="isDisable" v-model="topic_2" type="text" class="form-control" id="inputTopic2" :required="true">
+              <br>
+              <label for="inputTask2" class="form-label">inputTask1</label>
+              <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2" :required="true"></textarea>
+            </div>
 
-          </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
 
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+
       </div>
-      <div class="col-3"></div>
     </div>
 
 
   </section>
-
 </template>
 
 <style scoped>
@@ -187,6 +198,10 @@ h5{
 
 span {
   color: red;
+}
+
+textarea {
+  height: 300px;
 }
 
 .carta {

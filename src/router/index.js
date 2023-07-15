@@ -41,8 +41,8 @@ import StudentAllEssay from "@/components/student/StudentAllEssay.vue";
 import AdminAllEssays from "@/components/admin/AdminAllEssays.vue";
 import StudentEssayDetail from "@/components/student/StudentEssayDetail.vue";
 import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
-
-
+import Task2 from "@/views/writing/Task2.vue";
+import Task3 from "@/views/writing/Task3.vue";
 
 
 const router = createRouter({
@@ -52,73 +52,73 @@ const router = createRouter({
             path: '/',
             name: 'home',
             component: HomeVue,
-            meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/test_individual_speaking',
             name: 'test_individual_speaking',
             component: TestIndividualSpeaking,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/test_group_speaking',
             name: 'test_group_speaking',
             component: TestGroupSpeaking,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/contact',
             name: 'contact',
             component: ContactVue,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/course',
             name: 'course',
             component: CourseView,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/login',
             name: 'login',
             component: LoginStudent,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/verify_code',
             name: 'verify_code',
             component: VerifyCode,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/individual_speaking',
             name: 'individual_speaking',
             component: IndividualSpeaking,
-             meta:{
-                 // requiresAdmin: true,
-                Layout:DefaultLayout
+            meta: {
+                // requiresAdmin: true,
+                Layout: DefaultLayout
             }
         },
         {
             path: '/group_speaking',
             name: 'group_speaking',
             component: GroupSpeaking,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
 
@@ -126,16 +126,16 @@ const router = createRouter({
             path: '/result_test_individual_speaking',
             name: 'result_test_individual_speaking',
             component: ResultTestIndividualSpeaking,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/result_test_group_speaking',
             name: 'result_test_group_speaking',
             component: ResultTestGroupSpeaking,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         // student
@@ -143,8 +143,8 @@ const router = createRouter({
             path: '/user_registration',
             name: 'user_registration',
             component: UserRegistration,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
 
@@ -152,33 +152,51 @@ const router = createRouter({
             path: '/individual_or_group_speaking',
             name: 'individual_or_group_speaking',
             component: IndividualOrGroupsSpeaking,
-            meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/writing_task1_task2',
             name: 'writing_task1_task2',
             component: WritingTask1OrTask2,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         {
             path: '/task_1',
             name: 'task_1',
             component: Task1,
-             meta:{
-                 requiresAdmin: true,
-                Layout:DefaultLayout
+            meta: {
+                requiresAdmin: true,
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/task_2',
+            name: 'task_2',
+            component: Task2,
+            meta: {
+                requiresAdmin: true,
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/task_3',
+            name: 'task_3',
+            component: Task3,
+            meta: {
+                requiresAdmin: true,
+                Layout: DefaultLayout
             }
         },
         {
             path: '/payme_task1_task2',
             name: 'payme_task1_task2',
             component: PaymeTask1Task2,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         // 401 unauthorized
@@ -186,8 +204,8 @@ const router = createRouter({
             path: '/unauthorized',
             name: 'unauthorized',
             component: Unauthorized,
-             meta:{
-                Layout:DefaultLayout
+            meta: {
+                Layout: DefaultLayout
             }
         },
         // admin
@@ -197,17 +215,17 @@ const router = createRouter({
             component: AdminPanel,
             meta: {
                 requiresAdmin: true,
-                Layout:AdminLayout
+                Layout: AdminLayout
 
             }
         },
-         {
+        {
             path: '/admin_all_essays',
             name: 'admin_all_essays',
             component: AdminAllEssays,
             meta: {
                 requiresAdmin: true,
-                Layout:AdminLayout
+                Layout: AdminLayout
 
             }
         },
@@ -226,7 +244,7 @@ const router = createRouter({
             component: AdminCabinet,
             meta: {
                 requiresAdmin: true,
-                Layout:AdminLayout
+                Layout: AdminLayout
             }
 
         },
@@ -236,7 +254,7 @@ const router = createRouter({
             component: AdminCourse,
             meta: {
                 requiresAdmin: true,
-                Layout:AdminLayout
+                Layout: AdminLayout
             }
 
         },
@@ -248,7 +266,7 @@ const router = createRouter({
             component: StudentPanel,
             meta: {
                 requiresAdmin: true,
-                Layout:StudentLayout
+                Layout: StudentLayout
             }
         },
         {
@@ -257,38 +275,37 @@ const router = createRouter({
             component: MyCourseStudent,
             meta: {
                 requiresAdmin: true,
-                Layout:StudentLayout
+                Layout: StudentLayout
             }
         },
-         {
+        {
             path: '/student_essay_detail/:id',
             name: 'student_essay_detail',
             component: StudentEssayDetail,
             meta: {
                 requiresAdmin: true,
-                Layout:StudentLayout
+                Layout: StudentLayout
             }
         },
-
 
 
         {
             path: '/educations/cabinet/:id',
             name: 'cabinet',
             component: DetailCabinet,
-            meta:{
+            meta: {
                 requiresAdmin: true,
-                Layout:DefaultLayout
+                Layout: DefaultLayout
             }
 
         },
-          {
+        {
             path: '/student_all_essay',
             name: 'student_all_essay',
             component: StudentAllEssay,
             meta: {
                 requiresAdmin: true,
-                Layout:StudentLayout
+                Layout: StudentLayout
             }
 
         },

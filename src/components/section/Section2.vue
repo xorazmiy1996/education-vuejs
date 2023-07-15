@@ -91,7 +91,7 @@ h1{
 }
 .popup-video i{
   position: absolute;
-  top: 5px;
+  top: 80px;
   right: 20px;
   font-size: 50px;
   color: #fff;

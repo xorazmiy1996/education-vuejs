@@ -21,8 +21,14 @@ export default defineComponent({
 </script>
 
 <template>
+  <div class="row">
+    <div class="col-12 text-center mt-3">
+       <h1>All Write</h1>
+    </div>
+  </div>
 
-  <h1>All Essays</h1>
+
+
   <div class="container">
     <div class="tabel-cabinet">
       <Loader v-if="isLoading" class="offset-md-6"/>
@@ -32,15 +38,15 @@ export default defineComponent({
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">mail</th>
-          <th scope="col">Task1</th>
-          <th scope="col">Task2</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Task</th>
+          <th scope="col">Task</th>
+          <th scope="col">Date</th>
 
         </tr>
         </thead>
         <tbody>
-        <tr v-for="essay in allEssays" :key="essay.id">
-          <td>{{ essay.student.id }}</td>
+        <tr v-for="(essay, index) in allEssays" :key="essay.id">
+          <td>{{ index + 1 }}</td>
           <td>{{ essay.student.first_name }}</td>
           <td>{{ essay.student.email }}</td>
           <template v-if="essay.essays.length === 1">
@@ -81,5 +87,9 @@ export default defineComponent({
   margin-right: 10px;
   cursor: pointer;
   font-size: 20px;
+}
+h1{
+  font-weight: 900;
+  color: deepskyblue;
 }
 </style>

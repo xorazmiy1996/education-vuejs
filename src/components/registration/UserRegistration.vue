@@ -1,14 +1,15 @@
-
 <script>
 import {defineComponent} from 'vue'
 
 import ValidationError from "@/components/login/ValidationError.vue";
 import {Form, Field, ErrorMessage} from "vee-validate";
+import Loader from "@/ui-componets/Loader.vue";
+import {mapGetters} from "vuex";
 
 
 export default defineComponent({
-    name: "StudentRegistration",
-  components: {ValidationError, Form, Field, ErrorMessage},
+  name: "StudentRegistration",
+  components: {Loader, ValidationError, Form, Field, ErrorMessage},
   data() {
     return {
       email: "",
@@ -27,6 +28,8 @@ export default defineComponent({
       experience: 0,
       ielst: 1,
       about_me: "",
+      userImage: null,
+      userIelts: null,
 
 
       type: "student",
@@ -35,40 +38,51 @@ export default defineComponent({
 
   },
   methods: {
-        submitHandler() {
+    submitHandler() {
+      const data = {
+      "email": this.email,
+      "password": this.password,
+      "password2": this.password2,
+      "first_name": this.first_name,
+      "last_name": this.last_name,
+      "sex": this.sex,
+      "birth_date": this.birth_date,
+      "place_of_education": this.place_of_education,
+      "start_date_education": this.start_date_education,
+      "end_date_education": this.end_date_education,
+      "experience": this.experience,
+      "ielts": this.ielts,
+      "about_me": this.about_me,
+      "phone_number": this.phone_number,
 
-          const data = {
-            "email": this.email,
-            "password": this.password,
-            "password2": this.password2,
-            "first_name": this.first_name,
-            "last_name": this.last_name,
-            "sex": this.sex,
-            "birth_date": this.birth_date,
-            "place_of_education": this.place_of_education,
-            "start_date_education": this.start_date_education,
-            "end_date_education": this.end_date_education,
-            "experience": this.experience,
-            "ielst": this.ielst,
-            "about_me": this.about_me,
-            "phone_number": this.phone_number,
-
-
-            "type": this.type
-          }
-          console.log(data)
-          this.$store
-              .dispatch("auth/register", data)
-              .then(student => {
-                console.log("Student", student)
-                localStorage.setItem("email", this.email)
-                this.sendCodeEmailAuto()
-                this.$router.push({name: "verify_code"})
-              })
-              .catch(err => console.log("Error", err))
+      'photo': this.userImage,
+      'ielts_file': this.userIelts,
 
 
-        },
+      "type": this.type
+      }
+      console.log(data)
+
+      this.$store
+          .dispatch("auth/register", data)
+          .then(student => {
+            localStorage.setItem("email", this.email)
+            this.sendCodeEmailAuto()
+            this.$router.push({name: "verify_code"})
+          })
+          .catch(err => console.log("Error", err))
+
+
+    },
+    uploadUserImage() {
+      const file1 = this.$refs.fileUserImage.files[0]
+      this.userImage = file1
+    },
+    uploadUserIelts() {
+      const file2 = this.$refs.fileIelts.files[0]
+      this.userIelts = file2
+
+    },
 
 
     sendCodeEmailAuto() {
@@ -77,7 +91,6 @@ export default defineComponent({
       }
       this.$store.dispatch("auth/sendCodeEmail", data)
           .then(email => {
-            console.log("Email", email)
           })
           .catch(err => console.log("EmailError", err))
 
@@ -100,7 +113,8 @@ export default defineComponent({
     validationError() {
       const errors = this.$store.state.auth.errors
       return errors
-    }
+    },
+    ...mapGetters('auth', ['errorsRegister'])
   },
 })
 </script>
@@ -138,6 +152,7 @@ export default defineComponent({
 
                   <ErrorMessage name="first_name"/>
 
+
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputLastName" class="form-label">Familya:</label>
@@ -146,6 +161,15 @@ export default defineComponent({
                          aria-describedby="lastNameHelp"/>
                   <ErrorMessage name="last_name"/>
 
+                </div>
+                <div class="mb-3">
+                  <label for="formUserImage" class="form-label">Shaxsiy rasm yuklash</label>
+                  <input class="form-control" type="file" id="formUserImage" ref="fileUserImage"
+                         @change="uploadUserImage()">
+                </div>
+                <div class="mb-3">
+                  <label for="formIelts" class="form-label">IElSt sertifikatini yuklash</label>
+                  <input class="form-control" type="file" id="formIelts" ref="fileIelts" @change="uploadUserIelts()">
                 </div>
                 <div class="mb-3 d-flex justify-content-space-between">
                   <div class="m-2">
@@ -165,7 +189,7 @@ export default defineComponent({
                          id="exampleInputBirthday"
                          aria-describedby="birthdayHelp"/>
                   <ErrorMessage name="birth_date"/>
-                  <ValidationError v-if="validationError" :validationError="validationError.birth_date"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.birth_date"/>
 
                 </div>
                 <div class="mb-3">
@@ -185,7 +209,7 @@ export default defineComponent({
                   <ErrorMessage name="email"/>
 
 
-                  <ValidationError v-if="validationError" :validationError="validationError.email"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.email"/>
                 </div>
                 <div v-if="type==='teacher'">
                   <div class="mb-3">
@@ -225,8 +249,8 @@ export default defineComponent({
                   </div>
 
                   <div class="mb-3">
-                    <label for="ielst" class="form-label">IELST:</label>
-                    <select id="ielst" class="form-control" v-model="ielst">
+                    <label for="ielts" class="form-label">IELST:</label>
+                    <select id="ielts" class="form-control" v-model="ielts">
                       <option value="0">No</option>
                       <option value="5.0">5.0</option>
                       <option value="5.5">5.5</option>
@@ -239,6 +263,8 @@ export default defineComponent({
                       <option value="9.5">9.0</option>
                     </select>
                   </div>
+
+
                   <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">About me:</label>
                     <textarea v-model="about_me" name="about_me" class="form-control" id="exampleFormControlTextarea1"
@@ -253,8 +279,8 @@ export default defineComponent({
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
                   <ErrorMessage name="password"/>
-                  <ValidationError v-if="validationError" :validationError="validationError.password"/>
-                  <ValidationError v-if="validationError" :validationError="validationError.detail"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.password"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword2" class="form-label">Password</label>
@@ -263,13 +289,12 @@ export default defineComponent({
                   <ErrorMessage name="password2"/>
 
 
-                  <ValidationError v-if="validationError" :validationError="validationError.password2"/>
-                  <ValidationError v-if="validationError" :validationError="validationError.detail"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.password2"/>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
                 </div>
 
-
                 <div class="save-submit">
-                  <button class="btn btn-primary">Submit
+                  <button :disabled="isLoading" class="btn btn-primary">Submit
                   </button>
                 </div>
 
@@ -278,6 +303,7 @@ export default defineComponent({
 
             </div>
           </div>
+
         </div>
         <div class="col-sm-2"></div>
       </div>
@@ -287,6 +313,7 @@ export default defineComponent({
     <br>
     <br>
   </section>
+
 </template>
 
 <style scoped>

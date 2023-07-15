@@ -86,7 +86,7 @@ export default defineComponent({
             </div>
             <div class="card-footer d-flex justify-content-center">
 
-              <router-link to="#" class="btn btn-primary">Begin <i class="fa fa-arrow-right-long"></i>
+              <router-link to="/writing_task1_task2" class="btn btn-primary">Begin <i class="fa fa-arrow-right-long"></i>
               </router-link>
 
 

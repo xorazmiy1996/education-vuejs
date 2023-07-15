@@ -1,10 +1,10 @@
 <script>
 import {defineComponent} from 'vue'
-import {Form, Field, ErrorMessage} from "vee-validate";
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
+import {ErrorMessage, Field, Form} from "vee-validate";
 
 export default defineComponent({
-  name: "Task1",
+  name: "Task2",
   components: {
     SuccessAlertModal,
     Form,
@@ -20,7 +20,7 @@ export default defineComponent({
       isSuccessModalOpen: false,
 
       endTime: 20,
-      isDisable:false,
+      isDisable: false,
 
     }
   },
@@ -35,7 +35,6 @@ export default defineComponent({
       let daqiqa = Math.floor(this.endTime / 60); // daqiqa hisobi
       let soniyalar = this.endTime % 60; // qoldiq soniya hisobi
 
-      console.log(daqiqa + " daqiqa " + soniyalar + " soniya");
 
       return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
@@ -53,7 +52,7 @@ export default defineComponent({
         "essays": [{
           "topic": this.topic_title,
           "body": this.topic_text,
-          "type": 'task1'
+          "type": 'task2'
         }]
       }
 
@@ -95,11 +94,7 @@ export default defineComponent({
 
       return true;
     },
-
-
   },
-
-
 })
 </script>
 
@@ -142,21 +137,20 @@ export default defineComponent({
       <div class="col-6">
         <div class="d-flex flex-row-reverse">
 
-          <div><h5>{{ countdownText }}</h5> </div>
+          <div><h5>{{ countdownText }}</h5></div>
         </div>
         <form @submit.prevent="submitHandler">
           <div class="mb-3">
             <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>
-            <input :disabled="isDisable" v-model="topic_title" name="topic_title" :rules="isRequired" type="text" class="form-control"
-                   :required="true"
-                   id="exampleInputTopicTitle"/>
+            <input :disabled="isDisable" v-model="topic_title" name="topic_title" type="text" class="form-control"
+                   :required="true" id="exampleInputTopicTitle"/>
             <!--            <ErrorMessage name="topic_title"/>-->
           </div>
           <div class="mb-3">
             <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-            <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text" class="form-control"
-                      :required="true"
-                      id="exampleInputTopicText"/>
+            <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
+                      class="form-control"
+                      id="exampleInputTopicText" :required="true"/>
 
           </div>
 
@@ -168,7 +162,6 @@ export default defineComponent({
 
 
   </section>
-
 </template>
 
 <style scoped>
@@ -181,7 +174,8 @@ h1 {
 h3 {
   color: deepskyblue;
 }
-h5{
+
+h5 {
   color: deepskyblue;
 }
 
