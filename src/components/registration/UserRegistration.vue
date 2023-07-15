@@ -40,26 +40,26 @@ export default defineComponent({
   methods: {
     submitHandler() {
       const data = {
-      "email": this.email,
-      "password": this.password,
-      "password2": this.password2,
-      "first_name": this.first_name,
-      "last_name": this.last_name,
-      "sex": this.sex,
-      "birth_date": this.birth_date,
-      "place_of_education": this.place_of_education,
-      "start_date_education": this.start_date_education,
-      "end_date_education": this.end_date_education,
-      "experience": this.experience,
-      "ielts": this.ielts,
-      "about_me": this.about_me,
-      "phone_number": this.phone_number,
+        "email": this.email,
+        "password": this.password,
+        "password2": this.password2,
+        "first_name": this.first_name,
+        "last_name": this.last_name,
+        "sex": this.sex,
+        "birth_date": this.birth_date,
+        "place_of_education": this.place_of_education,
+        "start_date_education": this.start_date_education,
+        "end_date_education": this.end_date_education,
+        "experience": this.experience,
+        "ielts": this.ielts,
+        "about_me": this.about_me,
+        "phone_number": this.phone_number,
 
-      'photo': this.userImage,
-      'ielts_file': this.userIelts,
+        'photo': this.userImage,
+        'ielts_file': this.userIelts,
 
 
-      "type": this.type
+        "type": this.type
       }
       console.log(data)
 
@@ -167,10 +167,6 @@ export default defineComponent({
                   <input class="form-control" type="file" id="formUserImage" ref="fileUserImage"
                          @change="uploadUserImage()">
                 </div>
-                <div class="mb-3">
-                  <label for="formIelts" class="form-label">IElSt sertifikatini yuklash</label>
-                  <input class="form-control" type="file" id="formIelts" ref="fileIelts" @change="uploadUserIelts()">
-                </div>
                 <div class="mb-3 d-flex justify-content-space-between">
                   <div class="m-2">
                     <input type="radio" id="one" value="female" v-model="sex"/>
@@ -263,6 +259,11 @@ export default defineComponent({
                       <option value="9.5">9.0</option>
                     </select>
                   </div>
+                  <div class="mb-3">
+                    <label for="formIelts" class="form-label">IElSt sertifikatini yuklash</label>
+                    <input class="form-control" type="file" id="formIelts" ref="fileIelts" @change="uploadUserIelts()">
+                  </div>
+                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
 
 
                   <div class="mb-3">
@@ -280,7 +281,7 @@ export default defineComponent({
                          id="exampleInputPassword1"/>
                   <ErrorMessage name="password"/>
                   <ValidationError v-if="errorsRegister" :validationError="errorsRegister.password"/>
-                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
+
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword2" class="form-label">Password</label>
@@ -290,7 +291,7 @@ export default defineComponent({
 
 
                   <ValidationError v-if="errorsRegister" :validationError="errorsRegister.password2"/>
-                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
+<!--                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>-->
                 </div>
 
                 <div class="save-submit">
