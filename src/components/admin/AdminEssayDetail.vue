@@ -7,8 +7,17 @@ export default defineComponent({
   name: "AdminEssayDetail",
   data() {
     return {
-      score: null,
+
       feedback: null,
+
+      score: [],
+      taskResponseScore: null,
+      coherenceScore: null,
+      vocabularyScore: null,
+      grammarScore: null,
+
+
+      // is
 
       isUpdateModalOpen: false,
       update_id: ''
@@ -35,10 +44,27 @@ export default defineComponent({
     submitHandler() {
       const data = {
         data: {
-          "score": this.score,
+          "score": [
+            {
+              "name": "Task response",
+              "score": this.taskResponseScore ? this.taskResponseScore:0
+            },
+            {
+              "name": "Coherence & Cohesion",
+              "score": this.coherenceScore ? this.coherenceScore : 0
+            },
+            {
+              "name": "Vocabulary",
+              "score": this.vocabularyScore ? this.vocabularyScore : 0
+            },
+            {
+              "name": "Grammar",
+              "score": this.grammarScore ? this.grammarScore : 0
+            }
+          ],
           "feedback": this.feedback
         },
-        id:this.update_id
+        id: this.update_id
 
       }
       console.log(data)
@@ -62,9 +88,138 @@ export default defineComponent({
 <template>
   <delete-modal :is-open="isUpdateModalOpen" title="Add Feedback" @close="closeUpdateModal">
     <form @submit.prevent="submitHandler">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="specificSizeSelect">Task Response </label>
+          <select v-model="taskResponseScore" class="form-select" id="specificSizeSelect">
+            <option selected value="0">None</option>
+            <option value="1">1%</option>
+            <option value="2">2%</option>
+            <option value="3">3%</option>
+            <option value="4">4%</option>
+            <option value="5">5%</option>
+            <option value="6">6%</option>
+            <option value="7">7%</option>
+            <option value="8">8%</option>
+            <option value="9">9%</option>
+            <option value="10">10%</option>
+            <option value="11">11%</option>
+            <option value="12">12%</option>
+            <option value="13">13%</option>
+            <option value="14">14%</option>
+            <option value="15">15%</option>
+            <option value="16">16%</option>
+            <option value="17">17%</option>
+            <option value="18">18%</option>
+            <option value="19">19%</option>
+            <option value="20">20%</option>
+            <option value="21">21%</option>
+            <option value="22">22%</option>
+            <option value="23">23%</option>
+            <option value="24">24%</option>
+            <option value="25">25%</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="specificSizeSelect">Coherence Cohesion</label>
+          <select v-model="coherenceScore" class="form-select" id="specificSizeSelect">
+            <option selected value="0">None</option>
+            <option value="1">1%</option>
+            <option value="2">2%</option>
+            <option value="3">3%</option>
+            <option value="4">4%</option>
+            <option value="5">5%</option>
+            <option value="6">6%</option>
+            <option value="7">7%</option>
+            <option value="8">8%</option>
+            <option value="9">9%</option>
+            <option value="10">10%</option>
+            <option value="11">11%</option>
+            <option value="12">12%</option>
+            <option value="13">13%</option>
+            <option value="14">14%</option>
+            <option value="15">15%</option>
+            <option value="16">16%</option>
+            <option value="17">17%</option>
+            <option value="18">18%</option>
+            <option value="19">19%</option>
+            <option value="20">20%</option>
+            <option value="21">21%</option>
+            <option value="22">22%</option>
+            <option value="23">23%</option>
+            <option value="24">24%</option>
+            <option value="25">25%</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+          <label for="specificSizeSelect">Vocabulary</label>
+          <select v-model="vocabularyScore" class="form-select" id="specificSizeSelect">
+            <option selected value="0">None</option>
+            <option value="1">1%</option>
+            <option value="2">2%</option>
+            <option value="3">3%</option>
+            <option value="4">4%</option>
+            <option value="5">5%</option>
+            <option value="6">6%</option>
+            <option value="7">7%</option>
+            <option value="8">8%</option>
+            <option value="9">9%</option>
+            <option value="10">10%</option>
+            <option value="11">11%</option>
+            <option value="12">12%</option>
+            <option value="13">13%</option>
+            <option value="14">14%</option>
+            <option value="15">15%</option>
+            <option value="16">16%</option>
+            <option value="17">17%</option>
+            <option value="18">18%</option>
+            <option value="19">19%</option>
+            <option value="20">20%</option>
+            <option value="21">21%</option>
+            <option value="22">22%</option>
+            <option value="23">23%</option>
+            <option value="24">24%</option>
+            <option value="25">25%</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="specificSizeSelect">Grammar</label>
+          <select v-model="grammarScore" class="form-select" id="specificSizeSelect">
+            <option selected value="0">None</option>
+            <option value="1">1%</option>
+            <option value="2">2%</option>
+            <option value="3">3%</option>
+            <option value="4">4%</option>
+            <option value="5">5%</option>
+            <option value="6">6%</option>
+            <option value="7">7%</option>
+            <option value="8">8%</option>
+            <option value="9">9%</option>
+            <option value="10">10%</option>
+            <option value="11">11%</option>
+            <option value="12">12%</option>
+            <option value="13">13%</option>
+            <option value="14">14%</option>
+            <option value="15">15%</option>
+            <option value="16">16%</option>
+            <option value="17">17%</option>
+            <option value="18">18%</option>
+            <option value="19">19%</option>
+            <option value="20">20%</option>
+            <option value="21">21%</option>
+            <option value="22">22%</option>
+            <option value="23">23%</option>
+            <option value="24">24%</option>
+            <option value="25">25%</option>
+          </select>
+        </div>
+      </div>
       <div class="mb-3">
-        <label for="exampleFormControlScore" class="form-label">Score</label>
-        <input v-model="score"  type="number" step="any" class="form-control" id="exampleFormControlScore" placeholder="0-9 ball">
+        <div class="text-center mt-3">
+          <h1>Score:{{ (parseInt(this.taskResponseScore) +  parseInt(this.coherenceScore) + parseInt(this.vocabularyScore) + parseInt(this.grammarScore))*9/100}} </h1>
+        </div>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
@@ -109,6 +264,9 @@ export default defineComponent({
         <div class="col-12">
           <div class="card">
             <div class="card-body">
+              <div v-for="score in essaysDetail.score">
+                <p>{{score.name}}:  <b>{{score.score}}</b></p>
+              </div>
               <p class="card-text">
                 {{ essaysDetail.feedback }}
               </p>
@@ -125,8 +283,13 @@ export default defineComponent({
 </template>
 
 <style scoped>
-h1{
+h1 {
   font-weight: 900;
   color: deepskyblue;
 }
+
+label {
+  padding-right: 0;
+}
+
 </style>
