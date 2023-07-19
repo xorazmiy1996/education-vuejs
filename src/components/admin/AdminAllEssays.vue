@@ -51,11 +51,12 @@ export default defineComponent({
           <td>{{ essay.student.email }}</td>
           <template v-if="essay.essays.length === 1">
             <template v-for="essay in essay.essays">
-              <td v-if="essay.score === null">
+              <td v-if="essay.feedback === null">
                 <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
               </td>
               <td v-else>
-                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">{{ essay.score }} ball
+                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">
+                      {{ (parseInt(essay.score['0'].score) +  parseInt(essay.score['1'].score) + parseInt(essay.score['2'].score) + parseInt(essay.score['1'].score))*9/100}}    ball
                 </button>
               </td>
               <td></td>
@@ -63,11 +64,12 @@ export default defineComponent({
           </template>
           <template v-else>
             <template v-for="essay in essay.essays">
-              <td v-if="essay.score === null">
+              <td v-if="essay.feedback === null">
                 <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
               </td>
               <td v-else>
-                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">{{ essay.score }} ball
+                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">
+                 {{ (parseInt(essay.score['0'].score) +  parseInt(essay.score['1'].score) + parseInt(essay.score['2'].score) + parseInt(essay.score['1'].score))*9/100}}     ball
                 </button>
               </td>
 
@@ -79,6 +81,7 @@ export default defineComponent({
       </table>
     </div>
   </div>
+
 
 </template>
 
