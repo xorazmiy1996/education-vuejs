@@ -6,6 +6,7 @@ import course from "@/modules/course";
 import teacher from "@/modules/teacher";
 import essay from "@/modules/essay";
 import news from "@/modules/news";
+import topic from "@/modules/topic";
 
 
 
@@ -16,7 +17,7 @@ const store = createStore({
     actions: {},
 
 
-    modules: {result_test, auth, cabinet, course, teacher, essay, news},
+    modules: {result_test, auth, cabinet, course, teacher, essay, news, topic},
 
 })
 export default store

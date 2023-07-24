@@ -2,6 +2,7 @@
 import {defineComponent} from 'vue'
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
 import {ErrorMessage, Field, Form} from "vee-validate";
+import {mapGetters} from "vuex";
 
 export default defineComponent({
   name: "Task3",
@@ -28,6 +29,8 @@ export default defineComponent({
     }
   },
   computed: {
+     ...mapGetters("topic", ['topic_task1']),
+     ...mapGetters("topic", ['topic_task2']),
     countdownText() {
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
@@ -39,7 +42,6 @@ export default defineComponent({
       let soniyalar = this.endTime % 60; // qoldiq soniya hisobi
 
 
-
       return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
   },
@@ -47,6 +49,7 @@ export default defineComponent({
     this.countdownInterval = setInterval(() => {
       this.endTime = this.endTime - 1
     }, 1000);
+    this.$store.dispatch("topic/getAllTopic")
   },
 
 
@@ -55,18 +58,17 @@ export default defineComponent({
       const essay = {
         "essays": [
           {
-            "topic": this.topic_1,
+            "topic": this.topic_task1.id,
             "body": this.text_1,
             "type": 'task1'
           },
           {
-            "topic": this.topic_2,
+            "topic": this.topic_task2.id,
             "body": this.text_2,
             "type": 'task2'
           }
         ]
       }
-
       this.$store.dispatch("essay/createEssay", essay)
           .then(response => {
 
@@ -74,6 +76,7 @@ export default defineComponent({
               id: response.data.id,
               data: essay
             }
+
 
             this.$store.dispatch('essay/updateEssay', data)
                 .then(response => {
@@ -139,33 +142,56 @@ export default defineComponent({
 
 
   </success-alert-modal>
-  <br>
-  <div class="container text-center">
-    <h1>Writing uchun mavzu nomini kiriting!</h1>
-  </div>
-  <br>
+
   <section>
     <div class="container">
+      <div class="d-flex flex-row-reverse">
+        <div class="mt-3"><h5>Task2 {{ countdownText }}</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          <br>
+          <div class="card mt-2">
+            <div class="card-body">
+               <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
+              <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-6">
+          <br>
+          <div class="card mt-2">
+            <div class="card-body">
+               <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
+              <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
       <div class="row">
         <div class="col-12">
-            <div class="d-flex flex-row-reverse">
-
-          <div><h5>{{ countdownText }}</h5></div>
-        </div>
           <form @submit.prevent="submitHandler" class="row g-3">
             <div class="col-md-6">
-              <label for="inputTopic1" class="form-label">Topic1</label>
-              <input :disabled="isDisable" v-model="topic_1" type="text" class="form-control" id="inputTopic1" :required="true">
+<!--              <label for="inputTopic1" class="form-label">Topic1</label>-->
+<!--              <input :disabled="isDisable" v-model="topic_1" type="text" class="form-control" id="inputTopic1"-->
+<!--                     :required="true">-->
               <br>
               <label for="inputTask1" class="form-label">inputTask1</label>
-              <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1" :required="true"></textarea>
+              <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1"
+                        :required="true"></textarea>
             </div>
             <div class="col-md-6">
-              <label for="inputTopic2" class="form-label">Topic2</label>
-              <input :disabled="isDisable" v-model="topic_2" type="text" class="form-control" id="inputTopic2" :required="true">
+<!--              <label for="inputTopic2" class="form-label">Topic2</label>-->
+<!--              <input :disabled="isDisable" v-model="topic_2" type="text" class="form-control" id="inputTopic2"-->
+<!--                     :required="true">-->
               <br>
               <label for="inputTask2" class="form-label">inputTask1</label>
-              <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2" :required="true"></textarea>
+              <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2"
+                        :required="true"></textarea>
             </div>
 
             <div class="col-12">
@@ -173,10 +199,10 @@ export default defineComponent({
             </div>
           </form>
         </div>
-
-
       </div>
     </div>
+    <br>
+    <br>
 
 
   </section>
@@ -192,7 +218,8 @@ h1 {
 h3 {
   color: deepskyblue;
 }
-h5{
+
+h5 {
   color: deepskyblue;
 }
 

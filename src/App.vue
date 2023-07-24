@@ -18,6 +18,9 @@ export default {
     this.$store.dispatch("auth/getUser")
   },
 
+  created() {
+  },
+
   computed: {
     ...mapGetters('auth', ['user']),
 

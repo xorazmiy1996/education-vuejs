@@ -2,6 +2,7 @@
 import {defineComponent} from 'vue'
 import {Form, Field, ErrorMessage} from "vee-validate";
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
+import {mapGetters} from "vuex";
 
 export default defineComponent({
   name: "Task1",
@@ -18,13 +19,16 @@ export default defineComponent({
       topic_title: '',
       topic_text: '',
       isSuccessModalOpen: false,
-
       endTime: 20,
-      isDisable:false,
+      isDisable: false,
+      isRandomTopic: null,
+
+      wordCount: 0
 
     }
   },
   computed: {
+    ...mapGetters("topic", ['topic_task1']),
     countdownText() {
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
@@ -35,15 +39,17 @@ export default defineComponent({
       let daqiqa = Math.floor(this.endTime / 60); // daqiqa hisobi
       let soniyalar = this.endTime % 60; // qoldiq soniya hisobi
 
-      console.log(daqiqa + " daqiqa " + soniyalar + " soniya");
 
       return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
+
   },
   mounted() {
     this.countdownInterval = setInterval(() => {
       this.endTime = this.endTime - 1
     }, 1000);
+    this.$store.dispatch("topic/getAllTopic")
+    // this.topic_title = this.topics[Math.floor(Math.random() * this.topics.length)].title;
   },
 
 
@@ -51,7 +57,7 @@ export default defineComponent({
     submitHandler() {
       const essay = {
         "essays": [{
-          "topic": this.topic_title,
+          "topic": this.topics.id,
           "body": this.topic_text,
           "type": 'task1'
         }]
@@ -95,6 +101,14 @@ export default defineComponent({
 
       return true;
     },
+    countWords() {
+      // this.wordCount = this.topic_text.split(' ').filter(word => word !=="").length
+      const x = this.topic_text.split(' ')
+      let set_words = new Set(x)
+      this.wordCount = set_words.size - 1
+
+
+    }
 
 
   },
@@ -104,6 +118,8 @@ export default defineComponent({
 </script>
 
 <template>
+
+
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
     <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
     <p>To'lovni quydagi hisobga yuboring:</p>
@@ -131,43 +147,56 @@ export default defineComponent({
 
 
   </success-alert-modal>
-  <br>
-  <div class="container text-center">
-    <h1>Writing uchun mavzu nomini kiriting!</h1>
-  </div>
-  <br>
-  <section>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <div class="d-flex flex-row-reverse">
-
-          <div><h5>{{ countdownText }}</h5> </div>
-        </div>
-        <form @submit.prevent="submitHandler">
-          <div class="mb-3">
-            <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>
-            <input :disabled="isDisable" v-model="topic_title" name="topic_title" :rules="isRequired" type="text" class="form-control"
-                   :required="true"
-                   id="exampleInputTopicTitle"/>
-            <!--            <ErrorMessage name="topic_title"/>-->
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-            <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text" class="form-control"
-                      :required="true"
-                      id="exampleInputTopicText"/>
-
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+  <div class="container">
+    <section>
+      <div class="d-flex flex-row-reverse">
+        <div class="mt-3"><h5>Task1 {{ countdownText }}</h5></div>
       </div>
-      <div class="col-3"></div>
-    </div>
+      <div class="row">
+        <div class="col-6">
+          <br>
+          <div class="card mt-2 shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+              <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
+              <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
+            </div>
+          </div>
 
 
-  </section>
+        </div>
+        <div class="col-6">
+          <form @submit.prevent="submitHandler">
+            <div class="mb-3">
+              <!--              <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>-->
+              <!--                            <input :disabled="isDisable" v-model="topic_title" name="topic_title" :rules="isRequired" type="text"-->
+              <!--                                   class="form-control"-->
+              <!--                                   :required="true"-->
+              <!--                                   id="exampleInputTopicTitle"/>-->
+              <!--                          <ErrorMessage name="topic_title"/>-->
+              <!--              <div class="alert alert-dark" role="alert">-->
+              <!--              </div>-->
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTopicText" class="form-label">Topic text:</label>
+              <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
+                        class="form-control"
+                        :required="true"
+                        @input="countWords"
+                        id="exampleInputTopicText"/>
+              <p>Number of words: {{ wordCount }}</p>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+      </div>
+
+
+    </section>
+  </div>
+
 
 </template>
 
@@ -181,7 +210,8 @@ h1 {
 h3 {
   color: deepskyblue;
 }
-h5{
+
+h5 {
   color: deepskyblue;
 }
 

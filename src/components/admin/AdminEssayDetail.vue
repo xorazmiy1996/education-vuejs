@@ -2,9 +2,11 @@
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
 import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
+import DetailModal from "@/ui-componets/alert-modal/DetailModal.vue";
 
 export default defineComponent({
   name: "AdminEssayDetail",
+  components: {DetailModal},
   data() {
     return {
 
@@ -20,6 +22,7 @@ export default defineComponent({
       // is
 
       isUpdateModalOpen: false,
+      isDetailModalOpen:false,
       update_id: ''
     }
 
@@ -29,7 +32,8 @@ export default defineComponent({
     this.$store.dispatch('essay/getEssayDetail', this.$route.params.id)
   },
   computed: {
-    ...mapGetters('essay', ['essaysDetail'])
+    ...mapGetters('essay', ['essaysDetail']),
+    ...mapGetters('topic', ['topic_detail'])
   },
   methods: {
     // update modal
@@ -41,13 +45,23 @@ export default defineComponent({
       this.isUpdateModalOpen = false
       this.update_id = null
     },
+     // detail modal
+    openDetailModal(id) {
+      // this.update_id = id
+      this.isDetailModalOpen = true
+      this.getTopicDetail(id)
+    },
+    closeDetailModal() {
+      this.isDetailModalOpen = false
+      // this.update_id = null
+    },
     submitHandler() {
       const data = {
         data: {
           "score": [
             {
               "name": "Task response",
-              "score": this.taskResponseScore ? this.taskResponseScore:0
+              "score": this.taskResponseScore ? this.taskResponseScore : 0
             },
             {
               "name": "Coherence & Cohesion",
@@ -79,7 +93,10 @@ export default defineComponent({
             console.log(error)
           })
 
-    }
+    },
+    getTopicDetail(id) {
+      this.$store.dispatch("topic/getTopicDetail", id)
+    },
 
   }
 })
@@ -153,7 +170,7 @@ export default defineComponent({
         </div>
       </div>
       <div class="row">
-         <div class="col-md-6">
+        <div class="col-md-6">
           <label for="specificSizeSelect">Vocabulary</label>
           <select v-model="vocabularyScore" class="form-select" id="specificSizeSelect">
             <option selected value="0">None</option>
@@ -218,7 +235,8 @@ export default defineComponent({
       </div>
       <div class="mb-3">
         <div class="text-center mt-3">
-          <h1>Score:{{ (parseInt(this.taskResponseScore) +  parseInt(this.coherenceScore) + parseInt(this.vocabularyScore) + parseInt(this.grammarScore))*9/100}} </h1>
+          <h1>
+            Score:{{ (parseInt(this.taskResponseScore) + parseInt(this.coherenceScore) + parseInt(this.vocabularyScore) + parseInt(this.grammarScore)) * 9 / 100 }} </h1>
         </div>
       </div>
       <div class="mb-3">
@@ -229,11 +247,15 @@ export default defineComponent({
     </form>
 
   </delete-modal>
+  <detail-modal :is-open="isDetailModalOpen" title="Detail quetion" @close="closeDetailModal">
+    <p>{{topic_detail.title}}</p>
+    <img :src="topic_detail.image">
+  </detail-modal>
 
 
   <div class="container" v-if="essaysDetail">
     <div class="text-center mt-3">
-      <h1>{{ essaysDetail.topic }}</h1>
+      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol</button>
 
     </div>
     <div class="d-flex flex-row-reverse">
@@ -265,7 +287,7 @@ export default defineComponent({
           <div class="card">
             <div class="card-body">
               <div v-for="score in essaysDetail.score">
-                <p>{{score.name}}:  <b>{{score.score}}</b></p>
+                <p>{{ score.name }}: <b>{{ score.score }}%</b></p>
               </div>
               <p class="card-text">
                 {{ essaysDetail.feedback }}
