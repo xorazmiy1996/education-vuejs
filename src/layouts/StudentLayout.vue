@@ -394,7 +394,7 @@ section.dark .switch::before {
   position: relative;
   top: 70px;
   padding: 10px 14px;
-  height: 100%;
+  min-height: 100vh;
   left: 250px;
   width: calc(100% - 250px);
   background: var(--body-color);

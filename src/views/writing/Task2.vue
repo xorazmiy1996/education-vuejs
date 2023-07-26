@@ -2,6 +2,7 @@
 import {defineComponent} from 'vue'
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
 import {ErrorMessage, Field, Form} from "vee-validate";
+import {mapGetters} from "vuex";
 
 export default defineComponent({
   name: "Task2",
@@ -22,9 +23,13 @@ export default defineComponent({
       endTime: 20,
       isDisable: false,
 
+
+       wordCount: 0
+
     }
   },
   computed: {
+    ...mapGetters("topic", ['topic_task2']),
     countdownText() {
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
@@ -38,11 +43,13 @@ export default defineComponent({
 
       return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
+
   },
   mounted() {
     this.countdownInterval = setInterval(() => {
       this.endTime = this.endTime - 1
     }, 1000);
+    this.$store.dispatch("topic/getAllTopic")
   },
 
 
@@ -50,7 +57,7 @@ export default defineComponent({
     submitHandler() {
       const essay = {
         "essays": [{
-          "topic": this.topic_title,
+          "topic": this.topics.id,
           "body": this.topic_text,
           "type": 'task2'
         }]
@@ -86,6 +93,14 @@ export default defineComponent({
     },
     closeSuccessModal() {
       this.isSuccessModalOpen = false
+    },
+    countWords() {
+      // this.wordCount = this.topic_text.split(' ').filter(word => word !=="").length
+      const x = this.topic_text.split(' ')
+      let set_words = new Set(x)
+      this.wordCount = set_words.size - 1
+
+
     },
     isRequired(value) {
       if (!value) {
@@ -126,38 +141,46 @@ export default defineComponent({
 
 
   </success-alert-modal>
-  <br>
-  <div class="container text-center">
-    <h1>Writing uchun mavzu nomini kiriting!</h1>
-  </div>
-  <br>
+
   <section>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-        <div class="d-flex flex-row-reverse">
-
-          <div><h5>{{ countdownText }}</h5></div>
-        </div>
-        <form @submit.prevent="submitHandler">
-          <div class="mb-3">
-            <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>
-            <input :disabled="isDisable" v-model="topic_title" name="topic_title" type="text" class="form-control"
-                   :required="true" id="exampleInputTopicTitle"/>
-            <!--            <ErrorMessage name="topic_title"/>-->
-          </div>
-          <div class="mb-3">
-            <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-            <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
-                      class="form-control"
-                      id="exampleInputTopicText" :required="true"/>
-
-          </div>
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <div class="container">
+      <div class="d-flex flex-row-reverse">
+        <div class="mt-3"><h5>Task2 {{ countdownText }}</h5></div>
       </div>
-      <div class="col-3"></div>
+      <div class="row">
+        <div class="col-6">
+          <br>
+          <div class="card mt-2 shadow p-3 mb-5 bg-white rounded">
+            <div class="card-body">
+              <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
+              <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <form @submit.prevent="submitHandler">
+            <div class="mb-3">
+              <!--              <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>-->
+              <!--              <input :disabled="isDisable" v-model="topic_title" name="topic_title" type="text" class="form-control"-->
+              <!--                     :required="true" id="exampleInputTopicTitle"/>-->
+              <!--            <ErrorMessage name="topic_title"/>-->
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputTopicText" class="form-label">Topic text:</label>
+              <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
+                        class="form-control"
+                        @input="countWords"
+                        id="exampleInputTopicText"
+                        :required="true"/>
+                <p>Number of words: {{ wordCount }}</p>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+
     </div>
 
 
