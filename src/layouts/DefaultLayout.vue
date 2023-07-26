@@ -21,9 +21,9 @@ export default defineComponent({
     <div class="nav-icon">
       <span v-if="!user">Navbar</span>
       <div v-if="user">
-        <span v-if="user.type === 'admin' ">Admin</span>
-        <span v-if="user.type === 'student'">Student</span>
-        <span v-if="user.type === 'teacher'">Teacher</span>
+        <span v-if="user?.type === 'admin' ">Admin</span>
+        <span v-if="user?.type === 'student'">Student</span>
+        <span v-if="user?.type === 'teacher'">Teacher</span>
       </div>
     </div>
 
@@ -44,10 +44,10 @@ export default defineComponent({
 
           <ul class="dropdown-menu">
 
-            <li v-if="user.type === 'admin'">
+            <li v-if="user?.type === 'admin'">
               <router-link  class="dropdown-item" to="/admin">Kirish</router-link>
             </li>
-            <li v-if="user.type === 'student'">
+            <li v-if="user?.type === 'student'">
               <router-link  class="dropdown-item" to="/student_panel">Kirish</router-link>
             </li>
             <li>

@@ -3,10 +3,12 @@ import {defineComponent} from 'vue'
 import {Form, Field, ErrorMessage} from "vee-validate";
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
 import {mapGetters} from "vuex";
+import ErrorAlertModal from "@/ui-componets/alert-modal/ErrorAlertModal.vue";
 
 export default defineComponent({
   name: "Task1",
   components: {
+    ErrorAlertModal,
     SuccessAlertModal,
     Form,
     Field,
@@ -23,7 +25,8 @@ export default defineComponent({
       isDisable: false,
       isRandomTopic: null,
 
-      wordCount: 0
+      wordCount: 0,
+      isErrorModalOpen: false,
 
     }
   },
@@ -57,33 +60,37 @@ export default defineComponent({
     submitHandler() {
       const essay = {
         "essays": [{
-          "topic": this.topics.id,
+          "topic": this.topic_task1.id,
           "body": this.topic_text,
           "type": 'task1'
         }]
       }
+      if (this.topic_text === '') {
+        this.openErrorAlertModal()
+      } else {
+        this.$store.dispatch("essay/createEssay", essay)
+            .then(response => {
 
-      this.$store.dispatch("essay/createEssay", essay)
-          .then(response => {
+              const data = {
+                id: response.data.id,
+                data: essay
+              }
 
-            const data = {
-              id: response.data.id,
-              data: essay
-            }
+              this.$store.dispatch('essay/updateEssay', data)
+                  .then(response => {
 
-            this.$store.dispatch('essay/updateEssay', data)
-                .then(response => {
+                    this.openSuccessModal()
+                    this.topic_title = ''
+                    this.topic_text = ''
+                  })
+                  .catch(error => {
 
-                  this.openSuccessModal()
-                  this.topic_title = ''
-                  this.topic_text = ''
-                })
-                .catch(error => {
-
-                })
+                  })
 
 
-          })
+            })
+
+      }
 
 
     },
@@ -93,6 +100,13 @@ export default defineComponent({
     },
     closeSuccessModal() {
       this.isSuccessModalOpen = false
+    },
+    // Error Alert  modal
+    openErrorAlertModal() {
+      this.isErrorModalOpen = true
+    },
+    closeErrorAlertModal() {
+      this.isErrorModalOpen = false
     },
     isRequired(value) {
       if (!value) {
@@ -118,6 +132,9 @@ export default defineComponent({
 </script>
 
 <template>
+  <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+    <p>Matn kiriting</p>
+  </error-alert-modal>
 
 
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">

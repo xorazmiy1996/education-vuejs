@@ -109,7 +109,10 @@ export default defineComponent({
           </template>
 
           <template v-if="true">
-            <td v-if="essay.essay2 && essay.essay1">
+            {{essay.essay2?.feedback}}
+            {{essay.essay1?.feedback}}
+
+            <td v-if="essay.essay2?.feedback && essay.essay1?.feedback">
               {{ (((parseInt(essay.essay1?.score['0'].score) + parseInt(essay.essay1?.score['1'].score) + parseInt(essay.essay1?.score['2'].score) + parseInt(essay.essay1?.score['3'].score)) * 9 / 100) + 2 * ((parseInt(essay.essay2?.score['0'].score) + parseInt(essay.essay2?.score['1'].score) + parseInt(essay.essay2?.score['2'].score) + parseInt(essay.essay2?.score['3'].score)) * 9 / 100)) / 3 }}
             </td>
              <td v-else></td>
