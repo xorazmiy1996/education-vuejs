@@ -127,6 +127,7 @@ export default defineComponent({
 <style scoped>
 section {
   background-color: #f8f9fa;
+  min-height: 90vh;
 }
 
 h5 {

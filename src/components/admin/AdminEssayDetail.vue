@@ -81,7 +81,6 @@ export default defineComponent({
         id: this.update_id
 
       }
-      console.log(data)
       return this.$store.dispatch('essay/updateDetailEssay', data)
           .then(response => {
             this.score = null

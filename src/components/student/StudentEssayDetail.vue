@@ -1,27 +1,53 @@
 <script>
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
+import DetailModal from "@/ui-componets/alert-modal/DetailModal.vue";
 
 export default defineComponent({
   name: "StudentEssayDetail",
+  components: {DetailModal},
+  data(){
+    return{
+        isDetailModalOpen:false,
+    }
+
+  },
   mounted() {
     this.$store.dispatch('essay/getEssayDetail', this.$route.params.id)
   },
   computed: {
-    ...mapGetters('essay', ['essaysDetail'])
+    ...mapGetters('essay', ['essaysDetail']),
+    ...mapGetters('topic', ['topic_detail'])
+  },
+  methods: {
+    // detail modal
+    openDetailModal(id) {
+      this.isDetailModalOpen = true
+      this.getTopicDetail(id)
+    },
+    closeDetailModal() {
+      this.isDetailModalOpen = false
+    },
+     getTopicDetail(id) {
+      this.$store.dispatch("topic/getTopicDetail", id)
+    },
   }
 
 })
 </script>
 
 <template>
+  <detail-modal :is-open="isDetailModalOpen" title="Detail quetion" @close="closeDetailModal">
+    <p>{{ topic_detail.title }}</p>
+    <img :src="topic_detail.image">
+  </detail-modal>
 
   <div class="container" v-if="essaysDetail">
 
-    <div class="text-center mt-3">
-      <h1>{{ essaysDetail.topic }}</h1>
-
+     <div class="text-center mt-3 mb-3">
+      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol</button>
     </div>
+
     <div class="row">
       <div class="col-12">
         <div class="card">
@@ -38,9 +64,6 @@ export default defineComponent({
     </div>
 
 
-
-
-
     <template v-if="essaysDetail.feedback">
       <div class="text-center mt-3">
         <h1>Feedback</h1>
@@ -49,6 +72,9 @@ export default defineComponent({
         <div class="col-12">
           <div class="card">
             <div class="card-body">
+              <div v-for="score in essaysDetail.score">
+                <p>{{ score.name }}: <b>{{ score.score }}%</b></p>
+              </div>
               <p class="card-text">
                 {{ essaysDetail.feedback }}
               </p>

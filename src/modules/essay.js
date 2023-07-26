@@ -153,16 +153,13 @@ const actions = {
     },
     getEssayDetail(context, id) {
         return new Promise((resolve, reject) => {
-            console.log('111111')
             context.commit('getEssayDetailStart')
             EssayService.getEssayDetail(id)
                 .then(response => {
-                    console.log('22222')
                     context.commit('getEssayDetailSuccess', response.data)
                     resolve(response.data)
                 })
                 .catch(error => {
-                    console.log('33333')
                     context.commit('getEssayDetailFailure', error.response.data)
                     reject(error.response.data)
                 })
@@ -173,22 +170,52 @@ const actions = {
             context.commit('allGetEssayStart')
             EssayService.allGetEssay()
                 .then(response => {
-                    context.commit('allGetEssaySuccess', response.data)
-                    resolve(response.data)
-                })
+                    const students = []
+                    for (let i = 0; i < response.data.length; i++) {
+                        let id = response.data[i]['id']
+
+                        let student = response.data[i]['student']
+                        let essay1 = null;
+                        let essay2 = null;
+                        if (response.data[i]['essays'][0]) { // 1-essay
+                            let essay = response.data[i]['essays'][0]
+                            if (essay['type'] === 'task1')
+                                essay1 = essay
+                            else essay2 = essay // task2
+                        }
+                        if (response.data[i]['essays'][1]) { // 2-essay
+                            let essay = response.data[i]['essays'][1]
+                            if (essay['type'] === 'task1')
+                                essay1 = essay
+                            else essay2 = essay // task2
+                        }
+                        const new_data = {
+                            id: id,
+                            student: student,
+                            essay1: essay1,
+                            essay2: essay2,
+                            score: response.data[i]['score'],
+                            created_at: response.data[i]['created_at'],
+                        }
+                        students.push(new_data)
+                    }
+                        context.commit('allGetEssaySuccess', students)
+                        resolve(students)
+                    }
+                )
                 .catch(error => {
-                    context.commit('allGetEssayFailure')
-                    reject(error.response.data)
+                        context.commit('allGetEssayFailure')
+                        reject(error.response.data)
+                    })
                 })
-        })
+        }
+
     }
 
-}
-
-export default {
-    namespaced: true,
-    state,
-    getters,
-    mutations,
-    actions
-}
+    export default {
+        namespaced: true,
+        state,
+        getters,
+        mutations,
+        actions
+    }
