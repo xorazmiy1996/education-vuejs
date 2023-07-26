@@ -3,10 +3,12 @@ import {defineComponent} from 'vue'
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
 import {ErrorMessage, Field, Form} from "vee-validate";
 import {mapGetters} from "vuex";
+import ErrorAlertModal from "@/ui-componets/alert-modal/ErrorAlertModal.vue";
 
 export default defineComponent({
   name: "Task3",
   components: {
+    ErrorAlertModal,
     SuccessAlertModal,
     Form,
     Field,
@@ -25,6 +27,7 @@ export default defineComponent({
 
       endTime: 20,
       isDisable: false,
+       isErrorModalOpen: false,
 
     }
   },
@@ -76,7 +79,9 @@ export default defineComponent({
               id: response.data.id,
               data: essay
             }
-
+            if (this.text_1 === '' || this.text_2 === '') {
+              this.openErrorAlertModal()
+            } else{
 
             this.$store.dispatch('essay/updateEssay', data)
                 .then(response => {
@@ -90,6 +95,9 @@ export default defineComponent({
                 .catch(error => {
 
                 })
+            }
+
+
 
 
           })
@@ -103,6 +111,13 @@ export default defineComponent({
     closeSuccessModal() {
       this.isSuccessModalOpen = false
     },
+      // Error Alert  modal
+    openErrorAlertModal() {
+      this.isErrorModalOpen = true
+    },
+    closeErrorAlertModal() {
+      this.isErrorModalOpen = false
+    },
     isRequired(value) {
       if (!value) {
         return 'this field is required';
@@ -115,6 +130,9 @@ export default defineComponent({
 </script>
 
 <template>
+    <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+    <p>Matn kiriting</p>
+  </error-alert-modal>
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
     <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
     <p>To'lovni quydagi hisobga yuboring:</p>

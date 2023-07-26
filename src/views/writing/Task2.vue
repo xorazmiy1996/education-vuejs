@@ -3,10 +3,12 @@ import {defineComponent} from 'vue'
 import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue";
 import {ErrorMessage, Field, Form} from "vee-validate";
 import {mapGetters} from "vuex";
+import ErrorAlertModal from "@/ui-componets/alert-modal/ErrorAlertModal.vue";
 
 export default defineComponent({
   name: "Task2",
   components: {
+    ErrorAlertModal,
     SuccessAlertModal,
     Form,
     Field,
@@ -24,7 +26,8 @@ export default defineComponent({
       isDisable: false,
 
 
-       wordCount: 0
+      wordCount: 0,
+      isErrorModalOpen: false,
 
     }
   },
@@ -57,7 +60,7 @@ export default defineComponent({
     submitHandler() {
       const essay = {
         "essays": [{
-          "topic": this.topics.id,
+          "topic": this.topic_task2.id,
           "body": this.topic_text,
           "type": 'task2'
         }]
@@ -70,17 +73,23 @@ export default defineComponent({
               id: response.data.id,
               data: essay
             }
+            if (this.topic_text === '') {
+              this.openErrorAlertModal()
+            } else{
+                 this.$store.dispatch('essay/updateEssay', data)
+                  .then(response => {
 
-            this.$store.dispatch('essay/updateEssay', data)
-                .then(response => {
+                    this.openSuccessModal()
+                    this.topic_title = ''
+                    this.topic_text = ''
+                  })
+                  .catch(error => {
 
-                  this.openSuccessModal()
-                  this.topic_title = ''
-                  this.topic_text = ''
-                })
-                .catch(error => {
+                  })
 
-                })
+            }
+
+
 
 
           })
@@ -93,6 +102,13 @@ export default defineComponent({
     },
     closeSuccessModal() {
       this.isSuccessModalOpen = false
+    },
+    // Error Alert  modal
+    openErrorAlertModal() {
+      this.isErrorModalOpen = true
+    },
+    closeErrorAlertModal() {
+      this.isErrorModalOpen = false
     },
     countWords() {
       // this.wordCount = this.topic_text.split(' ').filter(word => word !=="").length
@@ -114,6 +130,9 @@ export default defineComponent({
 </script>
 
 <template>
+    <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+      <p>Matn kiriting</p>
+    </error-alert-modal>
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
     <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
     <p>To'lovni quydagi hisobga yuboring:</p>
@@ -173,7 +192,7 @@ export default defineComponent({
                         @input="countWords"
                         id="exampleInputTopicText"
                         :required="true"/>
-                <p>Number of words: {{ wordCount }}</p>
+              <p>Number of words: {{ wordCount }}</p>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
