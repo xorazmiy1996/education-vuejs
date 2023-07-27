@@ -40,7 +40,13 @@ export default defineComponent({
     },
     studentEssayDetail(id) {
       return this.$router.push(`/student_essay_detail/${id}`)
-    }
+    },
+     calculation_score(score1, score2, score3, score4,score5,score6,score7,score8) {
+      const x = (parseInt(score1) + parseInt(score2) + parseInt(score3) + parseInt(score4) +2 * ((parseInt(score5) + parseInt(score6) + parseInt(score7) + parseInt(score8)) ))*3 /100
+
+      return parseFloat(x)
+
+    },
   }
 })
 </script>
@@ -109,13 +115,13 @@ export default defineComponent({
           </template>
 
           <template v-if="true">
-            {{essay.essay2?.feedback}}
-            {{essay.essay1?.feedback}}
-
             <td v-if="essay.essay2?.feedback && essay.essay1?.feedback">
-              {{ (((parseInt(essay.essay1?.score['0'].score) + parseInt(essay.essay1?.score['1'].score) + parseInt(essay.essay1?.score['2'].score) + parseInt(essay.essay1?.score['3'].score)) * 9 / 100) + 2 * ((parseInt(essay.essay2?.score['0'].score) + parseInt(essay.essay2?.score['1'].score) + parseInt(essay.essay2?.score['2'].score) + parseInt(essay.essay2?.score['3'].score)) * 9 / 100)) / 3 }}
-            </td>
-             <td v-else></td>
+              <button class="btn btn-primary">
+                {{ calculation_score(parseInt(essay.essay1?.score['0'].score), parseInt(essay.essay1?.score['1'].score), parseInt(essay.essay1?.score['2'].score), parseInt(essay.essay1?.score['3'].score), parseInt(essay.essay2?.score['0'].score), parseInt(essay.essay2?.score['1'].score), parseInt(essay.essay2?.score['2'].score), parseInt(essay.essay2?.score['3'].score)) }}
+              </button>
+
+               </td>
+            <td v-else></td>
           </template>
 
 

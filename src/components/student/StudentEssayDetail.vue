@@ -38,8 +38,8 @@ export default defineComponent({
 
 <template>
   <detail-modal :is-open="isDetailModalOpen" title="Detail quetion" @close="closeDetailModal">
-    <p>{{ topic_detail.title }}</p>
-    <img :src="topic_detail.image">
+    <p>{{ topic_detail?.title }}</p>
+    <img :src="topic_detail?.image">
   </detail-modal>
 
   <div class="container" v-if="essaysDetail">
