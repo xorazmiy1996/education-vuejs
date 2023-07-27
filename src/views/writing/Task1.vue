@@ -184,14 +184,6 @@ export default defineComponent({
         <div class="col-6">
           <form @submit.prevent="submitHandler">
             <div class="mb-3">
-              <!--              <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>-->
-              <!--                            <input :disabled="isDisable" v-model="topic_title" name="topic_title" :rules="isRequired" type="text"-->
-              <!--                                   class="form-control"-->
-              <!--                                   :required="true"-->
-              <!--                                   id="exampleInputTopicTitle"/>-->
-              <!--                          <ErrorMessage name="topic_title"/>-->
-              <!--              <div class="alert alert-dark" role="alert">-->
-              <!--              </div>-->
             </div>
             <div class="mb-3">
               <label for="exampleInputTopicText" class="form-label">Topic text:</label>

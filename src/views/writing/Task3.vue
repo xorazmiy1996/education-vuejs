@@ -27,13 +27,13 @@ export default defineComponent({
 
       endTime: 20,
       isDisable: false,
-       isErrorModalOpen: false,
+      isErrorModalOpen: false,
 
     }
   },
   computed: {
-     ...mapGetters("topic", ['topic_task1']),
-     ...mapGetters("topic", ['topic_task2']),
+    ...mapGetters("topic", ['topic_task1']),
+    ...mapGetters("topic", ['topic_task2']),
     countdownText() {
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
@@ -58,7 +58,10 @@ export default defineComponent({
 
   methods: {
     submitHandler() {
-      const essay = {
+      if (this.text_1 === '' || this.text_2 === '') {
+        this.openErrorAlertModal()
+      } else {
+        const essay = {
         "essays": [
           {
             "topic": this.topic_task1.id,
@@ -72,35 +75,31 @@ export default defineComponent({
           }
         ]
       }
-      this.$store.dispatch("essay/createEssay", essay)
-          .then(response => {
+        this.$store.dispatch("essay/createEssay", essay)
+            .then(response => {
 
-            const data = {
-              id: response.data.id,
-              data: essay
-            }
-            if (this.text_1 === '' || this.text_2 === '') {
-              this.openErrorAlertModal()
-            } else{
-
-            this.$store.dispatch('essay/updateEssay', data)
-                .then(response => {
-
-                  this.openSuccessModal()
-                  this.topic_1 = ''
-                  this.text_1 = ''
-                  this.topic_2 = ''
-                  this.text_2 = ''
-                })
-                .catch(error => {
-
-                })
-            }
+              const data = {
+                id: response.data.id,
+                data: essay
+              }
 
 
+              this.$store.dispatch('essay/updateEssay', data)
+                  .then(response => {
+
+                    this.openSuccessModal()
+                    this.topic_1 = ''
+                    this.text_1 = ''
+                    this.topic_2 = ''
+                    this.text_2 = ''
+                  })
+                  .catch(error => {
+
+                  })
 
 
-          })
+            })
+      }
 
 
     },
@@ -111,7 +110,7 @@ export default defineComponent({
     closeSuccessModal() {
       this.isSuccessModalOpen = false
     },
-      // Error Alert  modal
+    // Error Alert  modal
     openErrorAlertModal() {
       this.isErrorModalOpen = true
     },
@@ -130,7 +129,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+  <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
     <p>Matn kiriting</p>
   </error-alert-modal>
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
@@ -171,7 +170,7 @@ export default defineComponent({
           <br>
           <div class="card mt-2">
             <div class="card-body">
-               <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
+              <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
               <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
             </div>
           </div>
@@ -181,7 +180,7 @@ export default defineComponent({
           <br>
           <div class="card mt-2">
             <div class="card-body">
-               <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
+              <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
               <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
             </div>
           </div>
@@ -194,19 +193,13 @@ export default defineComponent({
         <div class="col-12">
           <form @submit.prevent="submitHandler" class="row g-3">
             <div class="col-md-6">
-<!--              <label for="inputTopic1" class="form-label">Topic1</label>-->
-<!--              <input :disabled="isDisable" v-model="topic_1" type="text" class="form-control" id="inputTopic1"-->
-<!--                     :required="true">-->
               <br>
               <label for="inputTask1" class="form-label">inputTask1</label>
               <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1"
                         :required="true"></textarea>
             </div>
             <div class="col-md-6">
-<!--              <label for="inputTopic2" class="form-label">Topic2</label>-->
-<!--              <input :disabled="isDisable" v-model="topic_2" type="text" class="form-control" id="inputTopic2"-->
-<!--                     :required="true">-->
-              <br>
+               <br>
               <label for="inputTask2" class="form-label">inputTask1</label>
               <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2"
                         :required="true"></textarea>
