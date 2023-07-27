@@ -171,8 +171,7 @@ export default defineComponent({
       </div>
       <div class="row">
         <div class="col-6">
-          <br>
-          <div class="card mt-2 shadow p-3 mb-5 bg-white rounded">
+          <div class="card  shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
               <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
               <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
@@ -183,11 +182,11 @@ export default defineComponent({
         </div>
         <div class="col-6">
           <form @submit.prevent="submitHandler">
-            <div class="mb-3">
+            <div>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-              <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
+            <div>
+<!--              <label for="exampleInputTopicText" class="form-label">Topic text:</label>-->
+              <textarea :disabled="isDisable" style="height: 563px" v-model="topic_text" name="topic_text" type="text"
                         class="form-control"
                         :required="true"
                         @input="countWords"

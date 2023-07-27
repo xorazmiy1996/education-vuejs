@@ -65,17 +65,17 @@ export default defineComponent({
           "type": 'task2'
         }]
       }
-
-      this.$store.dispatch("essay/createEssay", essay)
+        if (this.topic_text === '') {
+              this.openErrorAlertModal()
+            } else{
+           this.$store.dispatch("essay/createEssay", essay)
           .then(response => {
 
             const data = {
               id: response.data.id,
               data: essay
             }
-            if (this.topic_text === '') {
-              this.openErrorAlertModal()
-            } else{
+
                  this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
 
@@ -87,12 +87,15 @@ export default defineComponent({
 
                   })
 
-            }
+
 
 
 
 
           })
+        }
+
+
 
 
     },
@@ -168,8 +171,7 @@ export default defineComponent({
       </div>
       <div class="row">
         <div class="col-6">
-          <br>
-          <div class="card mt-2 shadow p-3 mb-5 bg-white rounded">
+          <div class="card shadow p-3 mb-5 bg-white rounded">
             <div class="card-body">
               <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
               <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
@@ -179,15 +181,9 @@ export default defineComponent({
         </div>
         <div class="col-6">
           <form @submit.prevent="submitHandler">
-            <div class="mb-3">
-              <!--              <label for="exampleInputTopicTitle" class="form-label">Topic title:</label>-->
-              <!--              <input :disabled="isDisable" v-model="topic_title" name="topic_title" type="text" class="form-control"-->
-              <!--                     :required="true" id="exampleInputTopicTitle"/>-->
-              <!--            <ErrorMessage name="topic_title"/>-->
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputTopicText" class="form-label">Topic text:</label>
-              <textarea :disabled="isDisable" style="height: 300px" v-model="topic_text" name="topic_text" type="text"
+
+            <div>
+             <textarea :disabled="isDisable" style="height: 563px" v-model="topic_text" name="topic_text" type="text"
                         class="form-control"
                         @input="countWords"
                         id="exampleInputTopicText"
@@ -229,4 +225,5 @@ span {
   display: flex;
   justify-content: space-between;
 }
+
 </style>
