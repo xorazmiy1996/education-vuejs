@@ -62,19 +62,19 @@ export default defineComponent({
         this.openErrorAlertModal()
       } else {
         const essay = {
-        "essays": [
-          {
-            "topic": this.topic_task1.id,
-            "body": this.text_1,
-            "type": 'task1'
-          },
-          {
-            "topic": this.topic_task2.id,
-            "body": this.text_2,
-            "type": 'task2'
-          }
-        ]
-      }
+          "essays": [
+            {
+              "topic": this.topic_task1.id,
+              "body": this.text_1,
+              "type": 'task1'
+            },
+            {
+              "topic": this.topic_task2.id,
+              "body": this.text_2,
+              "type": 'task2'
+            }
+          ]
+        }
         this.$store.dispatch("essay/createEssay", essay)
             .then(response => {
 
@@ -166,50 +166,46 @@ export default defineComponent({
         <div class="mt-3"><h5>Task2 {{ countdownText }}</h5></div>
       </div>
       <div class="row">
-        <div class="col-6">
-          <br>
-          <div class="card mt-2">
-            <div class="card-body">
-              <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
-              <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
-            </div>
-          </div>
-
-        </div>
-        <div class="col-6">
-          <br>
-          <div class="card mt-2">
-            <div class="card-body">
-              <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
-              <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
-            </div>
-          </div>
-
-        </div>
 
 
       </div>
       <div class="row">
-        <div class="col-12">
-          <form @submit.prevent="submitHandler" class="row g-3">
-            <div class="col-md-6">
-              <br>
-              <label for="inputTask1" class="form-label">inputTask1</label>
-              <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1"
-                        :required="true"></textarea>
-            </div>
-            <div class="col-md-6">
-               <br>
-              <label for="inputTask2" class="form-label">inputTask1</label>
-              <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2"
-                        :required="true"></textarea>
+
+        <form @submit.prevent="submitHandler" class="row g-3">
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
+                <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
+                <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
+              </div>
             </div>
 
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+          <div class="col-6">
+<!--            <label for="inputTask1" class="form-label">inputTask1</label>-->
+            <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1"
+                      :required="true"></textarea>
+          </div>
+          <div class="col-6">
+            <div class="card">
+              <div class="card-body">
+                <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
+                <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
+              </div>
             </div>
-          </form>
-        </div>
+
+          </div>
+          <div class="col-6">
+<!--            <label for="inputTask2" class="form-label">inputTask1</label>-->
+            <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2"
+                      :required="true"></textarea>
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+
       </div>
     </div>
     <br>
@@ -245,5 +241,8 @@ textarea {
 .carta {
   display: flex;
   justify-content: space-between;
+}
+textarea{
+  height: 563px;
 }
 </style>
