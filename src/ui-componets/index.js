@@ -7,4 +7,5 @@ import SuccessAlertModal from "@/ui-componets/alert-modal/SuccessAlertModal.vue"
 import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
 import UpdateModal from "@/ui-componets/alert-modal/UpdateModal.vue";
 import DetailModal from "@/ui-componets/alert-modal/DetailModal.vue";
-export default [Input,Loader,Modal, VerticalAdminNavbar,ErrorAlertModal, SuccessAlertModal, DeleteModal,UpdateModal, DetailModal]
+import FeedbackCard from "@/ui-componets/card/FeedbackCard.vue";
+export default [Input,Loader,Modal, VerticalAdminNavbar,ErrorAlertModal, SuccessAlertModal, DeleteModal,UpdateModal, DetailModal, FeedbackCard]

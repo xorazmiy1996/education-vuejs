@@ -43,6 +43,7 @@ import StudentEssayDetail from "@/components/student/StudentEssayDetail.vue";
 import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
 import Task2 from "@/views/writing/Task2.vue";
 import Task3 from "@/views/writing/Task3.vue";
+import EssayChecker from "@/components/admin/EssayChecker.vue";
 
 
 const router = createRouter({
@@ -252,6 +253,16 @@ const router = createRouter({
             path: '/admin_course',
             name: 'admin_course',
             component: AdminCourse,
+            meta: {
+                requiresAdmin: true,
+                Layout: AdminLayout
+            }
+
+        },
+        {
+            path: '/essay_checker',
+            name: 'essay_checker',
+            component: EssayChecker ,
             meta: {
                 requiresAdmin: true,
                 Layout: AdminLayout

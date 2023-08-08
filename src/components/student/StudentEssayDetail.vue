@@ -2,13 +2,14 @@
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
 import DetailModal from "@/ui-componets/alert-modal/DetailModal.vue";
+import FeedbackCard from "@/ui-componets/card/FeedbackCard.vue";
 
 export default defineComponent({
   name: "StudentEssayDetail",
-  components: {DetailModal},
-  data(){
-    return{
-        isDetailModalOpen:false,
+  components: {FeedbackCard, DetailModal},
+  data() {
+    return {
+      isDetailModalOpen: false,
     }
 
   },
@@ -28,7 +29,7 @@ export default defineComponent({
     closeDetailModal() {
       this.isDetailModalOpen = false
     },
-     getTopicDetail(id) {
+    getTopicDetail(id) {
       this.$store.dispatch("topic/getTopicDetail", id)
     },
   }
@@ -44,8 +45,9 @@ export default defineComponent({
 
   <div class="container" v-if="essaysDetail">
 
-     <div class="text-center mt-3 mb-3">
-      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol</button>
+    <div class="text-center mt-3 mb-3">
+      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol
+      </button>
     </div>
 
     <div class="row">
@@ -72,12 +74,19 @@ export default defineComponent({
         <div class="col-12">
           <div class="card">
             <div class="card-body">
-              <div v-for="score in essaysDetail.score">
-                <p>{{ score.name }}: <b>{{ score.score }}%</b></p>
+              <div class="row  row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div id="feedback_card" v-for="score in essaysDetail.score"
+                     class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+                  <feedback-card :name="score.name" :score="score.score"></feedback-card>
+                </div>
               </div>
-              <p class="card-text">
-                {{ essaysDetail.feedback }}
-              </p>
+
+                <div class="card">
+                <div class="card-body">
+                 {{ essaysDetail.feedback }}
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -93,6 +102,11 @@ export default defineComponent({
 </template>
 
 <style scoped>
+#feedback_card {
+  margin: 10px !important;
+  height: 350px;
+  width: 18rem;
 
+}
 
 </style>

@@ -120,6 +120,13 @@ export default defineComponent({
                 <span class="text nav-text">All Essay</span>
               </router-link>
             </li>
+            <li class="nav-link">
+              <router-link to="/essay_checker">
+                  <i class="fa fa-check-circle icon"></i>
+                <span class="text nav-text">Essay Checker</span>
+              </router-link>
+            </li>
+
 
           </ul>
         </div>

@@ -68,7 +68,7 @@ export default defineComponent({
             <td v-else>
               <button @click="adminEssayDetail(essay.essay1?.id)" class="btn btn-outline-primary">
                 {{
-                  (parseInt(essay.essay1?.score['0'].score) + parseInt(essay.essay1?.score['1'].score) + parseInt(essay.essay1?.score['2'].score) + parseInt(essay.essay1?.score['3'].score)) * 9 / 100
+                  (essay.essay1?.score['0'].score + essay.essay1?.score['1'].score + essay.essay1?.score['2'].score + essay.essay1?.score['3'].score) * 9 / 100
                 }}
                 ball
               </button>
@@ -85,7 +85,7 @@ export default defineComponent({
             <td v-else>
               <button @click="adminEssayDetail(essay.essay2?.id)" class="btn btn-outline-primary">
                 {{
-                  (parseInt(essay.essay2?.score['0'].score) + parseInt(essay.essay2?.score['1'].score) + parseInt(essay.essay2?.score['2'].score) + parseInt(essay.essay2?.score['3'].score)) * 9 / 100
+                  (essay.essay2?.score['0'].score + essay.essay2?.score['1'].score + essay.essay2?.score['2'].score + essay.essay2?.score['3'].score) * 9 / 100
                 }}
                 ball
               </button>
@@ -99,7 +99,7 @@ export default defineComponent({
           <template v-if="true">
             <td v-if="essay.essay2?.feedback && essay.essay1?.feedback">
               <button class="btn btn-primary">
-                {{ calculation_score(parseInt(essay.essay1?.score['0'].score), parseInt(essay.essay1?.score['1'].score), parseInt(essay.essay1?.score['2'].score), parseInt(essay.essay1?.score['3'].score), parseInt(essay.essay2?.score['0'].score), parseInt(essay.essay2?.score['1'].score), parseInt(essay.essay2?.score['2'].score), parseInt(essay.essay2?.score['3'].score)) }}
+                {{ calculation_score(essay.essay1?.score['0'].score, essay.essay1?.score['1'].score, essay.essay1?.score['2'].score, essay.essay1?.score['3'].score, essay.essay2?.score['0'].score, essay.essay2?.score['1'].score, essay.essay2?.score['2'].score, essay.essay2?.score['3'].score) }}
               </button>
 
                </td>
