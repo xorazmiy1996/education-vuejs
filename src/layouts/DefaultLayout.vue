@@ -4,7 +4,7 @@ import {mapGetters} from "vuex";
 
 export default defineComponent({
   name: "DefaultLayout",
-   computed: {
+  computed: {
     ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
   },
 
@@ -21,18 +21,19 @@ export default defineComponent({
     <div class="nav-icon">
       <span v-if="!user">Navbar</span>
       <div v-if="user">
-        <span v-if="user?.type === 'admin' ">Admin</span>
+        <span v-if="user?.type === 'admin' ">
+              <img style="margin: 10px;" id="logo" src="@/assets/image/logo/LogoSpeakUpWhite.png">
+
+        </span>
         <span v-if="user?.type === 'student'">Student</span>
         <span v-if="user?.type === 'teacher'">Teacher</span>
       </div>
     </div>
 
     <div class="nav-router me-5">
-        <router-link to="/" class="a ctivate">Home</router-link>
-        <router-link to="/individual_or_group_speaking">Speaking</router-link>
-        <router-link to="/writing_task1_task2">Writing</router-link>
-
-
+      <router-link to="/" class="a ctivate">Home</router-link>
+      <router-link to="/individual_or_group_speaking">Speaking</router-link>
+      <router-link to="/writing_task1_task2">Writing</router-link>
 
 
       <template v-if='isLoggedIn '>
@@ -45,10 +46,10 @@ export default defineComponent({
           <ul class="dropdown-menu">
 
             <li v-if="user?.type === 'admin'">
-              <router-link  class="dropdown-item" to="/admin">Kirish</router-link>
+              <router-link class="dropdown-item" to="/admin">Kirish</router-link>
             </li>
             <li v-if="user?.type === 'student'">
-              <router-link  class="dropdown-item" to="/student_panel">Kirish</router-link>
+              <router-link class="dropdown-item" to="/student_panel">Kirish</router-link>
             </li>
             <li>
               <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
@@ -123,5 +124,11 @@ i:hover {
 .dropdown-menu li a {
   color: deepskyblue;
 }
+
+#logo {
+  width: 240px;
+  height: 70px;
+}
+
 
 </style>

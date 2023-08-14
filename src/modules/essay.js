@@ -5,6 +5,8 @@ const state = {
     essayError: null,
     essaysDetail: null,
     allEssays: null,
+    essayChecker: null,
+    essayCheckerError: null,
 }
 const getters = {
     isLoading: state => {
@@ -18,6 +20,9 @@ const getters = {
     },
     allEssays: state => {
         return state.allEssays
+    },
+    essayChecker: state => {
+        return state.essayChecker
     },
 }
 const mutations = {
@@ -89,6 +94,19 @@ const mutations = {
         state.isLoading = false
         state.essayError = payload
     },
+    // essay checker
+    essayCheckerStart(state) {
+        state.isLoading = true
+        state.essayCheckerError = null
+    },
+    essayCheckerSuccess(state, payload) {
+        state.isLoading = false
+        state.essayChecker = payload
+    },
+    essayCheckerFailure(state, payload) {
+        state.isLoading = false
+        state.essayCheckerError = payload
+    },
 
 
 }
@@ -126,7 +144,6 @@ const actions = {
     updateDetailEssay(context, data) {
         return new Promise((resolve, reject) => {
             context.commit('updateEssayStart')
-            console.log('00000000000000000000')
             EssayService.updateEssayDetail(data.data, data.id)
                 .then(response => {
                     context.commit('updateEssaySuccess')
@@ -170,52 +187,70 @@ const actions = {
             context.commit('allGetEssayStart')
             EssayService.allGetEssay()
                 .then(response => {
-                    const students = []
-                    for (let i = 0; i < response.data.length; i++) {
-                        let id = response.data[i]['id']
+                        const students = []
+                        for (let i = 0; i < response.data.length; i++) {
+                            let id = response.data[i]['id']
 
-                        let student = response.data[i]['student']
-                        let essay1 = null;
-                        let essay2 = null;
-                        if (response.data[i]['essays'][0]) { // 1-essay
-                            let essay = response.data[i]['essays'][0]
-                            if (essay['type'] === 'task1')
-                                essay1 = essay
-                            else essay2 = essay // task2
+                            let student = response.data[i]['student']
+                            let essay1 = null;
+                            let essay2 = null;
+                            if (response.data[i]['essays'][0]) { // 1-essay
+                                let essay = response.data[i]['essays'][0]
+                                if (essay['type'] === 'task1')
+                                    essay1 = essay
+                                else essay2 = essay // task2
+                            }
+                            if (response.data[i]['essays'][1]) { // 2-essay
+                                let essay = response.data[i]['essays'][1]
+                                if (essay['type'] === 'task1')
+                                    essay1 = essay
+                                else essay2 = essay // task2
+                            }
+                            const new_data = {
+                                id: id,
+                                student: student,
+                                essay1: essay1,
+                                essay2: essay2,
+                                score: response.data[i]['score'],
+                                created_at: response.data[i]['created_at'],
+                            }
+                            students.push(new_data)
                         }
-                        if (response.data[i]['essays'][1]) { // 2-essay
-                            let essay = response.data[i]['essays'][1]
-                            if (essay['type'] === 'task1')
-                                essay1 = essay
-                            else essay2 = essay // task2
-                        }
-                        const new_data = {
-                            id: id,
-                            student: student,
-                            essay1: essay1,
-                            essay2: essay2,
-                            score: response.data[i]['score'],
-                            created_at: response.data[i]['created_at'],
-                        }
-                        students.push(new_data)
-                    }
                         context.commit('allGetEssaySuccess', students)
                         resolve(students)
                     }
                 )
                 .catch(error => {
-                        context.commit('allGetEssayFailure')
-                        reject(error.response.data)
-                    })
+                    context.commit('allGetEssayFailure')
+                    reject(error.response.data)
                 })
-        }
+        })
+    },
+    essayChecker(context, text) {
+        return new Promise((resolve, reject) => {
+            context.commit("essayCheckerStart")
+            EssayService.essayChecker(text)
+                .then(response => {
+                    console.log("salom")
+                    console.log("salom2")
+                    console.log(response.data)
+                    context.commit('essayCheckerSuccess', response.data)
+                    resolve(response)
+                })
+                .catch(error => {
+                    console.log(error.response)
+                    context.commit('essayCheckerFailure', error.response)
+                    reject(error.response)
+                })
+        })
+    },
 
-    }
+}
 
-    export default {
-        namespaced: true,
-        state,
-        getters,
-        mutations,
-        actions
-    }
+export default {
+    namespaced: true,
+    state,
+    getters,
+    mutations,
+    actions
+}
