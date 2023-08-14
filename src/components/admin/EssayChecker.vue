@@ -43,7 +43,9 @@ export default {
       </form>
     </div>
   </div>
-  <p>{{essayChecker}}</p>
+  <div v-for="essay_feedback in essayChecker">
+     {{ essay_feedback.wordCount}}
+  </div>
 </template>
 
 <style scoped>
