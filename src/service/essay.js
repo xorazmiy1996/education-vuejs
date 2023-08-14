@@ -19,9 +19,9 @@ const EssayService = {
     updateEssayDetail(essay, id){
         return axios.put(`/ielts/essay/${id}/`, essay)
     },
-    essayChecker(text) {
-        console.log(text)
-        return axios.post('ielts/essay_checker/', text)
+    essayChecker(text_essay) {
+        console.log(text_essay)
+        return axios.post('ielts/essay_checker/', text_essay)
     },
 }
 
