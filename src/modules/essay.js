@@ -97,6 +97,7 @@ const mutations = {
     // essay checker
     essayCheckerStart(state) {
         state.isLoading = true
+        state.essayChecker = null
         state.essayCheckerError = null
     },
     essayCheckerSuccess(state, payload) {
@@ -105,6 +106,7 @@ const mutations = {
     },
     essayCheckerFailure(state, payload) {
         state.isLoading = false
+        state.essayChecker = null
         state.essayCheckerError = payload
     },
 
@@ -226,10 +228,10 @@ const actions = {
                 })
         })
     },
-    essayChecker(context, text) {
+    essayChecker(context, text_essay) {
         return new Promise((resolve, reject) => {
             context.commit("essayCheckerStart")
-            EssayService.essayChecker(text)
+            EssayService.essayChecker(text_essay)
                 .then(response => {
                     console.log("salom")
                     console.log("salom2")
