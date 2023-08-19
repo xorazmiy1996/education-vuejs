@@ -190,6 +190,7 @@ const actions = {
     logout(context) {
         context.commit('logout')
         localStorage.removeItem('token')
+
     }
 }
 export default {

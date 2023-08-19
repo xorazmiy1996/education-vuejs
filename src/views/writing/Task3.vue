@@ -34,18 +34,20 @@ export default defineComponent({
   computed: {
     ...mapGetters("topic", ['topic_task1']),
     ...mapGetters("topic", ['topic_task2']),
-    countdownText() {
+      countdownText() {
+      this.minute = Math.floor(this.endTime / 60); // daqiqa hisobi
+      this.second = this.endTime % 60; // qoldiq soniya hisobi
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
         this.isDisable = true
-        return 'Vaqt tugadi';
+        this.minute = 0
+        this.second = 0
+        // return 'Vaqt tugadi';
 
       }
-      let daqiqa = Math.floor(this.endTime / 60); // daqiqa hisobi
-      let soniyalar = this.endTime % 60; // qoldiq soniya hisobi
 
 
-      return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
+      // return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
     },
   },
   mounted() {
@@ -160,89 +162,99 @@ export default defineComponent({
 
   </success-alert-modal>
 
-  <section>
-    <div class="container">
-      <div class="d-flex flex-row-reverse">
-        <div class="mt-3"><h5>Task2 {{ countdownText }}</h5></div>
-      </div>
-      <div class="row">
+  <body class="u-body u-xl-mode" data-lang="ru">
+  <section class="u-align-center u-clearfix u-palette-2-base u-section-10" id="sec-69be">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
+           data-target-date="Tue, 22 Aug 2023 05:21:09 GMT" data-for="everyone" data-direction="down">
+        <div class="u-countdown-wrapper u-spacing-20">
 
+          <div class="u-countdown-item u-countdown-minutes u-spacing-10">
+            <div class="u-countdown-counter u-countdown-counter-4">
+              <div class="u-countdown-number">{{ countdownText }} {{ minute }}</div>
 
-      </div>
-      <div class="row">
-
-        <form @submit.prevent="submitHandler" class="row g-3">
-          <div class="col-6">
-            <div class="card">
-              <div class="card-body">
-                <p v-if="topic_task1" class="card-text">{{ topic_task1.title }}</p>
-                <img v-if="topic_task1" :src="topic_task1.image" class="card-img-bottom" alt="...">
-              </div>
             </div>
-
+            <div class="u-countdown-label u-countdown-label-4">Minutes</div>
           </div>
-          <div class="col-6">
-<!--            <label for="inputTask1" class="form-label">inputTask1</label>-->
-            <textarea :disabled="isDisable" v-model="text_1" type="text" class="form-control" id="inputTopic1"
-                      :required="true"></textarea>
-          </div>
-          <div class="col-6">
-            <div class="card">
-              <div class="card-body">
-                <p v-if="topic_task2" class="card-text">{{ topic_task2.title }}</p>
-                <img v-if="topic_task2" :src="topic_task2.image" class="card-img-bottom" alt="...">
-              </div>
+          <div class="u-countdown-separator u-countdown-separator-4">:</div>
+          <div class="u-countdown-item u-countdown-seconds u-spacing-10">
+            <div class="u-countdown-counter u-countdown-counter-5">
+              <div class="u-countdown-number">{{ second }}</div>
             </div>
-
+            <div class="u-countdown-label u-countdown-label-5">Seconds</div>
           </div>
-          <div class="col-6">
-<!--            <label for="inputTask2" class="form-label">inputTask1</label>-->
-            <textarea :disabled="isDisable" v-model="text_2" type="text" class="form-control" id="inputTopic2"
-                      :required="true"></textarea>
+          <div class="u-countdown-separator u-hidden u-countdown-separator-5">:</div>
+          <div class="u-countdown-item u-countdown-numbers u-hidden u-spacing-10">
+            <div class="u-countdown-counter u-countdown-counter-6">
+              <div class="u-countdown-number">0</div>
+              <div class="u-countdown-number">0</div>
+            </div>
+            <div class="u-countdown-label u-countdown-label-6">Items</div>
           </div>
-
-          <div class="col-12">
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </form>
-
+        </div>
+        <div class="u-countdown-message u-hidden"><p>Sorry, the time is up.</p></div>
       </div>
+      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;">Academic Writing Part&nbsp;1</span><br><span
+          style="font-size:1.5rem;">You should spend about 20 minutes on this task. Write at least 150 words.</span>
+      </h2><a href="https://nicepage.best"
+              class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI:
+      {{ wordCount }}</a>
     </div>
-    <br>
-    <br>
-
-
   </section>
+  <section class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-2423">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <form @submit.prevent="submitHandler">
+        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
+
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p v-if="topic_task1" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task1.title }}</p>
+                  <img v-if="topic_task1" :src="topic_task1.image" class="u-image u-image-default u-image-1"
+                       alt="">
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
+              <textarea :disabled="isDisable" v-model="text_1" type="text" :required="true" name="topic_text"
+                        @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
+
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p v-if="topic_task2" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task2.title }}</p>
+
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
+              <textarea :disabled="isDisable" v-model="text_2" type="text" :required="true" name="topic_text"
+                        @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <button
+            class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">
+          YUBORISH
+        </button>
+
+      </form>
+    </div>
+  </section>
+
+  </body>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 700;
-  font-size: 40px;
-  color: deepskyblue;
-}
-
-h3 {
-  color: deepskyblue;
-}
-
-h5 {
-  color: deepskyblue;
-}
-
-span {
-  color: red;
-}
-
-textarea {
-  height: 300px;
-}
-
-.carta {
-  display: flex;
-  justify-content: space-between;
-}
-textarea{
-  height: 563px;
-}
-</style>
+<style scoped></style>

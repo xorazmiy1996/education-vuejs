@@ -138,40 +138,40 @@ export default defineComponent({
 </script>
 
 <template>
-      <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
-      <p>Matn kiriting</p>
-    </error-alert-modal>
+  <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+    <p>Matn kiriting</p>
+  </error-alert-modal>
 
 
-    <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
-      <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
-      <p>To'lovni quydagi hisobga yuboring:</p>
-      <p class="badge text-bg-primary">telegram: @Jasur</p>
-      <div class="row mb-3">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Nazarov Jasurbek </h5>
-              <div class="d-flex justify-content-between">
+  <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
+    <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
+    <p>To'lovni quydagi hisobga yuboring:</p>
+    <p class="badge text-bg-primary">telegram: @Jasur</p>
+    <div class="row mb-3">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Nazarov Jasurbek </h5>
+            <div class="d-flex justify-content-between">
 
-                <p class="card-text ">86 00 45 78 92 92 45 25</p>
+              <p class="card-text ">86 00 45 78 92 92 45 25</p>
 
-                <p class="badge text-bg-primary">uzcard</p>
-
-              </div>
-
+              <p class="badge text-bg-primary">uzcard</p>
 
             </div>
+
+
           </div>
         </div>
       </div>
-      <p>To'lovni amalga oshirganigizdan so'ng shaaxsiy telefo'n raqamingiz va to'lov chekini bizning telegramimizga
-        yuboring</p>
+    </div>
+    <p>To'lovni amalga oshirganigizdan so'ng shaaxsiy telefo'n raqamingiz va to'lov chekini bizning telegramimizga
+      yuboring</p>
 
 
-    </success-alert-modal>
+  </success-alert-modal>
 
-
+  <body class="u-body u-xl-mode" data-lang="ru">
   <section class="u-align-center u-clearfix u-palette-2-base u-section-10" id="sec-69be">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
@@ -213,32 +213,36 @@ export default defineComponent({
   <section class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-2423">
     <div class="u-clearfix u-sheet u-sheet-1">
       <form @submit.prevent="submitHandler">
-                 <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
+        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
 
-        <div class="u-layout">
-          <div class="u-layout-row">
-                 <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-              <div class="u-container-layout u-container-layout-1">
-                <p v-if="topic_task1" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task1.title }}</p>
-                <img v-if="topic_task1" :src="topic_task1.image" class="u-image u-image-default u-image-1"
-                     alt="">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p v-if="topic_task1" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task1.title }}</p>
+                  <img v-if="topic_task1" :src="topic_task1.image" class="u-image u-image-default u-image-1"
+                       alt="">
+                </div>
               </div>
-            </div>
-                 <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
+              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
               <textarea :disabled="isDisable" v-model="topic_text" type="text" :required="true" name="topic_text"
                         @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
 
 
-            </div>
+              </div>
 
+            </div>
           </div>
         </div>
-      </div>
-      <button  class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">YUBORISH</button>
+        <button
+            class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">
+          YUBORISH
+        </button>
 
       </form>
     </div>
   </section>
+  </body>
 
 
 </template>

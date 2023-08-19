@@ -45,9 +45,11 @@ import Task2 from "@/views/writing/Task2.vue";
 import Task3 from "@/views/writing/Task3.vue";
 import EssayChecker from "@/components/admin/EssayChecker.vue";
 import Test from "@/views/writing/test.vue";
+import TeacherLayout from "@/layouts/TeacherLayout.vue";
 
 
 const router = createRouter({
+    linkActiveClass: "active",
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
@@ -327,7 +329,11 @@ const router = createRouter({
             path: '/teacher_panel',
             name: 'teacher_panel',
             component: TeacherPanel,
-            meta: {requiresAdmin: true}
+            meta: {
+                requiresAdmin: true,
+                Layout: TeacherLayout
+
+            }
         },
         {
             path: '/test',

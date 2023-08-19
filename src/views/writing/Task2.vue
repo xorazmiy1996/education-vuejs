@@ -29,7 +29,7 @@ export default defineComponent({
       wordCount: 0,
       isErrorModalOpen: false,
 
-       minute: 0,
+      minute: 0,
       second: 0,
 
     }
@@ -37,17 +37,16 @@ export default defineComponent({
   computed: {
     ...mapGetters("topic", ['topic_task2']),
     countdownText() {
-        this.minute = Math.floor(this.endTime / 60); // daqiqa hisobi
+      this.minute = Math.floor(this.endTime / 60); // daqiqa hisobi
       this.second = this.endTime % 60; // qoldiq soniya hisobi
       if (this.endTime < 0) {
         clearInterval(this.countdownInterval);
         this.isDisable = true
-         this.minute = 0
+        this.minute = 0
         this.second = 0
         // return 'Vaqt tugadi';
 
       }
-
 
 
       // return `Vaqt tugashiga ${daqiqa}:${soniyalar} soniya qoldi`;
@@ -71,18 +70,18 @@ export default defineComponent({
           "type": 'task2'
         }]
       }
-        if (this.topic_text === '') {
-              this.openErrorAlertModal()
-            } else{
-           this.$store.dispatch("essay/createEssay", essay)
-          .then(response => {
+      if (this.topic_text === '') {
+        this.openErrorAlertModal()
+      } else {
+        this.$store.dispatch("essay/createEssay", essay)
+            .then(response => {
 
-            const data = {
-              id: response.data.id,
-              data: essay
-            }
+              const data = {
+                id: response.data.id,
+                data: essay
+              }
 
-                 this.$store.dispatch('essay/updateEssay', data)
+              this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
 
                     this.openSuccessModal()
@@ -94,8 +93,8 @@ export default defineComponent({
                   })
 
 
-          })
-        }
+            })
+      }
 
 
     },
@@ -133,37 +132,37 @@ export default defineComponent({
 </script>
 
 <template>
-      <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
-        <p>Matn kiriting</p>
-      </error-alert-modal>
-    <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
-      <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
-      <p>To'lovni quydagi hisobga yuboring:</p>
-      <p class="badge text-bg-primary">telegram: @Jasur</p>
-      <div class="row mb-3">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Nazarov Jasurbek </h5>
-              <div class="d-flex justify-content-between">
+  <error-alert-modal :is-open="isErrorModalOpen" title="Error" @close="closeErrorAlertModal">
+    <p>Matn kiriting</p>
+  </error-alert-modal>
+  <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
+    <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
+    <p>To'lovni quydagi hisobga yuboring:</p>
+    <p class="badge text-bg-primary">telegram: @Jasur</p>
+    <div class="row mb-3">
+      <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Nazarov Jasurbek </h5>
+            <div class="d-flex justify-content-between">
 
-                <p class="card-text ">86 00 45 78 92 92 45 25</p>
+              <p class="card-text ">86 00 45 78 92 92 45 25</p>
 
-                <p class="badge text-bg-primary">uzcard</p>
-
-              </div>
-
+              <p class="badge text-bg-primary">uzcard</p>
 
             </div>
+
+
           </div>
         </div>
       </div>
-      <p>To'lovni amalga oshirganigizdan so'ng shaaxsiy telefo'n raqamingiz va to'lov chekini bizning telegramimizga
-        yuboring</p>
+    </div>
+    <p>To'lovni amalga oshirganigizdan so'ng shaaxsiy telefo'n raqamingiz va to'lov chekini bizning telegramimizga
+      yuboring</p>
 
-    </success-alert-modal>
+  </success-alert-modal>
   <body class="u-body u-xl-mode" data-lang="ru">
-      <section class="u-align-center u-clearfix u-palette-2-base u-section-12" id="sec-4061">
+  <section class="u-align-center u-clearfix u-palette-2-base u-section-12" id="sec-4061">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
            data-target-date="Tue, 22 Aug 2023 05:21:09 GMT" data-for="everyone" data-direction="down"
@@ -173,14 +172,14 @@ export default defineComponent({
         <div class="u-countdown-wrapper u-spacing-20">
           <div class="u-countdown-item u-countdown-minutes u-spacing-10">
             <div class="u-countdown-counter u-countdown-counter-4">
-              <div class="u-countdown-number">{{countdownText}} {{minute}}</div>
+              <div class="u-countdown-number">{{ countdownText }} {{ minute }}</div>
             </div>
             <div class="u-countdown-label u-countdown-label-4">Minutes</div>
           </div>
           <div class="u-countdown-separator u-countdown-separator-4">:</div>
           <div class="u-countdown-item u-countdown-seconds u-spacing-10">
             <div class="u-countdown-counter u-countdown-counter-5">
-              <div class="u-countdown-number">{{second}}</div>
+              <div class="u-countdown-number">{{ second }}</div>
             </div>
             <div class="u-countdown-label u-countdown-label-5">Seconds</div>
           </div>
@@ -203,34 +202,36 @@ export default defineComponent({
         <span
             style="font-size: 1.5rem;">You should spend about 40 minutes on this task. Write at least 250 words.</span>
       </h2>
-      <a href="https://nicepage.best"
-         class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI: {{wordCount}}</a>
+      <a href="#"
+         class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI:
+        {{ wordCount }}</a>
     </div>
   </section>
-      <section class="u-clearfix u-palette-1-light-3 u-section-13" id="sec-1e30">
+  <section class="u-clearfix u-palette-1-light-3 u-section-13" id="sec-1e30">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
-        <div class="u-layout">
-          <div class="u-layout-row">
-            <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-              <div class="u-container-layout u-container-layout-1">
-                 <p v-if="topic_task2" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task2.title }}</p>
+      <form @submit.prevent="submitHandler">
+        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1">
+                  <p v-if="topic_task2" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task2.title }}</p>
 
+                </div>
               </div>
-            </div>
-            <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
-              <div class="u-container-layout u-container-layout-2">
-                <p class="u-custom-font u-font-ubuntu u-text u-text-2"> Ta'lim metodi sinchkovlik bilan
-                  ishlab chiqilgan bo'lib, ko'p yillik tajribadan o'tgan va repetitorlarimiz — kreativ va
-                  qiziqarli yondoshuvni sevuvchilar. Barcha darslar yuqori ruh va kayfiyat ostida o'tishi
-                  kafolatlangan. Mentorlarimiz sizni xayron qoldirishdan to'xtashmaydi!</p>
+              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
+              <textarea :disabled="isDisable" v-model="topic_text" type="text" :required="true" name="topic_text"
+                        @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <a href="https://nicepage.com/css-templates"
-         class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">YUBORISH</a>
+        <button
+            class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">
+          YUBORISH
+        </button>
+      </form>
+
     </div>
   </section>
   </body>

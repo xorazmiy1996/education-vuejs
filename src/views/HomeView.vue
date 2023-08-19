@@ -222,34 +222,7 @@
                           National Partner</h6>
                       </div>
                     </div>
-                    <div
-                        class="u-align-center u-container-style u-list-item u-palette-2-light-3 u-radius-30 u-repeater-item u-shape-round u-list-item-3">
-                      <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5">
-                        <div alt="" class="u-image u-image-circle u-image-3" data-image-width="309"
-                             data-image-height="309" data-animation-name="customAnimationIn"
-                             data-animation-duration="1500" data-animation-delay="250"></div>
-                        <h5 class="u-custom-font u-custom-item u-font-ubuntu u-text u-text-default u-text-7"
-                            data-animation-name="customAnimationIn" data-animation-duration="1500"
-                            data-animation-delay="500">Games Larson</h5>
-                        <h6 class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-8"
-                            data-animation-name="customAnimationIn" data-animation-duration="1250"
-                            data-animation-delay="500">Manager</h6>
-                      </div>
-                    </div>
-                    <div
-                        class="u-align-center u-container-style u-list-item u-palette-2-light-3 u-radius-30 u-repeater-item u-shape-round u-list-item-4">
-                      <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-6">
-                        <div alt="" class="u-image u-image-circle u-image-4" data-image-width="309"
-                             data-image-height="309" data-animation-name="customAnimationIn"
-                             data-animation-duration="1500" data-animation-delay="250"></div>
-                        <h5 class="u-custom-font u-custom-item u-font-ubuntu u-text u-text-default u-text-9"
-                            data-animation-name="customAnimationIn" data-animation-duration="1500"
-                            data-animation-delay="500">Marry Hudson</h5>
-                        <h6 class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-10"
-                            data-animation-name="customAnimationIn" data-animation-duration="1000">
-                          Manager</h6>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -259,64 +232,64 @@
       </div>
     </div>
   </section>
-  <section class="u-align-center u-clearfix u-section-5" id="carousel_d3fb">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-1"> Here are some of our clients</h2>
-      <div class="u-expanded-width u-list u-list-1">
-        <div class="u-repeater u-repeater-1">
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1"
-                   src="../assets/image/home_image/black-logo-1.png" alt="" data-image-width="151"
-                   data-image-height="158">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2"
-                   src="../assets/image/home_image/black-logo-2_150.png" alt="" data-image-width="116"
-                   data-image-height="150">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3"
-                   src="../assets/image/home_image/black-logo-3.png" alt="" data-image-width="168"
-                   data-image-height="156">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4"
-                   src="../assets/image/home_image/black-logo-4.png" alt="" data-image-width="134"
-                   data-image-height="154">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-5"
-                   src="../assets/image/home_image/black-logo-5.png" alt="" data-image-width="142"
-                   data-image-height="155">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-6">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-6"
-                   src="../assets/image/home_image/black-logo-6.png" alt="" data-image-width="131"
-                   data-image-height="171">
-            </div>
-          </div>
-          <div class="u-align-center u-container-style u-list-item u-repeater-item">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-7">
-              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-7"
-                   src="../assets/image/home_image/black-logo-8_150.png" alt="" data-image-width="148"
-                   data-image-height="150">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!--  <section class="u-align-center u-clearfix u-section-5" id="carousel_d3fb">-->
+<!--    <div class="u-clearfix u-sheet u-sheet-1">-->
+<!--      <h2 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-1"> Here are some of our clients</h2>-->
+<!--      <div class="u-expanded-width u-list u-list-1">-->
+<!--        <div class="u-repeater u-repeater-1">-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1"-->
+<!--                   src="../assets/image/home_image/black-logo-1.png" alt="" data-image-width="151"-->
+<!--                   data-image-height="158">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2"-->
+<!--                   src="../assets/image/home_image/black-logo-2_150.png" alt="" data-image-width="116"-->
+<!--                   data-image-height="150">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3"-->
+<!--                   src="../assets/image/home_image/black-logo-3.png" alt="" data-image-width="168"-->
+<!--                   data-image-height="156">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4"-->
+<!--                   src="../assets/image/home_image/black-logo-4.png" alt="" data-image-width="134"-->
+<!--                   data-image-height="154">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-5"-->
+<!--                   src="../assets/image/home_image/black-logo-5.png" alt="" data-image-width="142"-->
+<!--                   data-image-height="155">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-6">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-6"-->
+<!--                   src="../assets/image/home_image/black-logo-6.png" alt="" data-image-width="131"-->
+<!--                   data-image-height="171">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="u-align-center u-container-style u-list-item u-repeater-item">-->
+<!--            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-7">-->
+<!--              <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-7"-->
+<!--                   src="../assets/image/home_image/black-logo-8_150.png" alt="" data-image-width="148"-->
+<!--                   data-image-height="150">-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
   <section class="u-align-left u-clearfix u-container-align-center u-palette-2-base u-section-6" id="carousel_3cea">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-expanded-width u-list u-list-1">
