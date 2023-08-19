@@ -1,10 +1,9 @@
 <script>
-import {defineComponent} from 'vue'
 import Input from "@/ui-componets/Input.vue";
 import {mapGetters} from "vuex";
 
-export default defineComponent({
-  name: "StudentLayout",
+export default {
+  name: "TeacherLayout",
   components: {Input},
   computed: {
     ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
@@ -20,7 +19,7 @@ export default defineComponent({
       this.$refs.sidebar.classList.toggle('close')
     }
   }
-})
+}
 </script>
 
 <template>
@@ -76,8 +75,8 @@ export default defineComponent({
           <img src="@/assets/coding-lab.png" alt="logo">
         </span>
           <div class="text header-text">
-            <span class="name">{{ user.first_name }}</span>
-            <span class="profession">{{ user.last_name }}</span>
+            <span class="name">{{ user?.first_name }}</span>
+            <span class="profession">{{ user?.last_name }}</span>
 
           </div>
         </div>
@@ -94,19 +93,19 @@ export default defineComponent({
           </li>
           <ul class="menu-link">
             <li class="nav-link">
-              <router-link to="/student_panel">
+              <router-link to="#">
                 <i class="fa fa-home-alt icon"></i>
                 <span class="text nav-text">Dashboard</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="/my_course_student">
+              <router-link to="#">
                 <i class="fa fa-home-alt icon"></i>
                 <span class="text nav-text">My Course</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="/student_all_essay">
+              <router-link to="#">
                 <i class="fa fa-wallet icon"></i>
                 <span class="text nav-text">My Essay</span>
               </router-link>
@@ -179,7 +178,8 @@ section {
 }
 
 .sidebar.close .text {
-//opacity: 0; display: none;
+  //opacity: 0;
+  display: none;
 }
 
 

@@ -91,6 +91,7 @@ export default defineComponent({
       }
       this.$store.dispatch("auth/sendCodeEmail", data)
           .then(email => {
+
           })
           .catch(err => console.log("EmailError", err))
 

@@ -71,11 +71,11 @@
                     class="u-custom-font u-font-montserrat u-text u-text-9">Xisobot + Insho</h6></div>
               </div>
               <blockquote class="u-text u-text-default u-text-10">MOCK exam</blockquote>
-              <a href="https://nicepage.review"
+              <router-link to="/task_3"
                  class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-custom-item u-font-montserrat u-palette-2-base u-radius-8 u-text-white u-btn-3"
                  data-animation-name="" data-animation-duration="0" data-animation-delay="0"
                  data-animation-direction="">Kirish&nbsp;<span class="u-file-icon u-icon u-text-white"><img
-                  src="/src/assets/image/home_image/545682-e3dab56f.png" alt=""></span></a></div>
+                  src="/src/assets/image/home_image/545682-e3dab56f.png" alt=""></span></router-link></div>
           </div>
         </div>
       </div>

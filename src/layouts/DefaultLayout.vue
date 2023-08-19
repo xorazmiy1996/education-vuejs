@@ -17,30 +17,22 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav>
+  <nav >
     <div class="nav-icon">
-      <span v-if="!user"><img id="logo" src="@/assets/log/MainNoDescriptionYellow.png" alt=""></span>
-      <div v-if="user">
-        <span v-if="user?.type === 'admin' ">
-              <img style="margin: 10px;" id="logo" src="@/assets/image/logo/MainNoDescriptionYellow.png">
-
-        </span>
-        <span v-if="user?.type === 'student'">Student</span>
-        <span v-if="user?.type === 'teacher'">Teacher</span>
-      </div>
+      <span><img id="logo" src="@/assets/log/SVG/MainNoDescriptionCyan.svg" alt=""></span>
     </div>
 
     <div class="nav-router me-5">
-      <router-link to="/" class="a ctivate">Home</router-link>
-      <router-link to="/individual_or_group_speaking">Speaking</router-link>
-      <router-link to="/writing_task1_task2">Writing</router-link>
+      <router-link to="/">BOSH SAHIFA</router-link>
+      <router-link to="/individual_or_group_speaking" >GAPIRISH MAHORATI</router-link>
+      <router-link to="/writing_task1_task2" >YOZISH MAHORATI</router-link>
 
 
       <template v-if='isLoggedIn '>
         <div class="dropdown">
           <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
              aria-expanded="false">
-            <i class="fa fa-user-circle fa-3x" style="color: white"></i>
+            <i class="fa fa-user-circle fa-3x" style="color: #1A1A1A"></i>
           </a>
 
           <ul class="dropdown-menu">
@@ -59,14 +51,14 @@ export default defineComponent({
 
       </template>
       <template v-if='isAnonymous'>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/user_registration">Sign up</router-link>
+        <router-link to="/login" >Login</router-link>
+        <router-link to="/user_registration" >Sign up</router-link>
       </template>
 
 
     </div>
   </nav>
-  <div style="position: relative; top: 70px">
+  <div style="position: relative">
     <slot/>
   </div>
 </template>
@@ -74,15 +66,17 @@ export default defineComponent({
 <style scoped>
 
 nav {
-  position: fixed;
+  //position: fixed;
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: hsla(230, 40%, 50%, 1);
-  //background-color: white;
+  justify-content: space-around;
+  background-color: white;
   z-index: 10;
+  height: 84px;
   width: 100%;
+
+
 
 
 }
@@ -91,24 +85,26 @@ nav {
 nav .nav-router {
   display: flex;
   align-items: center;
-  height: 70px;
+  height: 84px;
 }
 
 nav .nav-router a {
   font-size: 18px;
-  font-weight: 700;
+  color: #1A1A1A;
   margin: 12px;
   padding: 10px;
-  color: white;
+
   text-decoration: none;
 }
 
 nav .nav-router a:hover {
-  color: #fd5f00;
+  background-color: #478ACD;
+  color: white;
 }
 
-.activate {
-  color: #fd5f00;
+.active {
+  background-color: #478ACD;
+  color: white !important;
 }
 
 nav .nav-icon span {
@@ -123,13 +119,14 @@ i:hover {
 }
 
 .dropdown-menu li a {
-  color: deepskyblue;
+  color: black;
 }
+
 
 #logo {
     width: 200px !important;
     height: 70px !important;
-  padding: 12px;
+
 }
 
 
