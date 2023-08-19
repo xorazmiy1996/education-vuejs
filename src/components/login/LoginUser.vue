@@ -27,7 +27,7 @@ export default defineComponent({
       const user = this.$store.state.auth.user
       return user
     },
-    ...mapGetters('auth', ['user','isLoading','errorsLogin']),
+    ...mapGetters('auth', ['user', 'isLoading', 'errorsLogin']),
 
   },
   methods: {
@@ -46,11 +46,11 @@ export default defineComponent({
 
               if (localStorage.getItem('userType') === 'admin') {
                 this.$router.push({name: "admin"})
-              }else if(localStorage.getItem('userType') === 'student') {
+              } else if (localStorage.getItem('userType') === 'student') {
                 this.$router.push({name: "student_panel"})
-              }else if(localStorage.getItem('userType') === 'teacher') {
+              } else if (localStorage.getItem('userType') === 'teacher') {
                 this.$router.push({name: "teacher_panel"})
-              }else {
+              } else {
                 this.$router.push({name: "unauthorized"})
               }
 
@@ -77,14 +77,14 @@ export default defineComponent({
   <section>
     <br>
     <br>
-        <Loader v-if="isLoading" class="offset-md-6"/>
+    <Loader v-if="isLoading" class="offset-md-6"/>
     <div class="container mt-5">
       <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
           <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">
             <div class="text-center">
-              <h5 class="card-header">Student Login</h5>
+              <h5 class="card-header">Login</h5>
             </div>
 
             <div class="card-body">
@@ -101,10 +101,13 @@ export default defineComponent({
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
-                    <ErrorMessage name="password"/>
+                  <ErrorMessage name="password"/>
                   <ValidationError v-if="validationError" :validationError="validationError.password"/>
                 </div>
-                  <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
+                <div class="mb-3 ">
+                <router-link to="/verify_code">Emailni tadiqlash</router-link>
+                </div>
+                <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
               </Form>
 
             </div>
@@ -115,7 +118,7 @@ export default defineComponent({
 
 
     </div>
-      <br>
+    <br>
     <br>
   </section>
 </template>
@@ -142,5 +145,12 @@ h5 {
 
 span {
   color: red;
+}
+form .mb-3 a{
+  color: #1A1A1A;
+}
+form .mb-3 a:hover{
+  color: #478ACD;
+  text-decoration: underline;
 }
 </style>

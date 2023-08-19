@@ -130,7 +130,7 @@ export default defineComponent({
         <div class="col-sm-8">
           <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">
             <div class="text-center">
-              <h5 class="card-header">Student Registration</h5>
+              <h5 class="card-header">Registration</h5>
             </div>
 
             <div class="card-body">
