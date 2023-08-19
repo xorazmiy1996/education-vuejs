@@ -44,6 +44,7 @@ import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
 import Task2 from "@/views/writing/Task2.vue";
 import Task3 from "@/views/writing/Task3.vue";
 import EssayChecker from "@/components/admin/EssayChecker.vue";
+import Test from "@/views/writing/test.vue";
 
 
 const router = createRouter({
@@ -262,7 +263,7 @@ const router = createRouter({
         {
             path: '/essay_checker',
             name: 'essay_checker',
-            component: EssayChecker ,
+            component: EssayChecker,
             meta: {
                 requiresAdmin: true,
                 Layout: AdminLayout
@@ -328,6 +329,16 @@ const router = createRouter({
             component: TeacherPanel,
             meta: {requiresAdmin: true}
         },
+        {
+            path: '/test',
+            name: 'test',
+            component: Test,
+            meta: {
+
+                Layout: DefaultLayout
+            }
+
+        },
 
 
     ]
@@ -336,9 +347,11 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
-    const isAuthenticated = store.state.auth.isLoggedIn; // ro'yxatdan o'tganmi yo'qmi?
+    const isAuthenticated = localStorage.getItem('token'); // ro'yxatdan o'tganmi yo'qmi?
+    console.log(isAuthenticated == null)
+    console.log(requiresAdmin)
 
-    if (requiresAdmin && !isAuthenticated) {
+    if (requiresAdmin && isAuthenticated == null) {
         next({name: 'login'});
     } else {
         next();

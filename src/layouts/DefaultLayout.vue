@@ -19,10 +19,10 @@ export default defineComponent({
 <template>
   <nav>
     <div class="nav-icon">
-      <span v-if="!user">Navbar</span>
+      <span v-if="!user"><img id="logo" src="@/assets/log/MainNoDescriptionYellow.png" alt=""></span>
       <div v-if="user">
         <span v-if="user?.type === 'admin' ">
-              <img style="margin: 10px;" id="logo" src="@/assets/image/logo/LogoSpeakUpWhite.png">
+              <img style="margin: 10px;" id="logo" src="@/assets/image/logo/MainNoDescriptionYellow.png">
 
         </span>
         <span v-if="user?.type === 'student'">Student</span>
@@ -80,6 +80,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   background-color: hsla(230, 40%, 50%, 1);
+  //background-color: white;
   z-index: 10;
   width: 100%;
 
@@ -126,8 +127,9 @@ i:hover {
 }
 
 #logo {
-  width: 240px;
-  height: 70px;
+    width: 200px !important;
+    height: 70px !important;
+  padding: 12px;
 }
 
 

@@ -1,144 +1,146 @@
-<!--<script src="@/nicepage.js"></script>-->
-
 <template>
   <body class="u-body u-xl-mode" data-lang="ru">
-  <header class="u-clearfix u-header u-header" id="sec-da3a">
+  <section class="u-clearfix u-image u-section-1" id="carousel_9dbe" data-image-width="1920" data-image-height="1058">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
-        <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-          <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-             href="#">
-            <svg class="u-svg-link" viewBox="0 0 24 24">
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use>
-            </svg>
-            <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <rect y="1" width="16" height="2"></rect>
-                <rect y="7" width="16" height="2"></rect>
-                <rect y="13" width="16" height="2"></rect>
-              </g>
-            </svg>
-          </a>
-        </div>
-        <div class="u-custom-menu u-nav-container">
-          <ul class="u-nav u-unstyled u-nav-1">
-            <li class="u-nav-item"><a
-                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                href="Asosiy-sahifa.html" style="padding: 22px 36px;">Asosiy sahifa</a>
-            </li>
-            <li class="u-nav-item"><a
-                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                href="Biz-haqimizda.html" style="padding: 22px 36px;">Biz haqimizda</a>
-            </li>
-            <li class="u-nav-item"><a
-                class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                href="Aloqa.html" style="padding: 22px 40px 22px 36px;">Aloqa</a>
-            </li>
-          </ul>
-        </div>
-        <div class="u-custom-menu u-nav-container-collapse">
-          <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-            <div class="u-inner-container-layout u-sidenav-overflow">
-              <div class="u-menu-close"></div>
-              <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Asosiy-sahifa.html">Asosiy
-                  sahifa</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Biz-haqimizda.html">Biz
-                  haqimizda</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Aloqa.html">Aloqa</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-        </div>
-      </nav>
-      <a href="https://nicepage.com/joomla-page-builder" class="u-image u-logo u-image-1" data-image-width="5801"
-         data-image-height="1701">
-        <img src="@/views/images/LogoSpeakUpDD.png" class="u-logo-image u-logo-image-1">
-      </a>
-    </div>
-  </header>
-  <section class="u-clearfix u-image u-section-1" id="carousel_06c6" data-image-width="1920" data-image-height="1058">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1500" data-image-height="1000"></div>
-      <h1 class="u-align-left u-text u-text-body-alt-color u-text-1"> Yangicha English tilini o'zingiz uchun
-        moslashtiring!</h1>
-      <p class="u-align-justify u-text u-text-body-alt-color u-text-2" data-animation-name=""
-         data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Online ta'lim turi ko'plab
-        insonlar xizmatida va millionlab insonlar tanlovida, biz SPEAKUP jamosi yuqoridagi xususiyatlarni jamlab
-        sizga eng yaxshi Englishni o'zingiz uchun qulay va to'g'ri vaqtda o'rganish imkoni taklif qilamiz. </p>
+      <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1920" data-image-height="1080"></div>
+      <h1 class="u-align-left u-text u-text-body-alt-color u-text-1"> Ingliz tilini o'zingiz uchun moslashtiring!</h1>
+      <span class="u-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 58 58"
+                                         style=""><use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                       xlink:href="#svg-66cb"></use></svg><svg class="u-svg-content"
+                                                                                               viewBox="0 0 58 58"
+                                                                                               x="0px" y="0px"
+                                                                                               id="svg-66cb"
+                                                                                               style="enable-background:new 0 0 58 58;"><circle
+          style="fill:currentColor;" cx="29" cy="29" r="29"></circle><g><polygon style="fill:#FFFFFF;"
+                                                                                 points="44,29 22,44 22,29.273 22,14 	"></polygon><path
+          style="fill:#FFFFFF;" d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14
+		c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826
+		l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"></path>
+</g></svg></span>
+      <h4 class="u-align-justify u-custom-font u-text u-text-white u-text-2" data-animation-name=""
+          data-animation-duration="0" data-animation-delay="0" data-animation-direction=""> Yangicha English tilini
+        o'zingiz uchun moslashtiring! Online ta'lim turi ko'plab insonlar xizmatida va millionlab insonlar
+        tanlovida, biz SPEAKUP jamosi yuqoridagi xususiyatlarni jamlab sizga eng yaxshi Englishni o'zingiz uchun
+        qulay va to'g'ri vaqtda o'rganish imkoni taklif qilamiz. </h4>
       <a href="https://nicepage.dev"
          class="u-active-white u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-radius-15 u-text-active-palette-3-base u-text-hover-palette-3-base u-white u-btn-1"
-         data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">biz
-        blan boglanish</a>
+         data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">learn
+        more</a>
     </div>
   </section>
-  <section class="u-clearfix u-palette-2-light-3 u-section-2" id="carousel_69f5">
+  <section class="u-clearfix u-palette-2-light-3 u-section-2" id="carousel_479b">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-align-center u-custom-font u-text u-text-default u-text-palette-4-dark-2 u-text-1">Прокачайте свой
-        английский по ниже указанными программам</h2>
+      <h2 class="u-align-center u-custom-font u-text u-text-custom-color-3 u-text-default u-text-1">Quyidagi dasturlar
+        yordamida Ingiliz tilini kuchaytiring!&nbsp;</h2>
       <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
           <div
-              class="u-container-style u-custom-color-1 u-custom-item u-list-item u-radius-30 u-repeater-item u-shape-round u-list-item-1">
+              class="u-container-style u-custom-color-3 u-custom-item u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-1">
             <div class="u-container-layout u-similar-container u-container-layout-1">
-              <h5 class="u-align-left u-text u-text-white u-text-2"> SPEAKING</h5>
-              <ul class="u-align-left u-text u-text-3">
-                <li> IELTS индивидуально предназначенные занятие</li>
-                <li>IELTS группавого назначение</li>
-                <li>IELTS мок экзамены</li>
-                <li>Уроки под ваши индивидуальные цели</li>
-                <li>Выберите понравившегося репетитора — носителя языка</li>
+              <h4 class="u-custom-font u-text u-text-2">GAPIRISH MAHORATI</h4>
+              <ul class="u-custom-font u-custom-list u-text u-text-3">
                 <li>
-                  <span style="font-weight: 700;"></span>30- или 60-минутные групповые уроки с 1–2 другими
-                  учащимися<br>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  Yakka yondashuv darslari
                 </li>
-                <li>Отрабатывайте с другими учащимися и репетитором&nbsp;— носителем языка<br>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  Guruh yondashuv darslari
+                </li>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  Ichki imtihonlar
+                </li>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  30 - 60 daqiqali online darslar
                 </li>
               </ul>
-              <router-link to="/writing_task1_task2"
-                 class="u-active-white u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-radius-15 u-text-active-palette-3-base u-text-hover-palette-3-base u-white u-btn-1"
-                 data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                 data-animation-direction="">qo'shilish</router-link>
+              <a href="https://nicepage.com/website-builder"
+                 class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-1">Kirish</a>
             </div>
           </div>
           <div
-              class="u-container-style u-custom-item u-list-item u-palette-4-dark-2 u-radius-30 u-repeater-item u-shape-round u-list-item-2">
+              class="u-container-style u-custom-color-2 u-custom-item u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-2">
             <div class="u-container-layout u-similar-container u-container-layout-2">
-              <h5 class="u-align-left u-text u-text-white u-text-4"> WRITING</h5>
-              <ul class="u-align-left u-text u-text-5">
-                <li>IELTS академик Task 1</li>
-                <li>IELTS академик Task 2</li>
-                <li>IELTS академик MOCK экзамен</li>
-                <li>Имитирующие упражнение реальных тестов</li>
-                <li>Горантированная высокоэффективность при проверке</li>
-                <li>Работаем по принципу перепроверка не один не может оценивать работу одному&nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+              <h4 class="u-custom-font u-text u-text-4">YOZISH MAHORATI</h4>
+              <ul class="u-custom-font u-custom-list u-text u-text-5">
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  IELTS akademik TASK 1
+                </li>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  IELTS akademik TASK 2
+                </li>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  IELTS akademik ichki imtihonlar
+                </li>
+                <li>
+                  <div class="u-list-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
+                         id="svg-5e12"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
+                      <path
+                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
+                  </div>
+                  Haqiqiy test muhitida ishlash
                 </li>
               </ul>
-              <a href="https://nicepage.dev"
-                 class="u-active-white u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-radius-15 u-text-active-palette-3-base u-text-hover-palette-3-base u-white u-btn-2"
-                 data-animation-name="" data-animation-duration="0" data-animation-delay="0"
-                 data-animation-direction="">qo'shilish</a>
+              <router-link to="/writing_task1_task2"
+                           class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-2"
+                           target="_blank">Kirish
+              </router-link>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="u-clearfix u-palette-2-base u-section-3" id="carousel_efd5">
+  <section class="u-clearfix u-palette-2-base u-section-3" id="carousel_06d0">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
@@ -147,19 +149,19 @@
                 class="u-container-align-center-sm u-container-align-center-xs u-container-style u-layout-cell u-shape-rectangle u-size-40 u-layout-cell-1">
               <div
                   class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-container-layout-1">
-                <h2 class="u-align-center-sm u-align-center-xs u-text u-text-default u-text-1">
-                  Moslashuvchan &amp; ishonchli dastur</h2>
-                <p class="u-align-center-sm u-align-center-xs u-text u-text-default u-text-2"> English tili
+                <h2 class="u-align-center-sm u-align-center-xs u-text u-text-default u-text-1">Moslashuvchan
+                  &amp; ishonchli dastur</h2>
+                <p class="u-align-center-sm u-align-center-xs u-text u-text-default u-text-2">Ingliz tili
                   sohasinda 5 yillik faoliyat va minglab talabalar tanlovida bo'lgan SPEAKUP jamosi,
                   onlayn rejimida O'zbekistonda birinchilardan bo'lib Xorazm vohasidagi yakka xisoblangan
-                  English tilini eng qulay tarzda o'zlashtirish uslubuni taklif qiladi, siz xohlagan
+                  ​Ingliz tilini eng qulay tarzda o'zlashtirish uslubuni taklif qiladi, siz xohlagan
                   vaqtda va xohlagan joyda English olamida bolishingiz mumkin.</p>
               </div>
             </div>
             <div class="u-container-style u-layout-cell u-shape-rectangle u-size-20 u-layout-cell-2">
-              <div class="u-container-layout u-container-layout-2">
+              <div class="u-container-layout u-valign-middle u-container-layout-2">
                 <img class="u-image u-image-contain u-image-default u-image-1"
-                     src="@/views/images/LogoSpeakUpWhite.png" alt="" data-image-width="5801"
+                     src="../assets/image/home_image/LogoSpeakUpWhite.png" alt="" data-image-width="5801"
                      data-image-height="1701">
               </div>
             </div>
@@ -168,20 +170,20 @@
       </div>
     </div>
   </section>
-  <section class="u-align-center u-clearfix u-section-4" id="carousel_950b">
+  <section class="u-align-center u-clearfix u-container-align-center u-section-4" id="carousel_5853">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
+      <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
           <div class="u-layout-row">
             <div class="u-container-align-center-sm u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-              <div class="u-container-layout u-container-layout-1">
-                <h2 class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-custom-font u-font-ubuntu u-text u-text-1"
+              <div class="u-container-layout u-valign-top u-container-layout-1">
+                <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"
                     data-animation-name="customAnimationIn" data-animation-duration="1500"
-                    data-animation-delay="500"> Biz katta e'tiborni o'zgarishga va o'zgarishni
+                    data-animation-delay="500"> Biz katta e'tiborni natijani o'zgarishiga va o'zgarishni
                   shakillantirishga qaratamiz!</h2>
-                <p class="u-align-center-sm u-align-center-xs u-align-justify-lg u-align-justify-md u-align-justify-xl u-text u-text-2"
+                <p class="u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-text u-text-2"
                    data-animation-name="customAnimationIn" data-animation-duration="1500"
-                   data-animation-delay="500"> Ta'lim metodi sinchkovlik bilan ishlab chiqilgan bo'lib, ko'p
+                   data-animation-delay="500">Ta'lim metodi sinchkovlik bilan ishlab chiqilgan bo'lib, ko'p
                   yillik tajribadan o'tgan va repetitorlarimiz — kreativ va qiziqarli yondoshuvni
                   sevuvchilar. Barcha darslar yuqori ruh va kayfiyat ostida o'tishi kafolatlangan.
                   Mentorlarimiz sizni xayron qoldirishdan to'xtashmaydi!</p>
@@ -189,8 +191,8 @@
             </div>
             <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
               <div
-                  class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
-                <div class="u-list u-list-1">
+                  class="u-container-layout u-valign-bottom-xl u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
+                <div class="u-expanded-width u-list u-list-1">
                   <div class="u-repeater u-repeater-1">
                     <div
                         class="u-align-center u-container-style u-list-item u-palette-2-light-3 u-radius-30 u-repeater-item u-shape-round u-list-item-1">
@@ -257,73 +259,7 @@
       </div>
     </div>
   </section>
-  <section class="u-align-left u-clearfix u-image u-section-5" id="carousel_81d0" data-image-width="1920"
-           data-image-height="1058">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-body-alt-color u-text-1">После зовершении
-        наших курсов</h2>
-      <div class="u-list u-list-1">
-        <div class="u-repeater u-repeater-1">
-          <div
-              class="u-align-justify u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-1">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
-              <div class="u-align-center u-container-style u-expanded-width u-group u-palette-2-base u-group-1">
-                <div class="u-container-layout u-container-layout-2">
-                  <h6 class="u-custom-font u-font-montserrat u-text u-text-2"></h6>
-                  <img class="u-image u-image-contain u-image-default u-image-1"
-                       src="@/views/images/LogoSpeakUpWhite.png" alt="" data-image-width="5801"
-                       data-image-height="1701">
-                </div>
-              </div>
-              <ul class="u-custom-font u-custom-list u-text u-text-3">
-                <li>
-                  <div class="u-list-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
-                         id="svg-e84a"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
-                      <path
-                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
-                  </div>
-                  Предоставляем локально действующий сертификат.
-                </li>
-                <li>
-                  <div class="u-list-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
-                         id="svg-e84a"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
-                      <path
-                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
-                  </div>
-                  Обеспечиваем высоковостребованные професии на рынке труда по сотрудничеству.<br>
-                </li>
-                <li>
-                  <div class="u-list-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
-                         id="svg-e84a"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
-                      <path
-                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
-                  </div>
-                  Возможность сотрудничать с нашим компанием.
-                </li>
-                <li>
-                  <div class="u-list-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                         version="1.1" xml:space="preserve" class="u-svg-content" viewBox="0 0 24 24"
-                         id="svg-e84a"><path d="m23.526 5.101c-.04-.399-.231-.759-.541-1.014l-2.318-1.904c-.639-.524-1.585-.432-2.111.207l-9.745 11.86-3.916-3.355c-.628-.536-1.576-.465-2.115.163l-1.952 2.278c-.261.304-.388.691-.357 1.091s.215.764.52 1.024l7.403 6.346c.275.235.616.361.974.361.044 0 .089-.002.134-.006.405-.036.77-.229 1.028-.542l12.662-15.411c.255-.309.373-.7.334-1.098z" fill="#2196f3"></path>
-                      <path
-                          d="m.638 13.173c-.304.354-.452.807-.417 1.273.036.466.251.891.606 1.194l7.403 6.346v.001c.321.273.719.421 1.136.421.052 0 .104-.003.156-.007.472-.042.898-.266 1.199-.632l12.665-15.411c.613-.746.504-1.852-.242-2.464l-2.318-1.904c-.744-.612-1.848-.504-2.463.24l-9.584 11.665-3.722-3.189c-.732-.627-1.839-.543-2.467.189zm3.444-1.329 4.303 3.688c.153.131.348.196.554.178.201-.018.386-.115.514-.271l10.07-12.255c.087-.107.246-.123.352-.035l2.318 1.904c.107.088.123.246.035.353l-12.664 15.41c-.058.07-.132.087-.171.09-.039.006-.115.001-.185-.059l-7.404-6.346c-.068-.059-.083-.132-.086-.171-.003-.038.001-.113.06-.182l1.952-2.278c.089-.102.247-.116.352-.026z"></path></svg>
-                  </div>
-                  Пример элемента 3
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="u-align-center u-clearfix u-section-6" id="carousel_82cb">
+  <section class="u-align-center u-clearfix u-section-5" id="carousel_d3fb">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-1"> Here are some of our clients</h2>
       <div class="u-expanded-width u-list u-list-1">
@@ -331,50 +267,57 @@
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1"
-                   src="@/views/images/black-logo-1.png" alt="" data-image-width="151" data-image-height="158">
+                   src="../assets/image/home_image/black-logo-1.png" alt="" data-image-width="151"
+                   data-image-height="158">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2"
-                   src="@/views/images/black-logo-2_150.png" alt="" data-image-width="116" data-image-height="150">
+                   src="../assets/image/home_image/black-logo-2_150.png" alt="" data-image-width="116"
+                   data-image-height="150">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3"
-                   src="@/views/images/black-logo-3.png" alt="" data-image-width="168" data-image-height="156">
+                   src="../assets/image/home_image/black-logo-3.png" alt="" data-image-width="168"
+                   data-image-height="156">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4"
-                   src="@/views/images/black-logo-4.png" alt="" data-image-width="134" data-image-height="154">
+                   src="../assets/image/home_image/black-logo-4.png" alt="" data-image-width="134"
+                   data-image-height="154">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-5">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-5"
-                   src="@/views/images/black-logo-5.png" alt="" data-image-width="142" data-image-height="155">
+                   src="../assets/image/home_image/black-logo-5.png" alt="" data-image-width="142"
+                   data-image-height="155">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-6">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-6"
-                   src="@/views/images/black-logo-6.png" alt="" data-image-width="131" data-image-height="171">
+                   src="../assets/image/home_image/black-logo-6.png" alt="" data-image-width="131"
+                   data-image-height="171">
             </div>
           </div>
           <div class="u-align-center u-container-style u-list-item u-repeater-item">
             <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-7">
               <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-7"
-                   src="@/views/images/black-logo-8_150.png" alt="" data-image-width="148" data-image-height="150">
+                   src="../assets/image/home_image/black-logo-8_150.png" alt="" data-image-width="148"
+                   data-image-height="150">
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="u-align-left u-clearfix u-container-align-center u-palette-2-base u-section-7" id="carousel_9395">
+  <section class="u-align-left u-clearfix u-container-align-center u-palette-2-base u-section-6" id="carousel_3cea">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-expanded-width u-list u-list-1">
         <div class="u-repeater u-repeater-1">
@@ -382,10 +325,10 @@
               class="u-align-left u-container-align-center u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-1">
             <div class="u-container-layout u-similar-container u-container-layout-1"><span
                 class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-icon-1"><img
-                src="@/views/images/1828743-b773816f.png" alt=""></span>
-              <h5 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-1">Jasur Jasurov</h5>
-              <p class="u-align-center u-text u-text-2">O'z ingliz tili bilimimni, ingliz tilini mukammal
-                sozlashuvchilari bilan yuqori darajagacha chiqarishga muofiq boldim.</p>
+                src="../assets/image/home_image/1828743-b773816f.png" alt=""></span>
+              <h5 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-1">Nick Parse</h5>
+              <p class="u-align-center u-text u-text-2">Sample text. Click to select the text box. Click again
+                or double click to start editing the text.</p>
               <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1500"
                    data-image-height="1000"></div>
             </div>
@@ -394,10 +337,10 @@
               class="u-align-left u-container-align-center u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
             <div class="u-container-layout u-similar-container u-container-layout-2"><span
                 class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-icon-2"><img
-                src="@/views/images/1828743-b773816f.png" alt=""></span>
-              <h5 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-3">Nazarbek Nazarov</h5>
-              <p class="u-align-center u-text u-text-4">Ravon ingliz tilini xavas qilar edim va shu talim
-                tizimi orqali kerakli darajagacha tajribamni oshirdim.</p>
+                src="../assets/image/home_image/1828743-b773816f.png" alt=""></span>
+              <h5 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-3">Nina Scavo</h5>
+              <p class="u-align-center u-text u-text-4">Sample text. Click to select the text box. Click again
+                or double click to start editing the text.</p>
               <div class="u-image u-image-circle u-image-2" alt="" data-image-width="1500"
                    data-image-height="1000"></div>
             </div>
@@ -406,37 +349,32 @@
       </div>
     </div>
   </section>
-  <section class="u-align-center u-clearfix u-container-align-center u-palette-4-base u-section-8" id="carousel_446e">
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+  <section class="u-align-center u-clearfix u-palette-2-light-3 u-section-7" id="carousel_2263">
+    <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-expanded-width u-list u-list-1">
         <div class="u-repeater u-repeater-1">
           <div
               class="u-align-center u-container-align-center u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-1">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-1"><span
-                class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-text-white u-icon-1"><img
-                src="@/views/images/233146-f0e08551.png" alt=""></span>
-              <h4 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-1">About Club</h4>
-              <p class="u-align-center u-text u-text-2">Running Guide<br>Workouts<br>
+            <div
+                class="u-container-layout u-similar-container u-valign-middle-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-1">
+                        <span
+                            class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-text-white u-icon-1"><img
+                            src="../assets/image/home_image/ce131fa2-9b26-4c33-a9f7-aff3357242a7-39fea02a.png"
+                            alt=""></span>
+              <h4 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-1"> Phone (Landline)</h4>
+              <p class="u-align-center u-text u-text-2">+ 912 3 567 8987<br>+ 912 5 252 3336
               </p>
             </div>
           </div>
           <div
               class="u-align-center u-container-align-center u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-2"><span
-                class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-text-white u-icon-2"><img
-                src="@/views/images/ce131fa2-9b26-4c33-a9f7-aff3357242a7-39fea02a.png" alt=""></span>
-              <h4 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-3"> Phone (Landline)</h4>
-              <p class="u-align-center u-text u-text-4">+ 912 3 567 8987<br>+ 912 5 252 3336
-              </p>
-            </div>
-          </div>
-          <div
-              class="u-align-center u-container-align-center u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-3">
-            <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3"><span
-                class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-text-white u-icon-3"><img
-                src="@/views/images/3179068-30b3e966.png" alt=""></span>
-              <h4 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-5"> Our Office Location</h4>
-              <p class="u-align-center u-text u-text-6"> The Interior Design Studio Company<br>The Courtyard,
+            <div
+                class="u-container-layout u-similar-container u-valign-middle-xl u-valign-top-lg u-valign-top-md u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                        <span
+                            class="u-align-center u-file-icon u-icon u-icon-circle u-palette-4-base u-text-white u-icon-2"><img
+                            src="../assets/image/home_image/3179068-30b3e966.png" alt=""></span>
+              <h4 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-3"> Our Office Location</h4>
+              <p class="u-align-center u-text u-text-4"> The Interior Design Studio Company<br>The Courtyard,
                 ​Al Quoz 1,​ Colorado, ​ USA
               </p>
             </div>
@@ -445,7 +383,7 @@
       </div>
     </div>
   </section>
-  <section class="u-clearfix u-white u-section-9" id="carousel_72af">
+  <section class="u-clearfix u-white u-section-8" id="carousel_d79f">
     <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
       <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
@@ -455,7 +393,8 @@
               <div
                   class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xl u-valign-top-xs u-container-layout-1">
                 <img class="u-image u-image-circle u-image-1"
-                     src="@/views/images/5fdfa8af-fbd4-40ce-aa0b-03fbc80c2a7e.jpg" alt="" data-image-width="1500"
+                     src="../assets/image/home_image/5fdfa8af-fbd4-40ce-aa0b-03fbc80c2a7e.jpg" alt=""
+                     data-image-width="1500"
                      data-image-height="1000"><span
                   class="u-icon u-icon-circle u-palette-2-base u-text-white u-icon-1"><svg
                   class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 60 60" style=""><use
@@ -478,8 +417,8 @@
               </div>
             </div>
             <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-2">
-              <div class="u-container-layout u-valign-middle u-container-layout-2">
-                <div class="u-align-left u-form u-form-1">
+              <div class="u-container-layout u-container-layout-2">
+                <div class="u-align-left u-expanded-width u-form u-form-1">
                   <form action="https://forms.nicepagesrv.com/v2/form/process"
                         class="u-clearfix u-form-spacing-30 u-form-vertical u-inner-form"
                         style="padding: 0px;" source="email" name="form">
@@ -523,7 +462,7 @@
                     </div>
                     <input type="hidden" value="" name="recaptchaResponse">
                     <input type="hidden" name="formServices"
-                           value="e9193710-2510-0d8e-b9aa-e68f294eee83">
+                           value="f03130c9-710a-60da-57fe-f8ad7c5b4c8e">
                   </form>
                 </div>
               </div>
@@ -535,12 +474,9 @@
 
 
   </section>
-  <section class="u-clearfix u-section-10" id="sec-79fa">
-    <div class="u-clearfix u-sheet u-sheet-1"></div>
-  </section>
 
 
-  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-cdb9">
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-872d">
     <div class="u-clearfix u-sheet u-sheet-1">
       <p class="u-small-text u-text u-text-variant u-text-1">Пример текста. Кликните, чтобы выбрать элемент
         "Текст".</p>
@@ -559,7 +495,8 @@
   </section>
 
   </body>
-</template>
 
-<style src="@/assets/nicepage.css"></style>
-<style src="@/assets/homeView.css"></style>
+</template>
+<!--<style src="@/assets/nicepage.css"></style>-->
+<!--<style src="@/assets/homeView.css"></style>-->
+

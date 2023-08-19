@@ -46,16 +46,12 @@ export default defineComponent({
 
               if (localStorage.getItem('userType') === 'admin') {
                 this.$router.push({name: "admin"})
-                console.log('1')
               }else if(localStorage.getItem('userType') === 'student') {
                 this.$router.push({name: "student_panel"})
-                 console.log('2')
               }else if(localStorage.getItem('userType') === 'teacher') {
                 this.$router.push({name: "teacher_panel"})
-                 console.log('3')
               }else {
                 this.$router.push({name: "unauthorized"})
-                 console.log('4')
               }
 
 
