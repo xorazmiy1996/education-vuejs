@@ -7,149 +7,104 @@ export default defineComponent({
 </script>
 
 <template>
-  <section>
-    <br>
-    <br>
-
-    <div class="container text-center">
-      <h1>Speaking Group cours</h1>
-    </div>
-    <br>
-    <div class="d-flex justify-content-center mt-5">
-      <div class="card  shadow p-3 mb-5 bg-body-tertiary rounded  mb-3" style="max-width: 800px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="../../assets/image/home_image/course_image1.png" class="img-fluid p-2 rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Test</h5>
-              <p class="card-text">Test topshirish orqali o'zingizga mos kurslarni tanlang. Bu testda sizga 10 ta savol berliladi. Siz to'g'ri topgan savollarga qarab veb saytimiz sizga group kurslarni aftomatik ravishda taklif etadi.</p>
-              <router-link to="/test_group_speaking" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link>
+  <body class="u-body u-xl-mode" data-lang="ru">
+     <section class="u-align-left u-clearfix u-palette-2-base u-section-2" id="carousel_9395">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h3 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-1">IELTS</h3>
+      <div class="u-list u-list-1">
+        <div class="u-repeater u-repeater-1">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-1">
+            <div class="u-container-layout u-similar-container u-container-layout-1"><span
+                class="u-file-icon u-icon u-icon-1"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-2">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-1">Kirish</a>
             </div>
           </div>
         </div>
       </div>
-
-
-    </div>
-
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-4 ">
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
+      <div class="u-list u-list-2">
+        <div class="u-repeater u-repeater-2">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
+            <div class="u-container-layout u-similar-container u-container-layout-2"><span
+                class="u-file-icon u-icon u-icon-2"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-3">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-2">Kirish</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Beginner-A1</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
+      </div>
+      <div class="u-list u-list-3">
+        <div class="u-repeater u-repeater-3">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-3">
+            <div class="u-container-layout u-similar-container u-container-layout-3"><span
+                class="u-file-icon u-icon u-icon-3"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-4">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-3">Kirish</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Elementary-A2</li>
-            <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
+      </div>
+      <div class="u-list u-list-4">
+        <div class="u-repeater u-repeater-4">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-4">
+            <div class="u-container-layout u-similar-container u-container-layout-4"><span
+                class="u-file-icon u-icon u-icon-4"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-5">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-4">Kirish</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Intermediate-B1</li>
-             <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
+      </div>
+      <div class="u-list u-list-5">
+        <div class="u-repeater u-repeater-5">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-5">
+            <div class="u-container-layout u-similar-container u-container-layout-5"><span
+                class="u-file-icon u-icon u-icon-5"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-6">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-5">Kirish</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Upper-Intermediate-B2</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
+      </div>
+      <div class="u-list u-list-6">
+        <div class="u-repeater u-repeater-6">
+          <div
+              class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-6">
+            <div class="u-container-layout u-similar-container u-container-layout-6"><span
+                class="u-file-icon u-icon u-icon-6"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
+              <blockquote class="u-custom-font u-font-ubuntu u-text u-text-7">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS
+                ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
+              </blockquote>
+              <a href="https://nicepage.com/website-mockup"
+                 class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-6">Kirish</a>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Advanced-C1</li>
-             <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-outline-danger">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
-            <img id="youtube_image" src="../../assets/image/home_image/video_image.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Description</h5>
-
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Level: Proficient-C2</li>
-              <li class="list-group-item text-center"><router-link to="/student_registration" class="btn btn-primary">Begin <i
-                  class="fa fa-arrow-right-long"></i></router-link></li>
-            </ul>
-          </div>
-        </div>
-
-
-
       </div>
     </div>
   </section>
+  </body>
+
 </template>
 
-<style scoped>
-.container h1 {
-  font-weight: 700;
-  font-size: 40px;
-  color: dodgerblue;
-
-}
-h5{
-  color: dodgerblue;
-}
-p{
-  color: dodgerblue;
-}
-li{
-  color: dodgerblue;
-  background-color: #f8f9fa;
-}
-</style>
+<style scoped src="@/assets/speak/Asosiy-sahifa.css"></style>

@@ -195,7 +195,10 @@ section {
 }
 
 .sidebar.close .text {
-  opacity: 0;
+  //opacity: 0;
+  display: none;
+
+
 }
 
 
