@@ -30,8 +30,7 @@
               </blockquote>
               <router-link to="/task_1"
                  class="u-border-none u-btn u-btn-round u-button-style u-custom-font u-custom-item u-font-montserrat u-palette-2-base u-radius-8 u-text-body-alt-color u-btn-1"
-                 data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""
-                 target="_blank">Kirish&nbsp;<span class="u-file-icon u-icon u-text-white"><img
+                 data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Kirish&nbsp;<span class="u-file-icon u-icon u-text-white"><img
                   src="/src/assets/image/home_image/545682-e3dab56f.png" alt=""></span></router-link></div>
           </div>
         </div>
@@ -53,8 +52,7 @@
               </blockquote>
               <router-link to="/task_2" style="margin-top: 50px"
                  class="u-border-none  u-btn u-btn-round u-button-style u-custom-font u-custom-item u-font-montserrat u-palette-2-base u-radius-8 u-text-white u-btn-2"
-                 data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction=""
-                 target="_blank">Kirish&nbsp;<span class="u-file-icon u-icon u-text-white"><img
+                 data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Kirish&nbsp;<span class="u-file-icon u-icon u-text-white"><img
                   src="/src/assets/image/home_image/545682-e3dab56f.png" alt=""></span></router-link></div>
           </div>
         </div>

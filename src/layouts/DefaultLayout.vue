@@ -19,13 +19,13 @@ export default defineComponent({
 <template>
   <nav >
     <div class="nav-icon">
-      <span><img id="logo" src="@/assets/log/SVG/MainNoDescriptionCyan.svg" alt=""></span>
+      <span><img id="logo" src="@/assets/log/SVG/MainNoDescriptionRed.svg" alt=""></span>
     </div>
 
     <div class="nav-router me-5">
-      <router-link to="/">BOSH SAHIFA</router-link>
-      <router-link to="/individual_or_group_speaking" >GAPIRISH MAHORATI</router-link>
-      <router-link to="/writing_task1_task2" >YOZISH MAHORATI</router-link>
+      <router-link to="/">Bosh sahifa</router-link>
+      <router-link to="/individual_or_group_speaking" >Gapirish mahorati</router-link>
+      <router-link to="/writing_task1_task2" >Yozish mahorati</router-link>
 
 
       <template v-if='isLoggedIn '>
@@ -70,7 +70,7 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: white;
   z-index: 10;
   height: 84px;
@@ -93,6 +93,8 @@ nav .nav-router a {
   color: #1A1A1A;
   margin: 12px;
   padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
 
   text-decoration: none;
 }
