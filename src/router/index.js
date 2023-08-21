@@ -57,7 +57,8 @@ const router = createRouter({
             name: 'home',
             component: HomeVue,
             meta: {
-                Layout: DefaultLayout
+                Layout: DefaultLayout,
+                skip: true
             }
         },
         {
@@ -174,7 +175,8 @@ const router = createRouter({
             component: Task1,
             meta: {
                 requiresAdmin: true,
-                Layout: DefaultLayout
+                Layout: DefaultLayout,
+                accessTokenCheck: true,
             }
         },
         {
@@ -353,17 +355,20 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+    let skip = false;
+    to.matched.some(record => {
+        skip = record.meta.skip;
+    });
     const isAuthenticated = localStorage.getItem('token'); // ro'yxatdan o'tganmi yo'qmi?
-    console.log(isAuthenticated == null)
-    console.log(requiresAdmin)
-
+    if(skip == true){
+        next();
+        return;
+    }
     if (requiresAdmin && isAuthenticated == null) {
         next({name: 'login'});
     } else {
         next();
     }
-
-
 });
 
 export default router

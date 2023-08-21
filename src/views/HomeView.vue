@@ -86,7 +86,7 @@
           </div>
           <div
               class="u-container-style u-custom-color-2 u-custom-item u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-2">
-            <div class="u-container-layout u-similar-container u-container-layout-2">
+            <div class="u-container-layout u-s/imilar-container u-container-layout-2">
               <h4 class="u-custom-font u-text u-text-4">YOZISH MAHORATI</h4>
               <ul class="u-custom-font u-custom-list u-text u-text-5">
                 <li>

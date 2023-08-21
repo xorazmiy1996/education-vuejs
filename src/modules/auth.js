@@ -136,6 +136,8 @@ const actions = {
                         .then(response => {
                     context.commit("loginSuccess")
                     localStorage.setItem("token", response.data.access)
+                    localStorage.setItem("refresh", response.data.refresh)
+
                     resolve(response.data)
 
                     })
@@ -176,20 +178,27 @@ const actions = {
     },
     getUser(context) {
         return new Promise((resolve) => {
-            context.commit('currentUserStart')
-            AuthService.getUser().then(response => {
-                context.commit("currentUserSuccess", response.data)
-                localStorage.setItem('userType',response.data.type)
-                resolve(response.data)
-
-            }).catch(() => {
+            const isAuthenticated = localStorage.getItem('token'); // ro'yxatdan o'tganmi yo'qmi?
+            console.log(isAuthenticated, 123);
+            if(!isAuthenticated) {
                 context.commit('currentUserFailure')
-            })
+            } else {
+                context.commit('currentUserStart')
+                AuthService.getUser().then(response => {
+                    context.commit("currentUserSuccess", response.data)
+                    localStorage.setItem('userType',response.data.type)
+                    resolve(response.data)
+
+                }).catch(() => {
+                    context.commit('currentUserFailure')
+                })
+            }
         })
       },
     logout(context) {
         context.commit('logout')
         localStorage.removeItem('token')
+        localStorage.removeItem('refresh')
 
     }
 }
