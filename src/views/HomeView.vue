@@ -80,8 +80,8 @@
                   30 - 60 daqiqali online darslar
                 </li>
               </ul>
-              <a href="https://nicepage.com/website-builder"
-                 class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-1">Kirish</a>
+              <router-link to="/individual_or_group_speaking"
+                 class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-1">Kirish</router-link>
             </div>
           </div>
           <div
@@ -131,8 +131,7 @@
                 </li>
               </ul>
               <router-link to="/writing_task1_task2"
-                           class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-2"
-                           target="_blank">Kirish
+                           class="u-active-white u-border-none u-btn u-btn-round u-button-style u-radius-50 u-text-custom-color-2 u-white u-btn-2">Kirish
               </router-link>
             </div>
           </div>

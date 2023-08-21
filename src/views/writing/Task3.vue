@@ -194,8 +194,8 @@ export default defineComponent({
         </div>
         <div class="u-countdown-message u-hidden"><p>Sorry, the time is up.</p></div>
       </div>
-      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;">Academic Writing Part&nbsp;1</span><br><span
-          style="font-size:1.5rem;">You should spend about 20 minutes on this task. Write at least 150 words.</span>
+      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;">Academic Writing Part&nbsp;3</span><br><span
+          style="font-size:1.5rem;">You should spend about 60 minutes on this task. Write at least 400 words.</span>
       </h2><a href="https://nicepage.best"
               class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI:
       {{ wordCount }}</a>
