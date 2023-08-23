@@ -9,6 +9,12 @@ import AdminNavbar from "@/components/AdminNavbar.vue";
 import StudentNavbar from "@/components/StudentNavbar.vue";
 import TeacherNavbar from "@/components/TeacherNavbar.vue";
 
+
+
+
+
+
+
 export default {
   components: {TeacherNavbar, StudentNavbar, AdminNavbar, Navbar},
   data() {
@@ -31,6 +37,7 @@ export default {
 </script>
 
 <template>
+
 
   <!-- <Navbar/>-->
 <!--  <Navbar/>-->

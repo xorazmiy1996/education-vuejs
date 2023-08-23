@@ -3,40 +3,28 @@
   <section class="u-clearfix u-image u-section-1" id="carousel_9dbe" data-image-width="1920" data-image-height="1058">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1920" data-image-height="1080"></div>
-      <h1 class="u-align-left u-text u-text-body-alt-color u-text-1"> Ingliz tilini o'zingiz uchun moslashtiring!</h1>
-      <span class="u-icon u-icon-1"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 58 58"
-                                         style=""><use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                       xlink:href="#svg-66cb"></use></svg><svg class="u-svg-content"
-                                                                                               viewBox="0 0 58 58"
-                                                                                               x="0px" y="0px"
-                                                                                               id="svg-66cb"
-                                                                                               style="enable-background:new 0 0 58 58;"><circle
-          style="fill:currentColor;" cx="29" cy="29" r="29"></circle><g><polygon style="fill:#FFFFFF;"
-                                                                                 points="44,29 22,44 22,29.273 22,14 	"></polygon><path
-          style="fill:#FFFFFF;" d="M22,45c-0.16,0-0.321-0.038-0.467-0.116C21.205,44.711,21,44.371,21,44V14
-		c0-0.371,0.205-0.711,0.533-0.884c0.328-0.174,0.724-0.15,1.031,0.058l22,15C44.836,28.36,45,28.669,45,29s-0.164,0.64-0.437,0.826
-		l-22,15C22.394,44.941,22.197,45,22,45z M23,15.893v26.215L42.225,29L23,15.893z"></path>
-</g></svg></span>
-      <h4 class="u-align-justify u-custom-font u-text u-text-white u-text-2" data-animation-name=""
+      <h1 style="font-weight: 800" class="u-align-left u-text u-text-body-alt-color u-text-1"> Ingliz tilini o'zingiz uchun moslashtiring!</h1>
+
+      <h5 style="margin-top: 50px" class="u-align-justify u-custom-font u-text u-text-white u-text-2" data-animation-name=""
           data-animation-duration="0" data-animation-delay="0" data-animation-direction=""> Yangicha English tilini
         o'zingiz uchun moslashtiring! Online ta'lim turi ko'plab insonlar xizmatida va millionlab insonlar
         tanlovida, biz SPEAKUP jamosi yuqoridagi xususiyatlarni jamlab sizga eng yaxshi Englishni o'zingiz uchun
-        qulay va to'g'ri vaqtda o'rganish imkoni taklif qilamiz. </h4>
+        qulay va to'g'ri vaqtda o'rganish imkoni taklif qilamiz. </h5>
       <a href="https://nicepage.dev"
          class="u-active-white u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-radius-15 u-text-active-palette-3-base u-text-hover-palette-3-base u-white u-btn-1"
          data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">learn
         more</a>
     </div>
   </section>
-  <section class="u-clearfix u-palette-2-light-3 u-section-2" id="carousel_479b">
+  <section style="background-color:#ffffff !important; " class="u-clearfix u-palette-2-light-3 u-section-2" id="carousel_479b">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <h2 class="u-align-center u-custom-font u-text u-text-custom-color-3 u-text-default u-text-1">Quyidagi dasturlar
+      <h2 style="color: #420A68 !important;" class="u-align-center u-custom-font u-text u-text-custom-color-3 u-text-default u-text-1">Quyidagi dasturlar
         yordamida Ingiliz tilini kuchaytiring!&nbsp;</h2>
       <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
           <div
               class="u-container-style u-custom-color-3 u-custom-item u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-1">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
+            <div style="background-color: #420A68" class="u-container-layout u-similar-container u-container-layout-1">
               <h4 class="u-custom-font u-text u-text-2">GAPIRISH MAHORATI</h4>
               <ul class="u-custom-font u-custom-list u-text u-text-3">
                 <li>
@@ -86,7 +74,7 @@
           </div>
           <div
               class="u-container-style u-custom-color-2 u-custom-item u-list-item u-radius-21 u-repeater-item u-shape-round u-list-item-2">
-            <div class="u-container-layout u-s/imilar-container u-container-layout-2">
+            <div style="background-color: #420A68" class="u-container-layout u-s/imilar-container u-container-layout-2">
               <h4 class="u-custom-font u-text u-text-4">YOZISH MAHORATI</h4>
               <ul class="u-custom-font u-custom-list u-text u-text-5">
                 <li>
@@ -139,7 +127,7 @@
       </div>
     </div>
   </section>
-  <section class="u-clearfix u-palette-2-base u-section-3" id="carousel_06d0">
+  <section style="background-color: #420A68" class="u-clearfix u-palette-2-base u-section-3" id="carousel_06d0">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
@@ -193,7 +181,7 @@
                   class="u-container-layout u-valign-bottom-xl u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-container-layout-2">
                 <div class="u-expanded-width u-list u-list-1">
                   <div class="u-repeater u-repeater-1">
-                    <div
+                    <div  style="background-color: #420A68"
                         class="u-align-center u-container-style u-list-item u-palette-2-light-3 u-radius-30 u-repeater-item u-shape-round u-list-item-1">
                       <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-3">
                         <div alt="" class="u-image u-image-circle u-image-1" data-image-width="501"
@@ -201,22 +189,22 @@
                              data-animation-duration="1500" data-animation-delay="250"></div>
                         <h5 class="u-custom-font u-custom-item u-font-ubuntu u-text u-text-default u-text-3"
                             data-animation-name="customAnimationIn" data-animation-duration="1500"
-                            data-animation-delay="500">Adam Jonson</h5>
-                        <h6 class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-4"
+                            data-animation-delay="500" style="color: white">Adam Jonson</h5>
+                        <h6 style="color: white" class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-4"
                             data-animation-name="customAnimationIn" data-animation-duration="1000">
                           Vice President</h6>
                       </div>
                     </div>
-                    <div
+                    <div  style="background-color: #420A68"
                         class="u-align-center u-container-style u-list-item u-palette-2-light-3 u-radius-30 u-repeater-item u-shape-round u-list-item-2">
                       <div class="u-container-layout u-similar-container u-valign-middle u-container-layout-4">
                         <div alt="" class="u-image u-image-circle u-image-2" data-image-width="309"
                              data-image-height="309" data-animation-name="customAnimationIn"
                              data-animation-duration="1500" data-animation-delay="250"></div>
-                        <h5 class="u-custom-font u-custom-item u-font-ubuntu u-text u-text-default u-text-5"
+                        <h5 style="color: white" class="u-custom-font u-custom-item u-font-ubuntu u-text u-text-default u-text-5"
                             data-animation-name="customAnimationIn" data-animation-duration="1500"
                             data-animation-delay="500">Bob Larson</h5>
-                        <h6 class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-6"
+                        <h6 style="color: white" class="u-custom-font u-custom-item u-text u-text-default u-text-font u-text-6"
                             data-animation-name="customAnimationIn" data-animation-duration="1000">
                           National Partner</h6>
                       </div>
@@ -289,7 +277,7 @@
 <!--      </div>-->
 <!--    </div>-->
 <!--  </section>-->
-  <section class="u-align-left u-clearfix u-container-align-center u-palette-2-base u-section-6" id="carousel_3cea">
+  <section style="background-color: #420A68" class="u-align-left u-clearfix u-container-align-center u-palette-2-base u-section-6" id="carousel_3cea">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-expanded-width u-list u-list-1">
         <div class="u-repeater u-repeater-1">
@@ -321,7 +309,7 @@
       </div>
     </div>
   </section>
-  <section class="u-align-center u-clearfix u-palette-2-light-3 u-section-7" id="carousel_2263">
+  <section style="background-color: #ffffff" class="u-align-center u-clearfix u-palette-2-light-3 u-section-7" id="carousel_2263">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-expanded-width u-list u-list-1">
         <div class="u-repeater u-repeater-1">
@@ -472,3 +460,5 @@
 <!--<style src="@/assets/nicepage.css"></style>-->
 <!--<style src="@/assets/homeView.css"></style>-->
 
+<script setup>
+</script>
