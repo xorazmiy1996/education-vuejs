@@ -49,7 +49,7 @@ import TeacherLayout from "@/layouts/TeacherLayout.vue";
 
 
 const router = createRouter({
-    linkActiveClass: "active",
+    // linkActiveClass: "active",
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {

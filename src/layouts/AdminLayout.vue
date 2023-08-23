@@ -27,49 +27,47 @@ export default defineComponent({
 <template>
   <section ref="section">
     <nav-head>
-    <div class="nav-icon">
-      <span v-if="!user">Navbar</span>
-      <div v-if="user">
-        <span v-if="user.type === 'admin' ">Admin</span>
-        <span v-if="user.type === 'student'">Student</span>
-        <span v-if="user.type === 'teacher'">Teacher</span>
+      <div class="nav-icon">
+        <span v-if="!user">Navbar</span>
+        <div v-if="user">
+          <span v-if="user.type === 'admin' ">Admin</span>
+          <span v-if="user.type === 'student'">Student</span>
+          <span v-if="user.type === 'teacher'">Teacher</span>
+        </div>
       </div>
-    </div>
 
-    <div class="nav-router me-5">
+      <div class="nav-router me-5">
         <router-link to="/" class="a ctivate">Home</router-link>
         <router-link to="/individual_or_group_speaking">Speaking</router-link>
         <router-link to="/writing_task1_task2">Writing</router-link>
 
 
+        <template v-if='isLoggedIn '>
+          <div class="dropdown">
+            <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
+               aria-expanded="false">
+              <i class="fa fa-user-circle fa-3x"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <router-link class="dropdown-item" to="/admin">Kirish</router-link>
+              </li>
+              <li>
+                <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
+              </li>
+            </ul>
+          </div>
+
+        </template>
+        <template v-if='isAnonymous'>
+          <router-link to="/login">Login</router-link>
+          <router-link to="/user_registration">Sign up</router-link>
+        </template>
 
 
-      <template v-if='isLoggedIn '>
-        <div class="dropdown">
-          <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">
-            <i class="fa fa-user-circle fa-3x" style="color: white"></i>
-          </a>
-
-          <ul class="dropdown-menu">
-            <li>
-              <router-link  class="dropdown-item" to="/admin">Kirish</router-link>
-            </li>
-            <li>
-              <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
-            </li>
-          </ul>
-        </div>
-
-      </template>
-      <template v-if='isAnonymous'>
-        <router-link to="/login">Login</router-link>
-        <router-link to="/user_registration">Sign up</router-link>
-      </template>
-
-
-    </div>
-  </nav-head>
+      </div>
+    </nav-head>
 
 
     <nav ref="sidebar" class="sidebar close">
@@ -116,13 +114,13 @@ export default defineComponent({
             </li>
             <li class="nav-link">
               <router-link to="/admin_all_essays">
-                  <i class="fa fa-feather icon"></i>
+                <i class="fa fa-feather icon"></i>
                 <span class="text nav-text">All Essay</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/essay_checker">
-                  <i class="fa fa-check-circle icon"></i>
+                <i class="fa fa-check-circle icon"></i>
                 <span class="text nav-text">Essay Checker</span>
               </router-link>
             </li>
@@ -195,8 +193,7 @@ section {
 }
 
 .sidebar.close .text {
-  //opacity: 0;
-  display: none;
+//opacity: 0; display: none;
 
 
 }
@@ -307,7 +304,7 @@ section.dark .sidebar header .toggle {
   border: none;
   border-radius: 6px;
   background-color: var(--primary-color-light);
-   transition: var(--tran-05);
+  transition: var(--tran-05);
 }
 
 .sidebar li a {
@@ -347,7 +344,7 @@ section.dark .sidebar li a:hover .text {
   position: relative;
   border-radius: 6px;
   background: var(--primary-color-light);
-    transition: var(--tran-05);
+  transition: var(--tran-05);
 }
 
 .menu-bar .moon-sun {
@@ -377,7 +374,7 @@ section.dark .sidebar li a:hover .text {
   cursor: pointer;
   border-radius: 6px;
   background: var(--primary-color-light);
-   transition: var(--tran-05);
+  transition: var(--tran-05);
 
 }
 
@@ -387,7 +384,7 @@ section.dark .sidebar li a:hover .text {
   width: 44px;
   border-radius: 25px;
   background: var(--toggle-color);
-    transition: var(--tran-05);
+  transition: var(--tran-05);
 }
 
 .switch::before {
@@ -456,7 +453,8 @@ nav-head .nav-router a {
 }
 
 nav-head .nav-router a:hover {
-  color: #fd5f00;
+  background-color: white;
+  color: #1A1A1A;
 }
 
 .activate {
@@ -476,6 +474,11 @@ i:hover {
 
 .dropdown-menu li a {
   color: deepskyblue;
+}
+.dropdown-menu li a:hover {
+  background-color: #478ACD;
+  width: auto;
+  color: white;
 }
 
 

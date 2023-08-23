@@ -91,7 +91,7 @@ export default defineComponent({
               <Form @submit="submitHandler">
                 <ValidationError v-if="validationError" :validationError="validationError"/>
                 <div class="mb-3">
-                  <label for="exampleInputEmail" class="form-label">User Name</label>
+                  <label for="exampleInputEmail" class="form-label">Email</label>
                   <Field v-model="email" :rules="isRequired" name="email" type="text" class="form-control"
                          id="exampleInputEmail"/>
                   <ErrorMessage name="email"/>

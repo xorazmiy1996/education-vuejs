@@ -22,18 +22,17 @@ export default defineComponent({
       <span><img id="logo" src="@/assets/log/SVG/MainNoDescriptionRed.svg" alt=""></span>
     </div>
 
-    <div class="nav-router me-5">
-      <router-link to="/">Bosh sahifa</router-link>
-      <router-link to="/individual_or_group_speaking" >Gapirish mahorati</router-link>
-      <router-link to="/writing_task1_task2" >Yozish mahorati</router-link>
+    <div class="nav-router">
+      <router-link to="/"  active-class="active-link">Bosh sahifa</router-link>
+      <router-link to="/individual_or_group_speaking" active-class="active-link" >Gapirish mahorati</router-link>
+      <router-link to="/writing_task1_task2" active-class="active-link" >Yozish mahorati</router-link>
 
 
       <template v-if='isLoggedIn '>
         <div class="dropdown">
-          <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">
-            <i class="fa fa-user-circle fa-3x" style="color: #1A1A1A"></i>
-          </a>
+          <router-link class="btn" to="#"  role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">Kirish
+          </router-link>
 
           <ul class="dropdown-menu">
 
@@ -51,8 +50,8 @@ export default defineComponent({
 
       </template>
       <template v-if='isAnonymous'>
-        <router-link to="/login" >Login</router-link>
-        <router-link to="/user_registration" >Sign up</router-link>
+        <router-link to="/login" active-class="active-link" >Login</router-link>
+        <router-link to="/user_registration" active-class="active-link" >Sign up</router-link>
       </template>
 
 
@@ -71,7 +70,7 @@ nav {
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
-  background-color: white;
+  background-color: #ffffff;
   z-index: 10;
   height: 84px;
   width: 100%;
@@ -95,7 +94,6 @@ nav .nav-router a {
   padding: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-
   text-decoration: none;
 }
 
@@ -104,9 +102,9 @@ nav .nav-router a:hover {
   color: white;
 }
 
-.active {
-  background-color: #478ACD;
+.active-link {
   color: white !important;
+  background-color: #478ACD;
 }
 
 nav .nav-icon span {
@@ -122,6 +120,11 @@ i:hover {
 
 .dropdown-menu li a {
   color: black;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #478ACD;
+  width: auto;
 }
 
 
