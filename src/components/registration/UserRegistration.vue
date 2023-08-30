@@ -257,8 +257,8 @@ export default defineComponent({
                     </clipPath>
                   </defs>
                 </svg>
-                <span>отсканируйте паспорт, или сфотографируйте главную страницу без бликов, что бы вся информация была читабельна</span><img
-                  src="/images/3f4a0b3abf9c895950c0.png"></div>
+                <span>отсканируйте паспорт, или сфотографируйте главную страницу без бликов, что бы вся информация была читабельна</span>
+               </div>
             </div>
 
             <div class="register-tutor__form-group">
@@ -287,7 +287,8 @@ export default defineComponent({
               </div>
             </div>
           </form>
-          <button type="button" class="contained-button mt-5 account-settings__button"><span>сохранить изменения</span></button>
+          <button type="button" class="contained-button mt-5 account-settings__button"><span>сохранить изменения</span>
+          </button>
 
         </div>
       </div>
@@ -326,7 +327,6 @@ main {
   flex-direction: column;
   position: relative;
 }
-
 
 
 .register-tutor-form__form-group {
@@ -673,6 +673,7 @@ main {
   overflow: hidden;
   -webkit-box-shadow: 0 0 0 30px #fafafa inset !important;
 }
+
 .contained-button {
   display: flex;
   flex-direction: row;
