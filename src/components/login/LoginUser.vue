@@ -104,8 +104,14 @@ export default defineComponent({
                   <ErrorMessage name="password"/>
                   <ValidationError v-if="validationError" :validationError="validationError.password"/>
                 </div>
-                <div class="mb-3 ">
-                <router-link to="/verify_code">Emailni tadiqlash</router-link>
+                <div class="mb-3 email_registration">
+                  <div>
+                    <router-link to="/verify_code">Emailni tadiqlash</router-link>
+                  </div>
+                  <div>
+                    <router-link to="/user_registration">Regitration</router-link>
+                  </div>
+
                 </div>
                 <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
               </Form>
@@ -152,5 +158,9 @@ form .mb-3 a{
 form .mb-3 a:hover{
   color: #478ACD;
   text-decoration: underline;
+}
+.email_registration{
+  display: flex;
+  justify-content: space-between;
 }
 </style>

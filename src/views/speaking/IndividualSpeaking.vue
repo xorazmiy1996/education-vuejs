@@ -4,10 +4,15 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: "Speaking",
-
   mounted() {
 
   },
+  methods:{
+     individualSpeakingDetail(id){
+       console.log("Salom")
+       return this.$router.push(`/individual_speaking_detail/${id}`)
+     }
+  }
 
 
 
@@ -15,80 +20,159 @@ export default defineComponent({
 </script>
 
 <template>
-  <body class="u-body u-xl-mode" data-lang="ru">
-     <section class="u-align-left u-clearfix u-palette-4-base u-section-3" id="sec-5537">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-1">Umumiy so'zlashuv qurslari</h3>
-        <div class="u-list u-list-1">
-          <div class="u-repeater u-repeater-1">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-1">
-              <div class="u-container-layout u-similar-container u-container-layout-1"><span class="u-file-icon u-icon u-icon-1"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-2">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-1">Kirish</a>
-              </div>
-            </div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
+      <div class="col">
+        <div @click="individualSpeakingDetail()" class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm.png" alt="">
           </div>
-        </div>
-        <div class="u-list u-list-2">
-          <div class="u-repeater u-repeater-2">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-2">
-              <div class="u-container-layout u-similar-container u-container-layout-2"><span class="u-file-icon u-icon u-icon-2"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-3">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-2">Kirish</a>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                 <h5>500 000 sum/month</h5>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-3">
-          <div class="u-repeater u-repeater-3">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-3">
-              <div class="u-container-layout u-similar-container u-container-layout-3"><span class="u-file-icon u-icon u-icon-3"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-4">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-3">Kirish</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-4">
-          <div class="u-repeater u-repeater-4">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-4">
-              <div class="u-container-layout u-similar-container u-container-layout-4"><span class="u-file-icon u-icon u-icon-4"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-5">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-4">Kirish</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-5">
-          <div class="u-repeater u-repeater-5">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-5">
-              <div class="u-container-layout u-similar-container u-container-layout-5"><span class="u-file-icon u-icon u-icon-5"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-6">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-5">Kirish</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="u-list u-list-6">
-          <div class="u-repeater u-repeater-6">
-            <div class="u-align-left u-container-style u-list-item u-radius-30 u-repeater-item u-shape-round u-white u-list-item-6">
-              <div class="u-container-layout u-similar-container u-container-layout-6"><span class="u-file-icon u-icon u-icon-6"><img src="@/assets/image/speaking/1384060.png" alt=""></span>
-                <blockquote class="u-custom-font u-font-ubuntu u-text u-text-7">Ismi: Jasur Nazarov<br>Millati: O'zbek<br>IElTS ball: 8<br>Tajribasi: 5 yil<br>Kurs turi: Yakka tarzda
-                </blockquote>
-                <a href="https://nicepage.com/website-mockup" class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-base u-palette-2-base u-radius-50 u-btn-6">Kirish</a>
-              </div>
+
             </div>
           </div>
         </div>
       </div>
-    </section>
-  </body>
+      <div class="col">
+        <div class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm.png" alt="">
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <h5>500 000 sum/month</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm2.png" alt="">
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <h5>500 000 sum/month</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm.png" alt="">
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <h5>500 000 sum/month</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm.png" alt="">
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <h5>500 000 sum/month</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-image">
+            <img src="@/assets/image/home_image/rasm.png" alt="">
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title">Jasur Nazarov</h5>
+            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <h5>500 000 sum/month</h5>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
 
 </template>
 
-<style scoped src="@/assets/speak/Asosiy-sahifa.css"></style>
+<style scoped>
+.card{
+  border: none;
+}
+.card .card-image{
+  margin-bottom: 4px;
+  width: 100%;
+  height: 230px;
+  box-shadow: 0px 2px 6px 2px rgba(0,0,0,.031372549);
+  background-color: rgba(0,0,0,0);
+  border-radius: 12px;
+  overflow: hidden;
+
+}
+.card .card-body{
+  padding: 3px;
+  box-shadow: none;
+}
+.card-body .card-title{
+  margin: 0;
+  font-weight: bold;
+}
+.card-body p{
+  margin: 0;
+  color: #717171;
+  font-size: 15px;
+}
+.card-image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-color: rgba(0,0,0,0);
+  cursor: pointer;
+}
+
+</style>

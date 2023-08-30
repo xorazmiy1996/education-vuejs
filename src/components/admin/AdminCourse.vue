@@ -20,6 +20,8 @@ export default defineComponent({
       type: '',
       isModalOpen: false,
 
+      curseImage:"",
+
 
       isDeleteModalOpen: false,
       delete_id: ''
@@ -44,7 +46,22 @@ export default defineComponent({
         "skills": this.skills,
         "type": this.type,
 
+        // "image":this.curseImage,
+
       }
+
+      // const formData = new FormData();
+      // formData.append('name', this.name);
+      // formData.append('description', this.description);
+      // formData.append('level', this.level);
+      // formData.append('duration', this.duration);
+      // formData.append('price', this.price);
+      // formData.append('skills', this.skills);
+      // formData.append('type', this.type);
+      // formData.append('image', this.curseImage);
+
+
+      console.log(data)
       this.$store
           .dispatch("course/createCourse", data)
           .then(response => {
@@ -56,6 +73,10 @@ export default defineComponent({
           .catch(error => console.log("course create error", error))
 
 
+    },
+    uploadCurseImage() {
+      const file1 = this.$refs.fileCurseImage.files[0]
+      this.curseImage = file1
     },
 
 
@@ -161,6 +182,12 @@ export default defineComponent({
               <label class="form-label" for="skill_writing">Writing</label>
 
 
+            </div>
+
+            <div class="mb-3">
+              <label for="formUserImage" class="form-label">Curse uchun rasm yuklash</label>
+              <input class="form-control" type="file" id="formUserImage" ref="fileCurseImage"
+                     @change="uploadCurseImage()">
             </div>
 
 

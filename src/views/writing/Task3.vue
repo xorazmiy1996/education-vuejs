@@ -163,15 +163,15 @@ export default defineComponent({
   </success-alert-modal>
 
   <body class="u-body u-xl-mode" data-lang="ru">
-  <section class="u-align-center u-clearfix u-palette-2-base u-section-10" id="sec-69be">
-    <div class="u-clearfix u-sheet u-sheet-1">
+  <section style="background-color: #fff" class="u-align-center u-clearfix u-palette-2-base u-section-10" id="sec-69be">
+    <div style="color: black" class="u-clearfix u-sheet u-sheet-1">
       <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
            data-target-date="Tue, 22 Aug 2023 05:21:09 GMT" data-for="everyone" data-direction="down">
         <div class="u-countdown-wrapper u-spacing-20">
 
           <div class="u-countdown-item u-countdown-minutes u-spacing-10">
             <div class="u-countdown-counter u-countdown-counter-4">
-              <div class="u-countdown-number">{{ countdownText }} {{ minute }}</div>
+              <div  class="u-countdown-number">{{ countdownText }} {{ minute }}</div>
 
             </div>
             <div class="u-countdown-label u-countdown-label-4">Minutes</div>
@@ -194,14 +194,14 @@ export default defineComponent({
         </div>
         <div class="u-countdown-message u-hidden"><p>Sorry, the time is up.</p></div>
       </div>
-      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;">Academic Writing Part&nbsp;3</span><br><span
-          style="font-size:1.5rem;">You should spend about 60 minutes on this task. Write at least 400 words.</span>
+      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;color: black">Academic Writing Part&nbsp;3</span><br><span
+          style="font-size:1.5rem; color: black">You should spend about 60 minutes on this task. Write at least 400 words.</span>
       </h2><a href="https://nicepage.best"
               class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI:
       {{ wordCount }}</a>
     </div>
   </section>
-  <section class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-2423">
+  <section style="background-color: #fff" class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-2423">
     <div class="u-clearfix u-sheet u-sheet-1">
       <form @submit.prevent="submitHandler">
         <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">

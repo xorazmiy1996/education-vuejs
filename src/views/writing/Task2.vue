@@ -162,7 +162,7 @@ export default defineComponent({
 
   </success-alert-modal>
   <body class="u-body u-xl-mode" data-lang="ru">
-  <section class="u-align-center u-clearfix u-palette-2-base u-section-12" id="sec-4061">
+  <section style="background-color: #fff; color: #404040" class="u-align-center u-clearfix u-palette-2-base u-section-12" id="sec-4061">
     <div class="u-clearfix u-sheet u-sheet-1">
       <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
            data-target-date="Tue, 22 Aug 2023 05:21:09 GMT" data-for="everyone" data-direction="down"
@@ -207,7 +207,7 @@ export default defineComponent({
         {{ wordCount }}</a>
     </div>
   </section>
-  <section class="u-clearfix u-palette-1-light-3 u-section-13" id="sec-1e30">
+  <section style="background-color: #fff" class="u-clearfix u-palette-1-light-3 u-section-13" id="sec-1e30">
     <div class="u-clearfix u-sheet u-sheet-1">
       <form @submit.prevent="submitHandler">
         <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
