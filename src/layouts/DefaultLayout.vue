@@ -19,28 +19,25 @@ export default defineComponent({
 <template>
   <nav >
     <div class="nav-icon">
-      <span><img id="logo" src="@/assets/log/SVG/MainNoDescriptionRed.svg" alt=""></span>
+      <span><img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt=""></span>
     </div>
 
     <div class="nav-router">
-      <router-link to="/"  active-class="active-link">Bosh sahifa</router-link>
-      <router-link to="/individual_or_group_speaking" active-class="active-link" >Gapirish mahorati</router-link>
-      <router-link to="/writing_task1_task2" active-class="active-link" >Yozish mahorati</router-link>
-
+      <router-link to="/"  active-class="active-link">Программы</router-link>
 
       <template v-if='isLoggedIn '>
         <div class="dropdown">
           <router-link class="btn" to="#"  role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">Kirish
+             aria-expanded="false">Вход
           </router-link>
 
           <ul class="dropdown-menu">
 
             <li v-if="user?.type === 'admin'">
-              <router-link class="dropdown-item" to="/admin">Kirish</router-link>
+              <router-link style="font-size: 18px" class="dropdown-item" to="/admin">Вход</router-link>
             </li>
             <li v-if="user?.type === 'student'">
-              <router-link class="dropdown-item" to="/student_panel">Kirish</router-link>
+              <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
             </li>
             <li>
               <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
@@ -69,8 +66,8 @@ nav {
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
-  background-color: #ffffff;
+  justify-content: center;
+  background-color: #3C0C5C;
   z-index: 10;
   height: 84px;
   width: 100%;
@@ -89,7 +86,7 @@ nav .nav-router {
 
 nav .nav-router a {
   font-size: 18px;
-  color: #1A1A1A;
+  color: #fff;
   margin: 12px;
   padding: 10px;
   font-family: 'Poppins', sans-serif;
@@ -97,15 +94,17 @@ nav .nav-router a {
   text-decoration: none;
 }
 
-nav .nav-router a:hover {
+/*nav .nav-router a:hover {
   background-color: #478ACD;
   color: white;
-}
+}*/
 
+/*
 .active-link {
   color: white !important;
   background-color: #478ACD;
 }
+*/
 
 nav .nav-icon span {
   font-size: 40px;
@@ -129,8 +128,8 @@ i:hover {
 
 
 #logo {
-    width: 200px !important;
-    height: 70px !important;
+    width: 246px !important;
+    height: 65px !important;
 
 }
 

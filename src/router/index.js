@@ -46,6 +46,7 @@ import Task3 from "@/views/writing/Task3.vue";
 import EssayChecker from "@/components/admin/EssayChecker.vue";
 import Test from "@/views/writing/test.vue";
 import TeacherLayout from "@/layouts/TeacherLayout.vue";
+import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.vue";
 
 
 const router = createRouter({
@@ -113,6 +114,15 @@ const router = createRouter({
             path: '/individual_speaking',
             name: 'individual_speaking',
             component: IndividualSpeaking,
+            meta: {
+                // requiresAdmin: true,
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/individual_speaking_detail/:id',
+            name: 'individual_speaking_detail',
+            component: IndividualSpeakingDetail,
             meta: {
                 // requiresAdmin: true,
                 Layout: DefaultLayout
