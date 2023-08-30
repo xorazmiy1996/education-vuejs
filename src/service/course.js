@@ -3,6 +3,7 @@ import axios from "@/service/axios";
 const CourseService = {
 
     createCourse(data){
+        console.log(data)
         return axios.post('/educations/course/', data,{
             headers: {
                 'Content-Type': 'multipart/form-data'

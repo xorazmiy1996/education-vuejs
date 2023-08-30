@@ -471,26 +471,7 @@ main {
   -webkit-box-shadow: 0 0 0 30px #fafafa inset !important;
 }
 
-.label-focus-input__group--big.label-focus-input__group--has-label:focus-within label,
-.label-focus-input__group--big.label-focus-input__group--has-value label {
-  font-size: 14px
-}
 
-.label-focus-input__group--big.label-focus-input__group--has-label:focus-within label + input,
-.label-focus-input__group--big.label-focus-input__group--has-value label + input {
-  padding-top: 20px
-}
-
-.label-focus-input__group--has-label:focus-within label,
-.label-focus-input__group--has-value label {
-  top: -10px;
-  font-size: 12px
-}
-
-.label-focus-input__group--has-label:focus-within label + input,
-.label-focus-input__group--has-value label + input {
-  padding-top: 20px
-}
 
 
 .register-tutor-form__form-group {
@@ -648,18 +629,7 @@ main {
   height: 62px;
 }
 
-.label-focus-input__group__label {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding-left: 14px;
-  white-space: nowrap;
-  overflow: hidden;
-  line-height: 62px;
-  transition: .3s;
-}
+
 
 .label-focus-input__group__input {
   width: 100%;

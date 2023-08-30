@@ -20,7 +20,8 @@ export default defineComponent({
       type: '',
       isModalOpen: false,
 
-      curseImage:"",
+      curseImage:null,
+      curseVideo:null,
 
 
       isDeleteModalOpen: false,
@@ -37,31 +38,32 @@ export default defineComponent({
   },
   methods: {
     submitHandler() {
-      const data = {
-        "name": this.name,
-        "description": this.description,
-        "level": this.level,
-        "duration": this.duration,
-        "price": this.price,
-        "skills": this.skills,
-        "type": this.type,
+      // const data = {
+      //   "name": this.name,
+      //   "description": this.description,
+      //   "level": this.level,
+      //   "duration": this.duration,
+      //   "price": this.price,
+      //   "skills": this.skills,
+      //   "type": this.type,
+      //
+      //   "image":this.curseImage,
+      //
+      // }
 
-        // "image":this.curseImage,
+      const data = new FormData();
+      data.append('name', this.name);
+      data.append('description', this.description);
+      data.append('level', this.level);
+      data.append('duration', this.duration);
+      data.append('price', this.price);
+      data.append('skills', this.skills);
+      data.append('type', this.type);
+      data.append('image', this.curseImage);
+      data.append('video', this.curseVideo);
 
-      }
-
-      // const formData = new FormData();
-      // formData.append('name', this.name);
-      // formData.append('description', this.description);
-      // formData.append('level', this.level);
-      // formData.append('duration', this.duration);
-      // formData.append('price', this.price);
-      // formData.append('skills', this.skills);
-      // formData.append('type', this.type);
-      // formData.append('image', this.curseImage);
-
-
-      console.log(data)
+      console.log(this.curseImage)
+      console.log(this.curseVideo)
       this.$store
           .dispatch("course/createCourse", data)
           .then(response => {
@@ -77,6 +79,12 @@ export default defineComponent({
     uploadCurseImage() {
       const file1 = this.$refs.fileCurseImage.files[0]
       this.curseImage = file1
+    },
+
+    uploadCurseVideo() {
+      const file2 = this.$refs.fileCurseVideo.files[0]
+      this.curseVideo = file2
+      console.log(this.curseVideo)
     },
 
 
@@ -188,6 +196,12 @@ export default defineComponent({
               <label for="formUserImage" class="form-label">Curse uchun rasm yuklash</label>
               <input class="form-control" type="file" id="formUserImage" ref="fileCurseImage"
                      @change="uploadCurseImage()">
+            </div>
+
+            <div class="mb-3">
+              <label for="formCourseVideo" class="form-label">Curse uchun video yuklash</label>
+              <input class="form-control" type="file" id="formCourseVideo" ref="fileCurseVideo"
+                     @change="uploadCurseVideo()">
             </div>
 
 
