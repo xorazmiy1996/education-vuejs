@@ -62,8 +62,8 @@ export default defineComponent({
       data.append('image', this.curseImage);
       data.append('video', this.curseVideo);
 
-      console.log(this.curseImage)
-      console.log(this.curseVideo)
+      console.log(this.skills)
+
       this.$store
           .dispatch("course/createCourse", data)
           .then(response => {
