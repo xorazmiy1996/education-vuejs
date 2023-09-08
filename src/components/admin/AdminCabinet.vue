@@ -57,14 +57,33 @@ export default defineComponent({
           .dispatch("cabinet/createCabinet", data)
           .then(response => {
             this.closeModal()
+            this.$toast.success(`Create cabinet`,
+                {
+                  position: "top-right",
+                }
+            );
             this.$store.dispatch("cabinet/getAllCabinets")
           })
-          .catch(error => console.log("cabinet create error", error))
+          .catch(error =>{
+            this.$toast.error(`Xato`,
+                {
+                  position: "top-right",
+                }
+            );
+          })
+
+
+
     },
 
     deleteCabinet() {
       return this.$store.dispatch('cabinet/deleteCabinet', this.delete_id)
           .then(() => {
+            this.$toast.success(`Delete`,
+                {
+                  position: "top-right",
+                }
+            );
             this.$store.dispatch("cabinet/getAllCabinets")
             this.closeDeleteModal()
           })
@@ -95,11 +114,17 @@ export default defineComponent({
 
 <template>
   <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
-    <p>Ushbu cabinetni o'chirmoqchimisiz?</p>
-    <div class="d-flex">
-      <button @click="deleteCabinet" type="button" class="btn btn-outline-success success-button">Yes</button>
-      <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+    <div v-if="isLoading" class="d-flex justify-content-center">
+      <loader/>
     </div>
+    <div v-else>
+      <p>Ushbu cabinetni o'chirmoqchimisiz?</p>
+      <div class="d-flex">
+        <button @click="deleteCabinet" type="button" class="btn btn-outline-success success-button">Yes</button>
+        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+      </div>
+    </div>
+
   </delete-modal>
   <div class="container">
     <div class="modal-cabinet">
@@ -110,77 +135,83 @@ export default defineComponent({
 
       <div class="modal-body">
         <modal :is-open="isModalOpen" title="My Modal" @close="closeModal">
-          <form @submit.prevent="submitHandler">
-            <div class="mb-3">
-              <label for="exampleInputTeacher" class="form-label">Teacher</label>
-              <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
-                <option value="">Teacher select</option>
-                <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
-              </select>
-              <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
+          <div v-if="isLoading" class="d-flex justify-content-center">
+            <Loader />
+          </div>
+          <div v-else>
+            <form @submit.prevent="submitHandler">
+              <div class="mb-3">
+                <label for="exampleInputTeacher" class="form-label">Teacher</label>
+                <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
+                  <option value="">Teacher select</option>
+                  <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
+                </select>
+                <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
 
 
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputTime" class="form-label">Time</label>
-              <input v-model="time" type="time" class="form-control" id="exampleInputTime">
-              <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>
-            </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputTime" class="form-label">Time</label>
+                <input v-model="time" type="time" class="form-control" id="exampleInputTime">
+                <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>
+              </div>
 
 
-            <div class="mb-3">
-              <label for="exampleInputCourse" class="form-label">Course</label>
+              <div class="mb-3">
+                <label for="exampleInputCourse" class="form-label">Course</label>
 
 
-              <select class="form-select" id="exampleInputCourse" v-model="course_id">
-                <option disabled value="">Course select</option>
-                <option v-for="course in courses" :value="course.id">{{ course.name }}</option>
-              </select>
-              <ValidationError v-if="cabinetError" :validationError="cabinetError.course_id"/>
+                <select class="form-select" id="exampleInputCourse" v-model="course_id">
+                  <option disabled value="">Course select</option>
+                  <option v-for="course in courses" :value="course.id">{{ course.name }}</option>
+                </select>
+                <ValidationError v-if="cabinetError" :validationError="cabinetError.course_id"/>
 
 
-            </div>
+              </div>
 
 
-            <div class="mb-3">
-              <label for="exampleInputStartDate" class="form-label">Start date</label>
-              <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
-              <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputWeekDay" class="form-label">Week days</label>
-              <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
-              <br>
-              <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
-              <label class="form-label" for="Monday">Monday</label>
-              <br>
-              <input type="checkbox" class="form-check-input" id="Tuesday" value="1" v-model="weekDays">
-              <label class="form-label" for="Tuesday">Tuesday</label>
-              <br>
+              <div class="mb-3">
+                <label for="exampleInputStartDate" class="form-label">Start date</label>
+                <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
+                <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputWeekDay" class="form-label">Week days</label>
+                <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
+                <br>
+                <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
+                <label class="form-label" for="Monday">Monday</label>
+                <br>
+                <input type="checkbox" class="form-check-input" id="Tuesday" value="1" v-model="weekDays">
+                <label class="form-label" for="Tuesday">Tuesday</label>
+                <br>
 
-              <input type="checkbox" class="form-check-input" id="Wednesday" value="2" v-model="weekDays">
-              <label class="form-label" for="Wednesday">Wednesday</label>
-              <br>
+                <input type="checkbox" class="form-check-input" id="Wednesday" value="2" v-model="weekDays">
+                <label class="form-label" for="Wednesday">Wednesday</label>
+                <br>
 
-              <input type="checkbox" class="form-check-input" id="Thursday" value="3" v-model="weekDays">
-              <label class="form-label" for="Thursday">Thursday</label>
-              <br>
+                <input type="checkbox" class="form-check-input" id="Thursday" value="3" v-model="weekDays">
+                <label class="form-label" for="Thursday">Thursday</label>
+                <br>
 
-              <input type="checkbox" class="form-check-input" id="Friday" value="4" v-model="weekDays">
-              <label class="form-label" for="Friday">Friday</label>
-              <br>
+                <input type="checkbox" class="form-check-input" id="Friday" value="4" v-model="weekDays">
+                <label class="form-label" for="Friday">Friday</label>
+                <br>
 
-              <input type="checkbox" class="form-check-input" id="Saturday" value="5" v-model="weekDays">
-              <label class="form-label" for="Saturday">Saturday</label>
-              <br>
+                <input type="checkbox" class="form-check-input" id="Saturday" value="5" v-model="weekDays">
+                <label class="form-label" for="Saturday">Saturday</label>
+                <br>
 
-              <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
-              <label class="form-label" for="Sunday">Sunday</label>
+                <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
+                <label class="form-label" for="Sunday">Sunday</label>
 
-            </div>
+              </div>
 
-            <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
-          </form>
+              <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
         </modal>
       </div>
     </div>

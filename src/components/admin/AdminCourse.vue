@@ -5,10 +5,11 @@ import ValidationError from "@/components/login/ValidationError.vue";
 import Input from "@/ui-componets/Input.vue";
 import {mapGetters} from "vuex";
 import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
+import Loader from "@/ui-componets/Loader.vue";
 
 export default defineComponent({
   name: "AdminCourse",
-  components: {DeleteModal, Input, ValidationError, Modal},
+  components: {Loader, DeleteModal, Input, ValidationError, Modal},
   data() {
     return {
       name: '',
@@ -57,17 +58,21 @@ export default defineComponent({
       data.append('level', this.level);
       data.append('duration', this.duration);
       data.append('price', this.price);
-      data.append('skills', this.skills);
+      data.append('skills', 'speaking');
       data.append('type', this.type);
       data.append('image', this.curseImage);
       data.append('video', this.curseVideo);
 
-      console.log(this.curseImage)
-      console.log(this.curseVideo)
+
       this.$store
           .dispatch("course/createCourse", data)
           .then(response => {
             this.closeModal()
+            this.$toast.success(`Course create`,
+                {
+                  position: "top-right",
+                }
+            );
             this.$store.dispatch("course/getAllCourse")
 
 
@@ -107,6 +112,11 @@ export default defineComponent({
       this.$store.dispatch('course/deleteCurse', this.delete_id)
           .then(()=>{
             this.closeDeleteModal()
+            this.$toast.error(`Delete course`,
+                {
+                  position: "top-right",
+                }
+            );
             this.$store.dispatch("course/getAllCourse")
           })
     }
@@ -118,11 +128,17 @@ export default defineComponent({
 <template>
 
   <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
-    <p>Ushbu courseni o'chirmoqchimisiz?</p>
-    <div class="d-flex">
-      <button  @click="deleteCourse" type="button" class="btn btn-outline-success success-button delete-button">Yes</button>
-      <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+    <div v-if="isLoading" class="d-flex justify-content-center ">
+      <Loader/>
     </div>
+    <div v-else>
+      <p>Ushbu courseni o'chirmoqchimisiz?</p>
+      <div class="d-flex">
+        <button  @click="deleteCourse" type="button" class="btn btn-outline-success success-button delete-button">Yes</button>
+        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+      </div>
+    </div>
+
 
   </delete-modal>
 
@@ -133,96 +149,135 @@ export default defineComponent({
         <button @click="openModal" class="btn btn-primary">Create Course</button>
       </div>
       <div class="modal-body">
-        <modal :is-open="isModalOpen" title="My Modal" @close="closeModal">
-          <form @submit.prevent="submitHandler">
+        <modal :is-open="isModalOpen" title="Course add" @close="closeModal">
+          <div v-if="isLoading" class="d-flex justify-content-center">
+            <Loader/>
+          </div>
 
-            <div class="mb-3">
-              <label for="exampleInputName" class="form-label">Name</label>
-              <input v-model="name" type="text" class="form-control" id="exampleInputName">
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.name"/>
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputDescription" class="form-label">Description</label>
-              <input v-model="description" type="text" class="form-control" id="exampleInputDescription">
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.description"/>
-            </div>
+          <div v-else>
+            <form @submit.prevent="submitHandler">
 
-
-            <div class="mb-3">
-              <label for="exampleInputLevel" class="form-label">Level</label>
-              <select class="form-select" id="exampleInputLevel" v-model="level">
-                <option disabled value="">Course select</option>
-                <option>A1</option>
-                <option>A2</option>
-                <option>B1</option>
-                <option>B2</option>
-                <option>C1</option>
-              </select>
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.level"/>
-            </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Name</label>
+                <input v-model="name" type="text" class="form-control" id="exampleInputName">
+                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.name"/>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputDescription" class="form-label">Description</label>
+                <input v-model="description" type="text" class="form-control" id="exampleInputDescription">
+                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.description"/>
+              </div>
 
 
-            <div class="mb-3">
-              <label for="exampleInputDuration" class="form-label">Duration</label>
-              <input v-model="duration" type="number" class="form-control" id="exampleInputDuration">
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
-            </div>
+              <div class="mb-3">
+                <label for="exampleInputLevel" class="form-label">Level</label>
+                <select class="form-select" id="exampleInputLevel" v-model="level">
+                  <option disabled value="">Course select</option>
+                  <option>A1</option>
+                  <option>A2</option>
+                  <option>B1</option>
+                  <option>B2</option>
+                  <option>C1</option>
+                </select>
+                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.level"/>
+              </div>
 
 
-            <div class="mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-              <label for="exampleInputSkills" class="form-label">Skills</label>
-              <br>
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.skills"/>
-              <br>
-              <input type="checkbox" class="form-check-input" id="skill_group" value="listening" v-model="skills">
-              <label class="form-label" for="skill_group">Listening</label>
-              <br>
-
-              <input type="checkbox" class="form-check-input" id="skill_individual" value="speaking" v-model="skills">
-              <label class="form-label" for="skill_individual">Speaking</label>
-
-              <br>
-              <input type="checkbox" class="form-check-input" id="skill_reading" value="reading" v-model="skills">
-              <label class="form-label" for="skill_reading">Reading</label>
-              <br>
-
-              <input type="checkbox" class="form-check-input" id="skill_writing" value="writing" v-model="skills">
-              <label class="form-label" for="skill_writing">Writing</label>
+              <div class="mb-3">
+                <label for="exampleInputDuration" class="form-label">Duration</label>
+                <input v-model="duration" type="number" class="form-control" id="exampleInputDuration">
+                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
+              </div>
 
 
-            </div>
+<!--              <div class="mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">-->
+<!--                <label for="exampleInputSkills" class="form-label">Skills</label>-->
+<!--                <br>-->
+<!--                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.skills"/>-->
+<!--                <br>-->
+<!--                <input type="checkbox" class="form-check-input" id="skill_group" value="listening" v-model="skills">-->
+<!--                <label class="form-label" for="skill_group">Listening</label>-->
+<!--                <br>-->
 
-            <div class="mb-3">
-              <label for="formUserImage" class="form-label">Curse uchun rasm yuklash</label>
-              <input class="form-control" type="file" id="formUserImage" ref="fileCurseImage"
-                     @change="uploadCurseImage()">
-            </div>
+                <!--              <input type="checkbox" class="form-check-input" id="skill_individual" value="speaking" v-model="skills">-->
+                <!--              <label class="form-label" for="skill_individual">Speaking</label>-->
 
-            <div class="mb-3">
-              <label for="formCourseVideo" class="form-label">Curse uchun video yuklash</label>
-              <input class="form-control" type="file" id="formCourseVideo" ref="fileCurseVideo"
-                     @change="uploadCurseVideo()">
-            </div>
+                <!--              <br>-->
+                <!--              <input type="checkbox" class="form-check-input" id="skill_reading" value="reading" v-model="skills">-->
+                <!--              <label class="form-label" for="skill_reading">Reading</label>-->
+                <!--              <br>-->
 
-
-            <div class="mb-3">
-              <label for="exampleInputType" class="form-label">Type</label>
-              <select class="form-select" id="exampleInputType" v-model="type">
-                <option disabled value="">Course type</option>
-                <option>individual</option>
-                <option>group</option>
-              </select>
-              <!--              <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>-->
-            </div>
-            <div class="mb-3">
-              <label for="exampleInputPrice" class="form-label">Price</label>
-              <input v-model="price" type="number" class="form-control" id="exampleInputPrice">
-              <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
-            </div>
+                <!--              <input type="checkbox" class="form-check-input" id="skill_writing" value="writing" v-model="skills">-->
+                <!--              <label class="form-label" for="skill_writing">Writing</label>-->
 
 
-            <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
-          </form>
+<!--              </div>-->
+
+              <div class="mb-3">
+                <label for="formUserImage" class="form-label">Curse uchun rasm yuklash</label>
+                <div class="image_course_upload d-flex flex-column align-items-center justify-content-center">
+                  <div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                          d="M4 16.2422C2.79401 15.435 2 14.0602 2 12.5C2 10.1564 3.79151 8.23129 6.07974 8.01937C6.54781 5.17213 9.02024 3 12 3C14.9798 3 17.4522 5.17213 17.9203 8.01937C20.2085 8.23129 22 10.1564 22 12.5C22 14.0602 21.206 15.435 20 16.2422M8 16L12 12M12 12L16 16M12 12V21"
+                          stroke="#222222" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <input accept="image/png"  type="file" id="formUserImage" ref="fileCurseImage"
+                           @change="uploadCurseImage()">
+                  </div>
+                  <div>
+                    <p style="margin-right: 25px">формат pdf, размером макс 3мб.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="formCourseVideo" class="form-label">Curse uchun video yuklash</label>
+                <div class="video_course_upload d-flex flex-column align-items-center justify-content-center">
+                  <div>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                          d="M4 16.2422C2.79401 15.435 2 14.0602 2 12.5C2 10.1564 3.79151 8.23129 6.07974 8.01937C6.54781 5.17213 9.02024 3 12 3C14.9798 3 17.4522 5.17213 17.9203 8.01937C20.2085 8.23129 22 10.1564 22 12.5C22 14.0602 21.206 15.435 20 16.2422M8 16L12 12M12 12L16 16M12 12V21"
+                          stroke="#222222" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <input accept="video/*" type="file" id="formCourseVideo" ref="fileCurseVideo"
+                           @change="uploadCurseVideo()">
+                  </div>
+                  <div>
+                    <p style="margin-right: 25px">формат pdf, размером макс 20мб.</p>
+                  </div>
+
+                </div>
+
+
+              </div>
+
+
+              <div class="mb-3">
+                <label for="exampleInputType" class="form-label">Type</label>
+                <select class="form-select" id="exampleInputType" v-model="type">
+                  <option disabled value="">Course type</option>
+                  <option>individual</option>
+                  <option>group</option>
+                </select>
+                <!--              <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>-->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPrice" class="form-label">Price</label>
+                <input v-model="price" type="number" class="form-control" id="exampleInputPrice">
+                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
+              </div>
+
+
+              <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+
+
         </modal>
       </div>
     </div>
@@ -243,12 +298,12 @@ export default defineComponent({
       <tbody>
       <tr v-for="course in courses" :key="course.id">
         <th scope="row">{{ course.id }}</th>
-        <td>{{ course.skills['0'] }}</td>
-        <td>{{ course.name }}</td>
-        <td>{{ course.description }}</td>
-        <td>{{ course.level }}</td>
-        <td>{{ course.type }}</td>
-        <td>{{ course.price }}</td>
+        <td>{{ course?.skills['0'] }}</td>
+        <td>{{ course?.name }}</td>
+        <td>{{ course?.description.slice(0,20) }}...</td>
+        <td>{{ course?.level }}</td>
+        <td>{{ course?.type }}</td>
+        <td>{{ course?.price }}</td>
         <td>
           <div class="icon">
             <i class="fa fa-pen-square"></i>
@@ -281,6 +336,56 @@ export default defineComponent({
 }
 .delete-button{
   margin-right: 10px;
+}
+
+.image_course_upload {
+  width: 100%;
+  height: 150px;
+  border: 1px dashed #1A1A1A;
+  border-radius: 12px;
+}
+.image_course_upload p {
+  margin: 0;
+}
+.image_course_upload input::file-selector-button {
+  font-weight: bold;
+  padding: 0.5em;
+  border: none;
+  background: none;
+  margin: 10px;
+}
+.image_course_upload input:hover,
+.image_course_upload input::file-selector-button:hover {
+  color: blue;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #eee;
+}
+
+
+
+.video_course_upload {
+  width: 100%;
+  height: 150px;
+  border: 1px dashed #1A1A1A;
+  border-radius: 12px;
+}
+.video_course_upload p {
+  margin: 0;
+}
+.video_course_upload input::file-selector-button {
+  font-weight: bold;
+  padding: 0.5em;
+  border: none;
+  background: none;
+  margin: 10px;
+}
+.video_course_upload input:hover,
+.video_course_upload input::file-selector-button:hover {
+  color: blue;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #eee;
 }
 
 

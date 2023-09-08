@@ -102,10 +102,10 @@ const mutations = {
 
 
 const actions = {
-    getAllCabinets(context) {
+    getAllCabinets(context, cabinet_type) {
         return new Promise((resolve, reject) => {
             context.commit('getAllCabinetsStart')
-            CabinetService.getAllCabinets()
+            CabinetService.getAllCabinets(cabinet_type)
                 .then(response => {
                     context.commit('getAllCabinetsSuccess', response.data)
                     resolve(response.data)
@@ -166,6 +166,7 @@ const actions = {
             context.commit('deleteCabinetStart')
             CabinetService.deleteCabinet(id)
                 .then(() =>{
+
                      context.commit('deleteCabinetSuccess')
                     resolve()
 

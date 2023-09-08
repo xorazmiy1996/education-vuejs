@@ -67,8 +67,8 @@ const actions = {
                     resolve(response.data)
                 })
                 .catch(error => {
-                    context.commit("createCourseFailure",error.response.data)
-                    reject(error.response.data)
+                    context.commit("createCourseFailure",error?.response?.data)
+                    reject(error?.response?.data)
                 })
         })
     },
