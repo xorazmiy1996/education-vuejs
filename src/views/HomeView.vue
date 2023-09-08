@@ -12,7 +12,7 @@
         языка <br>месте с нами!<br>
         <br>Для всех возрастов!
       </h5>
-      <a href="https://nicepage.com/css-templates"
+      <a href="#"
          class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-light-1 u-radius-50 u-btn-1">Записаться
         на пробный урок</a>
       <h6 class="u-text u-text-body-alt-color u-text-default u-text-6">+998 99 968 11 77<br>speakuplearningcenter@gmail.com

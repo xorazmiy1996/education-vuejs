@@ -1,7 +1,11 @@
 import axios from "@/service/axios";
 const CabinetService={
-    getAllCabinets(){
-        return axios.get('/educations/cabinet/')
+    getAllCabinets(cabinet_type){
+        return axios.get(`/educations/cabinet/`, {
+            params: {
+                course__type: cabinet_type
+            }
+        })
     },
     createCabinet(data){
         return axios.post('/educations/cabinet/', data)

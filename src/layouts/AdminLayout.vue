@@ -38,8 +38,8 @@ export default defineComponent({
 
       <div class="nav-router me-5">
         <router-link to="/" class="a ctivate">Home</router-link>
-        <router-link to="/individual_or_group_speaking">Speaking</router-link>
-        <router-link to="/writing_task1_task2">Writing</router-link>
+<!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
+<!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
 
 
         <template v-if='isLoggedIn '>

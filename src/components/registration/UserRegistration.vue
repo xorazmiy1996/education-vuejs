@@ -177,7 +177,7 @@ export default defineComponent({
                       </svg>
                     </div>
                     <div>
-                      <input type="file" id="formUserImage" ref="fileUserImage"
+                      <input accept=".jpg, .jpeg, .png" type="file" id="formUserImage" ref="fileUserImage"
                              @change="uploadUserImage()">
                     </div>
                     <div>
@@ -297,7 +297,7 @@ export default defineComponent({
                         </svg>
                       </div>
                       <div>
-                        <input type="file" id="formIelts" ref="fileIelts"
+                        <input accept=".pdf,.doc,.docx,application/pdf,application/msword" type="file" id="formIelts" ref="fileIelts"
                                @change="uploadUserIelts()">
                       </div>
                       <div>

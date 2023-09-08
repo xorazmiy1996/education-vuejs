@@ -1,15 +1,22 @@
 <script>
 import {defineComponent} from 'vue'
+import {mapGetters} from "vuex";
+import Loader from "@/ui-componets/Loader.vue";
 
 
 export default defineComponent({
   name: "Speaking",
+  components: {Loader},
+  computed: {
+    ...mapGetters('cabinet', ['cabinets']),
+    ...mapGetters('cabinet', ['isLoading'])
+  },
   mounted() {
+    this.$store.dispatch("cabinet/getAllCabinets","individual")
 
   },
   methods:{
      individualSpeakingDetail(id){
-       console.log("Salom")
        return this.$router.push(`/individual_speaking_detail/${id}`)
      }
   }
@@ -21,120 +28,30 @@ export default defineComponent({
 
 <template>
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
-      <div class="col">
-        <div @click="individualSpeakingDetail()" class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm.png" alt="">
-          </div>
+    <div  v-if="isLoading" class="loader">
+      <Loader />
+    </div>
+    <div v-else class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
+      <div  v-for="cabinet in cabinets">
+        <div class="col">
+          <div @click="individualSpeakingDetail(cabinet.id)" class="card">
+            <div class="card-image">
+              <img :src="cabinet?.course?.image" alt="">
+            </div>
 
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                 <h5>500 000 sum/month</h5>
+            <div class="card-body">
+              <h5 class="card-title">{{cabinet.teacher.first_name}} {{cabinet.teacher.last_name}}</h5>
+              <p>{{cabinet?.course?.description.slice(0, 50)}}...</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <h5>{{cabinet?.course?.price}} sum/month</h5>
+                </div>
+
               </div>
-
             </div>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm.png" alt="">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <h5>500 000 sum/month</h5>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm2.png" alt="">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <h5>500 000 sum/month</h5>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm.png" alt="">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <h5>500 000 sum/month</h5>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm.png" alt="">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <h5>500 000 sum/month</h5>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="card-image">
-            <img src="@/assets/image/home_image/rasm.png" alt="">
-          </div>
-
-          <div class="card-body">
-            <h5 class="card-title">Jasur Nazarov</h5>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="btn-group">
-                <h5>500 000 sum/month</h5>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
     </div>
   </div>
 
@@ -173,6 +90,11 @@ export default defineComponent({
   object-fit: cover;
   background-color: rgba(0,0,0,0);
   cursor: pointer;
+}
+.loader{
+  position: fixed;
+  top: 50%;
+  left: 50%;
 }
 
 </style>
