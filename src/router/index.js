@@ -47,6 +47,8 @@ import EssayChecker from "@/components/admin/EssayChecker.vue";
 import Test from "@/views/writing/test.vue";
 import TeacherLayout from "@/layouts/TeacherLayout.vue";
 import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.vue";
+import MyTest from "@/views/MyTest.vue";
+import Pragramma from "@/views/Pragramma.vue";
 
 
 const router = createRouter({
@@ -351,6 +353,32 @@ const router = createRouter({
             path: '/test',
             name: 'test',
             component: Test,
+            meta: {
+
+                Layout: DefaultLayout
+            }
+
+        },
+
+        {
+            path: '/pragramma',
+            name: 'pragramma',
+            component: Pragramma,
+            meta: {
+
+                Layout: DefaultLayout
+            }
+
+        },
+
+
+
+
+
+        {
+            path: '/my-test',
+            name: 'my-test',
+            component: MyTest,
             meta: {
 
                 Layout: DefaultLayout

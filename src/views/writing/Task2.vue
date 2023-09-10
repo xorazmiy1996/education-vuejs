@@ -22,7 +22,7 @@ export default defineComponent({
       topic_text: '',
       isSuccessModalOpen: false,
 
-      endTime: 20,
+      endTime: 2400,
       isDisable: false,
 
 
@@ -36,6 +36,7 @@ export default defineComponent({
   },
   computed: {
     ...mapGetters("topic", ['topic_task2']),
+    ...mapGetters("essay", ['isLoading']),
     countdownText() {
       this.minute = Math.floor(this.endTime / 60); // daqiqa hisobi
       this.second = this.endTime % 60; // qoldiq soniya hisobi
@@ -226,7 +227,7 @@ export default defineComponent({
             </div>
           </div>
         </div>
-        <button
+        <button :disabled="isLoading"
             class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">
           YUBORISH
         </button>

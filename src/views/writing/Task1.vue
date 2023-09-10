@@ -21,7 +21,7 @@ export default defineComponent({
       topic_title: '',
       topic_text: '',
       isSuccessModalOpen: false,
-      endTime: 20,
+      endTime: 1200,
       isDisable: false,
       isRandomTopic: null,
 

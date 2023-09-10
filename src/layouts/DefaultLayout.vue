@@ -19,11 +19,16 @@ export default defineComponent({
 <template>
   <nav >
     <div class="nav-icon">
-      <span><img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt=""></span>
+      <span>
+        <router-link to="/">
+            <img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt="">
+        </router-link>
+
+       </span>
     </div>
 
     <div class="nav-router">
-      <router-link to="/"  active-class="active-link">Программы</router-link>
+      <router-link to="/pragramma"  active-class="active-link">Программы</router-link>
 
       <template v-if='isLoggedIn '>
         <div class="dropdown">
