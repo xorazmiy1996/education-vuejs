@@ -1,7 +1,7 @@
 import axios from "axios";
 import router from '@/router/index';
 import {getItem, setItem} from "@/helpers/persistanceStorage";
-axios.defaults.baseURL= "http://185.103.254.135:8080/api"
+axios.defaults.baseURL= "http://193.168.227.62:8080/api"
 
 
 
@@ -20,7 +20,7 @@ axios.interceptors.request.use(config =>{
 // Axios-interseptor qo'shish
 axios.interceptors.response.use(
   (response) => {
-    if(response.request.responseURL == 'http://185.103.254.135:8080/api/accounts/token/refresh/') {
+    if(response.request.responseURL == 'http://192.168.227.62:8080/api/accounts/token/refresh/') {
       const newAccessToken = response.data.access;
       localStorage.setItem('token', newAccessToken); // Yangi access tokenni o'z ma'lumot omboriga yoki xotirasiga saqlash
     }
@@ -29,7 +29,7 @@ axios.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if(error.request.responseURL == 'http://185.103.254.135:8080/api/accounts/token/refresh/'){
+    if(error.request.responseURL == 'http://192.168.227.62:8080/api/accounts/token/refresh/'){
       originalRequest._retry = false;
       localStorage.removeItem('token');
       router.push({ name: "login" });
