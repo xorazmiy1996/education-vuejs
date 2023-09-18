@@ -23,13 +23,13 @@ export default defineComponent({
       </div>
     </div>
 
-    <h1>Savollar</h1>
+    <h1>Qoidalar</h1>
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item mb-2 ">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-            Accordion Item #1
+            Din xaqida #1
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
@@ -42,7 +42,7 @@ export default defineComponent({
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                   data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Accordion Item #2
+            Pornografiya #2
           </button>
         </h2>
         <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
