@@ -6,7 +6,7 @@ export default {
 
 <template>
   <body class="u-body u-xl-mode" data-lang="ru">
-        <section class="u-clearfix u-image u-section-2" data-image-width="1920" data-image-height="1058">
+        <section style="height: 100vh" class="u-clearfix u-image u-section-2" data-image-width="1920" data-image-height="1058">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h4 class="u-text u-text-grey-80 u-text-1">Наши программы</h4>
       <h6 class="u-text u-text-default u-text-grey-80 u-text-2"> Ознакомьтесь с нашими<br>программами
@@ -45,13 +45,15 @@ export default {
       <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="@/assets/image/home_image/39.png" alt=""
            data-image-width="256" data-image-height="256">
       <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-3">
-        <div class="u-container-layout u-container-layout-3">
-          <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-9">General speaking</h6>
-          <h6 class="u-custom-font u-font-ubuntu u-text u-text-10"> * Групповые занятия<br>* 3 раза в неделю по 45
-            минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
-          </h6>
-          <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-11">200.000 / месяц</h6>
-        </div>
+        <router-link style="color: #fff" to="/general_speaking">
+          <div class="u-container-layout u-container-layout-3">
+            <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-9">General speaking</h6>
+            <h6 class="u-custom-font u-font-ubuntu u-text u-text-10"> * Групповые занятия<br>* 3 раза в неделю по 45
+              минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
+            </h6>
+            <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-11">200.000 / месяц</h6>
+          </div>
+        </router-link>
       </div>
       <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-4">
         <div class="u-container-layout u-container-layout-4">

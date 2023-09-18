@@ -150,12 +150,10 @@ const actions = {
             context.commit('addStudentCabinetStart')
             CabinetService.addStudentCabinet(id)
                 .then(response => {
-                    console.log("Muofaqiyatli qo'shildi", response.data)
                     context.commit('addStudentCabinetSuccess')
                     resolve(response.data)
                 })
                 .catch(error => {
-                    console.log("Qo'shilmaadi", error.response.data)
                     context.commit('addStudentCabinetFailure', error.response.data)
                     reject(error.response.data)
                 })

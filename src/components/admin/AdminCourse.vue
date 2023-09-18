@@ -7,9 +7,15 @@ import {mapGetters} from "vuex";
 import DeleteModal from "@/ui-componets/alert-modal/DeleteModal.vue";
 import Loader from "@/ui-componets/Loader.vue";
 
+
+import {maskito} from '@maskito/vue';
+
+import {maskitoNumberOptionsGenerator} from "@maskito/kit";
+
 export default defineComponent({
   name: "AdminCourse",
   components: {Loader, DeleteModal, Input, ValidationError, Modal},
+  directives: {maskito},
   data() {
     return {
       name: '',
@@ -26,7 +32,9 @@ export default defineComponent({
 
 
       isDeleteModalOpen: false,
-      delete_id: ''
+      delete_id: '',
+
+      priceOptions: maskitoNumberOptionsGenerator(),
     }
   },
   created() {
@@ -57,7 +65,7 @@ export default defineComponent({
       data.append('description', this.description);
       data.append('level', this.level);
       data.append('duration', this.duration);
-      data.append('price', this.price);
+      data.append('price', parseInt(this.price.replace(/\D/g,'')));
       data.append('skills', 'speaking');
       data.append('type', this.type);
       data.append('image', this.curseImage);
@@ -261,14 +269,15 @@ export default defineComponent({
                 <label for="exampleInputType" class="form-label">Type</label>
                 <select class="form-select" id="exampleInputType" v-model="type">
                   <option disabled value="">Course type</option>
-                  <option>individual</option>
-                  <option>group</option>
+                  <option value="individual">individual</option>
+                  <option value="group">Group</option>
+                  <option value="general_english">General English</option>
                 </select>
                 <!--              <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>-->
               </div>
               <div class="mb-3">
                 <label for="exampleInputPrice" class="form-label">Price</label>
-                <input v-model="price" type="number" class="form-control" id="exampleInputPrice">
+                <input  v-maskito="priceOptions" v-model="price" type="text" class="form-control" id="exampleInputPrice">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
               </div>
 

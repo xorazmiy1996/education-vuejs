@@ -1,16 +1,24 @@
 <script>
 import {defineComponent} from 'vue'
 
+
 import ValidationError from "@/components/login/ValidationError.vue";
 import {Form, Field, ErrorMessage} from "vee-validate";
 import Loader from "@/ui-componets/Loader.vue";
 import {mapGetters} from "vuex";
 import Input from "@/ui-componets/Input.vue";
 
+import {maskitoPhoneOptionsGenerator} from '@maskito/phone';
+
+import {maskito} from '@maskito/vue';
+import metadata from 'libphonenumber-js/min/metadata';
+import {maskitoNumberOptionsGenerator} from "@maskito/kit";
 
 export default defineComponent({
   name: "StudentRegistration",
   components: {Input, Loader, ValidationError, Form, Field, ErrorMessage},
+  directives: {maskito},
+
   data() {
     return {
       email: "",
@@ -35,10 +43,27 @@ export default defineComponent({
 
       type: "student",
 
+      phoneNumberOptions: maskitoPhoneOptionsGenerator({
+        countryIsoCode: 'UZ',
+        metadata
+      }),
+
+      priceOptions: maskitoNumberOptionsGenerator(),
     }
 
   },
   methods: {
+    experienceMask(event) {
+      const input = event.target;
+      let value = input.value;
+      value = value.replace(/\D/g, "");
+      console.log(value);
+
+      // Telefon raqamini maskaga moslash
+
+
+      input.value = value;
+    },
     submitHandler() {
       const data = {
         "email": this.email,
@@ -49,12 +74,12 @@ export default defineComponent({
         "sex": this.sex,
         "birth_date": this.birth_date,
         "place_of_education": this.place_of_education,
-        "start_date_education": this.start_date_education,
-        "end_date_education": this.end_date_education,
+        // "start_date_education": this.start_date_education,
+        // "end_date_education": this.end_date_education,
         "experience": this.experience,
         "ielts": this.ielts,
         "about_me": this.about_me,
-        "phone_number": this.phone_number,
+        "phone_number": this.phone_number.replace(/\D/g,""),
 
         'photo': this.userImage,
         'ielts_file': this.userIelts,
@@ -215,9 +240,9 @@ export default defineComponent({
                 </div>
                 <div class="input-div">
                   <label for="exampleInputPhone" class="form-label">Telephone</label>
-                  <Field v-model="phone_number" :rules="isRequired" name="phone_number" type="text" class="form-control"
+                  <input v-maskito="phoneNumberOptions" v-model="phone_number" :rules="isRequired" name="phone_number" type="text" class="form-control"
                          id="exampleInputPhone"
-                         placeholder="+998(99)"/>
+                         placeholder="+998" />
                   <ErrorMessage name="phone_number"/>
 
 
@@ -242,29 +267,29 @@ export default defineComponent({
                            aria-describedby="lastNameHelp"/>
                     <ErrorMessage name="place_of_education"/>
                   </div>
-                  <div class="input-div">
-                    <label for="exampleInputStart_date_education" class="form-label">Start date
-                      education::</label>
-                    <Field v-model="start_date_education" :rules="isRequired" name="start_date_education"
-                           class="form-control"
-                           type="date"
-                           id="exampleInputStart_date_education"
-                           aria-describedby="lastNameHelp"/>
-                    <ErrorMessage name="start_date_education"/>
-                  </div>
-                  <div class="input-div">
-                    <label for="exampleInputEnd_date_education" class="form-label">End date education:</label>
-                    <Field v-model="end_date_education" :rules="isRequired" name="end_date_education"
-                           class="form-control"
-                           type="date"
-                           id="exampleInputEnd_date_education"
-                           aria-describedby="lastNameHelp"/>
-                    <ErrorMessage name="end_date_education"/>
-                  </div>
+<!--                  <div class="input-div">-->
+<!--                    <label for="exampleInputStart_date_education" class="form-label">Start date-->
+<!--                      education::</label>-->
+<!--                    <Field v-model="start_date_education" :rules="isRequired" name="start_date_education"-->
+<!--                           class="form-control"-->
+<!--                           type="date"-->
+<!--                           id="exampleInputStart_date_education"-->
+<!--                           aria-describedby="lastNameHelp"/>-->
+<!--                    <ErrorMessage name="start_date_education"/>-->
+<!--                  </div>-->
+<!--                  <div class="input-div">-->
+<!--                    <label for="exampleInputEnd_date_education" class="form-label">End date education:</label>-->
+<!--                    <Field v-model="end_date_education" :rules="isRequired" name="end_date_education"-->
+<!--                           class="form-control"-->
+<!--                           type="date"-->
+<!--                           id="exampleInputEnd_date_education"-->
+<!--                           aria-describedby="lastNameHelp"/>-->
+<!--                    <ErrorMessage name="end_date_education"/>-->
+<!--                  </div>-->
                   <div class="input-div">
                     <label for="exampleInputExperience" class="form-label">Experience:</label>
-                    <Field v-model="experience" :rules="isRequired" name="experience" class="form-control"
-                           type="nubmer"
+                    <Field  v-model="experience" :rules="isRequired" name="experience"  class="form-control"
+                           type="number"
                            id="exampleInputExperience"
                            aria-describedby="lastNameHelp"/>
                     <ErrorMessage name="experience"/>

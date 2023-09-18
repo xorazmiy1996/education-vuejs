@@ -49,6 +49,7 @@ import TeacherLayout from "@/layouts/TeacherLayout.vue";
 import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.vue";
 import MyTest from "@/views/MyTest.vue";
 import Pragramma from "@/views/Pragramma.vue";
+import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 
 
 const router = createRouter({
@@ -76,6 +77,14 @@ const router = createRouter({
             path: '/test_group_speaking',
             name: 'test_group_speaking',
             component: TestGroupSpeaking,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/general_speaking',
+            name: 'general_speaking',
+            component: GeneralSpeaking,
             meta: {
                 Layout: DefaultLayout
             }

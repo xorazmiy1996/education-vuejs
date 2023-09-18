@@ -44,8 +44,11 @@ export default defineComponent({
             <li v-if="user?.type === 'student'">
               <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
             </li>
+            <li v-if="user?.type === 'teacher'">
+              <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
+            </li>
             <li>
-              <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
+              <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
             </li>
           </ul>
         </div>

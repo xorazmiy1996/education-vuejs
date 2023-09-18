@@ -37,11 +37,17 @@ export default defineComponent({
             );
           })
           .catch(error =>{
-            this.$toast.error(`Course is fulled`,
-                {
-                  position: "top-right",
-                }
-            );
+            if(error.detail === "You already registered for this course"){
+              this.$toast.error(`Course is fulled`,
+                  {
+                    position: "top-right",
+                  }
+              );
+            }
+
+            if(error.detail === "Authentication credentials were not provided."){
+              console.log("xato")
+            }
           })
 
     },
@@ -89,7 +95,7 @@ export default defineComponent({
               </div>
               <div class="d-flex justify-content-between text-info">
                 <span>IELTS darajasi:</span>
-                <span><a  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
+                <span><a v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
                          class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
               </div>
               <div class="d-flex justify-content-between text-info">
