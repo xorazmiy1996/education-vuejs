@@ -76,13 +76,16 @@ export default {
         <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="@/assets/image/home_image/39.png" alt=""
              data-image-width="256" data-image-height="256">
         <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-3">
-          <div class="u-container-layout u-container-layout-3">
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-9">General speaking</h6>
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-10"> * Групповые занятия<br>* 3 раза в неделю по 45
-              минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
-            </h6>
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-11">200.000 / месяц</h6>
-          </div>
+          <router-link style="color: #fff" to="/general_speaking">
+            <div class="u-container-layout u-container-layout-3">
+              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-9">General speaking</h6>
+              <h6 class="u-custom-font u-font-ubuntu u-text u-text-10"> * Групповые занятия<br>* 3 раза в неделю по 45
+                минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
+              </h6>
+              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-11">200.000 / месяц</h6>
+            </div>
+          </router-link>
+
         </div>
         <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-4">
           <div class="u-container-layout u-container-layout-4">
