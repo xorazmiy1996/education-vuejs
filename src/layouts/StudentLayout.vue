@@ -60,8 +60,8 @@ export default defineComponent({
 
         </template>
         <template v-if='isAnonymous'>
-          <router-link to="/login">Login</router-link>
-          <router-link to="/user_registration">Sign up</router-link>
+          <router-link to="/login">Войти</router-link>
+          <router-link to="/user_registration">Зарегистрируйтесь</router-link>
         </template>
 
 
