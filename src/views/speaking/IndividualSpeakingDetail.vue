@@ -38,6 +38,13 @@ export default defineComponent({
           })
           .catch(error =>{
             if(error.detail === "You already registered for this course"){
+              this.$toast.success(`You already registered for this course`,
+                  {
+                    position: "top-right",
+                  }
+              );
+            }
+            if(error.detail === "Course is fulled"){
               this.$toast.error(`Course is fulled`,
                   {
                     position: "top-right",
