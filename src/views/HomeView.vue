@@ -10,119 +10,305 @@ export default {
 </script>
 
 <template>
+  <body>
+  <section class="one-page">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="row">
+        <div class="col-4">
+          <img class="cat-image" src="@/assets/image/views/home/cat.png" alt="">
+        </div>
+        <div class="col-8 d-flex flex-container flex-column">
+          <div>
+            <h4>Школа развития разговорного интеллекта</h4>
+          </div>
+          <div>
+            <h5 class="first-step">Сделайте первый шаг к знаниям разговорного языка месте с нами!</h5>
+          </div>
+          <div class="all-ages"><h5>Для всех возрастов!</h5></div>
+          <div>
+            <a href="#pragramma"><button class="btn btn-primary">Записаться на пробный урок</button></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="contact">
+      <div>
+        <h6>+998 99 968 11 77</h6>
+        <h6>speakuplearningcenter@gmail.com </h6>
+      </div>
+    </div>
 
 
+  </section>
 
-  <body class="u-body u-xl-mode" data-lang="ru">
 
-  <section class="u-clearfix u-image u-section-1" id="sec-17e5" data-image-width="1920" data-image-height="1058">
-    <div class="u-clearfix u-sheet u-sheet-1">
+  <section class="two-page" id="pragramma">
+    <div class="container">
+      <div class="row first-row">
+        <div class="col">
+         <h4 class="my-program">
+           Наши программы
+         </h4>
+          <h6 style="font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
+            Ознакомьтесь с нашими
+            программами
+          </h6>
+        </div>
+        <div class="col">
+          <div class="card" style="position: relative">
+            <div class="image-cat-1">
+              <img src="@/assets/image/views/home/39.png" alt="">
+            </div>
 
-      <img class="u-image u-image-contain u-image-default u-image-2"
-           src="@/assets/image/home_image/vecteezy_happy-cat-sticker-cartoon-style-design_22128800_91.png" alt="" data-image-width="3404"
-           data-image-height="4027">
-      <h4  class="u-text u-text-body-alt-color u-text-default u-text-4"> Школа развития<br>разговорного интеллекта
-      </h4>
-      <h5 style="margin-left: 460px" class="u-text u-text-body-alt-color u-text-default u-text-5"> Сделайте первый шаг к знаниям разговорного
-        языка <br>месте с нами!<br>
-        <br>Для всех возрастов!
-      </h5>
-      <scrollactive>
-        <a href="#pragramma"
-           class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-light-1 u-radius-50 u-btn-1">Записаться
-          на пробный урок</a>
-      </scrollactive>
+            <div class="card-body">
+              <h5 class="card-title text-center">IELTS speaking</h5>
+              <p class="card-text"> * Индивидуальные занятия</p>
+              <p class="card-text"> * 3 раза в неделю по 45 минут</p>
+              <p class="card-text">* 12 занятий в месяц</p>
+              <p class="card-text"> * Курс рассчитан на 3 месяца </p>
+              <h5 class="card-title text-center">400.000 / месяц</h5>
+            </div>
+          </div>
 
-      <h6 class="u-text u-text-body-alt-color u-text-default u-text-6">+998 99 968 11 77<br>speakuplearningcenter@gmail.com
-      </h6>
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="image-cat-2">
+              <img src="@/assets/image/views/home/1.png" alt="">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">IELTS speaking</h5>
+              <p class="card-text"> * Групповые занятия (3-4)</p>
+              <p class="card-text">* 3 раза в неделю по 45 минут</p>
+              <p class="card-text">* 12 занятий в месяц</p>
+              <p class="card-text">* Курс рассчитан на 3 месяца </p>
+              <h5 class="card-title text-center">200.000 / месяц</h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row second-row">
+        <div class="col">
+          <div class="card" style="position: relative">
+            <div class="image-cat-1">
+              <img src="@/assets/image/views/home/53.png" alt="">
+            </div>
+
+            <div class="card-body">
+              <h5 class="card-title text-center">General speaking</h5>
+              <p class="card-text">* Групповые занятия</p>
+              <p class="card-text">* 3 раза в неделю по 45 минут</p>
+              <p class="card-text">* 12 занятий в месяц</p>
+              <p class="card-text">* Курс рассчитан на 3 месяца </p>
+              <h5 class="card-title text-center">200.000 / месяц</h5>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">IELTS</h5>
+              <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он не является родным, учит систематизировать процессы памяти.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="card">
+            <div class="image-cat-2">
+              <img src="@/assets/image/views/home/23.png" alt="">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">IELTS writing</h5>
+              <p class="card-text"> <router-link to="/task_1">IELTS task 1</router-link> </p>
+              <p class="card-text"> <router-link to="/task_2">IELTS task 2</router-link> </p>
+              <p class="card-text"><router-link to="/task_3">MOCK academic writing</router-link> </p>
+              <p class="card-text">* feedbacks</p>
+              <h5 class="card-title text-center">30.000 / штук</h5>
+
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-    <section id="pragramma" class="u-clearfix u-image u-section-2" data-image-width="1920" data-image-height="1058">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h4 class="u-text u-text-grey-80 u-text-1">Наши программы</h4>
-        <h6 class="u-text u-text-default u-text-grey-80 u-text-2"> Ознакомьтесь с нашими<br>программами
-        </h6>
-
-        <div style="left: 30px" class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-1">
-          <router-link style="color: #fff" to="/individual_speaking">
-            <div class="u-container-layout u-valign-top u-container-layout-1">
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-3">IELTS speaking</h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-4"> * Индивидуальные занятия<br>* 3 раза в неделю
-                по 45 минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
-              </h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-5">400.000 / месяц</h6>
-            </div>
-          </router-link>
-
-        </div>
-
-
-          <div style="left: 30px" class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-2">
-            <router-link  style="color: #fff" to="/group_speaking">
-                 <div class="u-container-layout u-container-layout-2">
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-6">IELTS speaking</h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-7"> * Групповые занятия (3-4)<br>* 3 раза в неделю
-                по 45 минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
-              </h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-8">200.000 / месяц</h6>
-            </div>
-            </router-link>
-          </div>
-
-
-
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="@/assets/image/home_image/1.png" alt=""
-             data-image-width="256" data-image-height="256">
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-2" src="@/assets/image/home_image/39.png" alt=""
-             data-image-width="256" data-image-height="256">
-        <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-3">
-          <router-link style="color: #fff" to="/general_speaking">
-            <div class="u-container-layout u-container-layout-3">
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-9">General speaking</h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-10"> * Групповые занятия<br>* 3 раза в неделю по 45
-                минут<br>* 12 занятий в месяц<br>* Курс рассчитан на 3 месяца
-              </h6>
-              <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-11">200.000 / месяц</h6>
-            </div>
-          </router-link>
-
-        </div>
-        <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-4">
-          <div class="u-container-layout u-container-layout-4">
-            <h5 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-12">IELTS<span
-                style="font-size: 1.5rem;">
-                  <span style="font-size: 1.875rem;">
-                    <span style="font-size: 2.25rem;">
-                      <span style="font-weight: 700;"></span>
-                    </span>
-                  </span>
-                </span>
-            </h5>
-            <h6 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-13"> - Позволяет определить уровень и
-              навыки владения английским у людей, для которых он не является родным, учит систематизировать
-              процессы памяти.</h6>
-          </div>
-        </div>
-        <div class="u-container-style u-custom-color-5 u-group u-radius-30 u-shape-round u-group-5">
-          <div class="u-container-layout u-container-layout-5">
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-14">IELTS writing</h6>
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-15"> * <router-link to="/task_1"> IELTS task 1</router-link><br>*
-              <router-link to="/task_2">IELTS task 2</router-link> <br>*
-              <router-link to="/task_3"> MOCK academic writing</router-link><br>* feedbacks
-            </h6>
-            <h6 class="u-custom-font u-font-ubuntu u-text u-text-default u-text-16">30.000 / штук</h6>
-          </div>
-        </div>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-3" src="@/assets/image/home_image/53.png" alt=""
-             data-image-width="256" data-image-height="256">
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-4" src="@/assets/image/home_image/23.png" alt=""
-             data-image-width="256" data-image-height="256">
-      </div>
-    </section>
-
 
   </body>
 
 </template>
-<style src="@/assets/homeViewOld.css" scoped></style>
-<style src="@/assets/nicepage_old.css" scoped></style>
+<style scoped>
+.one-page {
+  background-image: url("@/assets/image/home_image/pages_01.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  width: 100%;
+}
+
+.one-page .col-4 {
+  padding-right: 20px;
+}
+
+.one-page .col-8 {
+  margin-top: 50px;
+  padding-left: 70px;
+}
+
+.one-page .col-8 h4 {
+  margin-top: 40px;
+
+}
+
+.one-page .col-8 .first-step {
+  margin-top: 55px;
+  font-size: 1.2rem;
+  width: 500px;
+  color: #fff;
+}
+
+.one-page .col-8 .all-ages {
+  margin-top: 0;
+  font-size: 1.2rem;
+  width: 500px;
+  color: #fff;
+}
+
+.one-page .col-8 .all-ages h5 {
+  margin-top: 0;
+}
+
+.one-page .cat-image {
+  width: 354px;
+  height: 382px;
+  margin: 106px 80px 0 0;
+}
+
+.one-page h4 {
+  font-weight: 400;
+  font-size: 3rem;
+  width: 600px;
+  color: #fff;
+}
+
+.one-page button {
+  margin-top: 40px;
+  background-color: #f5d654;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 10px 17px 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: black;
+}
+.one-page button:hover{
+  background-color: #fff;
+}
+
+.one-page .contact{
+  display: flex;
+  margin-top: 150px;
+  justify-content: flex-end;
+  margin-right: 300px;
+  color: #fff;
+  padding-bottom: 100px;
+}
+.one-page .contact h6{
+  margin: 0;
+}
+
+/* two page */
+
+
+.two-page {
+  background-image: url("@/assets/image/home_image/pages_02.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  width: 100%;
+}
+.two-page .container{
+  padding-top: 40px;
+}
+.two-page .container .row{
+  padding: 40px 60px;
+}
+.two-page .container .row h4{
+  font-size: 3rem;
+  font-weight: 700;
+
+}
+
+
+.two-page .container .row.second-row{
+  padding-top: 0!important;
+}
+
+
+.two-page .container .row .card{
+  border-radius: 35px;
+  background-color: #46056d;
+  color: #fff;
+}
+
+.two-page .container .row .card .card-text{
+  margin: 5px 0;
+
+}
+
+
+
+
+.two-page .container .row .card .card-title{
+  font-size: 24px;
+}
+.two-page .container .row .image-cat-1{
+  position: absolute;
+  top: -70px;
+  left: 100px;
+}
+.two-page .container .row .image-cat-2{
+  position: absolute;
+  top: -70px;
+  left: 130px;
+}
+.two-page .container .row.second-row .image-cat-2{
+  position: absolute;
+  top: -52px;
+  left: 120px;
+}
+.two-page .container .row .image-cat-1 img{
+  width: 92px;
+  height: 92px;
+}
+.two-page .container .row .image-cat-2 img{
+  width: 92px;
+  height: 92px;
+}
+
+.two-page .container .row .card:hover{
+  background-color: #fff;
+  color: black;
+  cursor: pointer ;
+}
+.two-page .container .row .card a{
+  color: #fff;
+}
+.two-page .container .row .card:hover a{
+  color: black;
+}
+.two-page .container .row .card .card-text:hover{
+  background-color: #dbdfe9;
+  padding: 2px 3px;
+  border-radius: 8px;
+}
+
+
+
+
+
+</style>
+<!--<style src="@/assets/homeViewOld.css" scoped></style>-->
+<!--<style src="@/assets/nicepage_old.css" scoped></style>-->
