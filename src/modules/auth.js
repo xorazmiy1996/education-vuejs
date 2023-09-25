@@ -115,7 +115,6 @@ const actions = {
     register(context, student) {
         return new Promise((resolve, reject) => {
             context.commit("registerStart")
-            console.log(student)
             AuthService.register(student)
                 .then(response => {
                     context.commit("registerSuccess", response.data)
@@ -142,7 +141,6 @@ const actions = {
 
                     })
                 .catch(error => {
-                      console.log("Error--6",error.response.data)
                     context.commit("loginFailure", error.response.data)
                     reject(error.response.data)
                 })
@@ -179,7 +177,6 @@ const actions = {
     getUser(context) {
         return new Promise((resolve) => {
             const isAuthenticated = localStorage.getItem('token'); // ro'yxatdan o'tganmi yo'qmi?
-            console.log(isAuthenticated, 123);
             if(!isAuthenticated) {
                 context.commit('currentUserFailure')
             } else {

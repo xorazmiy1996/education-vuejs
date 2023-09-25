@@ -233,12 +233,10 @@ const actions = {
             context.commit("essayCheckerStart")
             EssayService.essayChecker(text_essay)
                 .then(response => {
-                    console.log(response.data)
                     context.commit('essayCheckerSuccess', response.data)
                     resolve(response)
                 })
                 .catch(error => {
-                    console.log(error.response)
                     context.commit('essayCheckerFailure', error.response)
                     reject(error.response)
                 })

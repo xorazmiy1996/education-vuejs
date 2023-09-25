@@ -13,7 +13,6 @@ const action = {
     register(context, student){
         return new Promise(()=>{
             AuthService.register(student).then(response =>{
-                console.log("Response",response)
             }).catch(error =>{
                 console.log("Error", error)
             })
