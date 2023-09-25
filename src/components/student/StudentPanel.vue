@@ -15,7 +15,7 @@ export default defineComponent({
   <div class="container">
     <div class="card mb-5">
       <div class="card-body">
-        <h5 class="card-title">Talaba: {{ user.first_name }} {{user.last_name}}</h5>
+        <h5 class="card-title">Talaba: {{ user?.first_name }} {{user?.last_name}}</h5>
         <p class="card-text">Tizim administratorining vazifalari, bir kompyuter tarmog'i yoki tizimda muammo yuzaga
           kelmasligi uchun zarur bo'lgan harakatlarini boshqarish va nazorat qilish bilan bog'liq. Ushbu vazifalar
           quyidagilar bo'lishi mumkin:.</p>

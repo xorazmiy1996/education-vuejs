@@ -16,14 +16,12 @@ export default {
   },
   methods: {
     submitHandler() {
-      console.log('1')
 
       const text = {
         "text": this.text_essay
       }
       return this.$store.dispatch('essay/essayChecker', text)
           .then(
-              console.log
           )
           .catch(error => {
             console.log(error)
