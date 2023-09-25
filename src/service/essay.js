@@ -20,7 +20,6 @@ const EssayService = {
         return axios.put(`/ielts/essay/${id}/`, essay)
     },
     essayChecker(text_essay) {
-        console.log(text_essay)
         return axios.post('ielts/essay_checker/', text_essay)
     },
 }

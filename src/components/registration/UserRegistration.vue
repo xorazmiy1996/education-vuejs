@@ -57,7 +57,6 @@ export default defineComponent({
       const input = event.target;
       let value = input.value;
       value = value.replace(/\D/g, "");
-      console.log(value);
 
       // Telefon raqamini maskaga moslash
 
@@ -87,7 +86,7 @@ export default defineComponent({
 
         "type": this.type
       }
-      console.log(data)
+
 
       this.$store
           .dispatch("auth/register", data)

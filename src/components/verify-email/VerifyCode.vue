@@ -20,7 +20,6 @@ export default defineComponent({
         "email": localStorage.getItem('email'),
         "verification_code": parseInt(this.email_code)
       }
-      console.log(data)
       this.$store.dispatch("auth/verificationCode", data)
           .then(response => {
             this.$router.push({name: 'login'})

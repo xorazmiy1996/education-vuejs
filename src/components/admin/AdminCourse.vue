@@ -97,7 +97,7 @@ export default defineComponent({
     uploadCurseVideo() {
       const file2 = this.$refs.fileCurseVideo.files[0]
       this.curseVideo = file2
-      console.log(this.curseVideo)
+
     },
 
 

@@ -28,9 +28,9 @@ export default {
       <div class="nav-icon">
         <span v-if="!user">Navbar</span>
         <div v-if="user">
-          <span v-if="user.type === 'admin' ">Admin</span>
-          <span v-if="user.type === 'student'">Student</span>
-          <span v-if="user.type === 'teacher'">Teacher</span>
+          <span v-if="user?.type === 'admin' ">Admin</span>
+          <span v-if="user?.type === 'student'">Student</span>
+          <span v-if="user?.type === 'teacher'">Teacher</span>
         </div>
       </div>
 
