@@ -76,8 +76,8 @@ export default defineComponent({
           <img src="@/assets/coding-lab.png" alt="logo">
         </span>
           <div class="text header-text">
-            <span class="name">{{ user.first_name }}</span>
-            <span class="profession">{{ user.last_name }}</span>
+            <span class="name">{{ user?.first_name }}</span>
+            <span class="profession">{{ user?.last_name }}</span>
 
           </div>
         </div>

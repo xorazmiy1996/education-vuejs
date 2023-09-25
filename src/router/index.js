@@ -50,6 +50,7 @@ import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.
 import MyTest from "@/views/MyTest.vue";
 import Pragramma from "@/views/Pragramma.vue";
 import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
+import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
 
 
 const router = createRouter({
@@ -352,6 +353,16 @@ const router = createRouter({
             path: '/teacher_panel',
             name: 'teacher_panel',
             component: TeacherPanel,
+            meta: {
+                requiresAdmin: true,
+                Layout: TeacherLayout
+
+            }
+        },
+        {
+            path: '/teachers_course',
+            name: 'teachers_course',
+            component: TeachersCourse,
             meta: {
                 requiresAdmin: true,
                 Layout: TeacherLayout
