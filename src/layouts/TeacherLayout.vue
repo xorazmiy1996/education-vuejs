@@ -93,23 +93,23 @@ export default {
           </li>
           <ul class="menu-link">
             <li class="nav-link">
-              <router-link to="#">
+              <router-link to="/teacher_panel">
                 <i class="fa fa-home-alt icon"></i>
                 <span class="text nav-text">Dashboard</span>
               </router-link>
             </li>
             <li class="nav-link">
-              <router-link to="#">
+              <router-link to="/teachers_course">
                 <i class="fa fa-home-alt icon"></i>
                 <span class="text nav-text">My Course</span>
               </router-link>
             </li>
-            <li class="nav-link">
-              <router-link to="#">
-                <i class="fa fa-wallet icon"></i>
-                <span class="text nav-text">My Essay</span>
-              </router-link>
-            </li>
+<!--            <li class="nav-link">-->
+<!--              <router-link to="#">-->
+<!--                <i class="fa fa-wallet icon"></i>-->
+<!--                <span class="text nav-text">My Essay</span>-->
+<!--              </router-link>-->
+<!--            </li>-->
 
 
           </ul>

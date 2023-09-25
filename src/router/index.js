@@ -379,7 +379,6 @@ const router = createRouter({
             }
 
         },
-
         {
             path: '/pragramma',
             name: 'pragramma',
@@ -388,13 +387,7 @@ const router = createRouter({
 
                 Layout: DefaultLayout
             }
-
         },
-
-
-
-
-
         {
             path: '/my-test',
             name: 'my-test',
