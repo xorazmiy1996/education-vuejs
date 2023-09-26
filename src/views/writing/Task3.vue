@@ -25,9 +25,12 @@ export default defineComponent({
       text_2: '',
       isSuccessModalOpen: false,
 
-      endTime: 20,
+      endTime: 3600,
       isDisable: false,
       isErrorModalOpen: false,
+
+      wordCount1: 0,
+      wordCount2: 0,
 
     }
   },
@@ -126,6 +129,16 @@ export default defineComponent({
 
       return true;
     },
+    countWords1() {
+      const x = this.text_1.split(' ')
+      let set_words = new Set(x)
+      this.wordCount1 = set_words.size - 1
+    },
+    countWords2() {
+      const x = this.text_2.split(' ')
+      let set_words = new Set(x)
+      this.wordCount2 = set_words.size - 1
+    }
   },
 })
 </script>
@@ -162,99 +175,133 @@ export default defineComponent({
 
   </success-alert-modal>
 
-  <body class="u-body u-xl-mode" data-lang="ru">
-  <section style="background-color: #fff" class="u-align-center u-clearfix u-palette-2-base u-section-10" id="sec-69be">
-    <div style="color: black" class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-countdown u-countdown-1" data-timer-id="4a0d" data-type="to-date"
-           data-target-date="Tue, 22 Aug 2023 05:21:09 GMT" data-for="everyone" data-direction="down">
-        <div class="u-countdown-wrapper u-spacing-20">
 
-          <div class="u-countdown-item u-countdown-minutes u-spacing-10">
-            <div class="u-countdown-counter u-countdown-counter-4">
-              <div  class="u-countdown-number">{{ countdownText }} {{ minute }}</div>
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-12 d-flex justify-content-between">
+        <div class="header-text">
+          <h3>Academic Writing Part 3</h3>
+          <h5 class="mt-3">You should spend about 60 minutes on this task. Write at least 400 words.</h5>
+        </div>
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-direction-row">
+            {{ countdownText }}
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <div><small class="time">{{ minute }}</small></div>
+              <div><small class="minute-second">MINUTES</small></div>
+            </div>
+            <div class="d-flex flex-column">
+              <smal class="two-point">:</smal>
+            </div>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <div><small class="time">{{ second }}</small></div>
+              <div><small class="minute-second">SECONDS</small></div>
+            </div>
 
-            </div>
-            <div class="u-countdown-label u-countdown-label-4">Minutes</div>
           </div>
-          <div class="u-countdown-separator u-countdown-separator-4">:</div>
-          <div class="u-countdown-item u-countdown-seconds u-spacing-10">
-            <div class="u-countdown-counter u-countdown-counter-5">
-              <div class="u-countdown-number">{{ second }}</div>
-            </div>
-            <div class="u-countdown-label u-countdown-label-5">Seconds</div>
-          </div>
-          <div class="u-countdown-separator u-hidden u-countdown-separator-5">:</div>
-          <div class="u-countdown-item u-countdown-numbers u-hidden u-spacing-10">
-            <div class="u-countdown-counter u-countdown-counter-6">
-              <div class="u-countdown-number">0</div>
-              <div class="u-countdown-number">0</div>
-            </div>
-            <div class="u-countdown-label u-countdown-label-6">Items</div>
+          <div  class="words-count">
+            <small>SO'ZLAR SONI: {{ wordCount1 }} {{wordCount2}}  </small>
           </div>
         </div>
-        <div class="u-countdown-message u-hidden"><p>Sorry, the time is up.</p></div>
+
+
       </div>
-      <h2 class="u-align-left u-custom-font u-font-ubuntu u-text u-text-1"><span style="font-size:1.875rem;color: black">Academic Writing Part&nbsp;3</span><br><span
-          style="font-size:1.5rem; color: black">You should spend about 60 minutes on this task. Write at least 400 words.</span>
-      </h2><a href="https://nicepage.best"
-              class="u-border-none u-btn u-button-style u-hover-white u-palette-2-base u-btn-1">SO'ZLAR SONI:
-      {{ wordCount }}</a>
     </div>
-  </section>
-  <section style="background-color: #fff" class="u-clearfix u-palette-1-light-3 u-section-11" id="sec-2423">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <form @submit.prevent="submitHandler">
-        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
-
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-container-layout-1">
-                  <p v-if="topic_task1" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task1.title }}</p>
-                  <img v-if="topic_task1" :src="topic_task1.image" class="u-image u-image-default u-image-1"
-                       alt="">
-                </div>
-              </div>
-              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
-              <textarea :disabled="isDisable" v-model="text_1" type="text" :required="true" name="topic_text"
-                        @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
-
-
-              </div>
-
+    <form @submit.prevent="submitHandler">
+      <div class="row mt-5">
+        <div class="col-sm-6">
+          <div class="card shadow bg-body-tertiary rounded" style="width: 100%; height: 60vh">
+            <div class="topic-1-text">
+              <p v-if="topic_task1">{{ topic_task1.title }}</p>
+            </div>
+            <div>
+              <img  v-if="topic_task1" :src="topic_task1.image" class="card-img" alt="...">
             </div>
           </div>
         </div>
-        <div class="u-clearfix u-expanded-width u-gutter-28 u-layout-wrap u-white u-layout-wrap-1">
+        <div class="col-sm-6 ">
+           <textarea :disabled="isDisable" v-model="text_1" type="text" :required="true" name="topic_text"
+                     @input="countWords1" class="form-control shadow bg-body-tertiary rounded"></textarea>
+        </div>
 
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-container-layout-1">
-                  <p v-if="topic_task2" class="u-custom-font u-font-ubuntu u-text u-text-1">{{ topic_task2.title }}</p>
-
-                </div>
-              </div>
-              <div class="u-container-style u-layout-cell u-shape-rectangle u-size-30 u-white u-layout-cell-2">
-              <textarea :disabled="isDisable" v-model="text_2" type="text" :required="true" name="topic_text"
-                        @input="countWords" class="u-container-layout u-container-layout-2"></textarea>
-
-
-              </div>
-
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-6">
+          <div class="card shadow bg-body-tertiary rounded" style="width: 100%; height: 60vh">
+            <div class="topic-1-text">
+              <p v-if="topic_task2">{{ topic_task2?.title }}</p>
+            </div>
+            <div>
+              <!--              <img  v-if="topic_task2" :src="topic_task2?.image" class="card-img" alt="...">-->
             </div>
           </div>
         </div>
-        <button
-            class="u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-base u-palette-2-base u-radius-50 u-btn-1">
-          YUBORISH
-        </button>
+        <div class="col-sm-6 ">
+           <textarea :disabled="isDisable" v-model="text_2" type="text" :required="true" name="topic_text"
+                     @input="countWords2" class="form-control shadow bg-body-tertiary rounded"></textarea>
+        </div>
+        <div class="col-12 mt-3">
+          <div class="d-flex justify-content-end mb-5">
+            <button
+                class="btn btn-primary">
+              YUBORISH
+            </button>
+          </div>
 
-      </form>
-    </div>
-  </section>
+        </div>
 
-  </body>
+      </div>
+    </form>
+  </div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.header-text{
+  padding: 8px;
+}
+.header-text  h3{
+  font-weight: 700;
+  font-size: 30px;
+}
+.header-text  h5{
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.time {
+  font-size: 36px;
+  color: #404040;
+  font-weight: 700;
+}
+
+.minute-second {
+  font-size: 12px;
+  color: #404040;
+  font-weight: 400;
+}
+
+.two-point {
+  font-size: 36px;
+  color: #404040;
+  font-weight: 700;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.topic-1-text{
+  margin: 10px;
+}
+textarea{
+  height: 60vh;
+}
+.words-count{
+  padding: 3px 2px;
+  background-color: red;
+  color: white;
+  border-radius: 7px;
+  height: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+</style>
