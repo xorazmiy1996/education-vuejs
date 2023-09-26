@@ -2,8 +2,6 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 import HomeVue from "@/views/HomeView.vue";
 
-import ContactVue from "@/views/ContactView.vue";
-import CourseView from "@/views/CourseView.vue";
 import store from "@/store/main";
 
 
@@ -19,8 +17,6 @@ import TestIndividualSpeaking from "@/views/test/TestIndividualSpeaking.vue";
 import ResultTestIndividualSpeaking from "@/views/test/ResultTestIndividualSpeaking.vue";
 import TestGroupSpeaking from "@/views/test/TestGroupSpeaking.vue";
 import ResultTestGroupSpeaking from "@/views/test/ResultTestGroupSpeaking.vue";
-import IndividualOrGroupsSpeaking from "@/views/speaking/IndividualOrGroupsSpeaking.vue";
-import WritingTask1OrTask2 from "@/views/writing/WritingTask1OrTask2.vue";
 import Task1 from "@/views/writing/Task1.vue";
 import PaymeTask1Task2 from "@/views/payme/PaymeTask1Task2.vue";
 import VerifyCode from "@/components/verify-email/VerifyCode.vue";
@@ -44,10 +40,8 @@ import AdminEssayDetail from "@/components/admin/AdminEssayDetail.vue";
 import Task2 from "@/views/writing/Task2.vue";
 import Task3 from "@/views/writing/Task3.vue";
 import EssayChecker from "@/components/admin/EssayChecker.vue";
-import Test from "@/views/writing/test.vue";
 import TeacherLayout from "@/layouts/TeacherLayout.vue";
 import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.vue";
-import MyTest from "@/views/MyTest.vue";
 import Pragramma from "@/views/Pragramma.vue";
 import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
@@ -86,22 +80,6 @@ const router = createRouter({
             path: '/general_speaking',
             name: 'general_speaking',
             component: GeneralSpeaking,
-            meta: {
-                Layout: DefaultLayout
-            }
-        },
-        {
-            path: '/contact',
-            name: 'contact',
-            component: ContactVue,
-            meta: {
-                Layout: DefaultLayout
-            }
-        },
-        {
-            path: '/course',
-            name: 'course',
-            component: CourseView,
             meta: {
                 Layout: DefaultLayout
             }
@@ -175,22 +153,6 @@ const router = createRouter({
             }
         },
 
-        {
-            path: '/individual_or_group_speaking',
-            name: 'individual_or_group_speaking',
-            component: IndividualOrGroupsSpeaking,
-            meta: {
-                Layout: DefaultLayout
-            }
-        },
-        {
-            path: '/writing_task1_task2',
-            name: 'writing_task1_task2',
-            component: WritingTask1OrTask2,
-            meta: {
-                Layout: DefaultLayout
-            }
-        },
         {
             path: '/task_1',
             name: 'task_1',
@@ -369,16 +331,7 @@ const router = createRouter({
 
             }
         },
-        {
-            path: '/test',
-            name: 'test',
-            component: Test,
-            meta: {
 
-                Layout: DefaultLayout
-            }
-
-        },
         {
             path: '/pragramma',
             name: 'pragramma',
@@ -388,16 +341,7 @@ const router = createRouter({
                 Layout: DefaultLayout
             }
         },
-        {
-            path: '/my-test',
-            name: 'my-test',
-            component: MyTest,
-            meta: {
 
-                Layout: DefaultLayout
-            }
-
-        },
 
 
     ]

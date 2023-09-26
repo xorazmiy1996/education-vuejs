@@ -14,10 +14,10 @@ export default {
   <section class="one-page">
     <div class="container d-flex justify-content-center align-items-center">
       <div class="row">
-        <div class="col-4">
+        <div class="col-lg-4 header-cat">
           <img class="cat-image" src="@/assets/image/views/home/cat.png" alt="">
         </div>
-        <div class="col-8 d-flex flex-container flex-column">
+        <div class="col-lg-8  header-school d-flex flex-container flex-column">
           <div>
             <h4>Школа развития разговорного интеллекта</h4>
           </div>
@@ -46,7 +46,7 @@ export default {
   <section class="two-page" id="pragramma">
     <div class="container">
       <div class="row first-row">
-        <div class="col">
+        <div class="col-lg-4">
          <h4 class="my-program">
            Наши программы
          </h4>
@@ -55,8 +55,8 @@ export default {
             программами
           </h6>
         </div>
-        <div class="col">
-          <div class="card" style="position: relative">
+        <div class="col-lg-4">
+          <div class="card" style="position: relative;">
             <div class="image-cat-1">
               <img src="@/assets/image/views/home/39.png" alt="">
             </div>
@@ -72,7 +72,7 @@ export default {
           </div>
 
         </div>
-        <div class="col">
+        <div class="col-lg-4">
           <div class="card">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/1.png" alt="">
@@ -89,8 +89,8 @@ export default {
           </div>
         </div>
       </div>
-      <div class="row second-row">
-        <div class="col">
+      <div class="row second-row d-flex">
+        <div class="col-lg-4">
           <div class="card" style="position: relative">
             <div class="image-cat-1">
               <img src="@/assets/image/views/home/53.png" alt="">
@@ -107,7 +107,7 @@ export default {
           </div>
 
         </div>
-        <div class="col">
+        <div class="col-lg-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title text-center">IELTS</h5>
@@ -116,8 +116,8 @@ export default {
           </div>
 
         </div>
-        <div class="col">
-          <div class="card">
+        <div class="col-lg-4">
+          <div class="card card-link">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/23.png" alt="">
             </div>
@@ -140,6 +140,9 @@ export default {
 
 </template>
 <style scoped>
+.card{
+  min-width: 255px;
+}
 .one-page {
   background-image: url("@/assets/image/home_image/pages_01.jpg");
   min-height: 100vh;
@@ -147,35 +150,35 @@ export default {
   width: 100%;
 }
 
-.one-page .col-4 {
+.one-page .header-cat {
   padding-right: 20px;
 }
 
-.one-page .col-8 {
+.one-page .header-school {
   margin-top: 50px;
   padding-left: 70px;
 }
 
-.one-page .col-8 h4 {
+.one-page .header-school h4 {
   margin-top: 40px;
 
 }
 
-.one-page .col-8 .first-step {
+.one-page .header-school .first-step {
   margin-top: 55px;
   font-size: 1.2rem;
   width: 500px;
   color: #fff;
 }
 
-.one-page .col-8 .all-ages {
+.one-page .header-school .all-ages {
   margin-top: 0;
   font-size: 1.2rem;
   width: 500px;
   color: #fff;
 }
 
-.one-page .col-8 .all-ages h5 {
+.one-page .header-school .all-ages h5 {
   margin-top: 0;
 }
 
@@ -276,7 +279,7 @@ export default {
 }
 .two-page .container .row.second-row .image-cat-2{
   position: absolute;
-  top: -52px;
+  top: -60px;
   left: 120px;
 }
 .two-page .container .row .image-cat-1 img{
@@ -299,10 +302,100 @@ export default {
 .two-page .container .row .card:hover a{
   color: black;
 }
-.two-page .container .row .card .card-text:hover{
+.two-page .container .row .card.card-link .card-text:hover{
   background-color: #dbdfe9;
   padding: 2px 3px;
   border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+  .card{
+    margin-top: 80px;
+  }
+  .one-page .header-cat {
+    display: flex;
+    justify-content: center;
+  }
+  .one-page .header-cat img{
+    width: 40%;
+  }
+  .one-page .header-school h4{
+    font-size: 2rem;
+    justify-content: center;
+    font-weight: 400;
+    width: 400px;
+    margin:15px;
+
+  }
+  .one-page .header-school .first-step{
+    font-size: 1.3rem;
+    justify-content: center;
+    font-weight: 400;
+    width: 400px;
+    margin:15px;
+  }
+  .one-page .header-school .all-ages{
+    font-size: 1.3rem;
+    justify-content: center;
+    font-weight: 400;
+    width: 400px;
+    margin:15px;
+  }
+  .one-page .contact {
+    display: flex;
+    width: 200px;
+    margin-top: 150px;
+    justify-content: flex-end;
+    color: #fff;
+    padding-bottom: 100px;
+  }
+
+
+
+
+
+
+}
+@media (max-width: 993px) {
+  .two-page .card{
+    margin: 40px;
+    height: 340px;
+  }
+  .two-page .card-body .card{
+    display: flex;
+    align-items: center;
+  }
+  .two-page  .card p{
+    font-size: 25px;
+    padding: 6px;
+
+  }
+
+  .two-page  .card .card-title{
+    font-size: 32px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .two-page .card{
+    margin: 40px;
+    height: 280px;
+  }
+  .two-page .card-body .card{
+    display: flex;
+    align-items: center;
+  }
+  .two-page  .card p{
+    font-size: 18px;
+    padding: 3px;
+
+  }
+
+  .two-page  .card .card-title{
+    font-size: 25px;
+  }
+
 }
 
 
