@@ -79,7 +79,7 @@ export default defineComponent({
       <div class="card-body">
         <div class="d-flex justify-content-center align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <a target="_blank" :href="courses?.room">Kirish</a>
           </div>
 
         </div>

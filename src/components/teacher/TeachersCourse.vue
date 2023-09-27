@@ -74,6 +74,13 @@ export default {
                   {{cabinet?.start_date}}
                 </div>
               </li>
+              <li class="list-group-item d-flex justify-content-center">
+                <div>
+                  <a target="_blank" :href="cabinet?.room">Kirish</a>
+
+
+                </div>
+              </li>
             </ul>
           </div>
         </div>
