@@ -8,6 +8,27 @@ export default {
   computed: {
     ...mapGetters('auth', ['user']),
   },
+
+  methods:{
+    createZoomLink(id){
+      console.log("id=",id)
+      this.$store.dispatch("zoom/createZoomLink", id)
+          .then(response =>{
+            location.reload();
+            console.log(response)
+
+          })
+          .catch(error => {
+            this.$toast.error(`Course hali to'lmagan, link yatrata olmaysiz!`,
+                {
+                  position: "top-right",
+                }
+            );
+              }
+          )
+    }
+
+  }
 }
 </script>
 
@@ -76,9 +97,17 @@ export default {
               </li>
               <li class="list-group-item d-flex justify-content-center">
                 <div>
-                  <a target="_blank" :href="cabinet?.room">Kirish</a>
-
-
+                  <div class="d-flex justify-content">
+                    Link:
+                  </div>
+                  <div>
+                    <a target="_blank" :href="cabinet?.room">{{cabinet?.room}}</a>
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-center">
+                <div>
+                  <button @click="createZoomLink(cabinet?.id)" class="btn btn-primary">Link yaratish</button>
                 </div>
               </li>
             </ul>

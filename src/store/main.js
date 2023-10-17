@@ -7,6 +7,7 @@ import teacher from "@/modules/teacher";
 import essay from "@/modules/essay";
 import news from "@/modules/news";
 import topic from "@/modules/topic";
+import zoom from "@/modules/zoom";
 
 
 
@@ -17,7 +18,7 @@ const store = createStore({
     actions: {},
 
 
-    modules: {result_test, auth, cabinet, course, teacher, essay, news, topic},
+    modules: {result_test, auth, cabinet, course, teacher, essay, news, topic, zoom},
 
 })
 export default store
