@@ -141,7 +141,7 @@ const actions = {
 
                     })
                 .catch(error => {
-                    context.commit("loginFailure", error.response.data)
+                    context.commit("loginFailure", error?.data)
                     reject(error.response.data)
                 })
 
