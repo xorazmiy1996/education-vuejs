@@ -57,53 +57,60 @@ export default {
         </div>
         <div class="col-lg-4">
           <div class="card" style="position: relative;">
-            <div class="image-cat-1">
-              <img src="@/assets/image/views/home/39.png" alt="">
-            </div>
+            <router-link to="/individual_speaking">
+              <div class="image-cat-1">
+                <img src="@/assets/image/views/home/39.png" alt="">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">IELTS speaking</h5>
+                <p class="card-text"> * Индивидуальные занятия</p>
+                <p class="card-text"> * 3 раза в неделю по 45 минут</p>
+                <p class="card-text">* 12 занятий в месяц</p>
+                <p class="card-text"> * Курс рассчитан на 3 месяца </p>
+                <h5 class="card-title text-center">400.000 / месяц</h5>
+              </div>
+            </router-link>
 
-            <div class="card-body">
-              <h5 class="card-title text-center">IELTS speaking</h5>
-              <p class="card-text"> * Индивидуальные занятия</p>
-              <p class="card-text"> * 3 раза в неделю по 45 минут</p>
-              <p class="card-text">* 12 занятий в месяц</p>
-              <p class="card-text"> * Курс рассчитан на 3 месяца </p>
-              <h5 class="card-title text-center">400.000 / месяц</h5>
-            </div>
           </div>
 
         </div>
         <div class="col-lg-4">
           <div class="card">
-            <div class="image-cat-2">
-              <img src="@/assets/image/views/home/1.png" alt="">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title text-center">IELTS speaking</h5>
-              <p class="card-text"> * Групповые занятия (3-4)</p>
-              <p class="card-text">* 3 раза в неделю по 45 минут</p>
-              <p class="card-text">* 12 занятий в месяц</p>
-              <p class="card-text">* Курс рассчитан на 3 месяца </p>
-              <h5 class="card-title text-center">200.000 / месяц</h5>
+            <router-link to="/group_speaking">
+              <div class="image-cat-2">
+                <img src="@/assets/image/views/home/1.png" alt="">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">IELTS speaking</h5>
+                <p class="card-text"> * Групповые занятия (3-4)</p>
+                <p class="card-text">* 3 раза в неделю по 45 минут</p>
+                <p class="card-text">* 12 занятий в месяц</p>
+                <p class="card-text">* Курс рассчитан на 3 месяца </p>
+                <h5 class="card-title text-center">200.000 / месяц</h5>
 
-            </div>
+              </div>
+            </router-link>
+
           </div>
         </div>
       </div>
       <div class="row second-row d-flex">
         <div class="col-lg-4">
           <div class="card" style="position: relative">
-            <div class="image-cat-1">
-              <img src="@/assets/image/views/home/53.png" alt="">
-            </div>
+            <router-link to="/general_speaking">
+              <div class="image-cat-1">
+                <img src="@/assets/image/views/home/53.png" alt="">
+              </div>
 
-            <div class="card-body">
-              <h5 class="card-title text-center">General speaking</h5>
-              <p class="card-text">* Групповые занятия</p>
-              <p class="card-text">* 3 раза в неделю по 45 минут</p>
-              <p class="card-text">* 12 занятий в месяц</p>
-              <p class="card-text">* Курс рассчитан на 3 месяца </p>
-              <h5 class="card-title text-center">200.000 / месяц</h5>
-            </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">General speaking</h5>
+                <p class="card-text">* Групповые занятия</p>
+                <p class="card-text">* 3 раза в неделю по 45 минут</p>
+                <p class="card-text">* 12 занятий в месяц</p>
+                <p class="card-text">* Курс рассчитан на 3 месяца </p>
+                <h5 class="card-title text-center">200.000 / месяц</h5>
+              </div>
+            </router-link>
           </div>
 
         </div>
@@ -298,6 +305,7 @@ export default {
 }
 .two-page .container .row .card a{
   color: #fff;
+  text-decoration: none;
 }
 .two-page .container .row .card:hover a{
   color: black;
