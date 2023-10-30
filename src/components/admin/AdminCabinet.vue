@@ -45,6 +45,7 @@ export default defineComponent({
   },
 
   methods: {
+    // "start_date": this.start_date +"T" + this.time + ":00Z",
     submitHandler() {
       const data = {
         "teacher_id": this.teacher_id,
@@ -53,6 +54,7 @@ export default defineComponent({
         "start_date": this.start_date,
         "weekdays": this.weekDays,
       }
+      console.log(data.start_date)
       this.$store
           .dispatch("cabinet/createCabinet", data)
           .then(response => {
