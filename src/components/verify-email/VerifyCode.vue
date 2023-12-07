@@ -43,13 +43,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <section>
-    <br>
-    <br>
-    <div class="container text-center">
-
-    </div>
-    <div class="container mt-5">
+  <section class="d-flex justify-content-center align-items-center">
+    <div class="container">
       <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
@@ -70,7 +65,7 @@ export default defineComponent({
                   <ValidationError v-if="validationError" :validationError="validationError"/>
                 </div>
                 <div class="save-submit d-flex justify-content-center ">
-                  <button @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Submit
+                  <button style="background: #695CFE" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Submit
                   </button>
                 </div>
 
@@ -84,14 +79,13 @@ export default defineComponent({
 
 
     </div>
-    <br>
-    <br>
   </section>
 </template>
 
 <style scoped>
 section {
   background-color: #f8f9fa;
+  height: 95vh;
 }
 
 h1 {
