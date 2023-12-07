@@ -84,21 +84,21 @@ export default defineComponent({
         <div class="col-sm-8">
           <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">
             <div class="text-center">
-              <h5 class="card-header">Login</h5>
+              <h5 class="card-header">Авторизаться</h5>
             </div>
 
             <div class="card-body">
               <Form @submit="submitHandler">
                 <ValidationError v-if="validationError" :validationError="validationError"/>
                 <div class="mb-3">
-                  <label for="exampleInputEmail" class="form-label">Email</label>
+                  <label for="exampleInputEmail" class="form-label">Почта</label>
                   <Field v-model="email" :rules="isRequired" name="email" type="text" class="form-control"
                          id="exampleInputEmail"/>
                   <ErrorMessage name="email"/>
                   <ValidationError v-if="validationError" :validationError="validationError.email"/>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <label for="exampleInputPassword1" class="form-label">Код секрет</label>
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
                   <ErrorMessage name="password"/>
@@ -106,14 +106,14 @@ export default defineComponent({
                 </div>
                 <div class="mb-3 email_registration">
                   <div>
-                    <router-link to="/verify_code">Emailni tadiqlash</router-link>
+                    <router-link to="/verify_code">Подтверждать</router-link>
                   </div>
                   <div>
-                    <router-link to="/user_registration">Regitration</router-link>
+                    <router-link to="/select_registration">Регистрация</router-link>
                   </div>
 
                 </div>
-                <button :disabled="isLoading" type="submit" class="btn btn-primary">Submit</button>
+                <button :disabled="isLoading" type="submit" class="btn btn-primary">Отправить</button>
               </Form>
 
             </div>
@@ -138,7 +138,7 @@ section {
 h5 {
   font-size: 25px;
   font-weight: 700;
-  color: deepskyblue;
+  color: #2a2587;
 }
 
 .card {

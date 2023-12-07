@@ -76,14 +76,6 @@ export default defineComponent({
             <video v-if="detailCabinet?.course?.video" controls autoplay name="media" width="620">
               <source :src="detailCabinet?.course?.video" type="video/mp4">
             </video>
-            <!--            <button class="tutor_profile_player_button">-->
-            <!--              <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-            <!--                <path-->
-            <!--                    d="M1.47656 3.32618C1.47656 2.67874 1.47656 2.35502 1.61156 2.17657C1.72916 2.02111 1.90891 1.92491 2.1035 1.91329C2.32686 1.89995 2.5962 2.07952 3.13491 2.43866L10.1453 7.11224C10.5904 7.40897 10.813 7.55737 10.8905 7.74437C10.9584 7.9079 10.9584 8.09164 10.8905 8.25517C10.813 8.44217 10.5904 8.5905 10.1453 8.8873L3.13491 13.5608C2.5962 13.92 2.32686 14.0996 2.1035 14.0862C1.90891 14.0746 1.72916 13.9784 1.61156 13.823C1.47656 13.6445 1.47656 13.3208 1.47656 12.6734V3.32618Z"-->
-            <!--                    fill="#383838" stroke="#383838" stroke-width="2" stroke-linecap="round"-->
-            <!--                    stroke-linejoin="round"></path>-->
-            <!--              </svg>-->
-            <!--            </button>-->
           </div>
         </div>
         <div class="col-4">
@@ -237,10 +229,12 @@ video {
 }
 
 .text-info {
+  display: flex;
+  align-items: center;
   font-weight: 700;
   font-size: 18px;
   color: #717171 !important;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   padding: 3px;
 }
 .loader{
