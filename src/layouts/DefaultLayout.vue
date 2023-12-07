@@ -56,7 +56,7 @@ export default defineComponent({
       </template>
       <template v-if='isAnonymous'>
         <router-link to="/login" active-class="active-link" >Войти</router-link>
-        <router-link to="/user_registration" active-class="active-link" >Зарегистрируйтесь</router-link>
+        <router-link to="/select_registration" active-class="active-link" >Зарегистрируйтесь</router-link>
       </template>
 
 

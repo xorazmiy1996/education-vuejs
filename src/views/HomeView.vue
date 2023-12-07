@@ -19,25 +19,68 @@ export default {
         </div>
         <div class="col-lg-8  header-school d-flex flex-container flex-column">
           <div>
-            <h4>Школа развития разговорного интеллекта</h4>
+            <h4 class="one-page-h4">Платформа развития разговорного интеллекта</h4>
           </div>
           <div>
-            <h5 class="first-step">Сделайте первый шаг к знаниям разговорного языка месте с нами!</h5>
+            <h5 class="first-step one-page-h5">Сделайте первый шаг к знаниям разговорного языка месте с нами!</h5>
           </div>
-          <div class="all-ages"><h5>Для всех возрастов!</h5></div>
+          <div class="all-ages"><h5 class="one-page-h5">Для всех возрастов!</h5></div>
           <div>
-            <a href="#pragramma"><button class="btn btn-primary">Записаться на пробный урок</button></a>
+            <a href="#pragramma"><button class="btn btn-primary one-page-button">Записаться на пробный урок</button></a>
           </div>
         </div>
 
       </div>
     </div>
+
+
     <div class="contact">
-      <div>
-        <h6>+998 99 968 11 77</h6>
-        <h6>speakuplearningcenter@gmail.com </h6>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Связаться с нами
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Связь</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex flex-row my-3 tel">
+                <div class="tel-icon me-3">
+                  <i class="fa-solid fa-phone-volume fa-2xl" style="color: #ff2424;"></i>
+                </div>
+                <div class="tel-number">+998(99) 968 11 77</div>
+              </div>
+              <div class="d-flex flex-row my-3 instagram">
+                <div class="instagram-icon me-3">
+                  <i class="fa-brands fa-square-instagram fa-2xl" style="color: #ff2424;"></i>
+                </div>
+                <div class="instagram-name">instagram</div>
+              </div>
+              <div class="d-flex flex-row email my-3">
+                <div class="email-icon me-3">
+                  <i class="fa-regular fa-envelope fa-2xl" style="color: #ff2424;"></i>
+                </div>
+                <div class="email-name">speakuplearningcenter@gmail.com</div>
+              </div>
+              <div class="d-flex flex-row telegram my-3">
+                <div class="telegram-icon me-3">
+                  <i class="fa-brands fa-telegram fa-2xl" style="color: #ff1f1f;"></i>
+                </div>
+                <div class="telegram-name">telegram</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
 
 
   </section>
@@ -56,7 +99,7 @@ export default {
           </h6>
         </div>
         <div class="col-lg-4">
-          <div class="card" style="position: relative;">
+          <div class="card card-height" style="position: relative;">
             <router-link to="/individual_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/39.png" alt="">
@@ -64,10 +107,10 @@ export default {
               <div class="card-body">
                 <h5 class="card-title text-center">IELTS speaking</h5>
                 <p class="card-text"> * Индивидуальные занятия</p>
-                <p class="card-text"> * 3 раза в неделю по 45 минут</p>
+                <p class="card-text"> * 3 раза в неделю по 30 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text"> * Курс рассчитан на 3 месяца </p>
-                <h5 class="card-title text-center">400.000 / месяц</h5>
+<!--                <h5 class="card-title text-center">400.000 / месяц</h5>-->
               </div>
             </router-link>
 
@@ -75,7 +118,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card">
+          <div class="card card-height">
             <router-link to="/group_speaking">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
@@ -83,10 +126,10 @@ export default {
               <div class="card-body">
                 <h5 class="card-title text-center">IELTS speaking</h5>
                 <p class="card-text"> * Групповые занятия (3-4)</p>
-                <p class="card-text">* 3 раза в неделю по 45 минут</p>
+                <p class="card-text">* 3 раза в неделю по 60 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text">* Курс рассчитан на 3 месяца </p>
-                <h5 class="card-title text-center">200.000 / месяц</h5>
+<!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
 
               </div>
             </router-link>
@@ -96,7 +139,7 @@ export default {
       </div>
       <div class="row second-row d-flex">
         <div class="col-lg-4">
-          <div class="card" style="position: relative">
+          <div class="card card-height" style="position: relative">
             <router-link to="/general_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/53.png" alt="">
@@ -105,17 +148,17 @@ export default {
               <div class="card-body">
                 <h5 class="card-title text-center">General speaking</h5>
                 <p class="card-text">* Групповые занятия</p>
-                <p class="card-text">* 3 раза в неделю по 45 минут</p>
+                <p class="card-text">* 3 раза в неделю по 60 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text">* Курс рассчитан на 3 месяца </p>
-                <h5 class="card-title text-center">200.000 / месяц</h5>
+<!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
               </div>
             </router-link>
           </div>
 
         </div>
         <div class="col-lg-4">
-          <div class="card">
+          <div class="card card-height">
             <div class="card-body">
               <h5 class="card-title text-center">IELTS</h5>
               <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он не является родным, учит систематизировать процессы памяти.</p>
@@ -124,7 +167,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-link">
+          <div class="card card-link card-height">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/23.png" alt="">
             </div>
@@ -134,7 +177,7 @@ export default {
               <p class="card-text"> <router-link to="/task_2">IELTS task 2</router-link> </p>
               <p class="card-text"><router-link to="/task_3">MOCK academic writing</router-link> </p>
               <p class="card-text">* feedbacks</p>
-              <h5 class="card-title text-center">30.000 / штук</h5>
+<!--              <h5 class="card-title text-center">30.000 / штук</h5>-->
 
             </div>
           </div>
@@ -150,11 +193,21 @@ export default {
 .card{
   min-width: 255px;
 }
+.card-height{
+  height: 300px;
+}
+.card-height .card-text{
+  font-size: 20px;
+}
 .one-page {
   background-image: url("@/assets/image/home_image/pages_01.jpg");
   min-height: 100vh;
   background-size: cover;
   width: 100%;
+}
+.one-page .modal-title{
+  font-size: 35px;
+  font-weight: 700;
 }
 
 .one-page .header-cat {
@@ -185,7 +238,7 @@ export default {
   color: #fff;
 }
 
-.one-page .header-school .all-ages h5 {
+.one-page .header-school .all-ages .one-page-h5 {
   margin-top: 0;
 }
 
@@ -195,14 +248,14 @@ export default {
   margin: 106px 80px 0 0;
 }
 
-.one-page h4 {
+.one-page .one-page-h4 {
   font-weight: 400;
   font-size: 3rem;
   width: 600px;
   color: #fff;
 }
 
-.one-page button {
+.one-page .one-page-button {
   margin-top: 40px;
   background-color: #f5d654;
   font-size: 1rem;
@@ -214,7 +267,7 @@ export default {
   text-transform: uppercase;
   color: black;
 }
-.one-page button:hover{
+.one-page .one-page-button:hover{
   background-color: #fff;
 }
 
@@ -223,11 +276,23 @@ export default {
   margin-top: 150px;
   justify-content: flex-end;
   margin-right: 300px;
-  color: #fff;
   padding-bottom: 100px;
 }
 .one-page .contact h6{
   margin: 0;
+}
+
+.tel-number{
+  font-size: 20px;
+}
+.instagram{
+  font-size: 20px;
+}
+.email{
+  font-size: 20px;
+}
+.telegram{
+  font-size: 20px;
 }
 
 /* two page */
@@ -248,7 +313,9 @@ export default {
 .two-page .container .row h4{
   font-size: 3rem;
   font-weight: 700;
-
+}
+.my-program{
+  line-height: 42px;
 }
 
 

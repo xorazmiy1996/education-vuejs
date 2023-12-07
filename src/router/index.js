@@ -8,7 +8,7 @@ import store from "@/store/main";
 import TeacherPanel from "@/components/teacher/TeacherPanel.vue";
 
 
-import UserRegistration from "@/components/registration/UserRegistration.vue";
+import TeacherRegistration from "@/components/registration/TeacherRegistration.vue";
 import IndividualSpeaking from "@/views/speaking/IndividualSpeaking.vue";
 
 
@@ -45,6 +45,8 @@ import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.
 import Pragramma from "@/views/Pragramma.vue";
 import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
+import SelectRegistration from "@/components/registration/SelectRegistration.vue";
+import StudentRegistration from "@/components/registration/StudentRegistration.vue";
 
 
 const router = createRouter({
@@ -145,9 +147,25 @@ const router = createRouter({
         },
         // student
         {
-            path: '/user_registration',
-            name: 'user_registration',
-            component: UserRegistration,
+            path: '/select_registration',
+            name: 'select_registration',
+            component: SelectRegistration,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/teacher_registration',
+            name: 'teacher_registration',
+            component: TeacherRegistration,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/student_registration',
+            name: 'student_registration',
+            component: StudentRegistration,
             meta: {
                 Layout: DefaultLayout
             }

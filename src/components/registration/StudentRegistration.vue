@@ -19,6 +19,8 @@ export default defineComponent({
   components: {Input, Loader, ValidationError, Form, Field, ErrorMessage},
   directives: {maskito},
 
+
+
   data() {
     return {
       email: "",
@@ -73,8 +75,6 @@ export default defineComponent({
         "sex": this.sex,
         "birth_date": this.birth_date,
         "place_of_education": this.place_of_education,
-        // "start_date_education": this.start_date_education,
-        // "end_date_education": this.end_date_education,
         "experience": this.experience,
         "ielts": this.ielts,
         "about_me": this.about_me,
@@ -84,7 +84,7 @@ export default defineComponent({
         'ielts_file': this.userIelts,
 
 
-        "type": this.type
+        "type": "student"
       }
 
 
@@ -93,7 +93,9 @@ export default defineComponent({
           .then(student => {
             localStorage.setItem("email", this.email)
             this.sendCodeEmailAuto()
+            this.clearInput()
             this.$router.push({name: "verify_code"})
+
           })
           .catch(err => console.log("Error", err))
 
@@ -129,6 +131,26 @@ export default defineComponent({
 
       return true;
     },
+    clearInput() {
+          this.email = "",
+          this.password = "",
+          this.password2 = "",
+          this.first_name = "",
+          this.last_name = "",
+          this.birth_date = null,
+          this.phone_number = "",
+
+
+          this.place_of_education = "",
+          this.start_date_education = null,
+          this.end_date_education = null,
+          this.experience = 0,
+          this.about_me = "",
+          this.userImage = null,
+          this.userIelts = null
+
+
+    }
 
 
   },
@@ -142,6 +164,7 @@ export default defineComponent({
     },
     ...mapGetters('auth', ['errorsRegister'])
   },
+
 })
 </script>
 
@@ -155,25 +178,16 @@ export default defineComponent({
         <div class="col-sm-8">
           <div class="">
             <div class="text-center">
-              <!--              <h5 class="card-header">Registration</h5>-->
             </div>
             <br>
             <br>
             <br>
             <div class="card-body">
               <Form @submit="submitHandler">
-                <div class="input-div">
-                  <label for="type" class="form-label">User type:</label>
-                  <select id="type" class="form-control" v-model="type">
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                  </select>
-
-                </div>
 
 
                 <div class="input-div">
-                  <label for="exampleInputName" class="form-label">Ism:</label>
+                  <label for="exampleInputName" class="form-label">Как вам обращаться:</label>
                   <Field v-model="first_name" :rules="isRequired" name="first_name" class="form-control" type="text"
                          id="exampleInputName"
                          aria-describedby="nameHelp"/>
@@ -183,7 +197,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputLastName" class="form-label">Familya:</label>
+                  <label for="exampleInputLastName" class="form-label">Какая у вас фамилия:</label>
                   <Field v-model="last_name" :rules="isRequired" name="last_name" class="form-control" type="text"
                          id="exampleInputLastName"
                          aria-describedby="lastNameHelp"/>
@@ -191,7 +205,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="formUserImage" class="form-label">Shaxsiy rasm yuklash</label>
+                  <label for="formUserImage" class="form-label">Загрузите фото где вас все любят</label>
                   <div class="image_upload d-flex flex-column align-items-center justify-content-center">
                     <div>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -213,23 +227,23 @@ export default defineComponent({
 
 
                 </div>
-                <label class="form-label">Jinsni tanlash:</label>
+                <label class="form-label">Сильная половина (M) или очень сильная(W):</label>
                 <div class="input-div">
                   <div class=" d-flex justify-content-start">
                     <div class="radio-button-1">
                       <input type="radio" id="female" value="female" v-model="sex"/>
-                      <label for="female">Ayol</label>
+                      <label for="female">Девушка</label>
                     </div>
                     <div class="radio-button-2">
                       <input type="radio" id="male" value="male" v-model="sex"/>
-                      <label for="male">Erkak</label>
+                      <label for="male">Мужской</label>
                     </div>
                   </div>
                 </div>
 
 
                 <div class="input-div">
-                  <label for="exampleInputBirthday" class="form-label">Tug'ilgan yil:</label>
+                  <label for="exampleInputBirthday" class="form-label">Год когда вы обняли мир:</label>
                   <Field v-model="birth_date" :rules="isRequired" name="birth_date" type="date" class="form-control"
                          id="exampleInputBirthday"
                          aria-describedby="birthdayHelp"/>
@@ -238,7 +252,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputPhone" class="form-label">Telephone</label>
+                  <label for="exampleInputPhone" class="form-label">Номер для связи</label>
                   <input v-maskito="phoneNumberOptions" v-model="phone_number" :rules="isRequired" name="phone_number" type="text" class="form-control"
                          id="exampleInputPhone"
                          placeholder="+998" />
@@ -247,7 +261,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <label for="exampleInputEmail1" class="form-label">Почта для связи</label>
                   <Field v-model="email" :rules="isRequired" name="email" type="email" class="form-control"
                          id="exampleInputEmail1"
                          aria-describedby="emailHelp"/>
@@ -256,97 +270,13 @@ export default defineComponent({
 
                   <ValidationError v-if="errorsRegister" :validationError="errorsRegister.email"/>
                 </div>
-                <div v-if="type==='teacher'">
-                  <div class="input-div">
-                    <label for="exampleInputPlace_of_education" class="form-label">Place of education:</label>
-                    <Field v-model="place_of_education" :rules="isRequired" name="place_of_education"
-                           class="form-control"
-                           type="text"
-                           id="exampleInputPlace_of_education"
-                           aria-describedby="lastNameHelp"/>
-                    <ErrorMessage name="place_of_education"/>
-                  </div>
-<!--                  <div class="input-div">-->
-<!--                    <label for="exampleInputStart_date_education" class="form-label">Start date-->
-<!--                      education::</label>-->
-<!--                    <Field v-model="start_date_education" :rules="isRequired" name="start_date_education"-->
-<!--                           class="form-control"-->
-<!--                           type="date"-->
-<!--                           id="exampleInputStart_date_education"-->
-<!--                           aria-describedby="lastNameHelp"/>-->
-<!--                    <ErrorMessage name="start_date_education"/>-->
-<!--                  </div>-->
-<!--                  <div class="input-div">-->
-<!--                    <label for="exampleInputEnd_date_education" class="form-label">End date education:</label>-->
-<!--                    <Field v-model="end_date_education" :rules="isRequired" name="end_date_education"-->
-<!--                           class="form-control"-->
-<!--                           type="date"-->
-<!--                           id="exampleInputEnd_date_education"-->
-<!--                           aria-describedby="lastNameHelp"/>-->
-<!--                    <ErrorMessage name="end_date_education"/>-->
-<!--                  </div>-->
-                  <div class="input-div">
-                    <label for="exampleInputExperience" class="form-label">Experience:</label>
-                    <Field  v-model="experience" :rules="isRequired" name="experience"  class="form-control"
-                           type="number"
-                           id="exampleInputExperience"
-                           aria-describedby="lastNameHelp"/>
-                    <ErrorMessage name="experience"/>
-                  </div>
-
-                  <div class="input-div">
-                    <label for="ielts" class="form-label">IELST:</label>
-                    <select id="ielts" class="form-control" v-model="ielts">
-                      <option value="0">No</option>
-                      <option value="5.0">5.0</option>
-                      <option value="5.5">5.5</option>
-                      <option value="6.0">6.0</option>
-                      <option value="6.5">6.5</option>
-                      <option value="7.0">7.0</option>
-                      <option value="7.5">7.5</option>
-                      <option value="8.0">8.0</option>
-                      <option value="8.5">8.5</option>
-                      <option value="9.5">9.0</option>
-                    </select>
-                  </div>
-                  <div class="input-div">
-                    <label for="formIelts" class="form-label">IElSt sertifikatini yuklash</label>
-
-                    <div class="ielts_upload d-flex flex-column align-items-center justify-content-center">
-                      <div>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M4 16.2422C2.79401 15.435 2 14.0602 2 12.5C2 10.1564 3.79151 8.23129 6.07974 8.01937C6.54781 5.17213 9.02024 3 12 3C14.9798 3 17.4522 5.17213 17.9203 8.01937C20.2085 8.23129 22 10.1564 22 12.5C22 14.0602 21.206 15.435 20 16.2422M8 16L12 12M12 12L16 16M12 12V21"
-                              stroke="#222222" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                      </div>
-                      <div>
-                        <input accept=".pdf,.doc,.docx,application/pdf,application/msword" type="file" id="formIelts" ref="fileIelts"
-                               @change="uploadUserIelts()">
-                      </div>
-                      <div>
-                        <p>формат pdf, размером макс 3мб.</p>
-                      </div>
 
 
-                    </div>
-
-                  </div>
-                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
+                <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>
 
 
-                  <div class="input-div">
-                    <label for="exampleFormControlTextarea1" class="form-label">About me:</label>
-                    <textarea v-model="about_me" name="about_me" class="form-control"
-                              id="exampleFormControlTextarea1"
-                              rows="3"></textarea>
-                    <ErrorMessage name="about_me"/>
-
-                  </div>
-
-                </div>
                 <div class="input-div">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <label for="exampleInputPassword1" class="form-label">Код секрет</label>
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
                   <ErrorMessage name="password"/>
@@ -354,7 +284,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputPassword2" class="form-label">Password</label>
+                  <label for="exampleInputPassword2" class="form-label">Код секрет</label>
                   <Field v-model="password2" :rules="isRequired" name="password2" type="password" class="form-control"
                          id="exampleInputPassword2"/>
                   <ErrorMessage name="password2"/>
@@ -365,7 +295,7 @@ export default defineComponent({
                 </div>
 
                 <div class="save-submit">
-                  <button :disabled="isLoading" class="btn btn-primary">Submit
+                  <button :disabled="isLoading" class="btn btn-primary">Отправить
                   </button>
                 </div>
 
