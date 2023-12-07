@@ -22,7 +22,7 @@ export default {
         <div class="card w-75" @click="registrationStudent()" >
           <div class="card-body">
             <h5 class="card-title">Student</h5>
-            <p>Регистрируйтесь здесь чтобы практиковаться и развивать ваши разговорные навыки!</p>
+            <p class="text-center">Регистрируйтесь здесь чтобы практиковаться и развивать ваши разговорные навыки!</p>
 <!--             <router-link to="/student_registration" class="btn btn-primary">Student registration</router-link>-->
           </div>
         </div>
@@ -31,7 +31,7 @@ export default {
         <div class="card w-75" @click="registrationTeacher()">
           <div class="card-body">
             <h5 class="card-title">Teacher</h5>
-            <p>Регистрирутесь здесь чтобы улучшить ваши преподовательские навыки и зарабатывать хорошо!</p>
+            <p class="text-center">Регистрирутесь здесь чтобы улучшить ваши преподовательские навыки и зарабатывать хорошо!</p>
 <!--            <router-link to="/teacher_registration" class="btn btn-primary">Teacher registration</router-link>-->
           </div>
         </div>
