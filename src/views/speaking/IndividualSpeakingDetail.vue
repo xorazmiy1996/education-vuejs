@@ -106,7 +106,7 @@ export default defineComponent({
                   <span>Dars kunlari:</span>
                 </div>
                 <div>
-                    <span v-for="day in detailCabinet?.weekdays" class="badge text-bg-primary week_day">
+                    <span v-for="day in detailCabinet?.weekdays" class="badge  week_day">
                         <b v-if="day === '0'">1</b>
                         <b v-if="day === '1'">2</b>
                         <b v-if="day === '2'">3</b>
@@ -221,11 +221,12 @@ video {
   font-weight: 600;
   height: 62px;
   align-items: center;
-  background-color: #0d6efd;;
+  background-color: #5856d6;
 }
 
 .week_day {
   margin: 2px;
+  background-color: #5856d6;
 }
 
 .text-info {

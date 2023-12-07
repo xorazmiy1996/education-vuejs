@@ -367,9 +367,10 @@ span {
   width: 100%;
   height: 70px;
   font-size: 20px !important;
-  background-color: #6828f1;
+  background-color: #695CFE;
   border-radius: 12px;
 }
+
 
 .input-div {
   margin-bottom: 46px;
