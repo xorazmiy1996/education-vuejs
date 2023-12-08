@@ -89,24 +89,24 @@ export default defineComponent({
               <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
                 {{ detailCabinet?.teacher?.last_name }}</h5>
               <div class="d-flex justify-content-between text-info">
-                <span>Ish tajribasi:</span>
+                <span>Опыт работы:</span>
                 <span>{{ detailCabinet?.teacher?.experience }} yil</span>
               </div>
               <div class="d-flex justify-content-between text-info">
-                <span>IELTS darajasi:</span>
-                <span><a v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
+                <span>Уровень Английского (IELTS):</span>
+                <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
                          class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
               </div>
               <div class="d-flex justify-content-between text-info">
-                <span>Soat:</span>
+                <span>Время уроков:</span>
                 <span>{{ detailCabinet?.time }}</span>
               </div>
               <div class="d-flex justify-content-between text-info">
                 <div>
-                  <span>Dars kunlari:</span>
+                  <span>Дни уроков:</span>
                 </div>
                 <div>
-                    <span v-for="day in detailCabinet?.weekdays" class="badge  week_day">
+                    <span style="background: #5b35a2" v-for="day in detailCabinet?.weekdays" class="badge  week_day">
                         <b v-if="day === '0'">1</b>
                         <b v-if="day === '1'">2</b>
                         <b v-if="day === '2'">3</b>
@@ -120,12 +120,11 @@ export default defineComponent({
 
               </div>
               <div class="d-flex justify-content-between text-info">
-                <span>Kurs narxi:</span>
+                <span>Цена урока:</span>
                 <span>{{ detailCabinet?.course?.price }} so'm</span>
               </div>
               <div class="contained-button">
-                <button :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)" class="btn btn-primary button_submit">Darslarga
-                  qo'shilish
+                <button style="background: #5b35a2" :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)" class="btn btn-primary button_submit">Присоединиться к классу
                 </button>
               </div>
 

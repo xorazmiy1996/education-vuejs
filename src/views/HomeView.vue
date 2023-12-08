@@ -21,11 +21,11 @@ export default {
           <div>
             <h4 class="one-page-h4">Платформа развития разговорного интеллекта</h4>
           </div>
-          <div>
+          <div class="first-step-space">
             <h5 class="first-step one-page-h5">Сделайте первый шаг к знаниям разговорного языка месте с нами!</h5>
           </div>
           <div class="all-ages"><h5 class="one-page-h5">Для всех возрастов!</h5></div>
-          <div>
+          <div class="mt-4">
             <a href="#pragramma"><button class="btn btn-primary one-page-button">Записаться на пробный урок</button></a>
           </div>
         </div>
@@ -88,12 +88,12 @@ export default {
 
   <section class="two-page" id="pragramma">
     <div class="container">
-      <div class="row first-row">
+      <div class="row first-row mb-5">
         <div class="col-lg-4">
          <h4 class="my-program">
            Наши программы
          </h4>
-          <h6 style="font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
+          <h6 style="margin-top:20px;font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
             Ознакомьтесь с нашими
             программами
           </h6>
@@ -193,12 +193,8 @@ export default {
 .card{
   min-width: 255px;
 }
-.card-height{
-  height: 300px;
-}
-.card-height .card-text{
-  font-size: 20px;
-}
+
+
 .one-page {
   background-image: url("@/assets/image/home_image/pages_01.jpg");
   min-height: 100vh;
@@ -225,14 +221,14 @@ export default {
 }
 
 .one-page .header-school .first-step {
-  margin-top: 55px;
+  margin-top: 10px;
   font-size: 1.2rem;
   width: 500px;
   color: #fff;
 }
 
 .one-page .header-school .all-ages {
-  margin-top: 0;
+  margin-top: 10px;
   font-size: 1.2rem;
   width: 500px;
   color: #fff;
@@ -256,7 +252,6 @@ export default {
 }
 
 .one-page .one-page-button {
-  margin-top: 40px;
   background-color: #f5d654;
   font-size: 1rem;
   font-weight: 700;
@@ -383,6 +378,86 @@ export default {
   border-radius: 8px;
 }
 
+@media (max-width: 1800px) {
+  .card-height{
+    height: 275px;
+  }
+  .card-height .card-text{
+    font-size: 20px;
+  }
+  .card-body{
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .card-height{
+    height: 275px;
+  }
+  .card-height .card-text{
+    font-size: 18px;
+  }
+  .card-body{
+    margin-top: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  .card-height{
+    height: 240px;
+  }
+  .card-height .card-text{
+    font-size: 16px;
+  }
+  .card-body{
+    margin-top: 30px;
+  }
+
+}
+
+
+@media (max-width: 993px) {
+
+  .two-page .card{
+    margin: 40px;
+    height: 340px;
+  }
+  .two-page .card-body .card{
+    display: flex;
+    align-items: center;
+  }
+  .two-page  .card p{
+    font-size: 25px;
+    padding: 6px;
+
+  }
+
+  .two-page  .card .card-title{
+    font-size: 32px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .two-page .card{
+    margin: 40px;
+    height: 280px;
+  }
+  .two-page .card-body .card{
+    display: flex;
+    align-items: center;
+  }
+  .two-page  .card p{
+    font-size: 18px;
+    padding: 3px;
+
+  }
+
+  .two-page  .card .card-title{
+    font-size: 25px;
+  }
+
+}
+
 @media (max-width: 576px) {
   .card{
     margin-top: 80px;
@@ -429,47 +504,6 @@ export default {
 
 
 
-
-}
-@media (max-width: 993px) {
-  .two-page .card{
-    margin: 40px;
-    height: 340px;
-  }
-  .two-page .card-body .card{
-    display: flex;
-    align-items: center;
-  }
-  .two-page  .card p{
-    font-size: 25px;
-    padding: 6px;
-
-  }
-
-  .two-page  .card .card-title{
-    font-size: 32px;
-  }
-
-}
-
-@media (max-width: 768px) {
-  .two-page .card{
-    margin: 40px;
-    height: 280px;
-  }
-  .two-page .card-body .card{
-    display: flex;
-    align-items: center;
-  }
-  .two-page  .card p{
-    font-size: 18px;
-    padding: 3px;
-
-  }
-
-  .two-page  .card .card-title{
-    font-size: 25px;
-  }
 
 }
 

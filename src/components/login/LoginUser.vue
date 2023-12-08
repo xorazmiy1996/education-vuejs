@@ -113,7 +113,7 @@ export default defineComponent({
                   </div>
 
                 </div>
-                <button style="background: #695CFE" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить</button>
+                <button style="background: #5b35a2" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить</button>
               </Form>
 
             </div>

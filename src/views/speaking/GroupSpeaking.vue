@@ -38,21 +38,21 @@ export default defineComponent({
               <img :src="cabinet?.course?.image" alt="">
             </div>
             <div class="card-body">
-              <h5 class="card-title">{{cabinet?.teacher?.first_name}} {{cabinet?.teacher?.last_name}}</h5>
-<!--              <p>{{cabinet?.course?.description.slice(0,20)}}...</p>-->
               <div class="d-flex justify-content-between align-items-center">
-                <div v-if="cabinet?.course?.level === 'A1'"> Уровень выживания (Beginner)</div>
-                <div v-if="cabinet?.course?.level === 'A2'"> Предпороговый уровень (Elementary)</div>
-                <div v-if="cabinet?.course?.level === 'B1'"> Пороговый уровень (Intermediate)</div>
-                <div v-if="cabinet?.course?.level === 'B2'"> Пороговый продвинутый уровень (Upper-Intermediate)</div>
-                <div v-if="cabinet?.course?.level === 'C1'"> Уровень профессионального владения (Advanced)</div>
-                <div v-if="cabinet?.course?.level === 'C2'"> Уровень владения в совершенстве (Proficiency)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'A1'"> Уровень выживания (Beginner)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'A2'"> Предпороговый уровень (Elementary)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'B1'"> Пороговый уровень (Intermediate)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'B2'"> Пороговый продвинутый уровень (Upper-Intermediate)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'C1'"> Уровень профессионального владения (Advanced)</div>
+                <div class="level-text" v-if="cabinet?.course?.level === 'C2'"> Уровень владения в совершенстве (Proficiency)</div>
 
 
               </div>
+              <h5 class="card-title">{{cabinet?.teacher?.first_name}} {{cabinet?.teacher?.last_name}}</h5>
+<!--              <p>{{cabinet?.course?.description.slice(0,20)}}...</p>-->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <h5>{{cabinet?.course?.price}} sum/month</h5>
+                  <h5 class="mt-1">{{cabinet?.course?.price}} (sum/month)</h5>
                 </div>
 
               </div>
@@ -103,6 +103,10 @@ export default defineComponent({
   position: fixed;
   top: 50%;
   left: 50%;
+}
+.level-text{
+  font-size: 20px;
+  font-weight: 700;
 }
 
 </style>
