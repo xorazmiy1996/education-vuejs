@@ -232,7 +232,7 @@ export default defineComponent({
                   <div class=" d-flex justify-content-start">
                     <div class="radio-button-1">
                       <input type="radio" id="female" value="female" v-model="sex"/>
-                      <label for="female">Девушка</label>
+                      <label for="female">Женский</label>
                     </div>
                     <div class="radio-button-2">
                       <input type="radio" id="male" value="male" v-model="sex"/>
@@ -295,7 +295,7 @@ export default defineComponent({
                 </div>
 
                 <div class="save-submit">
-                  <button :disabled="isLoading" class="btn btn-primary">Отправить
+                  <button style="background: #5b35a2" :disabled="isLoading" class="btn btn-primary">Отправить
                   </button>
                 </div>
 

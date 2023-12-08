@@ -18,22 +18,20 @@ export default {
 <div class="container">
   <section>
     <div class="row">
-      <div class="col-6">
-        <div class="card w-75" @click="registrationStudent()" >
+      <div class="col-sm-6 d-flex justify-content-center">
+        <div class="card w-75"  @click="registrationStudent()" >
           <div class="card-body">
             <h5 class="card-title">Student</h5>
             <p class="text-center">Регистрируйтесь здесь чтобы практиковаться и развивать ваши разговорные навыки!</p>
-<!--             <router-link to="/student_registration" class="btn btn-primary">Student registration</router-link>-->
-          </div>
+         </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-sm-6 d-flex justify-content-center">
         <div class="card w-75" @click="registrationTeacher()">
           <div class="card-body">
             <h5 class="card-title">Teacher</h5>
             <p class="text-center">Регистрирутесь здесь чтобы улучшить ваши преподовательские навыки и зарабатывать хорошо!</p>
-<!--            <router-link to="/teacher_registration" class="btn btn-primary">Teacher registration</router-link>-->
-          </div>
+         </div>
         </div>
       </div>
     </div>
