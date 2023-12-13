@@ -166,8 +166,8 @@ export default defineComponent({
     <div class="row mt-3">
       <div class="col-12 d-flex justify-content-between">
         <div class="header-text">
-          <h3>Academic Writing Part 1</h3>
-          <h5 class="mt-3">You should spend about 20 minutes on this task. Write at least 150 words.</h5>
+          <h3>Academic Writing Part 2</h3>
+          <h5 class="mt-3">You should spend about 40 minutes on this task. Write at least 250 words.</h5>
         </div>
         <div class="d-flex flex-column">
           <div class="d-flex flex-direction-row">
@@ -186,7 +186,7 @@ export default defineComponent({
 
           </div>
           <div  class="words-count">
-            <small>SO'ZLAR SONI: {{ wordCount }}</small>
+            <small>Кол. Слов: {{ wordCount }}</small>
           </div>
         </div>
 
@@ -211,9 +211,9 @@ export default defineComponent({
         </div>
         <div class="col-12 mt-3">
           <div class="d-flex justify-content-end">
-            <button
+            <button style="background: #5b35a2"
                 class="btn btn-primary">
-              YUBORISH
+              Отправить
             </button>
           </div>
 

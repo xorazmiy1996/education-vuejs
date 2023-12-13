@@ -51,6 +51,13 @@ export default defineComponent({
                   }
               );
             }
+            if(error.detail === "Please verify your email!"){
+              this.$toast.error(`Please verify your email!`,
+                  {
+                    position: "top-right",
+                  }
+              );
+            }
 
             if(error.detail === "Authentication credentials were not provided."){
               console.log("xato")
@@ -79,33 +86,33 @@ export default defineComponent({
           </div>
         </div>
         <div class="col-4">
+            <div class="card">
+              <!--            <div class="profile-avatar">-->
+              <!--              <img :src="detailCabinet?.teacher?.photo" class="card-img-top" alt="...">-->
+              <!--            </div>-->
 
-          <div class="card">
-            <div class="profile-avatar">
-              <img :src="detailCabinet?.teacher?.photo" class="card-img-top" alt="...">
-            </div>
+              <div class="card-body">
 
-            <div class="card-body">
-              <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
-                {{ detailCabinet?.teacher?.last_name }}</h5>
-              <div class="d-flex justify-content-between text-info">
-                <span>Опыт работы:</span>
-                <span>{{ detailCabinet?.teacher?.experience }} yil</span>
-              </div>
-              <div class="d-flex justify-content-between text-info">
-                <span>Уровень Английского (IELTS):</span>
-                <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
-                         class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
-              </div>
-              <div class="d-flex justify-content-between text-info">
-                <span>Время уроков:</span>
-                <span>{{ detailCabinet?.time }}</span>
-              </div>
-              <div class="d-flex justify-content-between text-info">
-                <div>
-                  <span>Дни уроков:</span>
+                <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
+                  {{ detailCabinet?.teacher?.last_name }}</h5>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Опыт работы:</span>
+                  <span>{{ detailCabinet?.teacher?.experience }} yil</span>
                 </div>
-                <div>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Уровень Английского (IELTS):</span>
+                  <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
+                           class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
+                </div>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Время уроков:</span>
+                  <span>{{ detailCabinet?.time }}</span>
+                </div>
+                <div class="d-flex justify-content-between text-info">
+                  <div>
+                    <span>Дни уроков:</span>
+                  </div>
+                  <div>
                     <span style="background: #5b35a2" v-for="day in detailCabinet?.weekdays" class="badge  week_day">
                         <b v-if="day === '0'">1</b>
                         <b v-if="day === '1'">2</b>
@@ -115,24 +122,26 @@ export default defineComponent({
                         <b v-if="day === '5'">6</b>
                         <b v-if="day === '6'">7</b>
                     </span>
+                  </div>
+
+
+                </div>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Цена урока:</span>
+                  <span>{{ detailCabinet?.course?.price }} so'm</span>
                 </div>
 
 
+
               </div>
-              <div class="d-flex justify-content-between text-info">
-                <span>Цена урока:</span>
-                <span>{{ detailCabinet?.course?.price }} so'm</span>
-              </div>
-              <div class="contained-button">
-                <button style="background: #5b35a2" :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)" class="btn btn-primary button_submit">Присоединиться к классу
-                </button>
-              </div>
+
 
 
             </div>
-
-
-          </div>
+            <div class="contained-button">
+              <button style="background: #5b35a2" :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)" class="btn btn-primary button_submit">Присоединиться к классу
+              </button>
+            </div>
         </div>
       </div>
     </div>
@@ -140,6 +149,11 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.course-detail{
+  position: relative;
+  width: 100%;
+  align-content: space-between;
+}
 .video_player {
   position: relative;
   width: 100%;
@@ -212,8 +226,7 @@ video {
 }
 
 .button_submit {
-  width: 360px;
-  margin-top: 20px;
+  width: 100%;
   font-size: 16px;
   line-height: 21px;
   letter-spacing: .2px;

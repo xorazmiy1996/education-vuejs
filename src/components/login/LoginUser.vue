@@ -108,10 +108,6 @@ export default defineComponent({
                   <div>
                     <router-link to="/verify_code">Подтверждать</router-link>
                   </div>
-                  <div>
-                    <router-link to="/select_registration">Регистрация</router-link>
-                  </div>
-
                 </div>
                 <button style="background: #5b35a2" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить</button>
               </Form>
@@ -161,6 +157,6 @@ form .mb-3 a:hover{
 }
 .email_registration{
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 </style>

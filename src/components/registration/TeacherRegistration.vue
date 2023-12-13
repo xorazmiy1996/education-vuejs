@@ -182,7 +182,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="formUserImage" class="form-label">Загрузите фото где вас все любят</label>
+                  <label for="formUserImage" class="form-label">Загрузите фото где вас все любят:</label>
                   <div class="image_upload d-flex flex-column align-items-center justify-content-center">
                     <div>
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -229,7 +229,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputPhone" class="form-label">Номер для связи</label>
+                  <label for="exampleInputPhone" class="form-label">Номер для связи:</label>
                   <input v-maskito="phoneNumberOptions" v-model="phone_number" :rules="isRequired" name="phone_number"
                          type="text" class="form-control"
                          id="exampleInputPhone"
@@ -239,7 +239,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputEmail1" class="form-label">Почта для связи</label>
+                  <label for="exampleInputEmail1" class="form-label">Почта для связи:</label>
                   <Field v-model="email" :rules="isRequired" name="email" type="email" class="form-control"
                          id="exampleInputEmail1"
                          aria-describedby="emailHelp"/>
@@ -285,7 +285,7 @@ export default defineComponent({
                   </select>
                 </div>
                 <div class="input-div">
-                  <label for="formIelts" class="form-label">Загрузить сертификат EILTS </label>
+                  <label for="formIelts" class="form-label">Загрузить сертификат IELTS: </label>
 
                   <div class="ielts_upload d-flex flex-column align-items-center justify-content-center">
                     <div>
@@ -319,7 +319,7 @@ export default defineComponent({
                 </div>
 
                 <div class="input-div">
-                  <label for="exampleInputPassword1" class="form-label">Код секрет</label>
+                  <label for="exampleInputPassword1" class="form-label">Код секрет:</label>
                   <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
                          id="exampleInputPassword1"/>
                   <ErrorMessage name="password"/>
@@ -327,7 +327,7 @@ export default defineComponent({
 
                 </div>
                 <div class="input-div">
-                  <label for="exampleInputPassword2" class="form-label">Код секрет</label>
+                  <label for="exampleInputPassword2" class="form-label">Код секрет:</label>
                   <Field v-model="password2" :rules="isRequired" name="password2" type="password" class="form-control"
                          id="exampleInputPassword2"/>
                   <ErrorMessage name="password2"/>

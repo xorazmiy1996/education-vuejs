@@ -50,9 +50,8 @@ export default defineComponent({
         <div class="col-sm-8">
           <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">
             <div class="text-center">
-              <h5 class="card-header">Email tasdiqlang</h5>
-              <p>Elektron pochtaga tasdiqlash kodini yubordik, elektron pochtangizni tekshiring va profilingizni
-                tasdiqlang.</p>
+              <h5 class="card-header">Подтвердите почту</h5>
+              <p>Мы отправили код на вашу почту, проверьте почту и подтвердите ваш профиль.</p>
               <h5></h5>
             </div>
 
@@ -65,7 +64,7 @@ export default defineComponent({
                   <ValidationError v-if="validationError" :validationError="validationError"/>
                 </div>
                 <div class="save-submit d-flex justify-content-center ">
-                  <button style="background: #695CFE" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Submit
+                  <button style="background: #5b35a2" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить
                   </button>
                 </div>
 
