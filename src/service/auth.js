@@ -2,6 +2,8 @@ import axios from "@/service/axios";
 
 const AuthService = {
     register(student) {
+        console.log("oxirgisi")
+        console.log(student)
         return axios.post('/accounts/register/', student,{headers: {
             "Content-Type":"multipart/form-data"
             }

@@ -26,7 +26,7 @@ export default defineComponent({
       password2: "",
       first_name: "",
       last_name: "",
-      sex: "",
+      sex: "female",
       birth_date: null,
       phone_number: "",
 
@@ -91,10 +91,10 @@ export default defineComponent({
           .then(student => {
             localStorage.setItem("email", this.email)
             this.sendCodeEmailAuto()
-            this.clearInput()
+            console.log("here");
             this.$router.push({name: "verify_code"})
           })
-          .catch(err => console.log("Error", err))
+          .catch(err => console.log("Teacher", err))
 
 
     },

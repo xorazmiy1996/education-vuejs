@@ -113,14 +113,18 @@ const mutations = {
 
 const actions = {
     register(context, student) {
+        console.log("Jasura---2")
         return new Promise((resolve, reject) => {
             context.commit("registerStart")
+            console.log("Jasura---3")
             AuthService.register(student)
                 .then(response => {
+                    console.log("Jasura---4")
                     context.commit("registerSuccess", response.data)
                     resolve(response.data)
                 })
                 .catch(error => {
+                    console.log("Jasura---5")
                     context.commit("registerFailure", error.response.data)
                         reject(error.response.data)
                 })
@@ -187,7 +191,9 @@ const actions = {
                     resolve(response.data)
 
                 }).catch(() => {
-                    context.commit('currentUserFailure')
+                    context.commit('logout')
+                    localStorage.removeItem('token')
+                    localStorage.removeItem('refresh')
                 })
             }
         })
