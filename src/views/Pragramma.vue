@@ -19,7 +19,7 @@ export default {
           </h6>
         </div>
         <div class="col-lg-4">
-          <div class="card card-height" style="position: relative;">
+          <div class="card card-height card-hover" style="position: relative;">
             <router-link to="/individual_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/39.png" alt="">
@@ -38,7 +38,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-height">
+          <div class="card card-height card-hover">
             <router-link to="/group_speaking">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
@@ -59,7 +59,7 @@ export default {
       </div>
       <div class="row second-row d-flex">
         <div class="col-lg-4">
-          <div class="card card-height" style="position: relative">
+          <div class="card card-height card-hover" style="position: relative">
             <router-link to="/general_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/53.png" alt="">
@@ -87,7 +87,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-link card-height">
+          <div class="card card-link card-height card-hover">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/23.png" alt="">
             </div>
@@ -181,7 +181,7 @@ export default {
   height: 92px;
 }
 
-.two-page .container .row .card:hover{
+.two-page .container .row .card-hover:hover{
   background-color: #fff;
   color: black;
   cursor: pointer ;

@@ -193,7 +193,7 @@ export default defineComponent({
 
           </div>
           <div  class="words-count">
-            <small>SO'ZLAR SONI: {{ wordCount }}</small>
+            <small>Кол. Слов: {{ wordCount }}</small>
           </div>
         </div>
 
@@ -218,9 +218,9 @@ export default defineComponent({
       </div>
       <div class="col-12 mt-3">
         <div class="d-flex justify-content-end">
-          <button
+          <button style="background: #5b35a2"
               class="btn btn-primary">
-            YUBORISH
+            Отправить
           </button>
         </div>
 

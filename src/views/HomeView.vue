@@ -54,13 +54,23 @@ export default {
                 <div class="tel-icon me-3">
                   <i class="fa-solid fa-phone-volume fa-2xl" style="color: #ff2424;"></i>
                 </div>
-                <div class="tel-number">+998(99) 968 11 77</div>
+                <div class="tel-number">+998(91) 434-11-77</div>
+              </div>
+              <div class="d-flex flex-row telegram my-3">
+                <div class="telegram-icon me-3">
+                  <i class="fa-brands fa-telegram fa-2xl" style="color: #ff1f1f;"></i>
+                </div>
+                <div class="telegram-name">
+                  <a href="https://t.me/speakup_learning_centre">telegram</a>
+                </div>
               </div>
               <div class="d-flex flex-row my-3 instagram">
                 <div class="instagram-icon me-3">
                   <i class="fa-brands fa-square-instagram fa-2xl" style="color: #ff2424;"></i>
                 </div>
-                <div class="instagram-name">instagram</div>
+                <div class="instagram-name">
+                  <a href="https://instagram.com/speakup_lc?igshid=NzZlODBkYWE4Ng%3D%3D&utm_source=qr">instagram</a>
+                </div>
               </div>
               <div class="d-flex flex-row email my-3">
                 <div class="email-icon me-3">
@@ -68,12 +78,7 @@ export default {
                 </div>
                 <div class="email-name">speakuplearningcenter@gmail.com</div>
               </div>
-              <div class="d-flex flex-row telegram my-3">
-                <div class="telegram-icon me-3">
-                  <i class="fa-brands fa-telegram fa-2xl" style="color: #ff1f1f;"></i>
-                </div>
-                <div class="telegram-name">telegram</div>
-              </div>
+
 
             </div>
           </div>
@@ -99,7 +104,7 @@ export default {
           </h6>
         </div>
         <div class="col-lg-4">
-          <div class="card card-height" style="position: relative;">
+          <div class="card card-height card-hover" style="position: relative;">
             <router-link to="/individual_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/39.png" alt="">
@@ -118,7 +123,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-height">
+          <div class="card card-height card-hover">
             <router-link to="/group_speaking">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
@@ -139,7 +144,7 @@ export default {
       </div>
       <div class="row second-row d-flex">
         <div class="col-lg-4">
-          <div class="card card-height" style="position: relative">
+          <div class="card card-height card-hover" style="position: relative">
             <router-link to="/general_speaking">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/53.png" alt="">
@@ -167,7 +172,7 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-link card-height">
+          <div class="card card-link card-height card-hover">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/23.png" alt="">
             </div>
@@ -360,7 +365,7 @@ export default {
   height: 92px;
 }
 
-.two-page .container .row .card:hover{
+.two-page .container .row .card-hover:hover{
   background-color: #fff;
   color: black;
   cursor: pointer ;

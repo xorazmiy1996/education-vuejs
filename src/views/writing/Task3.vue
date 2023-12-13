@@ -180,7 +180,7 @@ export default defineComponent({
     <div class="row mt-3">
       <div class="col-12 d-flex justify-content-between">
         <div class="header-text">
-          <h3>Academic Writing Part 3</h3>
+          <h3>Academic Writing MOCK</h3>
           <h5 class="mt-3">You should spend about 60 minutes on this task. Write at least 400 words.</h5>
         </div>
         <div class="d-flex flex-column">
@@ -200,7 +200,7 @@ export default defineComponent({
 
           </div>
           <div  class="words-count">
-            <small>SO'ZLAR SONI: {{ wordCount1 }} {{wordCount2}}  </small>
+            <small>Кол. Слов: {{ wordCount1 }} {{wordCount2}}  </small>
           </div>
         </div>
 
@@ -242,9 +242,9 @@ export default defineComponent({
         </div>
         <div class="col-12 mt-3">
           <div class="d-flex justify-content-end mb-5">
-            <button
+            <button style="background: #5b35a2"
                 class="btn btn-primary">
-              YUBORISH
+              Отправить
             </button>
           </div>
 
