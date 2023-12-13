@@ -32,15 +32,8 @@ export default defineComponent({
       birth_date: null,
       phone_number: "",
 
-
-      place_of_education: "",
-      start_date_education: null,
-      end_date_education: null,
-      experience: 0,
-      ielst: 1,
-      about_me: "",
       userImage: null,
-      userIelts: null,
+
 
 
       type: "student",
@@ -66,6 +59,7 @@ export default defineComponent({
       input.value = value;
     },
     submitHandler() {
+
       const data = {
         "email": this.email,
         "password": this.password,
@@ -74,30 +68,28 @@ export default defineComponent({
         "last_name": this.last_name,
         "sex": this.sex,
         "birth_date": this.birth_date,
-        "place_of_education": this.place_of_education,
-        "experience": this.experience,
-        "ielts": this.ielts,
-        "about_me": this.about_me,
+
+
+
+
         "phone_number": this.phone_number.replace(/\D/g,""),
 
         'photo': this.userImage,
-        'ielts_file': this.userIelts,
+
 
 
         "type": "student"
+
       }
-
-
       this.$store
           .dispatch("auth/register", data)
           .then(student => {
             localStorage.setItem("email", this.email)
             this.sendCodeEmailAuto()
-            this.clearInput()
             this.$router.push({name: "verify_code"})
 
           })
-          .catch(err => console.log("Error", err))
+          .catch(err => console.log("Jasuro", err))
 
 
     },
@@ -131,26 +123,6 @@ export default defineComponent({
 
       return true;
     },
-    clearInput() {
-          this.email = "",
-          this.password = "",
-          this.password2 = "",
-          this.first_name = "",
-          this.last_name = "",
-          this.birth_date = null,
-          this.phone_number = "",
-
-
-          this.place_of_education = "",
-          this.start_date_education = null,
-          this.end_date_education = null,
-          this.experience = 0,
-          this.about_me = "",
-          this.userImage = null,
-          this.userIelts = null
-
-
-    }
 
 
   },
@@ -184,8 +156,6 @@ export default defineComponent({
             <br>
             <div class="card-body">
               <Form @submit="submitHandler">
-
-
                 <div class="input-div">
                   <label for="exampleInputName" class="form-label">Как вам обращаться:</label>
                   <Field v-model="first_name" :rules="isRequired" name="first_name" class="form-control" type="text"

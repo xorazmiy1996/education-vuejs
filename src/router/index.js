@@ -159,6 +159,7 @@ const router = createRouter({
             name: 'teacher_registration',
             component: TeacherRegistration,
             meta: {
+                requiresAdmin: false,
                 Layout: DefaultLayout
             }
         },
@@ -167,6 +168,7 @@ const router = createRouter({
             name: 'student_registration',
             component: StudentRegistration,
             meta: {
+                requiresAdmin: false,
                 Layout: DefaultLayout
             }
         },
