@@ -63,7 +63,6 @@ export default defineComponent({
 
   methods: {
     submitHandler() {
-      console.log("salom")
       const essay = {
         "essays": [{
           "topic": this.topic_task1.id,
@@ -72,24 +71,33 @@ export default defineComponent({
         }]
       }
       if (this.topic_text === '') {
-        this.openErrorAlertModal()
+        // this.openErrorAlertModal()
+        this.$toast.error(`Matn kiriting!`,
+            {
+              position: "top-right",
+            }
+        );
       } else {
         this.$store.dispatch("essay/createEssay", essay)
             .then(response => {
-
               const data = {
                 id: response.data.id,
                 data: essay
               }
-
               this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
+                    // this.openSuccessModal()
+                    this.$toast.success(`Xabar yuborildi`,
+                        {
+                          position: "top-right",
+                        }
+                    );
 
-                    this.openSuccessModal()
                     this.topic_title = ''
                     this.topic_text = ''
                   })
                   .catch(error => {
+
 
                   })
 
@@ -141,30 +149,7 @@ export default defineComponent({
 
 
   <success-alert-modal :is-open="isSuccessModalOpen" title="Success" @close="closeSuccessModal">
-    <p>Sizning inshoyingiz qabul qilndi. to'lovni amalga oshirganigizdan keyin sizga javob yuborilaadi.</p>
-    <p>To'lovni quydagi hisobga yuboring:</p>
-    <p class="badge text-bg-primary">telegram: @Jasur</p>
-    <div class="row mb-3">
-      <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Nazarov Jasurbek </h5>
-            <div class="d-flex justify-content-between">
-
-              <p class="card-text ">86 00 45 78 92 92 45 25</p>
-
-              <p class="badge text-bg-primary">uzcard</p>
-
-            </div>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <p>To'lovni amalga oshirganigizdan so'ng shaaxsiy telefo'n raqamingiz va to'lov chekini bizning telegramimizga
-      yuboring</p>
-
+     Xabar yuborildi
 
   </success-alert-modal>
 

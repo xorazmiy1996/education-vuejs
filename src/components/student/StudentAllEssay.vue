@@ -61,7 +61,7 @@ export default defineComponent({
     </div>
 
   </delete-modal>
-  <h1>Essays all </h1>
+  <h1 style="margin-left: 10px">Все сочинения </h1>
   <div class="container">
     <div class="tabel-cabinet">
       <Loader v-if="isLoading" class="offset-md-6"/>
@@ -70,9 +70,9 @@ export default defineComponent({
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Write</th>
-          <th scope="col">Write</th>
-          <th scope="col">Ball</th>
+          <th scope="col">Writing task 1</th>
+          <th scope="col">Writing task 2</th>
+          <th scope="col">Band score</th>
 
         </tr>
         </thead>
