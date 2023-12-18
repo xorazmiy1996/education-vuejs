@@ -72,7 +72,12 @@ export default defineComponent({
         }]
       }
       if (this.topic_text === '') {
-        this.openErrorAlertModal()
+        // this.openErrorAlertModal()
+        this.$toast.error(`Matn kiriting!`,
+            {
+              position: "top-right",
+            }
+        );
       } else {
         this.$store.dispatch("essay/createEssay", essay)
             .then(response => {
@@ -84,8 +89,12 @@ export default defineComponent({
 
               this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
-
-                    this.openSuccessModal()
+                    // this.openSuccessModal()
+                    this.$toast.success(`Xabar yuborildi`,
+                        {
+                          position: "top-right",
+                        }
+                    );
                     this.topic_title = ''
                     this.topic_text = ''
                   })

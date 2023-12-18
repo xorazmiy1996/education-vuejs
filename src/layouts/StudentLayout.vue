@@ -30,13 +30,15 @@ export default defineComponent({
         <span v-if="!user">Navbar</span>
         <div v-if="user">
           <span v-if="user.type === 'admin' ">Admin</span>
-          <span v-if="user.type === 'student'">Student</span>
+          <span v-if="user.type === 'student'">
+             <img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt="">
+          </span>
           <span v-if="user.type === 'teacher'">Teacher</span>
         </div>
       </div>
 
       <div class="nav-router me-5">
-        <router-link to="/" class="a ctivate">Home</router-link>
+        <router-link to="/" class="a ctivate">Главная страница</router-link>
 <!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
 <!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
 
@@ -71,44 +73,46 @@ export default defineComponent({
 
     <nav ref="sidebar" class="sidebar close">
       <header>
-        <div class="image-text">
-           <span class="image">
-          <img src="@/assets/coding-lab.png" alt="logo">
-        </span>
-          <div class="text header-text">
-            <span class="name">{{ user?.first_name }}</span>
-            <span class="profession">{{ user?.last_name }}</span>
+<!--        <div class="image-text">-->
+<!--           <span class="image">-->
+<!--          <img src="@/assets/coding-lab.png" alt="logo">-->
+<!--        </span>-->
+<!--          <div class="text header-text">-->
+<!--            <span class="name">{{ user?.first_name }}</span>-->
+<!--            <span class="profession">{{ user?.last_name }}</span>-->
 
-          </div>
-        </div>
+<!--          </div>-->
+<!--        </div>-->
         <i @click="pushBar" class="fa fa-chevron-right toggle"></i>
 
       </header>
       <div class="menu-bar">
         <div class="menu">
-          <li class="search-box">
+<!--          <li class="search-box">-->
 
-            <i class="fa fa-search icon"></i>
-            <input type="search" placeholder="Search...">
+<!--            <i class="fa fa-search icon"></i>-->
+<!--            <input type="search" placeholder="Search...">-->
 
-          </li>
+<!--          </li>-->
           <ul class="menu-link">
             <li class="nav-link">
               <router-link to="/student_panel">
                 <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">Dashboard</span>
+                <span class="text nav-text">Главная страница</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/my_course_student">
-                <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">My Course</span>
+                <i class="fa-solid fa-person-chalkboard icon"></i>
+<!--                <i class="fa fa-home-alt icon"></i>-->
+                <span class="text nav-text">Мои курсы</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/student_all_essay">
-                <i class="fa fa-wallet icon"></i>
-                <span class="text nav-text">My Essay</span>
+                <i class="fa-solid fa-pen icon"></i>
+<!--                <i class="fa fa-wallet icon"></i>-->
+                <span class="text nav-text">Мои сочинения</span>
               </router-link>
             </li>
 
@@ -119,7 +123,7 @@ export default defineComponent({
           <li class="">
             <router-link to="#">
               <i class="fa fa-sign-out-alt icon"></i>
-              <span class="text nav-text">Log out</span>
+              <span class="text nav-text">Выход</span>
             </router-link>
           </li>
           <li class="mode">
@@ -127,7 +131,7 @@ export default defineComponent({
               <i class="fa fa-moon icon moon"></i>
               <i class="fa fa-sun icon sun"></i>
             </div>
-            <div class="mode-text text">Dark Mode</div>
+            <div class="mode-text text">Ночной режим</div>
             <div class="toggle-switch">
               <span @click="addDark" class="switch">
               </span>
@@ -144,6 +148,14 @@ export default defineComponent({
 </template>
 
 <style scoped>
+
+#logo {
+  padding: 7px;
+  width: 190px !important;
+  height: 65px !important;
+
+}
+
 section {
   height: 100vh;
   background-color: var(--body-color);
@@ -250,6 +262,7 @@ header .image-text .header-text {
 
 .sidebar header .toggle {
   position: absolute;
+  margin-top: 10px;
   top: 50%;
   right: -25px;
   transform: translateY(-50%) rotate(180deg);

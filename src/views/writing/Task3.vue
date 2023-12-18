@@ -64,7 +64,12 @@ export default defineComponent({
   methods: {
     submitHandler() {
       if (this.text_1 === '' || this.text_2 === '') {
-        this.openErrorAlertModal()
+        // this.openErrorAlertModal()
+        this.$toast.error(`Matn kiriting!`,
+            {
+              position: "top-right",
+            }
+        );
       } else {
         const essay = {
           "essays": [
@@ -92,7 +97,12 @@ export default defineComponent({
               this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
 
-                    this.openSuccessModal()
+                    // this.openSuccessModal()
+                    this.$toast.success(`Xabar yuborildi`,
+                        {
+                          position: "top-right",
+                        }
+                    );
                     this.topic_1 = ''
                     this.text_1 = ''
                     this.topic_2 = ''
