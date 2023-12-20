@@ -90,7 +90,7 @@ export default defineComponent({
               this.$store.dispatch('essay/updateEssay', data)
                   .then(response => {
                     // this.openSuccessModal()
-                    this.$toast.success(`Xabar yuborildi`,
+                    this.$toast.success(`Успешно отправлено!`,
                         {
                           position: "top-right",
                         }

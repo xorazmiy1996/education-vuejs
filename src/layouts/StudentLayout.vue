@@ -52,10 +52,10 @@ export default defineComponent({
 
             <ul class="dropdown-menu">
               <li>
-                <router-link class="dropdown-item" to="/student_panel">Kirish</router-link>
+                <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
               </li>
               <li>
-                <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
+                <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
               </li>
             </ul>
           </div>
