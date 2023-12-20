@@ -34,7 +34,7 @@ export default {
 
 <template>
   <div class="text-center mt-4">
-    <h1 class="head-text">My courses</h1>
+    <h1 class="head-text">Мои курсы</h1>
   </div>
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
@@ -46,19 +46,19 @@ export default {
             </div>
             <ul class="list-group list-group-flush">
               <li class="list-group-item d-flex justify-content-between">
-                <div>Money</div>
+                <div>Цена</div>
                 <div>
-                  {{cabinet?.course?.price}} sum/month
+                  {{cabinet?.course?.price}} сум/месяц
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Time</div>
+                <div>Время уроков</div>
                 <div>
                   {{cabinet?.time}}
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Week day</div>
+                <div>Дни уроков</div>
                 <div>
                     <span v-for="day in cabinet?.weekdays" class="badge text-bg-primary week_day">
                         <b v-if="day === '0'">1</b>
@@ -72,42 +72,42 @@ export default {
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Level</div>
+                <div>Уровень курса</div>
                 <div>
                   {{cabinet?.course?.level}}
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Duration</div>
+                <div>Длительность</div>
                 <div>
-                  {{cabinet?.course?.duration}}
+                  {{cabinet?.course?.duration}} (дней)
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Type</div>
+                <div>Тип класса</div>
                 <div>
                   {{cabinet?.course?.type}}
                 </div>
               </li>
               <li class="list-group-item d-flex justify-content-between">
-                <div>Start date</div>
+                <div>Начало курса</div>
                 <div>
                   {{cabinet?.start_date}}
                 </div>
               </li>
+<!--              <li class="list-group-item d-flex justify-content-center">-->
+<!--                <div>-->
+<!--                  <div class="d-flex justify-content">-->
+<!--                    Link:-->
+<!--                  </div>-->
+<!--                  <div>-->
+<!--                    <a target="_blank" :href="cabinet?.room">{{cabinet?.room}}</a>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </li>-->
               <li class="list-group-item d-flex justify-content-center">
                 <div>
-                  <div class="d-flex justify-content">
-                    Link:
-                  </div>
-                  <div>
-                    <a target="_blank" :href="cabinet?.room">{{cabinet?.room}}</a>
-                  </div>
-                </div>
-              </li>
-              <li class="list-group-item d-flex justify-content-center">
-                <div>
-                  <button @click="createZoomLink(cabinet?.id)" class="btn btn-primary">Link yaratish</button>
+                  <button @click="createZoomLink(cabinet?.id)" class="btn btn-primary">Создавать линк</button>
                 </div>
               </li>
             </ul>
@@ -159,6 +159,11 @@ export default {
   position: fixed;
   top: 50%;
   left: 50%;
+}
+
+.head-text{
+  font-weight: 900;
+  color: #4D5EB3;
 }
 
 </style>

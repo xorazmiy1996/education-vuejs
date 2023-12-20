@@ -26,7 +26,7 @@ export default {
          </div>
         </div>
       </div>
-      <div class="col-sm-6 d-flex justify-content-center">
+      <div class="col-sm-6  d-flex justify-content-center">
         <div class="card w-75" @click="registrationTeacher()">
           <div class="card-body">
             <h5 class="card-title">Teacher</h5>
@@ -64,5 +64,8 @@ section{
   justify-content: center;
   text-align: center;
   font-size: 40px;
+}
+@media (max-width: 993px) {
+
 }
 </style>
