@@ -95,16 +95,19 @@ export default {
                   {{cabinet?.start_date}}
                 </div>
               </li>
-<!--              <li class="list-group-item d-flex justify-content-center">-->
-<!--                <div>-->
-<!--                  <div class="d-flex justify-content">-->
-<!--                    Link:-->
-<!--                  </div>-->
-<!--                  <div>-->
-<!--                    <a target="_blank" :href="cabinet?.room">{{cabinet?.room}}</a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </li>-->
+              <li class="list-group-item d-flex justify-content-between">
+
+                  <div class="d-flex justify-content">
+                    Link:
+                  </div>
+                   <div>
+                     <a target="_blank" :href="cabinet?.room">Вступить в урок</a>
+                   </div>
+
+
+
+
+              </li>
               <li class="list-group-item d-flex justify-content-center">
                 <div>
                   <button @click="createZoomLink(cabinet?.id)" class="btn btn-primary">Создавать линк</button>

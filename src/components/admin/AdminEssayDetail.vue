@@ -109,7 +109,7 @@ export default defineComponent({
     <form @submit.prevent="submitHandler">
       <div class="row">
         <div class="col-md-6">
-          <label for="specificSizeSelect">Task Response </label>
+          <label for="specificSizeSelect">Task Response</label>
           <select v-model="taskResponseScore" class="form-select" id="specificSizeSelect">
             <option selected :value="0">None</option>
             <option :value="1">1%</option>
@@ -238,8 +238,8 @@ export default defineComponent({
       </div>
       <div class="mb-3">
         <div class="text-center mt-3">
-          <h1>
-            Score:{{
+          <h1 class="score-text">
+            Band score:{{
               ((this.taskResponseScore + this.coherenceScore + this.vocabularyScore + this.grammarScore) * 9) / 100
             }} </h1>
         </div>
@@ -248,7 +248,7 @@ export default defineComponent({
         <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
         <textarea v-model="feedback" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
 
   </delete-modal>
@@ -260,7 +260,7 @@ export default defineComponent({
 
   <div class="container" v-if="essaysDetail">
     <div class="text-center mt-3">
-      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol
+      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} - Вопрос
       </button>
 
     </div>
@@ -273,8 +273,8 @@ export default defineComponent({
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">20 minutdda yozilgan insho </h5>
-          <h5 class="card-header" v-else>40 minutdda yozilgan insho</h5>
+          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">Письмо написанный в течении 20 минут </h5>
+          <h5 class="card-header" v-else>Письмо написанный в течении 40 минут</h5>
           <div class="card-body">
             <p class="card-text">
               {{ essaysDetail.body }}
@@ -288,7 +288,7 @@ export default defineComponent({
 
     <template v-if="essaysDetail.feedback">
       <div class="text-center mt-3">
-        <h1>Feedback</h1>
+        <h1 class="feedback-text">Feedback</h1>
       </div>
       <div class="row">
         <div class="col-12">
@@ -339,6 +339,12 @@ label {
   height: 350px;
   width: 18rem;
 
+}
+.feedback-text{
+  color: #4D5EB3;
+}
+.score-text{
+  color: #4D5EB3;
 }
 
 </style>

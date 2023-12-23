@@ -33,7 +33,7 @@ export default {
   <div class="card-body d-flex align-items-center">
     <div style="width: 100%">
       <div>
-        <h3 class="card-title text-center"> {{ name.slice(0,10) }}</h3>
+        <h3 class="card-title text-center"> {{ name }}</h3>
         <h3 class="card-title text-center"><b>{{ this.score }}%</b></h3>
       </div>
       <div class="progress">

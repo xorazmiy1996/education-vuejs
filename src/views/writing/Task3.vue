@@ -220,7 +220,7 @@ export default defineComponent({
     <form @submit.prevent="submitHandler">
       <div class="row mt-5">
         <div class="col-sm-6">
-          <div class="card shadow bg-body-tertiary rounded" style="width: 100%; height: 60vh">
+          <div class="card shadow bg-body-tertiary rounded" style="width: 100%; min-height: 60vh">
             <div class="topic-1-text">
               <p v-if="topic_task1">{{ topic_task1.title }}</p>
             </div>

@@ -30,18 +30,16 @@ export default defineComponent({
       <div class="nav-icon">
         <span v-if="!user">Navbar</span>
         <div v-if="user">
-          <span v-if="user.type === 'admin' ">Admin</span>
+          <span v-if="user.type === 'admin' ">
+            <img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt="">
+          </span>
           <span v-if="user.type === 'student'">Student</span>
           <span v-if="user.type === 'teacher'">Teacher</span>
         </div>
       </div>
 
       <div class="nav-router me-5">
-        <router-link to="/" class="a ctivate">Home</router-link>
-<!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
-<!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
-
-
+        <router-link to="/" class="a ctivate">Главная страница</router-link>
         <template v-if='isLoggedIn '>
           <div class="dropdown">
             <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
@@ -51,10 +49,10 @@ export default defineComponent({
 
             <ul class="dropdown-menu">
               <li>
-                <router-link class="dropdown-item" to="/admin">Kirish</router-link>
+                <router-link class="dropdown-item" to="/admin">Вход</router-link>
               </li>
               <li>
-                <router-link @click="logout" class="dropdown-item" to="#">Chiqish</router-link>
+                <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
               </li>
             </ul>
           </div>
@@ -72,56 +70,50 @@ export default defineComponent({
 
     <nav ref="sidebar" class="sidebar close">
       <header>
-        <div class="image-text">
-           <span class="image">
-          <img src="@/assets/coding-lab.png" alt="logo">
-        </span>
-          <div class="text header-text">
-            <span class="name">Coding</span>
-            <span class="profession">Lab</span>
+<!--        <div class="image-text">-->
+<!--           <span class="image">-->
+<!--          <img src="@/assets/coding-lab.png" alt="logo">-->
+<!--        </span>-->
+<!--          <div class="text header-text">-->
+<!--            <span class="name">Coding</span>-->
+<!--            <span class="profession">Lab</span>-->
 
-          </div>
-        </div>
+<!--          </div>-->
+<!--        </div>-->
         <i @click="pushBar" class="fa fa-chevron-right toggle"></i>
 
       </header>
       <div class="menu-bar">
         <div class="menu">
-          <li class="search-box">
-
-            <i class="fa fa-search icon"></i>
-            <input type="search" placeholder="Search...">
-
-          </li>
           <ul class="menu-link">
             <li class="nav-link">
               <router-link to="/admin">
                 <i class="fa fa-home-alt icon"></i>
-                <span class="text nav-text">Admin</span>
+                <span class="text nav-text">Администрация</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_cabinet">
-                <i class="fa fa-briefcase icon"></i>
-                <span class="text nav-text">Cabinet</span>
+                <i class="fa-solid fa-list-check icon"></i>
+                <span class="text nav-text">Создать кабинет</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_course">
                 <i class="fa fa-landmark-alt icon"></i>
-                <span class="text nav-text">Course</span>
+                <span class="text nav-text">Курс</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/admin_all_essays">
                 <i class="fa fa-feather icon"></i>
-                <span class="text nav-text">All Essay</span>
+                <span class="text nav-text">Все сочинения</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/essay_checker">
                 <i class="fa fa-check-circle icon"></i>
-                <span class="text nav-text">Essay Checker</span>
+                <span class="text nav-text">Проверка сочинении</span>
               </router-link>
             </li>
 
@@ -132,7 +124,7 @@ export default defineComponent({
           <li class="">
             <router-link to="">
               <i class="fa fa-sign-out-alt icon"></i>
-              <span class="text nav-text">Log out</span>
+              <span class="text nav-text">Выход</span>
             </router-link>
           </li>
           <li class="mode">
@@ -140,7 +132,7 @@ export default defineComponent({
               <i class="fa fa-moon icon moon"></i>
               <i class="fa fa-sun icon sun"></i>
             </div>
-            <div class="mode-text text">Dark Mode</div>
+            <div class="mode-text text">Ночной режим</div>
             <div class="toggle-switch">
               <span @click="addDark" class="switch">
               </span>
@@ -158,6 +150,12 @@ export default defineComponent({
 </template>
 
 <style scoped>
+#logo {
+  padding: 7px;
+  width: 190px !important;
+  height: 65px !important;
+
+}
 section {
   height: 100%;
   background-color: var(--body-color);
@@ -266,6 +264,7 @@ header .image-text .header-text {
 
 .sidebar header .toggle {
   position: absolute;
+  margin-top: 15px;
   top: 50%;
   right: -25px;
   transform: translateY(-50%) rotate(180deg);

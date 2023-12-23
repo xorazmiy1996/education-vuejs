@@ -19,31 +19,31 @@ export default defineComponent({
   <div class="text-center mt-4 mb-5">
     <h1 class="head-text">Мои курсы</h1>
   </div>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-<!--         <my-course-card v-for="courses in user?.attend_courses" :courses="courses" :key="courses.id"/>-->
-        <div v-for="courses in user?.attend_courses">
-          <div class="col">
-            <div class="card">
-              <div class="card-image">
-                <img :src="courses?.course?.image" alt="">
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Цена</div>
-                  <div>
-                    {{courses?.course?.price}} сум/месяц
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Время уроков</div>
-                  <div>
-                    {{courses?.time}}
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Дни уроков</div>
-                  <div>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <!--         <my-course-card v-for="courses in user?.attend_courses" :courses="courses" :key="courses.id"/>-->
+      <div v-for="courses in user?.attend_courses">
+        <div class="col">
+          <div class="card">
+            <div class="card-image">
+              <img :src="courses?.course?.image" alt="">
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Цена</div>
+                <div>
+                  {{ courses?.course?.price }} сум/месяц
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Время уроков</div>
+                <div>
+                  {{ courses?.time }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Дни уроков</div>
+                <div>
                     <span v-for="day in courses?.weekdays" class="badge text-bg-primary week_day">
                         <b v-if="day === '0'">1</b>
                         <b v-if="day === '1'">2</b>
@@ -53,93 +53,99 @@ export default defineComponent({
                         <b v-if="day === '5'">6</b>
                         <b v-if="day === '6'">7</b>
                     </span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Уровень курса</div>
-                  <div>
-                    {{courses?.course?.level}}
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Длительность</div>
-                  <div>
-                    {{courses?.course?.duration}} (дней)
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Тип класса</div>
-                  <div>
-                    {{courses?.course?.type}}
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                  <div>Начало курса</div>
-                  <div>
-                    {{courses?.start_date}}
-                  </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-center">
-                  <div>
-                    <a :href="courses?.room" class="btn btn-primary">Вход в класс</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Уровень курса</div>
+                <div>
+                  {{ courses?.course?.level }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Длительность</div>
+                <div>
+                  {{ courses?.course?.duration }} (дней)
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Тип класса</div>
+                <div>
+                  {{ courses?.course?.type }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Начало курса</div>
+                <div>
+                  {{ courses?.start_date }}
+                </div>
+              </li>
+              <li class="list-group-item d-flex justify-content-center">
+                <div>
+                  <a :href="courses?.room" class="btn btn-primary">Вход в класс</a>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-
       </div>
 
     </div>
 
+  </div>
 
-<!--    </div>-->
+
+  <!--    </div>-->
 </template>
 
 <style scoped>
 
-.card{
+.card {
   border: none;
   border-radius: 12px 12px 0 0;
 }
-.card .card-image{
+
+.card .card-image {
   margin-bottom: 4px;
   width: 100%;
   height: 230px;
-  box-shadow: 0px 2px 6px 2px rgba(0,0,0,.031372549);
-  background-color: rgba(0,0,0,0);
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, .031372549);
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 12px 12px 0 0;
   overflow: hidden;
 
 }
-.card .card-body{
+
+.card .card-body {
   padding: 3px;
   box-shadow: none;
 }
-.card-body .card-title{
+
+.card-body .card-title {
   margin: 0;
   font-weight: bold;
 }
-.card-body p{
+
+.card-body p {
   margin: 0;
   color: #717171;
   font-size: 15px;
 }
-.card-image img{
+
+.card-image img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
-.loader{
+
+.loader {
   position: fixed;
   top: 50%;
   left: 50%;
 }
 
-.head-text{
+.head-text {
   font-weight: 900;
   color: #4D5EB3;
 }

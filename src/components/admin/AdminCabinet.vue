@@ -131,19 +131,19 @@ export default defineComponent({
   <div class="container">
     <div class="modal-cabinet">
 
-      <button @click="openModal" class="btn btn-primary">Create Cabinet</button>
+      <button @click="openModal" class="btn btn-primary">Создавать кабинет</button>
       <br>
       <br>
 
       <div class="modal-body">
-        <modal :is-open="isModalOpen" title="My Modal" @close="closeModal">
+        <modal :is-open="isModalOpen" title="Интеграция данных" @close="closeModal">
           <div v-if="isLoading" class="d-flex justify-content-center">
             <Loader />
           </div>
           <div v-else>
             <form @submit.prevent="submitHandler">
               <div class="mb-3">
-                <label for="exampleInputTeacher" class="form-label">Teacher</label>
+                <label for="exampleInputTeacher" class="form-label">Учитель</label>
                 <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
                   <option value="">Teacher select</option>
                   <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
@@ -153,14 +153,14 @@ export default defineComponent({
 
               </div>
               <div class="mb-3">
-                <label for="exampleInputTime" class="form-label">Time</label>
+                <label for="exampleInputTime" class="form-label">Время уроков</label>
                 <input v-model="time" type="time" class="form-control" id="exampleInputTime">
                 <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>
               </div>
 
 
               <div class="mb-3">
-                <label for="exampleInputCourse" class="form-label">Course</label>
+                <label for="exampleInputCourse" class="form-label">Курс</label>
 
 
                 <select class="form-select" id="exampleInputCourse" v-model="course_id">
@@ -174,43 +174,43 @@ export default defineComponent({
 
 
               <div class="mb-3">
-                <label for="exampleInputStartDate" class="form-label">Start date</label>
+                <label for="exampleInputStartDate" class="form-label">Дата старта</label>
                 <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
                 <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
               </div>
               <div class="mb-3">
-                <label for="exampleInputWeekDay" class="form-label">Week days</label>
+                <label for="exampleInputWeekDay" class="form-label">Дни недели</label>
                 <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
                 <br>
                 <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
-                <label class="form-label" for="Monday">Monday</label>
+                <label class="form-label" for="Monday">Понидельник</label>
                 <br>
                 <input type="checkbox" class="form-check-input" id="Tuesday" value="1" v-model="weekDays">
-                <label class="form-label" for="Tuesday">Tuesday</label>
+                <label class="form-label" for="Tuesday">Вторник</label>
                 <br>
 
                 <input type="checkbox" class="form-check-input" id="Wednesday" value="2" v-model="weekDays">
-                <label class="form-label" for="Wednesday">Wednesday</label>
+                <label class="form-label" for="Wednesday">Среда</label>
                 <br>
 
                 <input type="checkbox" class="form-check-input" id="Thursday" value="3" v-model="weekDays">
-                <label class="form-label" for="Thursday">Thursday</label>
+                <label class="form-label" for="Thursday">Четверг</label>
                 <br>
 
                 <input type="checkbox" class="form-check-input" id="Friday" value="4" v-model="weekDays">
-                <label class="form-label" for="Friday">Friday</label>
+                <label class="form-label" for="Friday">Пятница</label>
                 <br>
 
                 <input type="checkbox" class="form-check-input" id="Saturday" value="5" v-model="weekDays">
-                <label class="form-label" for="Saturday">Saturday</label>
+                <label class="form-label" for="Saturday">Суббота</label>
                 <br>
 
                 <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
-                <label class="form-label" for="Sunday">Sunday</label>
+                <label class="form-label" for="Sunday">Воскресенье</label>
 
               </div>
 
-              <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
+              <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>
             </form>
           </div>
 
@@ -225,17 +225,17 @@ export default defineComponent({
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Course</th>
-          <th scope="col">Level</th>
-          <th scope="col">Course type</th>
-          <th scope="col">skill</th>
-          <th scope="col">Duration</th>
-          <th scope="col">Teacher</th>
-          <th scope="col">Start date</th>
-          <th scope="col">Week days</th>
-          <th scope="col">Time</th>
-          <th scope="col">Price</th>
-          <th scope="col">Edit</th>
+          <th scope="col">Курс</th>
+          <th scope="col">Уровень</th>
+          <th scope="col">Тип курса</th>
+          <th scope="col">Навык</th>
+          <th scope="col">Продолжительность</th>
+          <th scope="col">Учитель</th>
+          <th scope="col">Дата старта</th>
+          <th scope="col">Дни недели</th>
+          <th scope="col">Время уроков</th>
+          <th scope="col">Цена</th>
+          <th scope="col">Изменить</th>
         </tr>
         </thead>
         <tbody>
@@ -245,7 +245,7 @@ export default defineComponent({
           <td>{{ cabinet.course.level }}</td>
           <td>{{ cabinet.course.type }}</td>
           <td>{{ cabinet.course.skills['0'] }}</td>
-          <td>{{ cabinet.course.duration }} day</td>
+          <td>{{ cabinet.course.duration }} дни</td>
           <td>{{ cabinet.teacher.first_name }}</td>
           <td>{{ cabinet.start_date }}</td>
           <td>
@@ -261,7 +261,7 @@ export default defineComponent({
 
           </td>
           <td>{{ cabinet.time }}</td>
-          <td>{{ cabinet.course.price }} so'm</td>
+          <td>{{ cabinet.course.price }} Сум(ов)</td>
           <td>
             <div class="icon">
               <i class="fa fa-pen-square"></i>

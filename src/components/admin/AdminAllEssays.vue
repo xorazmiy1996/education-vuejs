@@ -36,7 +36,7 @@ export default defineComponent({
 <template>
   <div class="row">
     <div class="col-12 text-center mt-3">
-      <h1>All Write</h1>
+      <h1>Все писменные работы</h1>
     </div>
   </div>
 
@@ -48,11 +48,11 @@ export default defineComponent({
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">mail</th>
+          <th scope="col">Имя студента</th>
+          <th scope="col">Почта</th>
           <th scope="col">Task1</th>
           <th scope="col">Task2</th>
-          <th scope="col">Ball</th>
+          <th scope="col">Общая оценка</th>
 
         </tr>
         </thead>
@@ -63,14 +63,13 @@ export default defineComponent({
           <td>{{ essay.student.email }}</td>
           <template v-if="essay.essay1">
             <td v-if="essay.essay1?.feedback === null">
-              <button @click="adminEssayDetail(essay.essay1?.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
+              <button @click="adminEssayDetail(essay.essay1?.id)" class="btn btn-outline-danger">Непроверенный</button>
             </td>
             <td v-else>
               <button @click="adminEssayDetail(essay.essay1?.id)" class="btn btn-outline-primary">
                 {{
                   (essay.essay1?.score['0'].score + essay.essay1?.score['1'].score + essay.essay1?.score['2'].score + essay.essay1?.score['3'].score) * 9 / 100
                 }}
-                ball
               </button>
             </td>
 
@@ -80,14 +79,13 @@ export default defineComponent({
           </template>
           <template v-if="essay.essay2">
             <td v-if="essay.essay2?.feedback === null">
-              <button @click="adminEssayDetail(essay.essay2?.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
+              <button @click="adminEssayDetail(essay.essay2?.id)" class="btn btn-outline-danger">Непроверенный</button>
             </td>
             <td v-else>
               <button @click="adminEssayDetail(essay.essay2?.id)" class="btn btn-outline-primary">
                 {{
                   (essay.essay2?.score['0'].score + essay.essay2?.score['1'].score + essay.essay2?.score['2'].score + essay.essay2?.score['3'].score) * 9 / 100
                 }}
-                ball
               </button>
             </td>
 
@@ -105,33 +103,6 @@ export default defineComponent({
                </td>
             <td v-else></td>
           </template>
-
-
-          <!--          <template v-if="essay.essays.length === 1">-->
-          <!--            <template v-for="essay in essay.essays">-->
-          <!--              <td v-if="essay.feedback === null">-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>-->
-          <!--              </td>-->
-          <!--              <td v-else>-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">-->
-          <!--                  {{-->
-          <!--                    (parseInt(essay.score['0'].score) + parseInt(essay.score['1'].score) + parseInt(essay.score['2'].score) + parseInt(essay.score['1'].score)) * 9 / 100-->
-          <!--                  }}-->
-          <!--                  ball-->
-          <!--                </button>-->
-          <!--              </td>-->
-          <!--              <td></td>-->
-          <!--            </template>-->
-          <!--          </template>-->
-          <!--          <template v-else>-->
-          <!--            <template v-for="essay in essay.essays">-->
-          <!--              <td v-if="essay.feedback === null">-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>-->
-          <!--              </td>-->
-          <!--              <td v-else>-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">-->
-
-
         </tr>
         </tbody>
       </table>
