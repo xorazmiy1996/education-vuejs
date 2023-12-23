@@ -81,14 +81,13 @@ export default defineComponent({
           <td>{{ index + 1 }}</td>
           <template v-if="essay.essay1">
             <td v-if="essay.essay1?.feedback === null">
-              <button @click="studentEssayDetail(essay.essay1?.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
+              <button @click="studentEssayDetail(essay.essay1?.id)" class="btn btn-outline-danger">Не проверенный</button>
             </td>
             <td v-else>
               <button @click="studentEssayDetail(essay.essay1?.id)" class="btn btn-outline-primary">
                 {{
                   (parseInt(essay.essay1?.score['0'].score) + parseInt(essay.essay1?.score['1'].score) + parseInt(essay.essay1?.score['2'].score) + parseInt(essay.essay1?.score['3'].score)) * 9 / 100
                 }}
-                ball
               </button>
             </td>
 
@@ -98,14 +97,13 @@ export default defineComponent({
           </template>
           <template v-if="essay.essay2">
             <td v-if="essay.essay2?.feedback === null">
-              <button @click="studentEssayDetail(essay.essay2?.id)" class="btn btn-outline-danger">Tekshirilmagan</button>
+              <button @click="studentEssayDetail(essay.essay2?.id)" class="btn btn-outline-danger">Не проверенный</button>
             </td>
             <td v-else>
               <button @click="studentEssayDetail(essay.essay2?.id)" class="btn btn-outline-primary">
                 {{
                   (parseInt(essay.essay2?.score['0'].score) + parseInt(essay.essay2?.score['1'].score) + parseInt(essay.essay2?.score['2'].score) + parseInt(essay.essay2?.score['3'].score)) * 9 / 100
                 }}
-                ball
               </button>
             </td>
 
@@ -124,63 +122,7 @@ export default defineComponent({
             <td v-else></td>
           </template>
 
-
-
-          <!--          <template v-if="essay.essays.length === 1">-->
-          <!--            <template v-for="essay in essay.essays">-->
-          <!--              <td v-if="essay.feedback === null">-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>-->
-          <!--              </td>-->
-          <!--              <td v-else>-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">-->
-          <!--                  {{-->
-          <!--                    (parseInt(essay.score['0'].score) + parseInt(essay.score['1'].score) + parseInt(essay.score['2'].score) + parseInt(essay.score['1'].score)) * 9 / 100-->
-          <!--                  }}-->
-          <!--                  ball-->
-          <!--                </button>-->
-          <!--              </td>-->
-          <!--              <td></td>-->
-          <!--            </template>-->
-          <!--          </template>-->
-          <!--          <template v-else>-->
-          <!--            <template v-for="essay in essay.essays">-->
-          <!--              <td v-if="essay.feedback === null">-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-danger">Tekshirilmagan</button>-->
-          <!--              </td>-->
-          <!--              <td v-else>-->
-          <!--                <button @click="adminEssayDetail(essay.id)" class="btn btn-outline-primary">-->
-
-
         </tr>
-<!--        <template v-for="(essay, index) in allEssays">-->
-<!--          <tr v-if="essay.essays.length === 2" :key="essay.id">-->
-<!--            <td>{{ index + 1 }}</td>-->
-<!--            <td v-for="x in essay.essays">-->
-<!--              <ul>-->
-<!--                <li style="color: red" v-if="x.score == null">-->
-<!--                  <button @click="studentEssayDetail(x.id)" class="btn btn-outline-danger">Tekshirilmagan</button>-->
-<!--                </li>-->
-<!--                <li style="color: deepskyblue" v-else>-->
-<!--                  <button @click="studentEssayDetail(x.id)" class="btn btn-outline-primary">{{ x.score }} ball</button>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </td>-->
-<!--          </tr>-->
-<!--          <tr v-else>-->
-<!--          <td>{{ index + 1 }}</td>-->
-<!--            <td v-for="x in essay.essays">-->
-<!--              <ul>-->
-<!--                <li style="color: red" v-if="x.score == null">-->
-<!--                  <button @click="studentEssayDetail(x.id)" class="btn btn-outline-danger">tekshirilmagan</button>-->
-<!--                </li>-->
-<!--                <li style="color: deepskyblue" v-else>-->
-<!--                  <button @click="studentEssayDetail(x.id)" class="btn btn-outline-primary">{{ x.score }} ball</button>-->
-<!--                </li>-->
-<!--              </ul>-->
-<!--            </td>-->
-<!--            <td></td>-->
-<!--          </tr>-->
-<!--        </template>-->
 
 
         </tbody>

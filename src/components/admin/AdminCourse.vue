@@ -154,10 +154,10 @@ export default defineComponent({
   <div class="container">
     <div class="modal-cabinet">
       <div class="modal-button">
-        <button @click="openModal" class="btn btn-primary">Create Course</button>
+        <button @click="openModal" class="btn btn-primary">Добавить курса</button>
       </div>
       <div class="modal-body">
-        <modal :is-open="isModalOpen" title="Course add" @close="closeModal">
+        <modal :is-open="isModalOpen" title="Добавить курса" @close="closeModal">
           <div v-if="isLoading" class="d-flex justify-content-center">
             <Loader/>
           </div>
@@ -166,19 +166,19 @@ export default defineComponent({
             <form @submit.prevent="submitHandler">
 
               <div class="mb-3">
-                <label for="exampleInputName" class="form-label">Name</label>
+                <label for="exampleInputName" class="form-label">Название</label>
                 <input v-model="name" type="text" class="form-control" id="exampleInputName">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.name"/>
               </div>
               <div class="mb-3">
-                <label for="exampleInputDescription" class="form-label">Description</label>
+                <label for="exampleInputDescription" class="form-label">Описание</label>
                 <input v-model="description" type="text" class="form-control" id="exampleInputDescription">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.description"/>
               </div>
 
 
               <div class="mb-3">
-                <label for="exampleInputLevel" class="form-label">Level</label>
+                <label for="exampleInputLevel" class="form-label">Уровень</label>
                 <select class="form-select" id="exampleInputLevel" v-model="level">
                   <option disabled value="">Course select</option>
                   <option>A1</option>
@@ -192,37 +192,13 @@ export default defineComponent({
 
 
               <div class="mb-3">
-                <label for="exampleInputDuration" class="form-label">Duration</label>
+                <label for="exampleInputDuration" class="form-label">Продолжительность</label>
                 <input v-model="duration" type="number" class="form-control" id="exampleInputDuration">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
               </div>
 
-
-<!--              <div class="mb-3 shadow-lg p-3 mb-5 bg-body-tertiary rounded">-->
-<!--                <label for="exampleInputSkills" class="form-label">Skills</label>-->
-<!--                <br>-->
-<!--                <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.skills"/>-->
-<!--                <br>-->
-<!--                <input type="checkbox" class="form-check-input" id="skill_group" value="listening" v-model="skills">-->
-<!--                <label class="form-label" for="skill_group">Listening</label>-->
-<!--                <br>-->
-
-                <!--              <input type="checkbox" class="form-check-input" id="skill_individual" value="speaking" v-model="skills">-->
-                <!--              <label class="form-label" for="skill_individual">Speaking</label>-->
-
-                <!--              <br>-->
-                <!--              <input type="checkbox" class="form-check-input" id="skill_reading" value="reading" v-model="skills">-->
-                <!--              <label class="form-label" for="skill_reading">Reading</label>-->
-                <!--              <br>-->
-
-                <!--              <input type="checkbox" class="form-check-input" id="skill_writing" value="writing" v-model="skills">-->
-                <!--              <label class="form-label" for="skill_writing">Writing</label>-->
-
-
-<!--              </div>-->
-
               <div class="mb-3">
-                <label for="formUserImage" class="form-label">Curse uchun rasm yuklash</label>
+                <label for="formUserImage" class="form-label">Загрузить фото для курса</label>
                 <div class="image_course_upload d-flex flex-column align-items-center justify-content-center">
                   <div>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -242,7 +218,7 @@ export default defineComponent({
               </div>
 
               <div class="mb-3">
-                <label for="formCourseVideo" class="form-label">Curse uchun video yuklash</label>
+                <label for="formCourseVideo" class="form-label">Загрузить видео для курса</label>
                 <div class="video_course_upload d-flex flex-column align-items-center justify-content-center">
                   <div>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +242,7 @@ export default defineComponent({
 
 
               <div class="mb-3">
-                <label for="exampleInputType" class="form-label">Type</label>
+                <label for="exampleInputType" class="form-label">Тип курса</label>
                 <select class="form-select" id="exampleInputType" v-model="type">
                   <option disabled value="">Course type</option>
                   <option value="individual">individual</option>
@@ -276,13 +252,13 @@ export default defineComponent({
                 <!--              <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>-->
               </div>
               <div class="mb-3">
-                <label for="exampleInputPrice" class="form-label">Price</label>
+                <label for="exampleInputPrice" class="form-label">Цена</label>
                 <input  v-maskito="priceOptions" v-model="price" type="text" class="form-control" id="exampleInputPrice">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.price"/>
               </div>
 
 
-              <button type="submit" :disabled="isLoading" class="btn btn-primary">Submit</button>
+              <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>
             </form>
           </div>
 
@@ -294,13 +270,13 @@ export default defineComponent({
       <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Skill</th>
-        <th scope="col">Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Level</th>
-        <th scope="col">Course type</th>
-        <th scope="col">Price</th>
-        <th scope="col">Edit</th>
+        <th scope="col">Навык</th>
+        <th scope="col">Название</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Уровень</th>
+        <th scope="col">Тип курса</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Изменить</th>
 
       </tr>
       </thead>

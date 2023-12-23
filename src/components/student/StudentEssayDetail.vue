@@ -38,7 +38,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <detail-modal :is-open="isDetailModalOpen" title="Detail quetion" @close="closeDetailModal">
+  <detail-modal :is-open="isDetailModalOpen"  @close="closeDetailModal">
     <p>{{ topic_detail?.title }}</p>
     <img :src="topic_detail?.image">
   </detail-modal>
@@ -46,15 +46,15 @@ export default defineComponent({
   <div class="container" v-if="essaysDetail">
 
     <div class="text-center mt-3 mb-3">
-      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} savol
+      <button class="btn btn-primary" @click="openDetailModal(essaysDetail.topic)">{{ essaysDetail.topic }} - Вопрос
       </button>
     </div>
 
     <div class="row">
       <div class="col-12">
         <div class="card">
-          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">20 minutdda yozilgan insho </h5>
-          <h5 class="card-header" v-else>40 minutdda yozilgan insho</h5>
+          <h5 class="card-header" v-if="essaysDetail.type === 'task1'">Письмо написанный в течении 20 минут </h5>
+          <h5 class="card-header" v-else>Письмо написанный в течении 40 минут</h5>
           <div class="card-body">
             <p class="card-text">
               {{ essaysDetail.body }}
