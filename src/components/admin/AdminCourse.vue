@@ -135,15 +135,15 @@ export default defineComponent({
 
 <template>
 
-  <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
+  <delete-modal :is-open="isDeleteModalOpen" title="Удалить" @close="closeDeleteModal">
     <div v-if="isLoading" class="d-flex justify-content-center ">
       <Loader/>
     </div>
     <div v-else>
-      <p>Ushbu courseni o'chirmoqchimisiz?</p>
+      <p>Вы действительно хотите удалить этот курс?</p>
       <div class="d-flex">
-        <button  @click="deleteCourse" type="button" class="btn btn-outline-success success-button delete-button">Yes</button>
-        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+        <button  @click="deleteCourse" type="button" class="btn btn-outline-success success-button delete-button">Да</button>
+        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">Нет</button>
       </div>
     </div>
 
@@ -193,7 +193,7 @@ export default defineComponent({
 
               <div class="mb-3">
                 <label for="exampleInputDuration" class="form-label">Продолжительность</label>
-                <input v-model="duration" type="number" class="form-control" id="exampleInputDuration">
+                <input v-model="duration" type="number" min="0" class="form-control" id="exampleInputDuration">
                 <ValidationError v-if="createCourseErrors" :validationError="createCourseErrors.duration"/>
               </div>
 

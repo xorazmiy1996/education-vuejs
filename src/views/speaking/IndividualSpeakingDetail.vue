@@ -38,30 +38,41 @@ export default defineComponent({
           })
           .catch(error =>{
             if(error.detail === "You already registered for this course"){
-              this.$toast.success(`You already registered for this course`,
+              this.$toast.success(`Вы уже зарегистрировались на этот курс`,
                   {
                     position: "top-right",
                   }
               );
             }
             if(error.detail === "Course is fulled"){
-              this.$toast.error(`Course is fulled`,
+              this.$toast.error(`Курс заполнен`,
                   {
                     position: "top-right",
                   }
               );
             }
             if(error.detail === "Please verify your email!"){
-              this.$toast.error(`Please verify your email!`,
+              this.$toast.error(`Пожалуйста, подтвердите свой адрес электронной почты!`,
+                  {
+                    position: "top-right",
+                  }
+              );
+            }
+            if(error.detail === "Authentication credentials were not provided."){
+              this.$toast.error(`Учетные данные для аутентификации не были предоставлены.`,
+                  {
+                    position: "top-right",
+                  }
+              );
+            }
+            if(error.detail === "You can't join this course. Because you are teacher"){
+              this.$toast.error(`Вы не сможете присоединиться к курсу так как вы сам создатель курса.`,
                   {
                     position: "top-right",
                   }
               );
             }
 
-            if(error.detail === "Authentication credentials were not provided."){
-              console.log("xato")
-            }
           })
 
     },
@@ -97,7 +108,7 @@ export default defineComponent({
                   {{ detailCabinet?.teacher?.last_name }}</h5>
                 <div class="d-flex justify-content-between text-info">
                   <span>Опыт работы:</span>
-                  <span>{{ detailCabinet?.teacher?.experience }} yil</span>
+                  <span>{{ detailCabinet?.teacher?.experience }} лет</span>
                 </div>
                 <div class="d-flex justify-content-between text-info">
                   <span>Уровень Английского (IELTS):</span>
@@ -128,7 +139,7 @@ export default defineComponent({
                 </div>
                 <div class="d-flex justify-content-between text-info">
                   <span>Цена урока:</span>
-                  <span>{{ detailCabinet?.course?.price }} so'm</span>
+                  <span>{{ detailCabinet?.course?.price }} сум</span>
                 </div>
 
 
