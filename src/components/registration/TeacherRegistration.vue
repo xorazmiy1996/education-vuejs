@@ -262,6 +262,7 @@ export default defineComponent({
                   <label for="exampleInputExperience" class="form-label">Опыт работы:</label>
                   <Field v-model="experience" :rules="isRequired" name="experience" class="form-control"
                          type="number"
+                         min="0"
                          id="exampleInputExperience"
                          aria-describedby="lastNameHelp"/>
                   <ErrorMessage name="experience"/>

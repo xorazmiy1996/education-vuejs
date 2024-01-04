@@ -115,15 +115,15 @@ export default defineComponent({
 </script>
 
 <template>
-  <delete-modal :is-open="isDeleteModalOpen" title="Delete" @close="closeDeleteModal">
+  <delete-modal :is-open="isDeleteModalOpen" title="Удалить" @close="closeDeleteModal">
     <div v-if="isLoading" class="d-flex justify-content-center">
       <loader/>
     </div>
     <div v-else>
-      <p>Ushbu cabinetni o'chirmoqchimisiz?</p>
+      <p>Вы действительно хотите удалить этот кабинет?</p>
       <div class="d-flex">
-        <button @click="deleteCabinet" type="button" class="btn btn-outline-success success-button">Yes</button>
-        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">No</button>
+        <button @click="deleteCabinet" type="button" class="btn btn-outline-success success-button">Да</button>
+        <button @click="closeDeleteModal" type="button" class="btn btn-outline-danger">Нет</button>
       </div>
     </div>
 
