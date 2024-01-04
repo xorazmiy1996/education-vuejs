@@ -79,11 +79,20 @@ export default defineComponent({
                   {{ courses?.start_date }}
                 </div>
               </li>
+              <li class="list-group-item d-flex justify-content-between">
+                <div>Обратная связь</div>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+
+              </li>
               <li class="list-group-item d-flex justify-content-center">
                 <div>
                   <a :href="courses?.room" class="btn btn-primary">Вход в класс</a>
                 </div>
               </li>
+
             </ul>
           </div>
         </div>
@@ -92,6 +101,28 @@ export default defineComponent({
     </div>
 
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Связь</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
   <!--    </div>-->

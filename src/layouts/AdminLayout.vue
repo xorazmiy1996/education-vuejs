@@ -116,6 +116,12 @@ export default defineComponent({
                 <span class="text nav-text">Проверка сочинении</span>
               </router-link>
             </li>
+            <li class="nav-link">
+              <router-link to="/admin_all_essays">
+                <i class="fa-solid fa-comment icon"></i>
+                <span class="text nav-text">Проверка сочинении</span>
+              </router-link>
+            </li>
 
 
           </ul>
