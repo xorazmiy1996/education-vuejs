@@ -141,6 +141,10 @@ export default defineComponent({
                   <span>Цена урока:</span>
                   <span>{{ detailCabinet?.course?.price }} сум</span>
                 </div>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Участники:</span>
+                  <span>{{ detailCabinet?.students.length }}/4</span>
+                </div>
 
 
 
