@@ -137,82 +137,88 @@ export default defineComponent({
 
       <div class="modal-body">
         <modal :is-open="isModalOpen" title="Интеграция данных" @close="closeModal">
-          <div v-if="isLoading" class="d-flex justify-content-center">
-            <Loader />
-          </div>
-          <div v-else>
-            <form @submit.prevent="submitHandler">
-              <div class="mb-3">
-                <label for="exampleInputTeacher" class="form-label">Учитель</label>
-                <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
-                  <option value="">Teacher select</option>
-                  <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
-                </select>
-                <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
+          <template v-slot:modal-body>
+            <div v-if="isLoading" class="d-flex justify-content-center">
+              <Loader />
+            </div>
+            <div v-else>
+              <form @submit.prevent="submitHandler">
+                <div class="mb-3">
+                  <label for="exampleInputTeacher" class="form-label">Учитель</label>
+                  <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
+                    <option value="">Teacher select</option>
+                    <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
+                  </select>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
 
 
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputTime" class="form-label">Время уроков</label>
-                <input v-model="time" type="time" class="form-control" id="exampleInputTime">
-                <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>
-              </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputTime" class="form-label">Время уроков</label>
+                  <input v-model="time" type="time" class="form-control" id="exampleInputTime">
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.time"/>
+                </div>
 
 
-              <div class="mb-3">
-                <label for="exampleInputCourse" class="form-label">Курс</label>
+                <div class="mb-3">
+                  <label for="exampleInputCourse" class="form-label">Курс</label>
 
 
-                <select class="form-select" id="exampleInputCourse" v-model="course_id">
-                  <option disabled value="">Course select</option>
-                  <option v-for="course in courses" :value="course.id">{{ course.name }}</option>
-                </select>
-                <ValidationError v-if="cabinetError" :validationError="cabinetError.course_id"/>
+                  <select class="form-select" id="exampleInputCourse" v-model="course_id">
+                    <option disabled value="">Course select</option>
+                    <option v-for="course in courses" :value="course.id">{{ course.name }}</option>
+                  </select>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.course_id"/>
 
 
-              </div>
+                </div>
 
 
-              <div class="mb-3">
-                <label for="exampleInputStartDate" class="form-label">Дата старта</label>
-                <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
-                <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputWeekDay" class="form-label">Дни недели</label>
-                <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
-                <br>
-                <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
-                <label class="form-label" for="Monday">Понидельник</label>
-                <br>
-                <input type="checkbox" class="form-check-input" id="Tuesday" value="1" v-model="weekDays">
-                <label class="form-label" for="Tuesday">Вторник</label>
-                <br>
+                <div class="mb-3">
+                  <label for="exampleInputStartDate" class="form-label">Дата старта</label>
+                  <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputWeekDay" class="form-label">Дни недели</label>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
+                  <br>
+                  <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
+                  <label class="form-label" for="Monday">Понидельник</label>
+                  <br>
+                  <input type="checkbox" class="form-check-input" id="Tuesday" value="1" v-model="weekDays">
+                  <label class="form-label" for="Tuesday">Вторник</label>
+                  <br>
 
-                <input type="checkbox" class="form-check-input" id="Wednesday" value="2" v-model="weekDays">
-                <label class="form-label" for="Wednesday">Среда</label>
-                <br>
+                  <input type="checkbox" class="form-check-input" id="Wednesday" value="2" v-model="weekDays">
+                  <label class="form-label" for="Wednesday">Среда</label>
+                  <br>
 
-                <input type="checkbox" class="form-check-input" id="Thursday" value="3" v-model="weekDays">
-                <label class="form-label" for="Thursday">Четверг</label>
-                <br>
+                  <input type="checkbox" class="form-check-input" id="Thursday" value="3" v-model="weekDays">
+                  <label class="form-label" for="Thursday">Четверг</label>
+                  <br>
 
-                <input type="checkbox" class="form-check-input" id="Friday" value="4" v-model="weekDays">
-                <label class="form-label" for="Friday">Пятница</label>
-                <br>
+                  <input type="checkbox" class="form-check-input" id="Friday" value="4" v-model="weekDays">
+                  <label class="form-label" for="Friday">Пятница</label>
+                  <br>
 
-                <input type="checkbox" class="form-check-input" id="Saturday" value="5" v-model="weekDays">
-                <label class="form-label" for="Saturday">Суббота</label>
-                <br>
+                  <input type="checkbox" class="form-check-input" id="Saturday" value="5" v-model="weekDays">
+                  <label class="form-label" for="Saturday">Суббота</label>
+                  <br>
 
-                <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
-                <label class="form-label" for="Sunday">Воскресенье</label>
+                  <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
+                  <label class="form-label" for="Sunday">Воскресенье</label>
 
-              </div>
+                </div>
 
-              <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>
-            </form>
-          </div>
+                <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>
+              </form>
+            </div>
+          </template>
+          <template v-slot:modal-footer>
+
+          </template>
+
 
         </modal>
       </div>

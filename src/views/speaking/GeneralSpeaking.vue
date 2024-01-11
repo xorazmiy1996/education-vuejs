@@ -33,6 +33,7 @@ export default defineComponent({
     </div>
     <div v-else class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
       <div  v-for="cabinet in cabinets">
+
         <div class="col">
           <div @click="individualSpeakingDetail(cabinet.id)" class="card">
             <div class="card-image">

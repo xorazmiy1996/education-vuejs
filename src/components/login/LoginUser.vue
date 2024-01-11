@@ -13,6 +13,8 @@ export default defineComponent({
     return {
       email: '',
       password: '',
+
+      passwordType:"password"
     }
   },
   computed: {
@@ -68,6 +70,16 @@ export default defineComponent({
 
       return true;
     },
+    showPassword(data){
+      console.log(data)
+      if (data === "text"){
+        console.log(1)
+        this.passwordType = "password"
+      }else {
+        this.passwordType = "text"
+      }
+
+    }
 
   },
 })
@@ -99,8 +111,21 @@ export default defineComponent({
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label">Код секрет</label>
-                  <Field v-model="password" :rules="isRequired" name="password" type="password" class="form-control"
-                         id="exampleInputPassword1"/>
+                  <div class="d-flex flex-direction-row">
+                    <Field style="border-radius: 5px 0 0 5px " v-model="password" :rules="isRequired" name="password" :type="passwordType" class="form-control"
+                           aria-describedby="addon-wrapping"/>
+                    <span style="border-radius: 0" class="input-group-text eye-icon" id="basic-addon1">
+                      <i v-if="passwordType === 'password'" @click="showPassword(passwordType)" class="fa-solid fa-eye-slash" style="color: #000000;"></i>
+                      <i v-else @click="showPassword(passwordType)" class="fa-solid fa-eye" style="color: #000000;"></i>
+
+                    </span>
+
+
+
+
+
+                  </div>
+
                   <ErrorMessage name="password"/>
                   <ValidationError v-if="validationError" :validationError="validationError.password"/>
                 </div>
@@ -158,5 +183,8 @@ form .mb-3 a:hover{
 .email_registration{
   display: flex;
   justify-content: flex-end;
+}
+.eye-icon{
+  cursor: pointer;
 }
 </style>

@@ -20,6 +20,9 @@ const AuthService = {
     },
     getUser(){
         return axios.get('/accounts/user_profile/')
+    },
+    getAllUser(type){
+        return axios.get(`/accounts/all_user/?type=${type}`)
     }
 }
 
