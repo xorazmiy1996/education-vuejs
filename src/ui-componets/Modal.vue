@@ -2,11 +2,14 @@
   <div v-if="isOpen" class="modal-overlay">
     <div class="modal-container">
       <div class="modal-header">
-        <h3>{{ title }}</h3>
-        <button @click="close">X</button>
+        <h3 class="fs-4 ms-3">{{ title }}</h3>
+        <button class="me-3 fs-4" @click="close"><span>X</span></button>
       </div>
       <div class="modal-body">
-        <slot></slot>
+        <slot name="modal-body"></slot>
+      </div>
+      <div class="modal-footer">
+        <slot name="modal-footer"></slot>
       </div>
     </div>
   </div>
@@ -22,7 +25,7 @@ export default {
     close() {
       this.$emit('close')
     }
-  }
+  },
 }
 </script>
 
@@ -42,23 +45,34 @@ export default {
 
 .modal-container {
   background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  min-width: 500px;
-  max-height: 80vh;
-  overflow-y: auto;
+  max-width: 500px;
+  min-width: 300px;
+  border-radius: 12px;
 }
 
 .modal-header {
+  button{
+    color: #FFFFFF;
+  };
+  position: sticky;
+  top: 0;
+  border-radius: 12px 12px 0 0;
+  z-index: 9999;
+
+  background: hsla(230, 40%, 50%, 1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  padding: 3px;
+  color: #FFFFFF;
+}
+.modal-body{
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 20px;
 }
 
-.modal-header h3 {
-  margin: 0;
-}
+
 
 .modal-header button {
   background-color: transparent;
@@ -67,4 +81,12 @@ export default {
   font-size: 1.5rem;
   padding: 0;
 }
+.modal-footer{
+  padding: 5px;
+
+  border-radius: 0 0 12px 12px;
+
+}
+
+
 </style>

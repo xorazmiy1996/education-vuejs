@@ -5,6 +5,7 @@ import AuthService from "@/service/auth";
 const state = {
     isLoading: false,
     user: null,
+    allUsers: null,
     errors:null,
     errorsLogin: null,
     errorsRegister: null,
@@ -30,6 +31,9 @@ const getters = {
     },
     errorsLogin:state =>{
         return state.errorsLogin
+    },
+    allUsers:state =>{
+        return state.allUsers
     }
 
 }
@@ -52,6 +56,23 @@ const mutations = {
         state.isLoading = false
         state.errorsRegister = payload
         state.isLoggedIn = false
+    },
+    // all users
+    allUsersStart(state) {
+        state.isLoading = true
+        state.allUsers = null
+        state.errors = null
+
+
+    },
+    allUsersSuccess(state, payload) {
+        state.isLoading = false
+        state.allUsers = payload
+
+    },
+    allUsersFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
     },
 
 
@@ -198,6 +219,22 @@ const actions = {
             }
         })
       },
+    getAllUsers(context, type){
+        return new Promise((resolve, reject) =>{
+            context.commit('allUsersStart')
+            AuthService.getAllUser(type)
+                .then(response =>{
+                    context.commit('allUsersSuccess', response.data)
+                    resolve(response.data)
+                })
+                .catch(error =>{
+                    context.commit('allUsersFailure', error.data)
+                    reject(error.data)
+                })
+
+        })
+
+    },
     logout(context) {
         context.commit('logout')
         localStorage.removeItem('token')

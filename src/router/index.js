@@ -47,6 +47,8 @@ import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
 import SelectRegistration from "@/components/registration/SelectRegistration.vue";
 import StudentRegistration from "@/components/registration/StudentRegistration.vue";
+import StudentProfil from "@/components/student/StudentProfil.vue";
+import AllUserList from "@/components/admin/AllUserList.vue";
 
 
 const router = createRouter({
@@ -230,6 +232,16 @@ const router = createRouter({
             }
         },
         {
+            path: '/all-users',
+            name: 'all-users',
+            component: AllUserList,
+            meta: {
+                requiresAdmin: true,
+                Layout: AdminLayout
+
+            }
+        },
+        {
             path: '/admin_all_essays',
             name: 'admin_all_essays',
             component: AdminAllEssays,
@@ -280,6 +292,15 @@ const router = createRouter({
         },
 
         // student
+        {
+            path: '/student_profil',
+            name: 'student_profil',
+            component: StudentProfil,
+            meta: {
+                requiresAdmin: true,
+                Layout: StudentLayout
+            }
+        },
         {
             path: '/student_panel',
             name: 'student_panel',

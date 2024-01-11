@@ -4,6 +4,7 @@ const state = {
     isLoading: false,
     courses: null,
     errors: null,
+    courseDetail: null
 
 }
 
@@ -13,6 +14,9 @@ const getters = {
     },
     isLoading: state => {
         return state.isLoading
+    },
+    courseDetail: state => {
+        return state.courseDetail
     },
     createCourseErrors: state => {
         return state.errors
@@ -34,12 +38,38 @@ const mutations = {
         state.isLoading = false
         state.errors = null
     },
-    createCourseFailure(state,payload) {
+    createCourseFailure(state, payload) {
         state.isLoading = false
         state.errors = payload
     },
-     // delete course
-     deleteCourseStart(state) {
+
+    //patch course
+    patchCourseStart(state) {
+        state.isLoading = true
+        state.errors = null
+    },
+    patchCourseSuccess(state) {
+        state.isLoading = false
+    },
+    patchCourseFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
+
+    },
+    // Detail course
+    courseDetailStart(state) {
+        state.isLoading = true
+        state.errors = null
+    },
+    courseDetailSuccess(state, payload) {
+        state.isLoading = false
+    },
+    courseDetailFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
+    },
+    // delete course
+    deleteCourseStart(state) {
         state.isLoading = true
         state.errors = null
     },
@@ -54,7 +84,6 @@ const mutations = {
     },
 
 
-
 }
 const actions = {
 
@@ -63,20 +92,51 @@ const actions = {
             context.commit("createCourseStart")
             CourseService.createCourse(data)
                 .then(response => {
-                     context.commit("createCourseSuccess")
+                    context.commit("createCourseSuccess")
                     resolve(response.data)
                 })
                 .catch(error => {
-                    context.commit("createCourseFailure",error?.response?.data)
+                    context.commit("createCourseFailure", error?.response?.data)
                     reject(error?.response?.data)
                 })
         })
     },
-    deleteCurse(context, id){
+    patchCourse(context, data) {
+        return new Promise((resolve, reject)=>{
+            context.commit("patchCourseStart")
+            CourseService.patchCourse(data.id, data.data)
+                .then(response =>{
+                    context.commit("patchCourseSuccess")
+                    resolve(response.data)
+                })
+                .catch(error =>{
+                    console.log(error)
+                    context.commit("patchCourseFailure", error.data)
+                    reject(error.data)
+                })
+        })
+
+    },
+    courseDetail(context, id) {
+        return new Promise((resolve, reject) => {
+            context.commit("courseDetailStart")
+            CourseService.courseDetail(id)
+                .then(response => {
+                    context.commit("courseDetailSuccess", response.data)
+                    resolve(response.data)
+                })
+                .catch(error => {
+                    context.commit("courseDetailFailure", error?.response?.data)
+                })
+
+        })
+
+    },
+    deleteCurse(context, id) {
         return new Promise(resolve => {
             context.commit('deleteCourseStart')
             CourseService.deleteCurse(id)
-                .then(() =>{
+                .then(() => {
                     context.commit('deleteCourseSuccess')
                     resolve()
                 })

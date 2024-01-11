@@ -23,6 +23,14 @@ export default defineComponent({
 
   data() {
     return {
+      customRules: [
+        value => {
+          if (!value) {
+            return 'Fayl tanlanmagan';
+          }
+          return true;
+        },
+      ],
       email: "",
       password: "",
       password2: "",
@@ -96,6 +104,7 @@ export default defineComponent({
     uploadUserImage() {
       const file1 = this.$refs.fileUserImage.files[0]
       this.userImage = file1
+      // this.$validator.validate('file', file1);
     },
     uploadUserIelts() {
       const file2 = this.$refs.fileIelts.files[0]
@@ -168,7 +177,7 @@ export default defineComponent({
                 </div>
                 <div class="input-div">
                   <label for="exampleInputLastName" class="form-label">Какая у вас фамилия:</label>
-                  <Field v-model="last_name" :rules="isRequired" name="last_name" class="form-control" type="text"
+                  <Field v-model="last_name" :rules="customRules" name="last_name" class="form-control" type="text"
                          id="exampleInputLastName"
                          aria-describedby="lastNameHelp"/>
                   <ErrorMessage name="last_name"/>
@@ -185,12 +194,24 @@ export default defineComponent({
                       </svg>
                     </div>
                     <div>
-                      <input accept=".jpg, .jpeg, .png" type="file" id="formUserImage" ref="fileUserImage"
-                             @change="uploadUserImage()">
+                      <Field name="file" :rules="customRules"  v-slot="{ errors }">
+                        <input  type="file" id="formUserImage" ref="fileUserImage"
+                               @change="uploadUserImage()">
+                        <span class="d-block ms-3">{{ errors[0] }}</span>
+
+                        <div>
+                          <p class="fs-6">формат PNG, JPEG, размером макс 3мб.</p>
+                        </div>
+
+
+
+                      </Field>
+
+
+
+
                     </div>
-                    <div>
-                      <p>формат PNG, JPEG, размером макс 3мб.</p>
-                    </div>
+
 
 
                   </div>

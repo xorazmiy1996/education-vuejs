@@ -122,6 +122,12 @@ export default defineComponent({
                 <span class="text nav-text">Проверка сочинении</span>
               </router-link>
             </li>
+            <li class="nav-link">
+              <router-link to="/all-users">
+                <i class="fa-solid fa-users icon"></i>
+                <span class="text nav-text">Users</span>
+              </router-link>
+            </li>
 
 
           </ul>

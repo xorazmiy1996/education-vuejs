@@ -9,6 +9,12 @@ const CourseService = {
             }
         })
     },
+    courseDetail(id){
+        return axios.get(`/educations/course/${id}/`)
+    },
+    patchCourse(id,data){
+        return axios.patch(`/educations/course/${id}/`,data);
+    },
 
     getAllCourse(){
         return axios.get('/educations/course/')

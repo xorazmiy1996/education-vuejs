@@ -57,6 +57,9 @@ export default defineComponent({
               <li>
                 <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
               </li>
+              <li>
+                <router-link  class="dropdown-item" to="/student_profil">My profil</router-link>
+              </li>
             </ul>
           </div>
 
@@ -69,8 +72,6 @@ export default defineComponent({
 
       </div>
     </nav-head>
-
-
     <nav ref="sidebar" class="sidebar close">
       <header>
 <!--        <div class="image-text">-->
@@ -104,14 +105,12 @@ export default defineComponent({
             <li class="nav-link">
               <router-link to="/my_course_student">
                 <i class="fa-solid fa-person-chalkboard icon"></i>
-<!--                <i class="fa fa-home-alt icon"></i>-->
                 <span class="text nav-text">Мои курсы</span>
               </router-link>
             </li>
             <li class="nav-link">
               <router-link to="/student_all_essay">
                 <i class="fa-solid fa-pen icon"></i>
-<!--                <i class="fa fa-wallet icon"></i>-->
                 <span class="text nav-text">Мои сочинения</span>
               </router-link>
             </li>
@@ -140,7 +139,6 @@ export default defineComponent({
         </div>
       </div>
     </nav>
-
     <main class="home">
       <slot/>
     </main>
