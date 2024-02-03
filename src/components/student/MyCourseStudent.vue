@@ -11,6 +11,36 @@ export default defineComponent({
   computed: {
     ...mapGetters('auth', ['user']),
   },
+  data(){
+    return{
+      student_comment:"",
+      cabinet_id:null,
+
+    }
+  },
+  methods:{
+    createStudentComment(){
+      console.log("111")
+      const data = {
+        "user_id":this.user.id,
+        "cabinet_id":this.cabinet_id,
+        "comment":this.student_comment,
+      }
+      this.$store.dispatch("cabinet/createStudentComment", data).then(()=>{
+        console.log("22")
+        $('#feedbackModal').modal('hide');
+        this.$toast.success(`Отзыв принято`,
+            {
+              position: "top-right",
+            }
+        );
+
+      })
+    },
+    cabinetId(id){
+      this.cabinet_id = id;
+    }
+  }
 })
 </script>
 
@@ -82,7 +112,7 @@ export default defineComponent({
               <li class="list-group-item d-flex justify-content-between">
                 <div>Обратная связь</div>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                <button @click="cabinetId(courses?.id )" type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
 
@@ -108,16 +138,16 @@ export default defineComponent({
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Связь</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button id="closeModalButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+            <textarea v-model="student_comment" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
 
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Отправить</button>
+          <button @click="createStudentComment()" type="button" class="btn btn-primary">Отправить</button>
         </div>
       </div>
     </div>

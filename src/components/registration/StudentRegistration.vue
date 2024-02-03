@@ -25,6 +25,15 @@ export default defineComponent({
     return {
       customRules: [
         value => {
+          console.log(value)
+          if (!value) {
+            return 'Fayl tanlanmagan';
+          }
+          return true;
+        },
+      ],
+      requiredCustom: [
+        value => {
           if (!value) {
             return 'Fayl tanlanmagan';
           }
@@ -66,7 +75,7 @@ export default defineComponent({
 
       input.value = value;
     },
-    submitHandler() {
+    submitHandler(value) {
 
       const data = {
         "email": this.email,
@@ -76,19 +85,12 @@ export default defineComponent({
         "last_name": this.last_name,
         "sex": this.sex,
         "birth_date": this.birth_date,
-
-
-
-
         "phone_number": this.phone_number.replace(/\D/g,""),
-
         'photo': this.userImage,
-
-
-
         "type": "student"
 
       }
+      console.log(data)
       this.$store
           .dispatch("auth/register", data)
           .then(student => {
@@ -104,6 +106,7 @@ export default defineComponent({
     uploadUserImage() {
       const file1 = this.$refs.fileUserImage.files[0]
       this.userImage = file1
+      console.log(this.userImage)
       // this.$validator.validate('file', file1);
     },
     uploadUserIelts() {
@@ -177,7 +180,7 @@ export default defineComponent({
                 </div>
                 <div class="input-div">
                   <label for="exampleInputLastName" class="form-label">Какая у вас фамилия:</label>
-                  <Field v-model="last_name" :rules="customRules" name="last_name" class="form-control" type="text"
+                  <Field v-model="last_name" :rules="isRequired" name="last_name" class="form-control" type="text"
                          id="exampleInputLastName"
                          aria-describedby="lastNameHelp"/>
                   <ErrorMessage name="last_name"/>
@@ -194,11 +197,10 @@ export default defineComponent({
                       </svg>
                     </div>
                     <div>
-                      <Field name="file" :rules="customRules"  v-slot="{ errors }">
-                        <input  type="file" id="formUserImage" ref="fileUserImage"
+                      <Field v-model="userImage" type="file" name="fileUserImage"  :rules="customRules"  v-slot="{ errors }">
+                        <input  type="file" id="formUserImage" name="fileUserImage" ref="fileUserImage"
                                @change="uploadUserImage()">
                         <span class="d-block ms-3">{{ errors[0] }}</span>
-
                         <div>
                           <p class="fs-6">формат PNG, JPEG, размером макс 3мб.</p>
                         </div>
@@ -279,10 +281,7 @@ export default defineComponent({
                   <Field v-model="password2" :rules="isRequired" name="password2" type="password" class="form-control"
                          id="exampleInputPassword2"/>
                   <ErrorMessage name="password2"/>
-
-
                   <ValidationError v-if="errorsRegister" :validationError="errorsRegister.password2"/>
-                  <!--                  <ValidationError v-if="errorsRegister" :validationError="errorsRegister.detail"/>-->
                 </div>
 
                 <div class="save-submit">

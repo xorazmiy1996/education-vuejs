@@ -1,4 +1,5 @@
 import AuthService from "@/service/auth";
+import CourseService from "@/service/course";
 
 
 
@@ -10,6 +11,7 @@ const state = {
     errorsLogin: null,
     errorsRegister: null,
     isLoggedIn: null,
+    userPhoto:null,
 };
 
 const getters = {
@@ -74,6 +76,41 @@ const mutations = {
         state.isLoading = false
         state.errors = payload
     },
+
+    // all users
+    patchUsersStart(state) {
+        state.isLoading = true
+        state.errors = null
+
+
+    },
+    patchUsersSuccess(state) {
+        state.isLoading = false
+
+
+    },
+    patchUsersFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
+    },
+
+    // patch users Photo
+    patchUserPhotoStart(state) {
+        state.isLoading = true
+        state.errors = null
+
+
+    },
+    patchUserPhotoSuccess(state, payload) {
+        state.isLoading = false
+
+
+    },
+    patchUserPhotoFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
+    },
+
 
 
 
@@ -240,7 +277,40 @@ const actions = {
         localStorage.removeItem('token')
         localStorage.removeItem('refresh')
 
-    }
+    },
+    patchUser(context, data) {
+        return new Promise((resolve, reject)=>{
+            context.commit("patchUsersStart")
+            AuthService.patchUser(data.data)
+                .then(response =>{
+                    context.commit("patchUsersSuccess")
+                    resolve(response.data)
+                })
+                .catch(error =>{
+                    console.log(error)
+                    context.commit("patchUsersFailure", error.data)
+                    reject(error.data)
+                })
+        })
+
+    },
+    patchUserPhoto(context, data) {
+        return new Promise((resolve, reject)=>{
+            context.commit("patchUserPhotoStart")
+            AuthService.patchUserPhoto(data.id, data.send_file)
+                .then(response =>{
+                    context.commit("patchUserPhotoSuccess")
+                    resolve(response.data)
+                })
+                .catch(error =>{
+                    console.log(error)
+                    context.commit("patchUserPhotoFailure", error.data)
+                    reject(error.data)
+                })
+        })
+
+    },
+
 }
 export default {
     namespaced: true,

@@ -68,7 +68,7 @@ export default defineComponent( {
 <template>
   <div class="row">
     <div class="col-12 text-center mt-3">
-      <h1>All Users</h1>
+      <h1 class="fw-bold">Все пользователи</h1>
     </div>
   </div>
 
@@ -99,8 +99,8 @@ export default defineComponent( {
           <th scope="col">#</th>
           <th scope="col">Имя студента</th>
           <th scope="col">Почта</th>
-          <th scope="col">Phone number</th>
-          <th v-if="dropdown_type !== 'admin'" scope="col">Cours</th>
+          <th scope="col">Телефон номер</th>
+          <th v-if="dropdown_type !== 'admin'" scope="col">Курс</th>
 
         </tr>
         </thead>

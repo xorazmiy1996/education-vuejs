@@ -39,8 +39,8 @@ export default defineComponent({
 
       <div class="nav-router me-5">
         <router-link to="/" class="a ctivate">Главная страница</router-link>
-<!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
-<!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
+        <!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
+        <!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
 
 
         <template v-if='isLoggedIn '>
@@ -58,7 +58,7 @@ export default defineComponent({
                 <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
               </li>
               <li>
-                <router-link  class="dropdown-item" to="/student_profil">My profil</router-link>
+                <router-link class="dropdown-item" to="/student_profil">Мой профиль</router-link>
               </li>
             </ul>
           </div>
@@ -74,27 +74,27 @@ export default defineComponent({
     </nav-head>
     <nav ref="sidebar" class="sidebar close">
       <header>
-<!--        <div class="image-text">-->
-<!--           <span class="image">-->
-<!--          <img src="@/assets/coding-lab.png" alt="logo">-->
-<!--        </span>-->
-<!--          <div class="text header-text">-->
-<!--            <span class="name">{{ user?.first_name }}</span>-->
-<!--            <span class="profession">{{ user?.last_name }}</span>-->
+        <!--        <div class="image-text">-->
+        <!--           <span class="image">-->
+        <!--          <img src="@/assets/coding-lab.png" alt="logo">-->
+        <!--        </span>-->
+        <!--          <div class="text header-text">-->
+        <!--            <span class="name">{{ user?.first_name }}</span>-->
+        <!--            <span class="profession">{{ user?.last_name }}</span>-->
 
-<!--          </div>-->
-<!--        </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
         <i @click="pushBar" class="fa fa-chevron-right toggle"></i>
 
       </header>
       <div class="menu-bar">
         <div class="menu">
-<!--          <li class="search-box">-->
+          <!--          <li class="search-box">-->
 
-<!--            <i class="fa fa-search icon"></i>-->
-<!--            <input type="search" placeholder="Search...">-->
+          <!--            <i class="fa fa-search icon"></i>-->
+          <!--            <input type="search" placeholder="Search...">-->
 
-<!--          </li>-->
+          <!--          </li>-->
           <ul class="menu-link">
             <li class="nav-link">
               <router-link to="/student_panel">
@@ -114,6 +114,7 @@ export default defineComponent({
                 <span class="text nav-text">Мои сочинения</span>
               </router-link>
             </li>
+
 
 
           </ul>
@@ -189,7 +190,7 @@ section {
 }
 
 .sidebar.close .text {
-//opacity: 0; display: none;
+  //opacity: 0; display: none;
 }
 
 

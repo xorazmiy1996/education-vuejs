@@ -147,7 +147,7 @@ export default defineComponent({
                   <label for="exampleInputTeacher" class="form-label">Учитель</label>
                   <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
                     <option value="">Teacher select</option>
-                    <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }}</option>
+                    <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }} {{teacher.last_name}}</option>
                   </select>
                   <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
 

@@ -21,9 +21,21 @@ const AuthService = {
     getUser(){
         return axios.get('/accounts/user_profile/')
     },
+    patchUser(data){
+        console.log("3")
+        return axios.patch(`/accounts/update_profile/`, data)
+    },
     getAllUser(type){
         return axios.get(`/accounts/all_user/?type=${type}`)
-    }
+    },
+    patchUserPhoto(id, data){
+        return axios.patch(`/base/update_file/${id}`, data, {
+            headers: {
+                'Content-Type':'multipart/form-data'
+            }
+        })
+    },
+
 }
 
 export default AuthService

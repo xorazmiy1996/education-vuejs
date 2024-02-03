@@ -6,8 +6,16 @@ const state = {
     error: null,
     detailCabinet: null,
     addStudentCabinetError: null,
+    allStudentComment: null,
+    studentComment: null,
 }
 const getters = {
+    allStudentComment: state => {
+        return state.allStudentComment
+    },
+    studentComment: state => {
+        return state.studentComment
+    },
     cabinets: state => {
         return state.cabinets
     },
@@ -94,6 +102,48 @@ const mutations = {
     deleteCabinetSuccess(state) {
         state.isLoading = false
     },
+    // createCabinet
+    createStudentCommentStart(state) {
+        state.isLoading = true
+        state.error = null
+    },
+    createStudentCommentSuccess(state) {
+        state.isLoading = false
+        state.error = null
+    },
+    createStudentCommentFailure(state, payload) {
+        state.isLoading = false
+        state.error = payload
+    },
+
+    // all student comment
+    getAllStudentCommentStart(state) {
+        state.isLoading = true
+        state.allStudentComment = null
+        state.error = null
+    },
+    getAllStudentCommentSuccess(state, payload) {
+        state.isLoading = false
+        state.allStudentComment = payload
+
+    },
+    getAllStudentCommentFailure(state) {
+        state.isLoading = false
+    },
+    // get student comment
+    getStudentCommentStart(state) {
+        state.isLoading = true
+        state.studentComment = null
+        state.error = null
+    },
+    getStudentCommentSuccess(state, payload) {
+        state.isLoading = false
+        state.studentComment = payload
+
+    },
+    getStudentCommentFailure(state) {
+        state.isLoading = false
+    },
 
 
 
@@ -172,7 +222,61 @@ const actions = {
 
 
         })
-    }
+    },
+    createStudentComment(context, data) {
+        return new Promise((resolve, reject) => {
+            context.commit('createStudentCommentStart')
+            CabinetService.createStudentComment(data)
+                .then(response => {
+                    context.commit('createStudentCommentSuccess')
+                    resolve(response.data)
+                })
+                .catch(error => {
+                    context.commit('createStudentCommentFailure', error.response.data)
+                    reject(error.response.data)
+                })
+        })
+    },
+    getAllStudentComment(context) {
+        return new Promise((resolve, reject) => {
+            context.commit('getAllStudentCommentStart')
+            CabinetService.getAllStudentComment()
+                .then(response => {
+                    context.commit('getAllStudentCommentSuccess', response.data)
+                    resolve(response.data)
+
+                })
+                .catch(error => context.commit('getAllStudentCommentFailure'))
+        })
+
+    },
+    getStudentComment(context,id) {
+        return new Promise((resolve, reject) => {
+            context.commit('getStudentCommentStart')
+            CabinetService.getStudentComment(id)
+                .then(response => {
+                    context.commit('getStudentCommentSuccess', response.data)
+                    resolve(response.data)
+
+                })
+                .catch(error => context.commit('getAllStudentCommentFailure'))
+        })
+
+    },
+    readyStudentComment(context,id) {
+        console.log("1")
+        return new Promise((resolve, reject) => {
+            // context.commit('getStudentCommentStart')
+            CabinetService.readyStudentComment(id)
+                .then(response => {
+                    // context.commit('getStudentCommentSuccess', response.data)
+                    resolve(response.data)
+
+                })
+                .catch(error => context.commit('getAllStudentCommentFailure'))
+        })
+
+    },
 }
 
 export default {

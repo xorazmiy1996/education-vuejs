@@ -16,8 +16,6 @@ export default defineComponent({
   },
   mounted() {
     this.$store.dispatch("essay/allGetEssay")
-
-
   },
   methods: {
     adminEssayDetail(id) {
