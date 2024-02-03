@@ -143,7 +143,7 @@ export default defineComponent({
                 </div>
                 <div class="d-flex justify-content-between text-info">
                   <span>Участники:</span>
-                  <span>{{ detailCabinet?.students.length }}/4</span>
+                  <span>{{ detailCabinet?.students.length }}/1</span>
                 </div>
 
 

@@ -255,7 +255,7 @@ export default defineComponent({
         </div>
         <div class="mb-3">
           <label for="exampleInputPrice" class="form-label">Цена</label>
-          <input v-maskito="priceOptions" v-model="detail_user_data.price" type="text" class="form-control"
+          <input  v-model="detail_user_data.price" type="text" class="form-control"
                  id="exampleInputPrice">
         </div>
         <button @click="catchCourse()" :disabled="isLoading" class="btn btn-primary">Edit</button>

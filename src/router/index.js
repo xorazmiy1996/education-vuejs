@@ -49,6 +49,7 @@ import SelectRegistration from "@/components/registration/SelectRegistration.vue
 import StudentRegistration from "@/components/registration/StudentRegistration.vue";
 import StudentProfil from "@/components/student/StudentProfil.vue";
 import AllUserList from "@/components/admin/AllUserList.vue";
+import AllStudentComment from "@/components/admin/AllStudentComment.vue";
 
 
 const router = createRouter({
@@ -284,6 +285,16 @@ const router = createRouter({
             path: '/essay_checker',
             name: 'essay_checker',
             component: EssayChecker,
+            meta: {
+                requiresAdmin: true,
+                Layout: AdminLayout
+            }
+
+        },
+        {
+            path: '/all_student_comment',
+            name: 'all_student_comment',
+            component: AllStudentComment,
             meta: {
                 requiresAdmin: true,
                 Layout: AdminLayout

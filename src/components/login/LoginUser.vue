@@ -61,13 +61,18 @@ export default defineComponent({
 
 
           })
-          .catch(err => console.log("Error5", err))
+          .catch((err) =>   {
+            this.$toast.error(err.detail,
+                {
+                  position: "top-right",
+                }
+            )
+          })
     },
     isRequired(value) {
       if (!value) {
         return 'this field is required';
       }
-
       return true;
     },
     showPassword(data){

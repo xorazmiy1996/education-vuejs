@@ -125,8 +125,23 @@ export default defineComponent({
             <li class="nav-link">
               <router-link to="/all-users">
                 <i class="fa-solid fa-users icon"></i>
-                <span class="text nav-text">Users</span>
+                <span class="text nav-text">Пользователи</span>
               </router-link>
+            </li>
+            <li class="nav-link">
+              <router-link to="/all_student_comment">
+                <i class="fa-solid fa-triangle-exclamation icon"></i>
+                <span class="text nav-text">Жалобы</span>
+              </router-link>
+            </li>
+            <li class="nav-link">
+              <button type="button" class="btn btn-primary position-relative">
+                Inbox
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+              </button>
             </li>
 
 

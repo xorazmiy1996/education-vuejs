@@ -19,7 +19,20 @@ const CabinetService={
     },
     deleteCabinet(id){
         return axios.delete(`/educations/cabinet/${id}/`)
-    }
+    },
+    createStudentComment(data){
+        console.log(data)
+        return axios.post(`/educations/student_comment/`, data)
+    },
+    getAllStudentComment(){
+        return axios.get(`/educations/student_comment/`,)
+    },
+    getStudentComment(id){
+        return axios.get(`/educations/student_comment/${id}`,)
+    },
+    readyStudentComment(id){
+        return axios.patch(`/educations/student_comment/${id}`)
+    },
 }
 
 export default CabinetService
