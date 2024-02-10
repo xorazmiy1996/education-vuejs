@@ -14,6 +14,12 @@ import Loader from "@/ui-componets/Loader.vue";
 export default defineComponent({
   name: "IndividualSpeakingDetail",
   components: {Loader, ErrorAlertModal, Modal, SuccessAlertModal},
+  data(){
+    return{
+      student_count:0,
+    }
+
+  },
 
   computed: {
     ...mapGetters('cabinet', ['detailCabinet']),
@@ -21,8 +27,25 @@ export default defineComponent({
     ...mapGetters('auth', ['user'])
   },
 
+
   mounted() {
-    this.$store.dispatch("cabinet/detailCabinet", this.$route.params.id)
+    this.$store.dispatch("cabinet/detailCabinet", this.$route.params.id).then((res)=>{
+      if(this.detailCabinet?.course?.type === "individual"){
+        this.student_count = 1
+      }
+      if(this.detailCabinet?.course?.type === "group"){
+        this.student_count = 4
+      }
+
+      if(this.detailCabinet?.course?.type === "general_english"){
+        this.student_count = 4
+      }
+
+
+
+
+
+    })
   },
 
 
@@ -76,9 +99,6 @@ export default defineComponent({
           })
 
     },
-
-
-
   }
 
 
@@ -143,7 +163,7 @@ export default defineComponent({
                 </div>
                 <div class="d-flex justify-content-between text-info">
                   <span>Участники:</span>
-                  <span>{{ detailCabinet?.students.length }}/1</span>
+                  <span>{{ detailCabinet?.students.length }}/{{student_count}}</span>
                 </div>
 
 

@@ -37,7 +37,7 @@ export default defineComponent( {
             }
 
           }).catch(error =>{
-        console.log("2")
+        console.log(error)
       })
     },
     openModal(data){

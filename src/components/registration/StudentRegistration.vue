@@ -25,7 +25,6 @@ export default defineComponent({
     return {
       customRules: [
         value => {
-          console.log(value)
           if (!value) {
             return 'Fayl tanlanmagan';
           }
@@ -90,7 +89,6 @@ export default defineComponent({
         "type": "student"
 
       }
-      console.log(data)
       this.$store
           .dispatch("auth/register", data)
           .then(student => {
@@ -106,7 +104,6 @@ export default defineComponent({
     uploadUserImage() {
       const file1 = this.$refs.fileUserImage.files[0]
       this.userImage = file1
-      console.log(this.userImage)
       // this.$validator.validate('file', file1);
     },
     uploadUserIelts() {

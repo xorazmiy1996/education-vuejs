@@ -11,7 +11,6 @@ export default {
 
   methods:{
     createZoomLink(id){
-      console.log("id=",id)
       this.$store.dispatch("zoom/createZoomLink", id)
           .then(response =>{
             location.reload();

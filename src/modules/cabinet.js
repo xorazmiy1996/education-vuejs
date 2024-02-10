@@ -264,7 +264,6 @@ const actions = {
 
     },
     readyStudentComment(context,id) {
-        console.log("1")
         return new Promise((resolve, reject) => {
             // context.commit('getStudentCommentStart')
             CabinetService.readyStudentComment(id)
