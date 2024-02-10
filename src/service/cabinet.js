@@ -21,7 +21,6 @@ const CabinetService={
         return axios.delete(`/educations/cabinet/${id}/`)
     },
     createStudentComment(data){
-        console.log(data)
         return axios.post(`/educations/student_comment/`, data)
     },
     getAllStudentComment(){

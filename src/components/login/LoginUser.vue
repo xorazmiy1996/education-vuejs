@@ -76,9 +76,7 @@ export default defineComponent({
       return true;
     },
     showPassword(data){
-      console.log(data)
       if (data === "text"){
-        console.log(1)
         this.passwordType = "password"
       }else {
         this.passwordType = "text"

@@ -20,14 +20,12 @@ export default defineComponent({
   },
   methods:{
     createStudentComment(){
-      console.log("111")
       const data = {
         "user_id":this.user.id,
         "cabinet_id":this.cabinet_id,
         "comment":this.student_comment,
       }
       this.$store.dispatch("cabinet/createStudentComment", data).then(()=>{
-        console.log("22")
         $('#feedbackModal').modal('hide');
         this.$toast.success(`Отзыв принято`,
             {

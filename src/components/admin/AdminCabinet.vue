@@ -54,7 +54,6 @@ export default defineComponent({
         "start_date": this.start_date,
         "weekdays": this.weekDays,
       }
-      console.log(data.start_date)
       this.$store
           .dispatch("cabinet/createCabinet", data)
           .then(response => {

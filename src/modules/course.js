@@ -110,7 +110,6 @@ const actions = {
                     resolve(response.data)
                 })
                 .catch(error =>{
-                    console.log(error)
                     context.commit("patchCourseFailure", error.data)
                     reject(error.data)
                 })

@@ -91,7 +91,6 @@ export default defineComponent({
           .then(student => {
             localStorage.setItem("email", this.email)
             this.sendCodeEmailAuto()
-            console.log("here");
             this.$router.push({name: "verify_code"})
           })
           .catch(err => console.log("Teacher", err))

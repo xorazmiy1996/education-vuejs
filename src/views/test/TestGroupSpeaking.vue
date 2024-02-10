@@ -53,10 +53,7 @@ export default defineComponent({
 
           this.$store.commit('setResulTest', response.data.result );
             this.$router.push({name:'result_test_group_speaking'});
-          console.log(this.$router.state.result_test)
         }
-        console.log(response.status);
-        console.log(response.data);
 
       } catch (error) {
         console.log(error.message);
