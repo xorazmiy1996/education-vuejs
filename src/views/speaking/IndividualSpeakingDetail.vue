@@ -95,6 +95,14 @@ export default defineComponent({
                   }
               );
             }
+            if(error.detail === "Before join this course, you should make the payment"){
+              this.$toast.error(`Before join this course, you should make the payment`,
+                  {
+                    position: "top-right",
+                  }
+              );
+
+            }
 
           })
 
@@ -160,6 +168,10 @@ export default defineComponent({
                 <div class="d-flex justify-content-between text-info">
                   <span>Цена урока:</span>
                   <span>{{ detailCabinet?.course?.price }} сум</span>
+                </div>
+                <div class="d-flex justify-content-between text-info">
+                  <span>Номер карты:</span>
+                  <span>{{ detailCabinet?.card_number }} </span>
                 </div>
                 <div class="d-flex justify-content-between text-info">
                   <span>Участники:</span>
