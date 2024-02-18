@@ -18,6 +18,7 @@ export default defineComponent({
       course_id: null,
       teacher_id: null,
       start_date: null,
+      card_number: null,
       isModalOpen: false,
       isDeleteModalOpen: false,
 
@@ -45,7 +46,6 @@ export default defineComponent({
   },
 
   methods: {
-    // "start_date": this.start_date +"T" + this.time + ":00Z",
     submitHandler() {
       const data = {
         "teacher_id": this.teacher_id,
@@ -53,6 +53,7 @@ export default defineComponent({
         "course_id": this.course_id,
         "start_date": this.start_date,
         "weekdays": this.weekDays,
+        "card_number": this.card_number.replace(/\s/g, ''),
       }
       this.$store
           .dispatch("cabinet/createCabinet", data)
@@ -104,6 +105,14 @@ export default defineComponent({
     },
     closeDeleteModal() {
       this.isDeleteModalOpen = false
+    },
+
+    isRequired(value) {
+      if (!value) {
+        return 'this field is required';
+      }
+
+      return true;
     },
 
 
@@ -208,6 +217,11 @@ export default defineComponent({
                   <input type="checkbox" class="form-check-input" id="Sunday" value="6" v-model="weekDays">
                   <label class="form-label" for="Sunday">Воскресенье</label>
 
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputCardNumber" class="form-label">Номер карты</label>
+                  <input v-model="card_number"   type="text" v-mask="'#### #### #### ####'" maxlength="19" class="form-control" id="exampleInputCardNumber">
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError.card_number"/>
                 </div>
 
                 <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>
