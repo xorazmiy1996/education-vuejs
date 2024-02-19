@@ -133,7 +133,7 @@ export default defineComponent({
                 <span>{{ detailCabinet?.teacher?.experience }} лет</span>
               </div>
               <div class="d-flex justify-content-between text-info">
-                <span>Уровень Английского (IELTS):{{ detailCabinet?.teacher?.ielts_file }}</span>
+                <span>Уровень Английского (IELTS):</span>
                 <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"
                          target="_blank" :href="detailCabinet?.teacher?.ielts_file"
                          class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
