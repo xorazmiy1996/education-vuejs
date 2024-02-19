@@ -10,13 +10,12 @@ import 'vue3-toastify/dist/index.css';
 import Loader from "@/ui-componets/Loader.vue";
 
 
-
 export default defineComponent({
   name: "IndividualSpeakingDetail",
   components: {Loader, ErrorAlertModal, Modal, SuccessAlertModal},
-  data(){
-    return{
-      student_count:0,
+  data() {
+    return {
+      student_count: 0,
     }
 
   },
@@ -29,20 +28,17 @@ export default defineComponent({
 
 
   mounted() {
-    this.$store.dispatch("cabinet/detailCabinet", this.$route.params.id).then((res)=>{
-      if(this.detailCabinet?.course?.type === "individual"){
+    this.$store.dispatch("cabinet/detailCabinet", this.$route.params.id).then((res) => {
+      if (this.detailCabinet?.course?.type === "individual") {
         this.student_count = 1
       }
-      if(this.detailCabinet?.course?.type === "group"){
+      if (this.detailCabinet?.course?.type === "group") {
         this.student_count = 4
       }
 
-      if(this.detailCabinet?.course?.type === "general_english"){
+      if (this.detailCabinet?.course?.type === "general_english") {
         this.student_count = 4
       }
-
-
-
 
 
     })
@@ -59,48 +55,46 @@ export default defineComponent({
                 }
             );
           })
-          .catch(error =>{
-            if(error.detail === "You already registered for this course"){
+          .catch(error => {
+            if (error.detail === "You already registered for this course") {
               this.$toast.success(`Вы уже зарегистрировались на этот курс`,
                   {
                     position: "top-right",
                   }
               );
             }
-            if(error.detail === "Course is fulled"){
+            if (error.detail === "Course is fulled") {
               this.$toast.error(`Курс заполнен`,
                   {
                     position: "top-right",
                   }
               );
             }
-            if(error.detail === "Please verify your email!"){
+            if (error.detail === "Please verify your email!") {
               this.$toast.error(`Пожалуйста, подтвердите свой адрес электронной почты!`,
                   {
                     position: "top-right",
                   }
               );
             }
-            if(error.detail === "Authentication credentials were not provided."){
+            if (error.detail === "Authentication credentials were not provided.") {
               this.$toast.error(`Учетные данные для аутентификации не были предоставлены.`,
                   {
                     position: "top-right",
                   }
               );
             }
-            if(error.detail === "You can't join this course. Because you are teacher"){
+            if (error.detail === "You can't join this course. Because you are teacher") {
               this.$toast.error(`Вы не сможете присоединиться к курсу так как вы сам создатель курса.`,
                   {
                     position: "top-right",
                   }
               );
             }
-            if(error.detail === "Before join this course, you should make the payment"){
-              this.$toast.error(`Before join this course, you should make the payment`,
-                  {
-                    position: "top-right",
-                  }
-              );
+            // Before join this course, you should make the payment
+            if (error.detail === "Before join this course, you should make the payment") {
+              $('#creditModal').modal('show');
+
 
             }
 
@@ -125,33 +119,34 @@ export default defineComponent({
           </div>
         </div>
         <div class="col-4">
-            <div class="card">
-              <!--            <div class="profile-avatar">-->
-              <!--              <img :src="detailCabinet?.teacher?.photo" class="card-img-top" alt="...">-->
-              <!--            </div>-->
+          <div class="card">
+            <!--            <div class="profile-avatar">-->
+            <!--              <img :src="detailCabinet?.teacher?.photo" class="card-img-top" alt="...">-->
+            <!--            </div>-->
 
-              <div class="card-body">
+            <div class="card-body">
 
-                <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
-                  {{ detailCabinet?.teacher?.last_name }}</h5>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Опыт работы:</span>
-                  <span>{{ detailCabinet?.teacher?.experience }} лет</span>
+              <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
+                {{ detailCabinet?.teacher?.last_name }}</h5>
+              <div class="d-flex justify-content-between text-info">
+                <span>Опыт работы:</span>
+                <span>{{ detailCabinet?.teacher?.experience }} лет</span>
+              </div>
+              <div class="d-flex justify-content-between text-info">
+                <span>Уровень Английского (IELTS):{{ detailCabinet?.teacher?.ielts_file }}</span>
+                <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"
+                         target="_blank" :href="detailCabinet?.teacher?.ielts_file"
+                         class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
+              </div>
+              <div class="d-flex justify-content-between text-info">
+                <span>Время уроков:</span>
+                <span>{{ detailCabinet?.time }}</span>
+              </div>
+              <div class="d-flex justify-content-between text-info">
+                <div>
+                  <span>Дни уроков:</span>
                 </div>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Уровень Английского (IELTS):</span>
-                  <span><a style="background: #5b35a2; color: #FFFFFF" v-if="detailCabinet?.teacher?.ielts_file"  target="_blank" :href="detailCabinet?.teacher?.ielts_file"
-                           class="btn btn-outline-primary">{{ detailCabinet?.teacher?.ielts }}</a></span>
-                </div>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Время уроков:</span>
-                  <span>{{ detailCabinet?.time }}</span>
-                </div>
-                <div class="d-flex justify-content-between text-info">
-                  <div>
-                    <span>Дни уроков:</span>
-                  </div>
-                  <div>
+                <div>
                     <span style="background: #5b35a2" v-for="day in detailCabinet?.weekdays" class="badge  week_day">
                         <b v-if="day === '0'">1</b>
                         <b v-if="day === '1'">2</b>
@@ -161,46 +156,88 @@ export default defineComponent({
                         <b v-if="day === '5'">6</b>
                         <b v-if="day === '6'">7</b>
                     </span>
-                  </div>
-
-
                 </div>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Цена урока:</span>
-                  <span>{{ detailCabinet?.course?.price }} сум</span>
-                </div>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Номер карты:</span>
-                  <span>{{ detailCabinet?.card_number }} </span>
-                </div>
-                <div class="d-flex justify-content-between text-info">
-                  <span>Участники:</span>
-                  <span>{{ detailCabinet?.students.length }}/{{student_count}}</span>
-                </div>
-
 
 
               </div>
-
+              <div class="d-flex justify-content-between text-info">
+                <span>Цена урока:</span>
+                <span>{{ detailCabinet?.course?.price }} сум</span>
+              </div>
+              <div class="d-flex justify-content-between text-info">
+                <span>Номер карты:</span>
+                <span>{{ detailCabinet?.card_number }} </span>
+              </div>
+              <div class="d-flex justify-content-between text-info">
+                <span>Участники:</span>
+                <span>{{ detailCabinet?.students.length }}/{{ student_count }}</span>
+              </div>
 
 
             </div>
-            <div class="contained-button">
-              <button style="background: #5b35a2" :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)" class="btn btn-primary button_submit">Присоединиться к классу
-              </button>
-            </div>
+
+
+          </div>
+          <div class="contained-button">
+            <button style="background: #5b35a2" :disabled="isLoading" @click="add_student_cabinet(detailCabinet.id)"
+                    class="btn btn-primary button_submit">Присоединиться к классу
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="creditModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Payme</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="d-flex justify-content-center modal-body credit">
+          <div class="credit-card">
+            <header>
+            <span class="logo">
+                <img src="@/assets/card-image/logo.png" alt="">
+                <h5>KAPITALBANK</h5>
+            </span>
+              <img src="@/assets/card-image/visa-logo-png-5.png" class="chip">
+            </header>
+            <div class="card-details">
+              <div class="name-number">
+                <h6>Card Number</h6>
+                <h5 class="number">{{detailCabinet?.card_number}}</h5>
+                <h5 class="name">Jasur Nazarov</h5>
+              </div>
+              <div class="valid-date">
+                <h6>Valid Thur</h6>
+                <h5>12/21</h5>
+              </div>
+            </div>
+
+          </div>
+         </div>
+        <div class="modal-footer">
+          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a href="https://t.me/speakup_learning_centre">telegramimizga</a> checkni yuboring!</p>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.course-detail{
+.course-detail {
   position: relative;
   width: 100%;
   align-content: space-between;
 }
+
 .video_player {
   position: relative;
   width: 100%;
@@ -297,11 +334,65 @@ video {
   margin-bottom: 0px;
   padding: 3px;
 }
-.loader{
+
+.loader {
   position: fixed;
-  top:50%;
+  top: 50%;
   left: 50%;
 
 }
+.modal-body.credit {
+  .credit-card{
+    position: relative;
+    background-image: url("@/assets/card-image/bg.png");
+    padding: 25px;
+    background-size: cover;
+    width: 100%;
+    border-radius: 28px;
+    max-width: 380px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo img{
+    width: 48px;
+    margin-right: 10px;
+  }
+  h5{
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+  }
+  header .chip{
+    width: 60px;
+  }
+  h6{
+    color: #fff;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  h5.number{
+    margin-top: 4px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  h5.name{
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  .credit-card .card-details{
+    margin-top: 40px;
+    display: flex;
+    cursor: pointer;
+
+    justify-content: space-between;
+    align-items: flex-end;}
+
+}
+
 
 </style>
