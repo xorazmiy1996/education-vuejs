@@ -50,6 +50,7 @@ import StudentRegistration from "@/components/registration/StudentRegistration.v
 import StudentProfil from "@/components/student/StudentProfil.vue";
 import AllUserList from "@/components/admin/AllUserList.vue";
 import AllStudentComment from "@/components/admin/AllStudentComment.vue";
+import CridetCard from "@/components/CridetCard.vue";
 
 
 const router = createRouter({
@@ -392,6 +393,17 @@ const router = createRouter({
 
                 Layout: DefaultLayout
             }
+        },
+
+        {
+            path: '/cridet-card',
+            name: 'cridet_card',
+            component: CridetCard,
+            meta: {
+                Layout: DefaultLayout
+
+            }
+
         },
 
 
