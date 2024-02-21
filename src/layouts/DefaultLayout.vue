@@ -31,28 +31,15 @@ export default defineComponent({
       <router-link to="/pragramma"  active-class="active-link">Программы</router-link>
 
       <template v-if='isLoggedIn '>
-        <div class="dropdown">
-          <router-link class="btn" to="#"  role="button" data-bs-toggle="dropdown"
-             aria-expanded="false">Вход
-          </router-link>
-
-          <ul class="dropdown-menu">
-
-            <li v-if="user?.type === 'admin'">
-              <router-link style="font-size: 18px" class="dropdown-item" to="/admin">Вход</router-link>
-            </li>
-            <li v-if="user?.type === 'student'">
-              <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
-            </li>
-            <li v-if="user?.type === 'teacher'">
-              <router-link class="dropdown-item" to="/teacher_panel">Вход</router-link>
-            </li>
-            <li>
-              <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
-            </li>
-          </ul>
+        <div v-if="user?.type === 'admin'">
+          <router-link  to="/admin">Вход</router-link>
         </div>
-
+        <div v-if="user?.type === 'student'">
+          <router-link  to="/student_panel">Вход</router-link>
+        </div>
+        <div v-if="user?.type === 'teacher'">
+          <router-link  to="/teacher_panel">Вход</router-link>
+        </div>
       </template>
       <template v-if='isAnonymous'>
         <router-link to="/login" active-class="active-link" >Войти</router-link>

@@ -39,28 +39,12 @@ export default defineComponent({
 
       <div class="nav-router me-5">
         <router-link to="/" class="a ctivate">Главная страница</router-link>
-        <!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
-        <!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
-
-
         <template v-if='isLoggedIn '>
-          <div class="dropdown">
-            <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
-              <i class="fa fa-user-circle fa-3x" style="color: white"></i>
-            </a>
-
-            <ul class="dropdown-menu">
-              <li>
-                <router-link class="dropdown-item" to="/student_panel">Вход</router-link>
-              </li>
-              <li>
-                <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
-              </li>
-              <li>
-                <router-link class="dropdown-item" to="/student_profil">Мой профиль</router-link>
-              </li>
-            </ul>
+          <div>
+            <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
+          </div>
+          <div>
+            <router-link class="dropdown-item" to="/student_profil">Мой профиль</router-link>
           </div>
 
         </template>
@@ -74,27 +58,11 @@ export default defineComponent({
     </nav-head>
     <nav ref="sidebar" class="sidebar close">
       <header>
-        <!--        <div class="image-text">-->
-        <!--           <span class="image">-->
-        <!--          <img src="@/assets/coding-lab.png" alt="logo">-->
-        <!--        </span>-->
-        <!--          <div class="text header-text">-->
-        <!--            <span class="name">{{ user?.first_name }}</span>-->
-        <!--            <span class="profession">{{ user?.last_name }}</span>-->
-
-        <!--          </div>-->
-        <!--        </div>-->
         <i @click="pushBar" class="fa fa-chevron-right toggle"></i>
 
       </header>
       <div class="menu-bar">
         <div class="menu">
-          <!--          <li class="search-box">-->
-
-          <!--            <i class="fa fa-search icon"></i>-->
-          <!--            <input type="search" placeholder="Search...">-->
-
-          <!--          </li>-->
           <ul class="menu-link">
             <li class="nav-link">
               <router-link to="/student_panel">

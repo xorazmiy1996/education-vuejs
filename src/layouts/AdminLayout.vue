@@ -39,23 +39,12 @@ export default defineComponent({
       </div>
 
       <div class="nav-router me-5">
-        <router-link to="/" class="a ctivate">Главная страница</router-link>
+        <router-link to="/" class="activate">Главная страница</router-link>
         <template v-if='isLoggedIn '>
-          <div class="dropdown">
-            <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
-              <i class="fa fa-user-circle fa-3x"></i>
-            </a>
-
-            <ul class="dropdown-menu">
-              <li>
-                <router-link class="dropdown-item" to="/admin">Вход</router-link>
-              </li>
-              <li>
-                <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
-              </li>
-            </ul>
+          <div>
+            <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
           </div>
+
 
         </template>
         <template v-if='isAnonymous'>
@@ -70,16 +59,6 @@ export default defineComponent({
 
     <nav ref="sidebar" class="sidebar close">
       <header>
-<!--        <div class="image-text">-->
-<!--           <span class="image">-->
-<!--          <img src="@/assets/coding-lab.png" alt="logo">-->
-<!--        </span>-->
-<!--          <div class="text header-text">-->
-<!--            <span class="name">Coding</span>-->
-<!--            <span class="profession">Lab</span>-->
-
-<!--          </div>-->
-<!--        </div>-->
         <i @click="pushBar" class="fa fa-chevron-right toggle"></i>
 
       </header>

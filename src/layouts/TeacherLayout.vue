@@ -38,25 +38,9 @@ export default {
 
       <div class="nav-router me-5">
         <router-link to="/" class="a ctivate">Главная страница</router-link>
-<!--        <router-link to="/individual_or_group_speaking">Speaking</router-link>-->
-<!--        <router-link to="/writing_task1_task2">Writing</router-link>-->
-
-
         <template v-if='isLoggedIn '>
-          <div class="dropdown">
-            <a class="btn" href="#" role="button" data-bs-toggle="dropdown"
-               aria-expanded="false">
-              <i class="fa fa-user-circle fa-3x" style="color: white"></i>
-            </a>
-
-            <ul class="dropdown-menu">
-              <li>
-                <router-link class="dropdown-item" to="/teacher_panel">Вход</router-link>
-              </li>
-              <li>
-                <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
-              </li>
-            </ul>
+          <div>
+            <router-link @click="logout" class="dropdown-item" to="#">Выход</router-link>
           </div>
 
         </template>
