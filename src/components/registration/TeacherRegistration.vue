@@ -29,6 +29,7 @@ export default defineComponent({
       sex: "female",
       birth_date: null,
       phone_number: "",
+      telegram: "",
 
 
       place_of_education: "",
@@ -77,6 +78,7 @@ export default defineComponent({
         "ielts": this.ielts,
         "about_me": this.about_me,
         "phone_number": this.phone_number.replace(/\D/g, ""),
+        "telegram_nickname": this.telegram,
 
         'photo': this.userImage,
         'ielts_file': this.userIelts,
@@ -234,7 +236,13 @@ export default defineComponent({
                          id="exampleInputPhone"
                          placeholder="+998"/>
                   <ErrorMessage name="phone_number"/>
-
+                </div>
+                <div class="input-div">
+                  <label for="exampleInputTelegram" class="form-label">Никнейм в телеграмме</label>
+                  <Field v-model="telegram" :rules="isRequired" name="telegram" class="form-control" type="text"
+                         id="exampleInputTelegram"
+                         aria-describedby="lastTelegramHelp"/>
+                  <ErrorMessage name="telegram"/>
 
                 </div>
                 <div class="input-div">
