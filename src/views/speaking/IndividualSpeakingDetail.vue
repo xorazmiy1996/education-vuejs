@@ -210,7 +210,7 @@ export default defineComponent({
               <div class="name-number">
                 <h6>Card Number</h6>
                 <h5 class="number">{{detailCabinet?.card_number}}</h5>
-                <h5 class="name">Jasur Nazarov</h5>
+                <h5 class="name">{{detailCabinet?.teacher?.first_name}} {{detailCabinet?.teacher?.last_name}}</h5>
               </div>
               <div class="valid-date">
                 <h6>Valid Thur</h6>
