@@ -221,10 +221,10 @@ export default defineComponent({
           </div>
          </div>
         <div v-if="!!detailCabinet?.teacher?.telegram_nickname" class="modal-footer">
-          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/{{detailCabinet?.teacher?.telegram_nickname}}"> telegramimizga</a> checkni yuboring!</p>
+          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/{{detailCabinet?.teacher?.telegram_nickname}}">{{detailCabinet?.teacher?.telegram_nickname}} </a> telegramimizga checkni yuboring!</p>
         </div>
         <div v-else class="modal-footer">
-          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/speakup_learning_centre"> telegramimizga</a> checkni yuboring!</p>
+          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/speakup_learning_centre"> speakup_learning_centre </a> telegramimizga checkni yuboring!</p>
         </div>
 
 
