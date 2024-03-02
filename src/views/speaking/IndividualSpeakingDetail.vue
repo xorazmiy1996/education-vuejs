@@ -16,6 +16,7 @@ export default defineComponent({
   data() {
     return {
       student_count: 0,
+      telegram_silka:'',
     }
 
   },
@@ -28,6 +29,7 @@ export default defineComponent({
 
 
   mounted() {
+    this.telegram_silka = 'https://t.me/' + this.detailCabinet?.teacher?.telegram_nickname
     this.$store.dispatch("cabinet/detailCabinet", this.$route.params.id).then((res) => {
       if (this.detailCabinet?.course?.type === "individual") {
         this.student_count = 1
@@ -101,6 +103,9 @@ export default defineComponent({
           })
 
     },
+    goToTelegram(){
+      window.location.href = "https://t.me/" + this.detailCabinet?.teacher?.telegram_nickname;
+    }
   }
 
 
@@ -221,10 +226,10 @@ export default defineComponent({
           </div>
          </div>
         <div v-if="!!detailCabinet?.teacher?.telegram_nickname" class="modal-footer">
-          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/{{detailCabinet?.teacher?.telegram_nickname}}">{{detailCabinet?.teacher?.telegram_nickname}} </a> telegramimizga checkni yuboring!</p>
+          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <span @click="goToTelegram()" class="telegram-silka">@{{detailCabinet?.teacher?.telegram_nickname}} </span> telegramimizga checkni yuboring!</p>
         </div>
         <div v-else class="modal-footer">
-          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/speakup_learning_centre"> speakup_learning_centre </a> telegramimizga checkni yuboring!</p>
+          <p>Ushbu cartaga curs to'lovini to'lang va bizning  <a  href="https://t.me/speakup_learning_centre"> @speakup_learning_centre </a> telegramimizga checkni yuboring!</p>
         </div>
 
 
@@ -395,6 +400,14 @@ video {
     align-items: flex-end;}
 
 }
+.telegram-silka{
+  color: #0d6efd;
+}
+.telegram-silka:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 
 
 </style>
