@@ -1,9 +1,11 @@
 <script>
 import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
+import Map from "@/components/map/Map.vue";
 
 export default defineComponent({
   name: "DefaultLayout",
+  components: {Map},
   computed: {
     ...mapGetters('auth', ['isLoggedIn', 'isAnonymous', 'user']),
   },
@@ -11,6 +13,15 @@ export default defineComponent({
   methods: {
     logout() {
       return this.$store.dispatch("auth/logout")
+    },
+    navigateToCondition() {
+      this.$router.push('/condition');
+    },
+    navigateToConfidentiality() {
+      this.$router.push('/confidentiality');
+    },
+    navigateToHome() {
+      this.$router.push('/');
     }
   }
 })
@@ -52,6 +63,53 @@ export default defineComponent({
   <div style="position: relative">
     <slot/>
   </div>
+  <section class="tree-page">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-8">
+          <div class="d-flex text-light justify-content-between mt-3">
+            <div>
+              <div class="fs-4 fw-bold">О нас</div>
+              <div class="fs-6 opacity-50 mt-2">Команда О проекте Вакансии Помощь</div>
+              <div class="d-flex fs-4 mt-3">
+                <a @click="navigateToCondition" href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover me-3">Shartla</a>
+                <a @click="navigateToConfidentiality" href="#" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" >Maxfiylik</a>
+              </div>
+
+              <div class="mt-2">
+                <a href="#" @click="navigateToHome">
+                  <img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt="">
+                </a>
+
+              </div>
+            </div>
+            <div>
+              <div class="fs-4 fw-bold">Офис</div>
+              <div class="fs-6 opacity-50 mt-2">220100 Ургенч, Анна Герман 17 учебный центр</div>
+              <div class="fs-6 opacity-50 mt-2">Пользовательское соглашение</div>
+              <div class="fs-6 opacity-50 mt-2">ООО "SpeakUP" осуществляет деятельность в сфере образования</div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="col-4">
+          <div class="mt-5">
+            <Map/>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
 </template>
 
 <style scoped>
@@ -126,6 +184,13 @@ i:hover {
     width: 246px !important;
     height: 65px !important;
 
+}
+
+.tree-page {
+  background-color: #3C0C5C;
+  min-height: 40vh;
+  background-size: cover;
+  width: 100%;
 }
 
 

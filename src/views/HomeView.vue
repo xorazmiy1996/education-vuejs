@@ -1,9 +1,16 @@
 <script>
 import VueScrollactive from 'vue-scrollactive';
 
+import "leaflet/dist/leaflet.css";
+import { LMap, LTileLayer } from "@vue-leaflet/vue-leaflet";
+import Map from "@/components/map/Map.vue";
+
 export default {
   components: {
+    Map,
     VueScrollactive,
+    LMap,
+    LTileLayer,
   },
 };
 
@@ -26,7 +33,9 @@ export default {
           </div>
           <div class="all-ages"><h5 class="one-page-h5">Для всех возрастов!</h5></div>
           <div class="mt-4">
-            <a href="#pragramma"><button class="btn btn-primary one-page-button">Записаться на пробный урок</button></a>
+            <a href="#pragramma">
+              <button class="btn btn-primary one-page-button">Записаться на пробный урок</button>
+            </a>
           </div>
         </div>
 
@@ -37,7 +46,8 @@ export default {
     <div class="contact">
 
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="btn btn-primary one-page-button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
         Связаться с нами
       </button>
 
@@ -87,17 +97,14 @@ export default {
     </div>
 
 
-
   </section>
-
-
   <section class="two-page" id="pragramma">
     <div class="container">
       <div class="row first-row mb-5">
         <div class="col-lg-4">
-         <h4 class="my-program">
-           Наши программы
-         </h4>
+          <h4 class="my-program">
+            Наши программы
+          </h4>
           <h6 style="margin-top:20px;font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
             Ознакомьтесь с нашими
             программами
@@ -115,7 +122,7 @@ export default {
                 <p class="card-text"> * 3 раза в неделю по 30 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text"> * Курс рассчитан на 3 месяца </p>
-<!--                <h5 class="card-title text-center">400.000 / месяц</h5>-->
+                <!--                <h5 class="card-title text-center">400.000 / месяц</h5>-->
               </div>
             </router-link>
 
@@ -134,7 +141,7 @@ export default {
                 <p class="card-text">* 3 раза в неделю по 60 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text">* Курс рассчитан на 3 месяца </p>
-<!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
+                <!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
 
               </div>
             </router-link>
@@ -156,7 +163,7 @@ export default {
                 <p class="card-text">* 3 раза в неделю по 60 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
                 <p class="card-text">* Курс рассчитан на 3 месяца </p>
-<!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
+                <!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
               </div>
             </router-link>
           </div>
@@ -166,7 +173,8 @@ export default {
           <div class="card card-height">
             <div class="card-body">
               <h5 class="card-title text-center">IELTS</h5>
-              <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он не является родным, учит систематизировать процессы памяти.</p>
+              <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он
+                не является родным, учит систематизировать процессы памяти.</p>
             </div>
           </div>
 
@@ -178,11 +186,17 @@ export default {
             </div>
             <div class="card-body">
               <h5 class="card-title text-center">IELTS writing</h5>
-              <p class="card-text"> <router-link to="/task_1">IELTS task 1</router-link> </p>
-              <p class="card-text"> <router-link to="/task_2">IELTS task 2</router-link> </p>
-              <p class="card-text"><router-link to="/task_3">MOCK academic writing</router-link> </p>
+              <p class="card-text">
+                <router-link to="/task_1">IELTS task 1</router-link>
+              </p>
+              <p class="card-text">
+                <router-link to="/task_2">IELTS task 2</router-link>
+              </p>
+              <p class="card-text">
+                <router-link to="/task_3">MOCK academic writing</router-link>
+              </p>
               <p class="card-text">* feedbacks</p>
-<!--              <h5 class="card-title text-center">30.000 / штук</h5>-->
+              <!--              <h5 class="card-title text-center">30.000 / штук</h5>-->
 
             </div>
           </div>
@@ -191,11 +205,13 @@ export default {
     </div>
   </section>
 
+
+
   </body>
 
 </template>
 <style scoped>
-.card{
+.card {
   min-width: 255px;
 }
 
@@ -206,7 +222,8 @@ export default {
   background-size: cover;
   width: 100%;
 }
-.one-page .modal-title{
+
+.one-page .modal-title {
   font-size: 35px;
   font-weight: 700;
 }
@@ -267,31 +284,36 @@ export default {
   text-transform: uppercase;
   color: black;
 }
-.one-page .one-page-button:hover{
+
+.one-page .one-page-button:hover {
   background-color: #fff;
 }
 
-.one-page .contact{
+.one-page .contact {
   display: flex;
   margin-top: 150px;
   justify-content: flex-end;
   margin-right: 300px;
   padding-bottom: 100px;
 }
-.one-page .contact h6{
+
+.one-page .contact h6 {
   margin: 0;
 }
 
-.tel-number{
+.tel-number {
   font-size: 20px;
 }
-.instagram{
+
+.instagram {
   font-size: 20px;
 }
-.email{
+
+.email {
   font-size: 20px;
 }
-.telegram{
+
+.telegram {
   font-size: 20px;
 }
 
@@ -304,116 +326,142 @@ export default {
   background-size: cover;
   width: 100%;
 }
-.two-page .container{
+
+.two-page .container {
   padding-top: 40px;
 }
-.two-page .container .row{
+
+.two-page .container .row {
   padding: 40px 60px;
 }
-.two-page .container .row h4{
+
+.two-page .container .row h4 {
   font-size: 3rem;
   font-weight: 700;
 }
-.my-program{
+
+.my-program {
   line-height: 42px;
 }
 
 
-.two-page .container .row.second-row{
-  padding-top: 0!important;
+.two-page .container .row.second-row {
+  padding-top: 0 !important;
 }
 
 
-.two-page .container .row .card{
+.two-page .container .row .card {
   border-radius: 35px;
   background-color: #46056d;
   color: #fff;
 }
 
-.two-page .container .row .card .card-text{
+.two-page .container .row .card .card-text {
   margin: 5px 0;
 
 }
 
 
-
-
-.two-page .container .row .card .card-title{
+.two-page .container .row .card .card-title {
   font-size: 24px;
 }
-.two-page .container .row .image-cat-1{
+
+.two-page .container .row .image-cat-1 {
   position: absolute;
   top: -70px;
   left: 100px;
 }
-.two-page .container .row .image-cat-2{
+
+.two-page .container .row .image-cat-2 {
   position: absolute;
   top: -70px;
   left: 130px;
 }
-.two-page .container .row.second-row .image-cat-2{
+
+.two-page .container .row.second-row .image-cat-2 {
   position: absolute;
   top: -60px;
   left: 120px;
 }
-.two-page .container .row .image-cat-1 img{
-  width: 92px;
-  height: 92px;
-}
-.two-page .container .row .image-cat-2 img{
+
+.two-page .container .row .image-cat-1 img {
   width: 92px;
   height: 92px;
 }
 
-.two-page .container .row .card-hover:hover{
+.two-page .container .row .image-cat-2 img {
+  width: 92px;
+  height: 92px;
+}
+
+.two-page .container .row .card-hover:hover {
   background-color: #fff;
   color: black;
-  cursor: pointer ;
+  cursor: pointer;
 }
-.two-page .container .row .card a{
+
+.two-page .container .row .card a {
   color: #fff;
   text-decoration: none;
 }
-.two-page .container .row .card:hover a{
+
+.two-page .container .row .card:hover a {
   color: black;
 }
-.two-page .container .row .card.card-link .card-text:hover{
+
+.two-page .container .row .card.card-link .card-text:hover {
   background-color: #dbdfe9;
   padding: 2px 3px;
   border-radius: 8px;
 }
 
+
+
+
+
+#logo {
+  width: 246px !important;
+  height: 65px !important;
+}
+
 @media (max-width: 1800px) {
-  .card-height{
+  .card-height {
     height: 275px;
   }
-  .card-height .card-text{
+
+  .card-height .card-text {
     font-size: 20px;
   }
-  .card-body{
+
+  .card-body {
     margin-top: 30px;
   }
 }
 
 @media (max-width: 1400px) {
-  .card-height{
+  .card-height {
     height: 275px;
   }
-  .card-height .card-text{
+
+  .card-height .card-text {
     font-size: 18px;
   }
-  .card-body{
+
+  .card-body {
     margin-top: 30px;
   }
 }
+
 @media (max-width: 1200px) {
-  .card-height{
+  .card-height {
     height: 240px;
   }
-  .card-height .card-text{
+
+  .card-height .card-text {
     font-size: 16px;
   }
-  .card-body{
+
+  .card-body {
     margin-top: 30px;
   }
 
@@ -422,80 +470,90 @@ export default {
 
 @media (max-width: 993px) {
 
-  .two-page .card{
+  .two-page .card {
     margin: 40px;
     height: 340px;
   }
-  .two-page .card-body .card{
+
+  .two-page .card-body .card {
     display: flex;
     align-items: center;
   }
-  .two-page  .card p{
+
+  .two-page .card p {
     font-size: 25px;
     padding: 6px;
 
   }
 
-  .two-page  .card .card-title{
+  .two-page .card .card-title {
     font-size: 32px;
   }
 
 }
 
 @media (max-width: 768px) {
-  .two-page .card{
+  .two-page .card {
     margin: 40px;
     height: 280px;
   }
-  .two-page .card-body .card{
+
+  .two-page .card-body .card {
     display: flex;
     align-items: center;
   }
-  .two-page  .card p{
+
+  .two-page .card p {
     font-size: 18px;
     padding: 3px;
 
   }
 
-  .two-page  .card .card-title{
+  .two-page .card .card-title {
     font-size: 25px;
   }
 
 }
 
 @media (max-width: 576px) {
-  .card{
+  .card {
     margin-top: 80px;
   }
+
   .one-page .header-cat {
     display: flex;
     justify-content: center;
   }
-  .one-page .header-cat img{
+
+  .one-page .header-cat img {
     width: 40%;
   }
-  .one-page .header-school h4{
+
+  .one-page .header-school h4 {
     font-size: 2rem;
     justify-content: center;
     font-weight: 400;
     width: 400px;
-    margin:15px;
+    margin: 15px;
 
   }
-  .one-page .header-school .first-step{
+
+  .one-page .header-school .first-step {
     font-size: 1.3rem;
     justify-content: center;
     font-weight: 400;
     width: 400px;
-    margin:15px;
+    margin: 15px;
   }
-  .one-page .header-school .all-ages{
+
+  .one-page .header-school .all-ages {
     font-size: 1.3rem;
     justify-content: center;
     font-weight: 400;
     width: 400px;
-    margin:15px;
+    margin: 15px;
   }
+
   .one-page .contact {
     display: flex;
     width: 200px;
@@ -506,14 +564,7 @@ export default {
   }
 
 
-
-
-
-
 }
-
-
-
 
 
 </style>

@@ -8,6 +8,7 @@ import uiComponets from "@/ui-componets";
 import Toaster from "@meforma/vue-toaster";
 import VueMask from '@devindex/vue-mask';
 
+
 const app = createApp(App)
 uiComponets.map(componet=>{
     app.component(componet.name, componet)
@@ -19,5 +20,7 @@ app.use(router)
 
 app.use(Toaster)
 app.use(VueMask);
+
+
 
 app.mount('#app')
