@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 200px; width: 400px;">
+  <div style="height: 220px; width: 450px;">
     <l-map
         v-model="zoom"
         v-model:zoom="zoom"
@@ -12,7 +12,7 @@
       <l-control-layers />
       <l-marker :lat-lng="[41.54909833358724, 60.617210423925876]" draggable @moveend="log('moveend')">
         <l-tooltip>
-          SpeakUp
+          SpeakU
         </l-tooltip>
       </l-marker>
 
@@ -22,7 +22,7 @@
 
 <!--      <l-marker :lat-lng="[41.54909833358724, 60.617210423925876]" draggable @moveend="log('moveend')">-->
 <!--        <l-popup>-->
-<!--          lol-->
+<!--          SpeakUp-->
 <!--        </l-popup>-->
 <!--      </l-marker>-->
 

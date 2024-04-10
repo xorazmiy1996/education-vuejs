@@ -204,50 +204,7 @@ export default {
       </div>
     </div>
   </section>
-  <section class="tree-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-4">
-          <div class="mt-3">
-            <img id="logo" src="@/assets/image/home_image/MainNoDescriptionWhite.png" alt="">
-          </div>
-          <table>
-            <tbody class="text-light fs-4 fw-bold">
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-            </tr>
-            <tr>
-              <td>Jacob</td>
-              <td>Thornton</td>
-            </tr>
-            <tr>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            </tbody>
-          </table>
 
-        </div>
-        <div class="col-4"></div>
-        <div class="col-4">
-          <div class="mt-3">
-            <Map/>
-          </div>
-
-
-
-
-        </div>
-      </div>
-    </div>
-    <div class="d-flex justify-content-star">
-
-
-    </div>
-
-
-  </section>
 
 
   </body>
@@ -459,16 +416,8 @@ export default {
 }
 
 
-.tree-page {
-  //background-image: url("@/assets/image/home_image/pages_01.jpg");
-  background-color: #3C0C5C;
-  min-height: 40vh;
-  background-size: cover;
-  width: 100%;
-}
-.tree-page table,  th{
-  margin-top: 30px;
-}
+
+
 
 #logo {
   width: 246px !important;

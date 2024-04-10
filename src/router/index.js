@@ -51,6 +51,8 @@ import StudentProfil from "@/components/student/StudentProfil.vue";
 import AllUserList from "@/components/admin/AllUserList.vue";
 import AllStudentComment from "@/components/admin/AllStudentComment.vue";
 import CridetCard from "@/components/CridetCard.vue";
+import ConditionPage from "@/components/conditions/ConditionPage.vue";
+import Confidentiality from "@/components/confidentiality/Confidentiality.vue";
 
 
 const router = createRouter({
@@ -145,6 +147,22 @@ const router = createRouter({
             path: '/result_test_group_speaking',
             name: 'result_test_group_speaking',
             component: ResultTestGroupSpeaking,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/condition',
+            name: 'condition',
+            component: ConditionPage,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/confidentiality',
+            name: 'confidentiality',
+            component: Confidentiality,
             meta: {
                 Layout: DefaultLayout
             }
