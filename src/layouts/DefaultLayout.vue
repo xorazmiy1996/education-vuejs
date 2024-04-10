@@ -88,7 +88,27 @@ export default defineComponent({
               <div class="fs-6 opacity-50 mt-2">220100 Ургенч, Анна Герман 17 учебный центр</div>
               <div class="fs-6 opacity-50 mt-2">Пользовательское соглашение</div>
               <div class="fs-6 opacity-50 mt-2">ООО "SpeakUP" осуществляет деятельность в сфере образования</div>
+              <div class="d-flex mt-3">
+                <div class="me-3">
+                  <span class="text-underlined"><i class="fa-solid fa-phone-volume fa-2xl " style="color: #FFF;"></i></span>
+                </div>
+                <div class="icon-silka me-3">
+                  <span class="text-underlined">
+                     <i class="fa-brands fa-telegram fa-2xl" style="color: #FFF;"></i>
+                  </span>
+                </div>
+                <div class="me-3">
+                  <span class="text-underlined">
+                    <i class="fa-brands fa-square-instagram fa-2xl" style="color: #FFF;"></i>
+                  </span>
 
+                </div>
+                <div class="me-3">
+                  <span class="text-underlined">
+                     <i class="fa-regular fa-envelope fa-2xl" style="color: #FFF;"></i>
+                  </span>
+                </div>
+              </div>
 
             </div>
 
@@ -191,6 +211,21 @@ i:hover {
   min-height: 40vh;
   background-size: cover;
   width: 100%;
+}
+.text-underlined {
+  text-decoration: underline;
+}
+.text-underlined::after {
+  content: "";
+  display: block;
+  margin-top: 12px;
+  opacity: 50%;
+  border-radius: 20%;
+  border-bottom: 3px solid;
+}
+.text-underlined:hover::after {
+  opacity: 100%; /* hover holatida opaklikni o'zgartiramiz */
+  margin-top: 10px; /* hover holatida marginni o'zgartiramiz */
 }
 
 
