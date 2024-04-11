@@ -170,11 +170,14 @@ export default {
 
         </div>
         <div class="col-lg-4">
-          <div class="card card-height">
+          <div class="card card-link card-height card-hover">
             <div class="card-body">
-              <h5 class="card-title text-center">IELTS</h5>
-              <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он
-                не является родным, учит систематизировать процессы памяти.</p>
+              <h5 class="card-title text-center">General Engilsh</h5>
+              <p class="card-text"> * </p>
+              <p class="card-text"> *</p>
+              <p class="card-text">* </p>
+              <p class="card-text"> *  </p>
+              <!--                <h5 class="card-title text-center">400.000 / месяц</h5>-->
             </div>
           </div>
 
