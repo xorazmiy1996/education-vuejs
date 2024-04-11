@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 220px; width: 450px;">
+  <div>
     <l-map
         v-model="zoom"
         v-model:zoom="zoom"
