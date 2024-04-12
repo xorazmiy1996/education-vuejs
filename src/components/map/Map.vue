@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      zoom: 20,
+      zoom: 12,
       iconWidth: 25,
       iconHeight: 40,
     };

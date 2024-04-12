@@ -53,6 +53,9 @@ export default defineComponent({
     }
 
   },
+  // created() {
+  //   this.cleanData()
+  // },
   methods: {
     experienceMask(event) {
       const input = event.target;
@@ -108,6 +111,31 @@ export default defineComponent({
       this.userIelts = file2
 
     },
+    // cleanData(){
+    //   this.email = "",
+    //       this.password = "",
+    //       this.password2 = "",
+    //       this.first_name = "",
+    //       this.last_name = "",
+    //       this.sex = "female",
+    //       this.birth_date = null,
+    //       this.phone_number = "",
+    //       this.telegram = "",
+    //
+    //
+    //       this.place_of_education = "",
+    //       this.start_date_education = null,
+    //       this.end_date_education = null,
+    //       this.experience = 0,
+    //       this.ielst = 1,
+    //       this.about_me = "",
+    //       this.userImage = null,
+    //       this.userIelts = null,
+    //
+    //
+    //       this.type = "student"
+    //
+    // },
 
 
     sendCodeEmailAuto() {
@@ -140,7 +168,8 @@ export default defineComponent({
       const errors = this.$store.state.auth.errors
       return errors
     },
-    ...mapGetters('auth', ['errorsRegister'])
+    ...mapGetters('auth', ['errorsRegister']),
+
   },
 
 })

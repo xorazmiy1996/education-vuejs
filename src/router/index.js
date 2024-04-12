@@ -45,7 +45,6 @@ import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.
 import Pragramma from "@/views/Pragramma.vue";
 import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
-import SelectRegistration from "@/components/registration/SelectRegistration.vue";
 import StudentRegistration from "@/components/registration/StudentRegistration.vue";
 import StudentProfil from "@/components/student/StudentProfil.vue";
 import AllUserList from "@/components/admin/AllUserList.vue";
@@ -53,6 +52,8 @@ import AllStudentComment from "@/components/admin/AllStudentComment.vue";
 import CridetCard from "@/components/CridetCard.vue";
 import ConditionPage from "@/components/conditions/ConditionPage.vue";
 import Confidentiality from "@/components/confidentiality/Confidentiality.vue";
+import SelectRegistrationStudent from "@/components/registration/SelectRegistrationStudent.vue";
+import JobOpportunityRegistration from "@/components/registration/JobOpportunityRegistration.vue";
 
 
 const router = createRouter({
@@ -171,7 +172,7 @@ const router = createRouter({
         {
             path: '/select_registration',
             name: 'select_registration',
-            component: SelectRegistration,
+            component: SelectRegistrationStudent,
             meta: {
                 Layout: DefaultLayout
             }
@@ -389,6 +390,15 @@ const router = createRouter({
             meta: {
                 requiresAdmin: true,
                 Layout: TeacherLayout
+
+            }
+        },
+        {
+            path: '/job_opportunity',
+            name: 'job_opportunity',
+            component: JobOpportunityRegistration,
+            meta: {
+                Layout: DefaultLayout
 
             }
         },

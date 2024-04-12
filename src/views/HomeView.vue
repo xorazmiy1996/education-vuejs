@@ -355,7 +355,7 @@ export default {
 
 .two-page .container .row .card {
   border-radius: 35px;
-  background-color: #46056d;
+  background-color: #67169a;
   color: #fff;
 }
 
@@ -401,6 +401,7 @@ export default {
   background-color: #fff;
   color: black;
   cursor: pointer;
+  transition: all 0.3s;
 }
 
 .two-page .container .row .card a {
@@ -413,9 +414,17 @@ export default {
 }
 
 .two-page .container .row .card.card-link .card-text:hover {
-  background-color: #dbdfe9;
+  background-color: #8815d3;
   padding: 2px 3px;
+  color: #FFF;
   border-radius: 8px;
+  transition: all 0.3s;
+}
+.two-page .container .row .card.card-link .card-text a:hover {
+
+  color: #FFF;
+
+  transition: all 0.3s;
 }
 
 

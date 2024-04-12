@@ -1,14 +1,10 @@
 <script>
 export default {
-  name: "SelectRegistration",
+  name: "SelectRegistrationStudent",
   methods:{
     registrationStudent(){
       return this.$router.push({name: "student_registration"})
     },
-
-    registrationTeacher(){
-      return this.$router.push({name: "teacher_registration"})
-    }
   },
 
 }
@@ -18,19 +14,11 @@ export default {
 <div class="container">
   <section>
     <div class="row">
-      <div class="col-sm-6 d-flex justify-content-center">
+      <div class="col-sm-12 d-flex justify-content-center">
         <div class="card w-75"  @click="registrationStudent()" >
           <div class="card-body">
             <h5 class="card-title">Student</h5>
             <p class="text-center">Регистрируйтесь здесь чтобы практиковаться и развивать ваши разговорные навыки!</p>
-         </div>
-        </div>
-      </div>
-      <div class="col-sm-6  d-flex justify-content-center">
-        <div class="card w-75" @click="registrationTeacher()">
-          <div class="card-body">
-            <h5 class="card-title">Teacher</h5>
-            <p class="text-center">Регистрирутесь здесь чтобы улучшить ваши преподовательские навыки и зарабатывать хорошо!</p>
          </div>
         </div>
       </div>
