@@ -54,6 +54,7 @@ import ConditionPage from "@/components/conditions/ConditionPage.vue";
 import Confidentiality from "@/components/confidentiality/Confidentiality.vue";
 import SelectRegistrationStudent from "@/components/registration/SelectRegistrationStudent.vue";
 import JobOpportunityRegistration from "@/components/registration/JobOpportunityRegistration.vue";
+import MyFreeTimes from "@/components/teacher/MyFreeTimes.vue";
 
 
 const router = createRouter({
@@ -387,6 +388,16 @@ const router = createRouter({
             path: '/teacher_panel',
             name: 'teacher_panel',
             component: TeacherPanel,
+            meta: {
+                requiresAdmin: true,
+                Layout: TeacherLayout
+
+            }
+        },
+        {
+            path: '/my_free_times',
+            name: 'my_free_times',
+            component: MyFreeTimes,
             meta: {
                 requiresAdmin: true,
                 Layout: TeacherLayout

@@ -76,6 +76,12 @@ export default {
                 <span class="text nav-text">Мои курсы</span>
               </router-link>
             </li>
+            <li class="nav-link">
+              <router-link to="/my_free_times">
+                <i class="pi pi-calendar-clock icon" style="font-size: 1.3rem"></i>
+                <span class="text nav-text">My free times</span>
+              </router-link>
+            </li>
 <!--            <li class="nav-link">-->
 <!--              <router-link to="#">-->
 <!--                <i class="fa fa-wallet icon"></i>-->
