@@ -63,7 +63,7 @@ export default defineComponent({
 
     </div>
   </nav>
-  <div style="position: relative; min-height: 60vh">
+  <div style="position: relative; min-height: auto">
     <slot/>
   </div>
   <section class="tree-page">

@@ -25,6 +25,10 @@ import Calendar from "primevue/calendar";
 import InputMask from "primevue/inputmask";
 import Password from "primevue/password";
 import Button from "primevue/button";
+import InputIcon from 'primevue/inputicon';
+import InputGroup from 'primevue/inputgroup';
+import InputGroupAddon from 'primevue/inputgroupaddon';
+import InputOtp from 'primevue/inputotp';
 
 
 import {Form, Field, ErrorMessage, defineRule, configure} from "vee-validate";
@@ -56,6 +60,10 @@ app.component('Button', Button);
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
+app.component('InputIcon', InputIcon);
+app.component('InputGroup', InputGroup);
+app.component('InputGroupAddon', InputGroupAddon);
+app.component('InputOtp', InputOtp);
 
 defineRule('required', required);
 defineRule('email', email);

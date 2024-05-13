@@ -40,12 +40,17 @@ section{
   background-color: #46056d;
   color: #fff;
   border-radius: 25px !important;
+  transition: all 0.3s;
+
 }
 .card:hover{
   background: #FFFFFF;
   color: black;
   cursor: pointer;
   border-radius: 25px !important;
+  transition: all 0.3s;
+
+
 }
 .card h5{
   display: flex;
