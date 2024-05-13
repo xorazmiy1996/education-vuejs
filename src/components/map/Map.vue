@@ -3,14 +3,14 @@
     <l-map
         v-model="zoom"
         v-model:zoom="zoom"
-        :center="[41.54909833358724, 60.617210423925876]"
+        :center="[41.551105116323704, 60.61986372883607]"
         @move="log('move')"
     >
       <l-tile-layer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       ></l-tile-layer>
       <l-control-layers />
-      <l-marker :lat-lng="[41.54909833358724, 60.617210423925876]" draggable @moveend="log('moveend')">
+      <l-marker :lat-lng="[41.551105116323704, 60.61986372883607]" draggable @moveend="log('moveend')">
         <l-tooltip>
           SpeakU
         </l-tooltip>
@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      zoom: 20,
+      zoom: 12,
       iconWidth: 25,
       iconHeight: 40,
     };

@@ -2,16 +2,9 @@
 import {mapGetters} from "vuex";
 export default {
   components: {},
-  data() {
-    return {}
-  },
   updated() {
     this.$store.dispatch("auth/getUser")
   },
-
-  created() {
-  },
-
   computed: {
     ...mapGetters('auth', ['user']),
 
