@@ -6,4 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "3000:80"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
