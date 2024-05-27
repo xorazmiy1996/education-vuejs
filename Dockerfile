@@ -14,16 +14,12 @@ COPY . .
 # Сборка приложения
 RUN npm run build
 
-# Используем nginx:alpine для создания контейнера для сервера
 FROM nginx:alpine
 
-# Копируем сгенерированные файлы из предыдущего этапа в папку, обслуживаемую Nginx
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Копируем Nginx конфигурацию
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Открываем порт
 EXPOSE 80
 
 # # Запуск Nginx
