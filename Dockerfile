@@ -13,6 +13,8 @@ RUN npm install
 # Копируем исходный код
 COPY . .
 
+RUN npm run dev
+
 # Сборка приложения
 RUN npm run build
 
