@@ -1,13 +1,15 @@
-version: '3'
+version: "3"
 services:
-  web:
-    image: education-vuejs
+  vue-app:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: education-vuejs
+    restart: always
     ports:
       - "3000:80"
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "3"
+    networks:
+      - vue-network
+networks:
+  vue-network:
+    driver: bridge
