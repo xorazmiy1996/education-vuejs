@@ -1,30 +1,34 @@
-FROM node:lts-alpine AS  build
+FROM node:lts-alpine AS build
 
+# Install http-server globally
 RUN npm install -g http-server
 
+# Set the working directory in the container
 WORKDIR /app
 
-
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-
+# Install dependencies
 RUN npm install
 
-
+# Copy the rest of the application files
 COPY . .
 
-
+# Build the application
 RUN npm run build
 
+# Use the official Nginx image as the base image for the production stage
+FROM nginx:stable-alpine AS production-stage
 
-FROM nginx:stable-alpine as production-stage
+# Copy the build output from the build stage to the Nginx html directory
+COPY --from=build /app/dist /usr/share/nginx/html
 
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-
+# Expose port 80
 EXPOSE 80
 
+# Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
-
 
 
 

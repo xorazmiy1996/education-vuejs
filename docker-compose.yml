@@ -1,15 +1,9 @@
-version: "3"
+version: '3' 
+
 services:
   vue-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: education-vuejs
-    restart: always
     ports:
       - "3000:80"
-    networks:
-      - vue-network
-networks:
-  vue-network:
-    driver: bridge
