@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine AS  build
 
 RUN npm install -g http-server
 
@@ -10,19 +10,22 @@ COPY package*.json ./
 
 RUN npm install
 
-# Копируем исходный код
+
 COPY . .
 
-RUN npm run dev
 
-# Сборка приложения
 RUN npm run build
 
 
+FROM nginx:stable-alpine as production-stage
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD [ "http-server", "dist"]
+CMD ["nginx", "-g", "daemon off;"]
+
+
 
 
 
