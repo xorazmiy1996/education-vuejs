@@ -39,8 +39,21 @@ const [phone_number, phone_numberAttrs] = defineField('phone_number');
 
 
 const onSubmit = handleSubmit(values => {
-  alert(JSON.stringify(values, null, 2));
-  const data = { ...values, "type": "student" }
+  console.log(values.birth_date)
+  console.log(values.birth_date.slice(0,9))
+  // const data = { ...values, "type": "student" }
+  const data = {
+    email:values.email,
+    password:values.password,
+    password2:values.password2,
+    phone_number:values.phone_number,
+    first_name:values.first_name,
+    last_name:values.last_name,
+    male:values.male,
+    birth_date:values.birth_date.slice(0,9),
+    "type": "student" }
+  alert(JSON.stringify( data, null, 2));
+
   registrationUser(data)
 
 });
@@ -114,8 +127,8 @@ const customBase64Uploader = async (event) => {
                 </div>
               </div>
               <div class="mt-2">
-                <Calendar v-model="birth_date" :maxDate="maxDate" showIcon iconDisplay="input" dateFormat="dd/mm/yy"
-                          :manualInput="false" placeholder="dd/mm/yy" inputId="templatedisplay">
+                <Calendar v-model="birth_date" :maxDate="maxDate" showIcon iconDisplay="input" dateFormat="yy/mm/dd"
+                          :manualInput="false" placeholder="yy/mm/dd" inputId="templatedisplay">
                   <template #inputicon="{ clickCallback }">
                     <InputIcon v-if="errors.birth_date"
                                class="pi pi-exclamation-circle cursor-pointer fw-bold text-danger fs-6"

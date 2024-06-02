@@ -2,7 +2,8 @@ import axios from "axios";
 import router from '@/router/index';
 import {getItem, setItem} from "@/helpers/persistanceStorage";
 // axios.defaults.baseURL= "http://193.168.227.62:8080/api"
-axios.defaults.baseURL= "https://apiedu.speakuplc.uz/api"
+// axios.defaults.baseURL= "https://apiedu.speakuplc.uz/api"
+axios.defaults.baseURL= "http://api.myspeakup.uz/api"
 
 
 
