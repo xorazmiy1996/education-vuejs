@@ -69,6 +69,10 @@ const onSubmit = handleSubmit(values => {
 });
 
 const registrationUser = async (values) => {
+  console.log("Faxriddin")
+  console.log("Faxriddin")
+  console.log("Faxriddin")
+  console.log("Faxriddin")
   await store.dispatch('auth/register', values).then(user => {
     localStorage.setItem("email", email.value);
     sendCodeEmailAuto();
