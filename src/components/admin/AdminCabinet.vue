@@ -72,11 +72,7 @@ export default defineComponent({
                   position: "top-right",
                 }
             );
-          })
-
-
-
-    },
+          })    },
 
     deleteCabinet() {
       return this.$store.dispatch('cabinet/deleteCabinet', this.delete_id)

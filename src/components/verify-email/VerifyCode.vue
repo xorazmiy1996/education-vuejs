@@ -2,13 +2,44 @@
 import Input from "@/ui-componets/Input.vue";
 import {defineComponent, ref} from 'vue'
 
+const router = useRouter();
+const store = useStore();
+const toaster = createToaster();
 
 const value = ref(null);
+const email_code = ref("aaaa");
 
 
+const emailVerify = async () => {
+  console.log("gfgfg")
+  console.log(email_code.value)
+  const data = {
+    "email": localStorage.getItem('email'),
+    "verification_code": email_code.value
+  }
+  console.log(data.email)
+  await store.dispatch("auth/verificationCode", data)
+      .then(response => {
+        console.log(2)
+        router.push({name: 'login'})
+      })
+      .catch(err => {
+        console.log(3)
+        toaster.error(err,
+            {
+              position: "top-right",
+            }
+        );
+      })
 
-import {mapGetters, mapState} from "vuex";
+
+}
+
+
+import {mapGetters, mapState, useStore} from "vuex";
 import ValidationError from "@/components/login/ValidationError.vue";
+import {createToaster} from "@meforma/vue-toaster";
+import {useRouter} from "vue-router";
 
 // export default defineComponent({
 //   name: "VerifyCode",
@@ -50,64 +81,61 @@ import ValidationError from "@/components/login/ValidationError.vue";
 
 <template>
   <section class="d-flex align-items-center justify-content-center" style="height:90vh">
-        <div class="card d-flex justify-content-center  p-5">
-          <div class="d-flex flex-column align-items-center">
-            <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
-            <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
-            <InputOtp v-model="value" :length="4" style="gap: 0">
-              <template #default="{ attrs, events, index }">
-                <input type="text" v-bind="attrs" v-on="events" class="custom-otp-input" />
+    <div class="card d-flex justify-content-center  p-5">
+      <div class="d-flex flex-column align-items-center">
+        <div class="font-bold text-xl mb-2">Authenticate Your Account</div>
+        <p class="text-color-secondary block mb-5">Please enter the code sent to your phone.</p>
+        <InputOtp v-model="email_code"  :length="4" style="gap: 0">
+          <template #default="{ attrs, events, index }">
+            <input type="text" v-bind="attrs"  v-on="events" class="custom-otp-input"/>
 
-              </template>
-            </InputOtp>
-            <div class="d-flex justify-content-between mt-5 align-self-stretch">
-              <Button label="Resend Code" link class="p-0"></Button>
-              <Button label="Submit Code"></Button>
-            </div>
-          </div>
+          </template>
+        </InputOtp>
+        <div class="d-flex justify-content-between mt-5 align-self-stretch">
+          <Button  label="Resend Code " link class="p-0"/>
+          <Button @click="emailVerify()" label="Submit Code"></Button>
         </div>
+      </div>
+    </div>
   </section>
 
 
+  <!--  <section class="d-flex justify-content-center align-items-center">-->
+  <!--    <div class="container">-->
+  <!--      <div class="row">-->
+  <!--        <div class="col-sm-2"></div>-->
+  <!--        <div class="col-sm-8">-->
+  <!--          <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">-->
+  <!--            <div class="text-center">-->
+  <!--              <h5 class="card-header">Подтвердите почту</h5>-->
+  <!--              <p>Мы отправили код на вашу почту, проверьте почту и подтвердите ваш профиль.</p>-->
+  <!--              <h5></h5>-->
+  <!--            </div>-->
+
+  <!--            <div class="card-body">-->
+  <!--              <form @submit.prevent>-->
+  <!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
+  <!--                  <Input v-model="email_code" :type="'text'" maxlength="4" aria-describedby="inputGroup-sizing-lg"/>-->
+  <!--                </div>-->
+  <!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
+  <!--                  <ValidationError v-if="validationError" :validationError="validationError"/>-->
+  <!--                </div>-->
+  <!--                <div class="save-submit d-flex justify-content-center ">-->
+  <!--                  <button style="background: #5b35a2" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить-->
+  <!--                  </button>-->
+  <!--                </div>-->
+
+  <!--              </form>-->
+
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="col-sm-2"></div>-->
+  <!--      </div>-->
 
 
-
-<!--  <section class="d-flex justify-content-center align-items-center">-->
-<!--    <div class="container">-->
-<!--      <div class="row">-->
-<!--        <div class="col-sm-2"></div>-->
-<!--        <div class="col-sm-8">-->
-<!--          <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">-->
-<!--            <div class="text-center">-->
-<!--              <h5 class="card-header">Подтвердите почту</h5>-->
-<!--              <p>Мы отправили код на вашу почту, проверьте почту и подтвердите ваш профиль.</p>-->
-<!--              <h5></h5>-->
-<!--            </div>-->
-
-<!--            <div class="card-body">-->
-<!--              <form @submit.prevent>-->
-<!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
-<!--                  <Input v-model="email_code" :type="'text'" maxlength="4" aria-describedby="inputGroup-sizing-lg"/>-->
-<!--                </div>-->
-<!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
-<!--                  <ValidationError v-if="validationError" :validationError="validationError"/>-->
-<!--                </div>-->
-<!--                <div class="save-submit d-flex justify-content-center ">-->
-<!--                  <button style="background: #5b35a2" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить-->
-<!--                  </button>-->
-<!--                </div>-->
-
-<!--              </form>-->
-
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div class="col-sm-2"></div>-->
-<!--      </div>-->
-
-
-<!--    </div>-->
-<!--  </section>-->
+  <!--    </div>-->
+  <!--  </section>-->
 </template>
 
 <style scoped>
@@ -137,7 +165,7 @@ import ValidationError from "@/components/login/ValidationError.vue";
   border-bottom-left-radius: 12px;
 }
 
-.custom-otp-input:nth-child(4){
+.custom-otp-input:nth-child(4) {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
   border-right-width: 1px;

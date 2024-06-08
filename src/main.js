@@ -33,6 +33,7 @@ import InputOtp from 'primevue/inputotp';
 
 import {Form, Field, ErrorMessage, defineRule, configure} from "vee-validate";
 import {email, required} from "@vee-validate/rules";
+import ToastService from "primevue/toastservice";
 
 // VeeValidate sozlamalari
 // configure({
@@ -45,6 +46,8 @@ const app = createApp(App)
 uiComponets.map(componet=>{
     app.component(componet.name, componet)
 })
+
+app.use(ToastService);
 // primeng component
 app.component('InputText', InputText);
 app.component('InlineMessage', InlineMessage);

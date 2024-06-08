@@ -4,10 +4,16 @@ import {Form, useForm, useValidateField} from 'vee-validate';
 import * as yup from 'yup';
 import {ref} from "vue";
 import {useStore} from "vuex";
+import { useRouter} from "vue-router";
+import {createToaster} from "@meforma/vue-toaster";
+
+
 const store = useStore();
 
 const maxDate = ref(new Date());
 
+const router = useRouter();
+const toaster = createToaster();
 
 const {errors, handleSubmit, defineField} = useForm({
   validationSchema: yup.object({
@@ -39,41 +45,49 @@ const [phone_number, phone_numberAttrs] = defineField('phone_number');
 
 
 const onSubmit = handleSubmit(values => {
-  console.log(values.birth_date)
-  console.log(values.birth_date.slice(0,9))
-  // const data = { ...values, "type": "student" }
+  let birthDateNew = ""
+  if (!!values.birth_date) {
+    birthDateNew = `${String(birth_date.value.getFullYear())}-${String(birth_date.value.getMonth() + 1).padStart(2, '0')}-${String(birth_date.value.getDate()).padStart(2, '0')}`
+  }
+
+
   const data = {
-    email:values.email,
-    password:values.password,
-    password2:values.password2,
-    phone_number:values.phone_number,
-    first_name:values.first_name,
-    last_name:values.last_name,
-    male:values.male,
-    birth_date:values.birth_date.slice(0,9),
-    "type": "student" }
-  alert(JSON.stringify( data, null, 2));
+    email: values.email,
+    password: values.password,
+    password2: values.password2,
+    phone_number: values.phone_number,
+    first_name: values.first_name,
+    last_name: values.last_name,
+    sex: "male",
+    birth_date: birthDateNew,
+    "type": "student"
+  }
+  // alert(JSON.stringify(data, null, 2));
 
   registrationUser(data)
 
 });
 
 const registrationUser = async (values) => {
-  await store.dispatch('auth/register', values).then(user=>{
-    localStorage.setItem("email", this.email);
+  await store.dispatch('auth/register', values).then(user => {
+    localStorage.setItem("email", email.value);
     sendCodeEmailAuto();
-  }).catch(err => this.toast.error(err, {
-    position: "top-right",
-  }));
+  }).catch(err => {
+    toaster.error(err.email,
+        {
+          position: "top-right",
+        }
+    );
+  });
 };
 
-const sendCodeEmailAuto = async ()=>{
-  const data = {"email": localStorage.getItem('email') }
+const sendCodeEmailAuto = async () => {
+  const data = {"email": localStorage.getItem('email')}
   await store.dispatch("auth/sendCodeEmail", data)
       .then(email => {
-        this.$router.push({name: "verify_code"})
+        router.push({name: "verify_code"})
       })
-      .catch(err => console.log("EmailError", err))
+      .catch(err => console.log("EmailError 7", err))
 }
 
 const customBase64Uploader = async (event) => {
@@ -180,8 +194,9 @@ const customBase64Uploader = async (event) => {
           </div>
           <div class="d-flex justify-content-center mb-5">
 
-              <FileUpload invalidFileTypeMessage="hato yuklash" :maxFileSize="1024000" mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload
-                          @select="customBase64Uploader"/>
+            <FileUpload invalidFileTypeMessage="hato yuklash" :maxFileSize="1024000" mode="basic" name="demo[]"
+                        url="/api/upload" accept="image/*" customUpload
+                        @select="customBase64Uploader"/>
 
 
           </div>
@@ -199,7 +214,7 @@ const customBase64Uploader = async (event) => {
 </template>
 
 <style scoped>
-*{
+* {
   box-sizing: inherit;
 }
 
