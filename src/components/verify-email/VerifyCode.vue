@@ -7,11 +7,11 @@ const store = useStore();
 const toaster = createToaster();
 
 const value = ref(null);
-const email_code = ref("aaaa");
+const email_code = ref(null);
 
 
 const emailVerify = async () => {
-  console.log("gfgfg")
+  console.log("email_code=>")
   console.log(email_code.value)
   const data = {
     "email": localStorage.getItem('email'),
@@ -93,7 +93,7 @@ import {useRouter} from "vue-router";
         </InputOtp>
         <div class="d-flex justify-content-between mt-5 align-self-stretch">
           <Button  label="Resend Code " link class="p-0"/>
-          <Button @click="emailVerify()" label="Submit Code"></Button>
+          <Button :disabled="!email_code" @click="emailVerify()" label="Submit Code"></Button>
         </div>
       </div>
     </div>
