@@ -8,23 +8,22 @@ const toaster = createToaster();
 
 const value = ref(null);
 const email_code = ref(null);
+const loading = ref(false);
 
 
 const emailVerify = async () => {
-  console.log("email_code=>")
-  console.log(email_code.value)
   const data = {
     "email": localStorage.getItem('email'),
     "verification_code": email_code.value
   }
-  console.log(data.email)
+  loading.value = true
   await store.dispatch("auth/verificationCode", data)
       .then(response => {
-        console.log(2)
+        loading.value = false
         router.push({name: 'login'})
       })
       .catch(err => {
-        console.log(3)
+        loading.value = false
         toaster.error(err,
             {
               position: "top-right",
@@ -35,48 +34,17 @@ const emailVerify = async () => {
 
 }
 
+function resendCode(){
+  email_code.value = null
+}
 
-import {mapGetters, mapState, useStore} from "vuex";
-import ValidationError from "@/components/login/ValidationError.vue";
+
+import {useStore} from "vuex";
+
 import {createToaster} from "@meforma/vue-toaster";
 import {useRouter} from "vue-router";
 
-// export default defineComponent({
-//   name: "VerifyCode",
-//   components: {ValidationError, Input},
-//   data() {
-//     return {
-//       email_code: "",
-//       server_data: {}
-//     }
-//
-//   },
-//   methods: {
-//     emailVerify() {
-//       const data = {
-//         "email": localStorage.getItem('email'),
-//         "verification_code": parseInt(this.email_code)
-//       }
-//       this.$store.dispatch("auth/verificationCode", data)
-//           .then(response => {
-//             this.$router.push({name: 'login'})
-//           })
-//           .catch(err => console.log("Error2", err))
-//
-//
-//     }
-//
-//   },
-//   computed: {
-//     isLoading() {
-//       return this.$store.state.auth.isLoading
-//     },
-//     validationError() {
-//       const errors = this.$store.state.auth.errors
-//       return errors
-//     }
-//   },
-// })
+
 </script>
 
 <template>
@@ -92,50 +60,16 @@ import {useRouter} from "vue-router";
           </template>
         </InputOtp>
         <div class="d-flex justify-content-between mt-5 align-self-stretch">
-          <Button  label="Resend Code " link class="p-0"/>
-          <Button :disabled="!email_code" @click="emailVerify()" label="Submit Code"></Button>
+          <Button @click="resendCode()"   label="Resend Code" link class="p-0"/>
+          <Button :disabled="!email_code" @click="emailVerify()" class="d-flex justify-content-center">
+            <ProgressSpinner v-if="loading" style="width: 25px; height: 25px" strokeWidth="8"
+                             animationDuration="2s"  aria-label="Custom ProgressSpinner" />
+            <span v-else >Submit Code</span>
+          </Button>
         </div>
       </div>
     </div>
   </section>
-
-
-  <!--  <section class="d-flex justify-content-center align-items-center">-->
-  <!--    <div class="container">-->
-  <!--      <div class="row">-->
-  <!--        <div class="col-sm-2"></div>-->
-  <!--        <div class="col-sm-8">-->
-  <!--          <div class="card shadow-lg p-3 mb-5  bg-body-tertiary  rounded ">-->
-  <!--            <div class="text-center">-->
-  <!--              <h5 class="card-header">Подтвердите почту</h5>-->
-  <!--              <p>Мы отправили код на вашу почту, проверьте почту и подтвердите ваш профиль.</p>-->
-  <!--              <h5></h5>-->
-  <!--            </div>-->
-
-  <!--            <div class="card-body">-->
-  <!--              <form @submit.prevent>-->
-  <!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
-  <!--                  <Input v-model="email_code" :type="'text'" maxlength="4" aria-describedby="inputGroup-sizing-lg"/>-->
-  <!--                </div>-->
-  <!--                <div class="mb-3 d-flex justify-content-center flex-direction-column">-->
-  <!--                  <ValidationError v-if="validationError" :validationError="validationError"/>-->
-  <!--                </div>-->
-  <!--                <div class="save-submit d-flex justify-content-center ">-->
-  <!--                  <button style="background: #5b35a2" @click="emailVerify" :disabled="isLoading" type="submit" class="btn btn-primary">Отправить-->
-  <!--                  </button>-->
-  <!--                </div>-->
-
-  <!--              </form>-->
-
-  <!--            </div>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--        <div class="col-sm-2"></div>-->
-  <!--      </div>-->
-
-
-  <!--    </div>-->
-  <!--  </section>-->
 </template>
 
 <style scoped>

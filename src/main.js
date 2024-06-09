@@ -29,6 +29,10 @@ import InputIcon from 'primevue/inputicon';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
 import InputOtp from 'primevue/inputotp';
+import ProgressSpinner from 'primevue/progressspinner';
+import Textarea from 'primevue/textarea';
+import Dropdown from 'primevue/dropdown';
+
 
 
 import {Form, Field, ErrorMessage, defineRule, configure} from "vee-validate";
@@ -67,6 +71,10 @@ app.component('InputIcon', InputIcon);
 app.component('InputGroup', InputGroup);
 app.component('InputGroupAddon', InputGroupAddon);
 app.component('InputOtp', InputOtp);
+app.component('ProgressSpinner', ProgressSpinner);
+app.component('Textarea', Textarea);
+app.component('Dropdown', Dropdown);
+
 
 defineRule('required', required);
 defineRule('email', email);
