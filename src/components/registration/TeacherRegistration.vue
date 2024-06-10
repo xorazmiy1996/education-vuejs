@@ -83,16 +83,13 @@ const onSubmit = handleSubmit(values => {
 
 const registrationUser = async (values) => {
   loading.value = true
-  console.log(1)
   await store.dispatch('auth/register', values).then(user => {
     loading.value = false;
-    localStorage.setItem("email", this.email);
-    console.log("success")
-    console.log(2)
+    localStorage.setItem("email", email.value);
     router.push({name: "verify_code"})
     sendCodeEmailAuto();
   }).catch(err => {
-    console.log(3)
+
     loading.value = false;
     toaster.error(err.email,
         {
@@ -106,7 +103,7 @@ const sendCodeEmailAuto = async () => {
   const data = {"email": localStorage.getItem('email')}
   await store.dispatch("auth/sendCodeEmail", data)
       .then(email => {
-        this.$router.push({name: "verify_code"})
+        // router.push({name: "verify_code"})
       })
       .catch(err => console.log("EmailError", err))
 }
