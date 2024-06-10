@@ -27,9 +27,6 @@ const {errors, handleSubmit, defineField} = useForm({
     sex: yup.string().required(),
     birth_date: yup.string().required(),
     phone_number: yup.string().required(),
-    // ... qolgan maydonlarni shu yerga qo'shing
-    // userImage: yup.string().required("Fayl tanlash majburiy"),
-
   }),
 });
 
@@ -43,7 +40,7 @@ const [last_name, last_nameAttrs] = defineField('last_name');
 const [sex, sexAttrs] = defineField('sex');
 const [birth_date, birth_dateAttrs] = defineField('birth_date');
 const [phone_number, phone_numberAttrs] = defineField('phone_number');
-// const [userImage, userImageAttrs] = defineField('userImage');
+
 
 
 const onSubmit = handleSubmit(values => {
@@ -51,7 +48,6 @@ const onSubmit = handleSubmit(values => {
   if (!!values.birth_date) {
     birthDateNew = `${String(birth_date.value.getFullYear())}-${String(birth_date.value.getMonth() + 1).padStart(2, '0')}-${String(birth_date.value.getDate()).padStart(2, '0')}`
   }
-
 
   const data = {
     email: values.email,
@@ -66,8 +62,6 @@ const onSubmit = handleSubmit(values => {
 
     "type": "student"
   }
-  // alert(JSON.stringify(data, null, 2));
-
   registrationUser(data)
 
 });

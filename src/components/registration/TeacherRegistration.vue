@@ -4,10 +4,12 @@ import {Form, useForm, useValidateField} from 'vee-validate';
 import * as yup from 'yup';
 import {ref} from "vue";
 import {useStore} from "vuex";
-import {object} from "yup";
 import {createToaster} from "@meforma/vue-toaster";
 
+import {useRouter} from "vue-router";
+
 const store = useStore();
+const router = useRouter();
 const toaster = createToaster();
 
 const userImage = ref(null)
@@ -16,20 +18,6 @@ const birthDate = ref(null)
 const loading = ref(false)
 const maxDate = ref(new Date());
 
-const ball = ref([
-  { name: '0 ball', value: '0' },
-  { name: '1 ball', value: '1' },
-  { name: '2 ball', value: '2' },
-  { name: '3 ball', value: '3' },
-  { name: '4 ball', value: '4' },
-  { name: '5 ball', value: '5' },
-  { name: '6 ball', value: '6' },
-  { name: '7 ball', value: '7' },
-  { name: '8 ball', value: '8' },
-  { name: '9 ball', value: '9' },
-
-
-]);
 
 const {errors, handleSubmit, defineField} = useForm({
   validationSchema: yup.object({
@@ -88,17 +76,23 @@ const onSubmit = handleSubmit(values => {
     "ielts_file":ieltsDocument.value,
     "type": "teacher",
   }
+
   registrationUser(data)
 
 });
 
 const registrationUser = async (values) => {
   loading.value = true
+  console.log(1)
   await store.dispatch('auth/register', values).then(user => {
     loading.value = false;
     localStorage.setItem("email", this.email);
+    console.log("success")
+    console.log(2)
+    router.push({name: "verify_code"})
     sendCodeEmailAuto();
   }).catch(err => {
+    console.log(3)
     loading.value = false;
     toaster.error(err.email,
         {
@@ -225,7 +219,14 @@ function formatDateToString(dateObj) {
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <InputGroup>
                 <FloatLabel>
-                <InputNumber v-model="experience" inputId="minmax" :min="0" :max="50"  prefix="Expires in " suffix=" years"/>
+                  <InputNumber
+                      v-model="experience"
+                      inputId="minmax" :min="0" :max="50"
+                      locale="en-IN" :minFractionDigits="1"
+                      suffix=" years of experience"
+                 />
+
+
                 <InputGroupAddon>
                   <i v-if="!errors.experience" class="pi  pi-check cursor-pointer fw-bold text-success fs-6"></i>
                   <i v-else class="pi  pi-exclamation-circle cursor-pointer fw-bold text-danger fs-6"></i>
@@ -274,7 +275,7 @@ function formatDateToString(dateObj) {
 
               <InputGroup>
                 <FloatLabel>
-                <InputNumber v-model="ielst_ball"  inputId="minmax" :min="0" :max="9" />
+                <InputNumber v-model="ielst_ball"  :min="0" :max="9"  locale="en-IN" :minFractionDigits="1" />
                 <InputGroupAddon>
                   <i v-if="!errors.ielst_ball" class="pi  pi-check cursor-pointer fw-bold text-success fs-6"></i>
                   <i v-else class="pi  pi-exclamation-circle cursor-pointer fw-bold text-danger fs-6"></i>
