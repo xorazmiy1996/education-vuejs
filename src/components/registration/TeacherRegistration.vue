@@ -11,7 +11,7 @@ const store = useStore();
 const toaster = createToaster();
 
 const userImage = ref(null)
-const ielts = ref(null)
+const ieltsDocument = ref(null)
 const birthDate = ref(null)
 const loading = ref(false)
 const maxDate = ref(new Date());
@@ -41,9 +41,9 @@ const {errors, handleSubmit, defineField} = useForm({
     sex: yup.string().required(),
     birth_date: yup.string().required(),
     phone_number: yup.string().required(),
-    place_of_education: yup.string(),
-    experience: yup.number(),
-    ielst_ball: yup.number(),
+    place_of_education: yup.string().required(),
+    experience: yup.number().required(),
+    ielst_ball: yup.number().required(),
     about_me: yup.string(),
 
   }),
@@ -81,9 +81,11 @@ const onSubmit = handleSubmit(values => {
     "phone_number":values.phone_number,
     "place_of_education":values.place_of_education,
     "experience":values.experience,
+    "ielts":values.ielst_ball,
     "about_me":values.about_me,
 
     "photo":userImage.value,
+    "ielts_file":ieltsDocument.value,
     "type": "teacher",
   }
   registrationUser(data)
@@ -122,7 +124,7 @@ const userPhoto = async (event) => {
 
 const ieltsFile = async (event) => {
   const file = event.files[0];
-  ielts.value = file
+  ieltsDocument.value = file
 }
 
 const handleDateSelect = (date) => {
@@ -213,6 +215,42 @@ function formatDateToString(dateObj) {
           </div>
           <div class="row mt-5">
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <FloatLabel>
+                <InputText
+                    :class="{'form-control':true, 'is-invalid':!!errors.place_of_education, 'is-valid':!errors.place_of_education}"
+                    id="first_name" v-model="place_of_education"/>
+                <label for="first_name">Place of education:</label>
+              </FloatLabel>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <InputGroup>
+                <FloatLabel>
+                <InputNumber v-model="experience" inputId="minmax" :min="0" :max="50"  prefix="Expires in " suffix=" years"/>
+                <InputGroupAddon>
+                  <i v-if="!errors.experience" class="pi  pi-check cursor-pointer fw-bold text-success fs-6"></i>
+                  <i v-else class="pi  pi-exclamation-circle cursor-pointer fw-bold text-danger fs-6"></i>
+                </InputGroupAddon>
+                  <label for="username">Experience</label>
+                  </FloatLabel>
+              </InputGroup>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <label for="username">User photo</label>
+              <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload
+                          @select="userPhoto"/>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
+              <label for="username">IELTS file</label>
+              <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload
+                          @select="ieltsFile"/>
+
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <InputGroup>
                 <Password v-model="password" placeholder="Password"/>
                 <InputGroupAddon>
@@ -233,66 +271,28 @@ function formatDateToString(dateObj) {
           </div>
           <div class="row mt-5">
             <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <FloatLabel>
-                <InputText
-                    :class="{'form-control':true, 'is-invalid':!!errors.place_of_education, 'is-valid':!errors.place_of_education}"
-                    id="first_name" v-model="place_of_education"/>
-                <label for="first_name">Place of education:</label>
-              </FloatLabel>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <FloatLabel >
-                <InputText
-                    type="number"
-                    :class="{'form-control':true, 'is-invalid':!!errors.experience, 'is-valid':!errors.experience}"
-                    id="last_name" v-model="experience"/>
-                <label for="last_name">Experience:</label>
-              </FloatLabel>
-            </div>
-          </div>
 
-          <div class="row mt-5">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <p class="fs-4 fw-bold mb-0">User photo:</p>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload
-                          @select="userPhoto"/>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <p class="fs-4 fw-bold mb-0">IELTS file:</p>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <FileUpload mode="basic" name="demo[]" url="/api/upload" accept="image/*" customUpload
-                          @select="ieltsFile"/>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <FloatLabel>
-                <InputText
-                    :class="{'form-control':true, 'is-invalid':!!errors.place_of_education, 'is-valid':!errors.place_of_education}"
-                    id="first_name" v-model="place_of_education"/>
-                <label for="first_name">Place of education:</label>
-              </FloatLabel>
-            </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
-              <Dropdown v-model="ielst_ball" optionValue="value" :options="ball" optionLabel="name" placeholder="Select a IELTS ball" class="w-full md:w-14rem" />
-            </div>
-          </div>
-          <div class="row mt-5">
+              <InputGroup>
+                <FloatLabel>
+                <InputNumber v-model="ielst_ball"  inputId="minmax" :min="0" :max="9" />
+                <InputGroupAddon>
+                  <i v-if="!errors.ielst_ball" class="pi  pi-check cursor-pointer fw-bold text-success fs-6"></i>
+                  <i v-else class="pi  pi-exclamation-circle cursor-pointer fw-bold text-danger fs-6"></i>
+                </InputGroupAddon>
+                  <label for="username">IELTS ball</label>
+                </FloatLabel>
+              </InputGroup>
 
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6">
               <FloatLabel>
                 <Textarea style="width: 100%"  v-model="about_me" variant="filled" rows="5" cols="30" />
                 <label>About me</label>
               </FloatLabel>
 
-
-
-
+              </div>
           </div>
+
 
 
 
