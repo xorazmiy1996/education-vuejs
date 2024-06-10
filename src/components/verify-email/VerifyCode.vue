@@ -20,7 +20,14 @@ const emailVerify = async () => {
   await store.dispatch("auth/verificationCode", data)
       .then(response => {
         loading.value = false
+        toaster.success(`Muvoffaqiyatli`,
+            {
+              position: "top-right",
+              duration:5000
+            }
+        );
         router.push({name: 'login'})
+
       })
       .catch(err => {
         loading.value = false
