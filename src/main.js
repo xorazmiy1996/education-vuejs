@@ -32,6 +32,7 @@ import InputOtp from 'primevue/inputotp';
 import ProgressSpinner from 'primevue/progressspinner';
 import Textarea from 'primevue/textarea';
 import Dropdown from 'primevue/dropdown';
+import InputNumber from 'primevue/inputnumber';
 
 
 
@@ -74,6 +75,7 @@ app.component('InputOtp', InputOtp);
 app.component('ProgressSpinner', ProgressSpinner);
 app.component('Textarea', Textarea);
 app.component('Dropdown', Dropdown);
+app.component('InputNumber', InputNumber);
 
 
 defineRule('required', required);
