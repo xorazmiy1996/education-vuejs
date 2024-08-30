@@ -1,29 +1,28 @@
 <script>
-import {defineComponent} from 'vue'
 import {mapGetters} from "vuex";
 import Loader from "@/ui-componets/Loader.vue";
+import {string} from "yup";
 
-
-export default defineComponent({
-  name: "Speaking",
+export default {
+  name: "Cabinets",
   components: {Loader},
   computed: {
-    ...mapGetters('cabinet', ['cabinets']),
-    ...mapGetters('cabinet', ['isLoading'])
+    ...mapGetters('cabinet', ['cabinets', 'isLoading']),
   },
   mounted() {
-    this.$store.dispatch("cabinet/getAllCabinets","individual")
-
+    this.$store.dispatch("cabinet/getAllCabinets")
   },
   methods:{
-     individualSpeakingDetail(id){
-       return this.$router.push(`/individual_speaking_detail/${id}`)
-     }
+    detailCourse(type, cabinet_id){
+      if (type === 'individual'){
+        return this.$router.push(`/individual_cabinet_detail/${cabinet_id}`)
+
+      }else {
+
+      }
+    }
   }
-
-
-
-})
+}
 </script>
 
 <template>
@@ -34,8 +33,8 @@ export default defineComponent({
     <div v-else class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
       <div  v-for="cabinet in cabinets">
         <div class="col">
-          <div @click="individualSpeakingDetail(cabinet.id)" class="card">
-            <div class="card-image">
+          <div class="card">
+            <div @click="detailCourse(cabinet?.course?.type,cabinet?.id )" class="card-image">
               <img :src="cabinet?.course?.image" alt="">
             </div>
             <div class="card-body">
@@ -49,32 +48,20 @@ export default defineComponent({
 
 
               </div>
-              <h5 class="card-title">{{cabinet?.teacher?.first_name}} {{cabinet?.teacher?.last_name}}</h5>
+<!--              <h5 class="card-title">{{cabinet?.teacher?.first_name}} {{cabinet?.teacher?.last_name}}</h5>-->
               <!--              <p>{{cabinet?.course?.description.slice(0,20)}}...</p>-->
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <h5 class="mt-1">{{cabinet?.course?.price}} (sum/month)</h5>
+                  <h5 class="mt-1">Type: {{cabinet?.course?.type}}</h5>
                 </div>
 
               </div>
             </div>
-
-<!--            <div class="card-body">-->
-<!--              <h5 class="card-title">{{cabinet.teacher.first_name}} {{cabinet.teacher.last_name}}</h5>-->
-<!--              <p>{{cabinet?.course?.description.slice(0, 50)}}...</p>-->
-<!--              <div class="d-flex justify-content-between align-items-center">-->
-<!--                <div class="btn-group">-->
-<!--                  <h5>{{cabinet?.course?.price}} sum/month</h5>-->
-<!--                </div>-->
-
-<!--              </div>-->
-<!--            </div>-->
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -112,6 +99,7 @@ export default defineComponent({
   cursor: pointer;
 }
 .loader{
+  height: 100vh;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -120,6 +108,4 @@ export default defineComponent({
   font-size: 20px;
   font-weight: 700;
 }
-
-
 </style>

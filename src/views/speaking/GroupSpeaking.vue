@@ -12,7 +12,6 @@ export default defineComponent({
   },
   mounted() {
     this.$store.dispatch("cabinet/getAllCabinets","group")
-
   },
   methods:{
     individualSpeakingDetail(id){

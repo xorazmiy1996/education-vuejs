@@ -151,7 +151,7 @@ export default defineComponent({
                   <label for="exampleInputTeacher" class="form-label">Учитель</label>
                   <select class="form-select" id="exampleInputTeacher" v-model="teacher_id">
                     <option value="">Teacher select</option>
-                    <option v-for="teacher in teachers" :value="teacher.id">{{ teacher.first_name }} {{teacher.last_name}}</option>
+                    <option v-for="teacher in teachers.results" :value="teacher?.id">{{ teacher?.first_name }} {{teacher?.last_name}}</option>
                   </select>
                   <ValidationError v-if="cabinetError" :validationError="cabinetError.teacher_id"/>
 
@@ -170,9 +170,9 @@ export default defineComponent({
 
                   <select class="form-select" id="exampleInputCourse" v-model="course_id">
                     <option disabled value="">Course select</option>
-                    <option v-for="course in courses" :value="course.id">{{ course.name }}</option>
+                    <option v-for="course in courses" :value="course?.id">{{ course?.name }}</option>
                   </select>
-                  <ValidationError v-if="cabinetError" :validationError="cabinetError.course_id"/>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError?.course_id"/>
 
 
                 </div>
@@ -181,11 +181,11 @@ export default defineComponent({
                 <div class="mb-3">
                   <label for="exampleInputStartDate" class="form-label">Дата старта</label>
                   <input v-model="start_date" type="date" class="form-control" id="exampleInputStartDate">
-                  <ValidationError v-if="cabinetError" :validationError="cabinetError.start_date"/>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError?.start_date"/>
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputWeekDay" class="form-label">Дни недели</label>
-                  <ValidationError v-if="cabinetError" :validationError="cabinetError.weekdays"/>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError?.weekdays"/>
                   <br>
                   <input type="checkbox" class="form-check-input" id="Monday" value="0" v-model="weekDays">
                   <label class="form-label" for="Monday">Понидельник</label>
@@ -217,7 +217,7 @@ export default defineComponent({
                 <div class="mb-3">
                   <label for="exampleInputCardNumber" class="form-label">Номер карты</label>
                   <input v-model="card_number"   type="text" v-mask="'#### #### #### ####'" maxlength="19" class="form-control" id="exampleInputCardNumber">
-                  <ValidationError v-if="cabinetError" :validationError="cabinetError.card_number"/>
+                  <ValidationError v-if="cabinetError" :validationError="cabinetError?.card_number"/>
                 </div>
 
                 <button type="submit" :disabled="isLoading" class="btn btn-primary">Отправить</button>

@@ -27,6 +27,7 @@
     "vue": "^3.3.4",
     "vue-router": "^4.2.0",
     "vue-scrollactive": "^0.9.3",
+    "vue3-bootstrap-paginate": "^1.0.0",
     "vue3-toastify": "^0.1.12",
     "vuex": "^4.0.2",
     "yup": "^1.4.0"

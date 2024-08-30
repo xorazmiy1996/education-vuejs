@@ -3,28 +3,34 @@ import {defineComponent} from "vue";
 import Loader from "@/ui-componets/Loader.vue";
 import {mapGetters} from "vuex";
 import Modal from "@/ui-componets/Modal.vue";
+import {Vue3BsPaginate} from "vue3-bootstrap-paginate";
 
 export default defineComponent( {
   name: "AllUserList",
-  components: {Modal, Loader},
+  components: {Vue3BsPaginate, Modal, Loader},
   data(){
     return{
-      dropdown_type:"student",
+      dropdown_type: "student",
       modalData:null,
       isOpenModal:false,
       isOpenViewCourseModal:false,
       viewsCourseData:null,
+      filter: {
+        collectionSize: 3,
+        currentPage: 1
+      }
     }
   },
   computed:{
     ...mapGetters('auth', ['allUsers',]),
   },
   created() {
-    this.getAllUsers(this.dropdown_type)
+    this.getAllUsers({...this.filter, type: 'student'})
   },
   methods:{
-    getAllUsers(user_type){
-      this.$store.dispatch("auth/getAllUsers", user_type)
+    getAllUsers(filter){
+      this.filter = {...this.filter, ...filter};
+      this.$store.dispatch("auth/getAllUsers", this.filter)
           .then(response =>{
             if(user_type === "student"){
               this.dropdown_type = "student"
@@ -60,6 +66,10 @@ export default defineComponent( {
       this.openViewsCourseModal()
 
 
+    },
+    onChangePage(page) {
+      this.filter = { ...this.filter, currentPage: page};
+      this.getAllUsers();
     }
   }
 })
@@ -84,9 +94,9 @@ export default defineComponent( {
           {{dropdown_type}}
         </button>
         <ul class="dropdown-menu">
-          <li @click="getAllUsers('student')"><a class="dropdown-item">Student</a></li>
-          <li @click="getAllUsers('teacher')"><a class="dropdown-item">Teacher</a></li>
-          <li @click="getAllUsers('admin')"><a class="dropdown-item">Admin</a></li>
+          <li @click="getAllUsers({type: 'student'})"><a class="dropdown-item">Student</a></li>
+          <li @click="getAllUsers({type: 'teacher'})"><a class="dropdown-item">Teacher</a></li>
+          <li @click="getAllUsers({type: 'admin'})"><a class="dropdown-item">Admin</a></li>
 
         </ul>
       </div>
@@ -105,17 +115,28 @@ export default defineComponent( {
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(user, index) in allUsers" >
+        <tr v-for="(user, index) in allUsers?.results" >
           <td>{{ index + 1 }}</td>
-          <td>{{ user.last_name }} {{ user.first_name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.phone_number }}</td>
-          <td v-if="user.type === 'student'"><button v-if="user?.attend_courses?.length"  @click="openModal(user?.attend_courses)" class="btn btn-primary">course</button></td>
-          <td v-if="user.type === 'teacher'"><button v-if="user?.teach_courses?.length" @click="openModal(user?.teach_courses)" class="btn btn-primary">course</button></td>
+          <td>{{ user?.last_name }} {{ user?.first_name }}</td>
+          <td>{{ user?.email }}</td>
+          <td>{{ user?.phone_number }}</td>
+          <td v-if="user?.type === 'student'"><button v-if="user?.attend_courses?.length"  @click="openModal(user?.attend_courses)" class="btn btn-primary">course</button></td>
+          <td v-if="user?.type === 'teacher'"><button v-if="user?.teach_courses?.length" @click="openModal(user?.teach_courses)" class="btn btn-primary">course</button></td>
 
         </tr>
         </tbody>
       </table>
+
+
+      <template v-if="true">
+        <Vue3BsPaginate
+            :total="allUsers?.count"
+            :modelValue="this.filter?.currentPage"
+            :perPage="this.filter?.collectionSize"
+            :onChange="onChangePage"
+            alignment="center"
+        />
+      </template>
     </div>
   </div>
 
@@ -172,6 +193,7 @@ export default defineComponent( {
     </template>
 
   </modal>
+
 </template>
 
 <style scoped>
