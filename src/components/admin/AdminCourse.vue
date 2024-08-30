@@ -393,9 +393,9 @@ export default defineComponent({
       <tbody>
       <tr v-for="course in courses" :key="course.id">
         <th scope="row">{{ course.id }}</th>
-        <td>{{ course?.skills['0'] }}</td>
+        <td>{{ course?.skills }}</td>
         <td>{{ course?.name }}</td>
-        <td>{{ course?.description.slice(0, 20) }}...</td>
+        <td>{{ course?.description }}...</td>
         <td>{{ course?.level }}</td>
         <td>{{ course?.type }}</td>
         <td>{{ course?.price }}</td>

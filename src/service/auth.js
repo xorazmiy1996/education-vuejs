@@ -22,8 +22,9 @@ const AuthService = {
     patchUser(data){
         return axios.patch(`/accounts/update_profile/`, data)
     },
-    getAllUser(type){
-        return axios.get(`/accounts/all_user/?type=${type}`)
+    getAllUser(filter){
+        const newFilter = new URLSearchParams(filter).toString();
+        return axios.get(`/accounts/all_user/?${newFilter}`)
     },
     patchUserPhoto(id, data){
         return axios.patch(`/base/update_file/${id}`, data, {

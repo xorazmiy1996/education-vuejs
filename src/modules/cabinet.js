@@ -157,7 +157,7 @@ const actions = {
             context.commit('getAllCabinetsStart')
             CabinetService.getAllCabinets(cabinet_type)
                 .then(response => {
-                    context.commit('getAllCabinetsSuccess', response.data)
+                    context.commit('getAllCabinetsSuccess', response.data.results)
                     resolve(response.data)
 
                 })

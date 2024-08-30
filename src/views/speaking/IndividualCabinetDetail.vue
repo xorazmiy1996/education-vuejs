@@ -11,7 +11,7 @@ import Loader from "@/ui-componets/Loader.vue";
 
 
 export default defineComponent({
-  name: "IndividualSpeakingDetail",
+  name: "IndividualCabinetDetail",
   components: {Loader, ErrorAlertModal, Modal, SuccessAlertModal},
   data() {
     return {
@@ -22,8 +22,7 @@ export default defineComponent({
   },
 
   computed: {
-    ...mapGetters('cabinet', ['detailCabinet']),
-    ...mapGetters('cabinet', ['isLoading']),
+    ...mapGetters('cabinet', ['detailCabinet','isLoading']),
     ...mapGetters('auth', ['user'])
   },
 
@@ -49,6 +48,7 @@ export default defineComponent({
 
   methods: {
     add_student_cabinet(id) {
+
       this.$store.dispatch("cabinet/addStudentCabinet", id)
           .then(response => {
             this.$toast.success(`Add Course`,
@@ -169,10 +169,10 @@ export default defineComponent({
                 <span>Цена урока:</span>
                 <span>{{ detailCabinet?.course?.price }} сум</span>
               </div>
-              <div class="d-flex justify-content-between text-info">
-                <span>Номер карты:</span>
-                <span>{{ detailCabinet?.card_number }} </span>
-              </div>
+<!--              <div class="d-flex justify-content-between text-info">-->
+<!--                <span>Номер карты:</span>-->
+<!--                <span>{{ detailCabinet?.card_number }} </span>-->
+<!--              </div>-->
               <div class="d-flex justify-content-between text-info">
                 <span>Участники:</span>
                 <span>{{ detailCabinet?.students.length }}/{{ student_count }}</span>

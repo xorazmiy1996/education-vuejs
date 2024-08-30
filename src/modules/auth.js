@@ -252,10 +252,10 @@ const actions = {
             }
         })
       },
-    getAllUsers(context, type){
+    getAllUsers(context, filter){
         return new Promise((resolve, reject) =>{
             context.commit('allUsersStart')
-            AuthService.getAllUser(type)
+            AuthService.getAllUser(filter)
                 .then(response =>{
                     context.commit('allUsersSuccess', response.data)
                     resolve(response.data)

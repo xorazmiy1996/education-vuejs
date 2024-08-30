@@ -150,7 +150,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             CourseService.getAllCourse()
                 .then(response => {
-                    context.commit('getAllCourseSuccess', response.data)
+                    context.commit('getAllCourseSuccess', response.data.results)
                     resolve(response.data)
 
                 })

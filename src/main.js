@@ -34,6 +34,8 @@ import Textarea from 'primevue/textarea';
 import Dropdown from 'primevue/dropdown';
 import InputNumber from 'primevue/inputnumber';
 
+import { Vue3BsPaginate } from 'vue3-bootstrap-paginate';
+
 
 
 import {Form, Field, ErrorMessage, defineRule, configure} from "vee-validate";
@@ -76,6 +78,9 @@ app.component('ProgressSpinner', ProgressSpinner);
 app.component('Textarea', Textarea);
 app.component('Dropdown', Dropdown);
 app.component('InputNumber', InputNumber);
+
+
+app.component('Vue3BsPaginate', Vue3BsPaginate);
 
 
 defineRule('required', required);

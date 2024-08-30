@@ -9,7 +9,7 @@ import TeacherPanel from "@/components/teacher/TeacherPanel.vue";
 
 
 import TeacherRegistration from "@/components/registration/TeacherRegistration.vue";
-import IndividualSpeaking from "@/views/speaking/IndividualSpeaking.vue";
+
 
 
 import GroupSpeaking from "@/views/speaking/GroupSpeaking.vue";
@@ -41,7 +41,7 @@ import Task2 from "@/views/writing/Task2.vue";
 import Task3 from "@/views/writing/Task3.vue";
 import EssayChecker from "@/components/admin/EssayChecker.vue";
 import TeacherLayout from "@/layouts/TeacherLayout.vue";
-import IndividualSpeakingDetail from "@/views/speaking/IndividualSpeakingDetail.vue";
+import IndividualCabinetDetail from "@/views/speaking/IndividualCabinetDetail.vue";
 import Pragramma from "@/views/Pragramma.vue";
 import GeneralSpeaking from "@/views/speaking/GeneralSpeaking.vue";
 import TeachersCourse from "@/components/teacher/TeachersCourse.vue";
@@ -55,6 +55,9 @@ import Confidentiality from "@/components/confidentiality/Confidentiality.vue";
 import SelectRegistrationStudent from "@/components/registration/SelectRegistrationStudent.vue";
 import JobOpportunityRegistration from "@/components/registration/JobOpportunityRegistration.vue";
 import MyFreeTimes from "@/components/teacher/MyFreeTimes.vue";
+import GroupSpeakingTeachers from "@/views/speaking/GroupSpeakingTeachers.vue";
+import Teachers from "@/views/speaking/Teachers.vue";
+import Cabinets from "@/views/speaking/Cabinets.vue";
 
 
 const router = createRouter({
@@ -111,20 +114,54 @@ const router = createRouter({
             }
         },
         {
-            path: '/individual_speaking',
-            name: 'individual_speaking',
-            component: IndividualSpeaking,
+            path: '/teachers',
+            name: 'teachers',
+            component: Teachers,
+            // children:[
+            //     {
+            //         path: '/:id/cabinets',
+            //         name: 'cabinets',
+            //         component: Cabinets,
+            //         meta: {
+            //             Layout: DefaultLayout
+            //         }
+            //     }
+            // ],
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        {
+            path: '/cabinets',
+            name: 'cabinets',
+            component: Cabinets,
+            meta: {
+                Layout: DefaultLayout
+            }
+        },
+        // {
+        //     path: '/reading_teachers',
+        //     name: 'reading_teachers',
+        //     component:ReadingTeachers ,
+        //     meta: {
+        //         // requiresAdmin: true,
+        //         Layout: DefaultLayout
+        //     }
+        // },
+        {
+            path: '/individual_cabinet_detail/:id',
+            name: 'individual_cabinet_detail',
+            component: IndividualCabinetDetail,
             meta: {
                 // requiresAdmin: true,
                 Layout: DefaultLayout
             }
         },
         {
-            path: '/individual_speaking_detail/:id',
-            name: 'individual_speaking_detail',
-            component: IndividualSpeakingDetail,
+            path: '/teacher_have_cabinet',
+            name: 'teacher_have_cabinet',
+            component: GroupSpeakingTeachers,
             meta: {
-                // requiresAdmin: true,
                 Layout: DefaultLayout
             }
         },
