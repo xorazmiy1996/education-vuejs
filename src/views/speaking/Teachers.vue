@@ -15,22 +15,39 @@ export default  {
   },
   computed: {
     ...mapGetters('teacher', ['teachers','isLoading']),
-    skill() {
-        return this.$route.query.skill
+    skills() {
+        return this.$route.query.skills
     }
   },
   created() {
-    console.log(this.skill)
-    this.$store.dispatch("teacher/getAllTeachers", {...this.filter, skill:this.skill})
+    this.$store.dispatch("teacher/getAllTeachers", {...this.filter, skills:this.skills})
   },
   methods:{
     teacherCabinets(id){
-      return this.$router.push({
-        name: `cabinets`,
-        query: {
-          skill: 'reading',
-        }
-      })
+      console.log(this.skills, id)
+      if (this.skills === "reading"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'reading',
+          }
+        })
+      }else if(this.skills === "listening"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'listening',
+          }
+        })
+      }else if(this.skills === "speaking"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'speaking',
+          }
+        })
+      }
+
     },
     onChangePage(page){
       const filter = { ...this.filter, page: page};
