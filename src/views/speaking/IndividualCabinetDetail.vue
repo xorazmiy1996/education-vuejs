@@ -239,6 +239,9 @@ export default defineComponent({
 </template>
 
 <style scoped>
+.container{
+  height: 57vh;
+}
 .course-detail {
   position: relative;
   width: 100%;

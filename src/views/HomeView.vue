@@ -112,7 +112,7 @@ export default {
         </div>
         <div class="col-lg-4">
           <div class="card card-height card-hover" style="position: relative;">
-            <router-link :to="{name:'teachers', query:{skill:'reading'}}">
+            <router-link :to="{name:'teachers', query:{skills:'reading'}}">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/39.png" alt="">
               </div>
@@ -130,7 +130,7 @@ export default {
         </div>
         <div class="col-lg-4">
           <div class="card card-height card-hover">
-            <router-link :to="{name:'teachers', query:{skill:'speaking'}}">
+            <router-link :to="{name:'teachers', query:{skills:'speaking'}}">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
               </div>
@@ -149,7 +149,7 @@ export default {
       <div class="row second-row d-flex">
         <div class="col-lg-4">
           <div class="card card-height card-hover">
-            <router-link :to="{name:'teachers', query:{skill:'listening'}}">
+            <router-link :to="{name:'teachers', query:{skills:'listening'}}">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
               </div>
