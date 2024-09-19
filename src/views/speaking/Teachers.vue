@@ -9,7 +9,7 @@ export default  {
     return{
       filter: {
         page: 1,
-        page_size: 1
+        page_size: 10
       }
     }
   },
@@ -40,6 +40,20 @@ export default  {
           }
         })
       }else if(this.skills === "speaking"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'speaking',
+          }
+        })
+      }else if(this.skills === "writing"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'speaking',
+          }
+        })
+      }else if(this.skills === "general"){
         return this.$router.push({
           name: `cabinets`,
           query: {

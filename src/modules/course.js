@@ -4,11 +4,15 @@ const state = {
     isLoading: false,
     courses: null,
     errors: null,
-    courseDetail: null
+    courseDetail: null,
+    link:null
 
 }
 
 const getters = {
+    link: state => {
+        return state.link
+    },
     courses: state => {
         return state.courses
     },
@@ -26,6 +30,22 @@ const getters = {
 const mutations = {
     getAllCourseSuccess(state, payload) {
         state.courses = payload
+    },
+    // subscription course
+
+    subscriptionCourseStart(state) {
+        state.isLoading = true
+        state.errors = null
+    },
+
+    subscriptionCourseSuccess(state, payload) {
+        state.isLoading = false
+        state.errors = null
+        state.link = payload
+    },
+    subscriptionCourseFailure(state, payload) {
+        state.isLoading = false
+        state.errors = payload
     },
     // create course
 
@@ -86,6 +106,21 @@ const mutations = {
 
 }
 const actions = {
+    subscriptionCourse(context, data) {
+        return new Promise((resolve, reject) => {
+            context.commit("subscriptionCourseStart")
+            console.log("adff")
+            CourseService.subscriptionCourse(data)
+                .then(response => {
+                    context.commit("subscriptionCourseSuccess")
+                    resolve(response.data)
+                })
+                .catch(error => {
+                    context.commit("subscriptionCourseFailure", error?.response?.data)
+                    reject(error?.response?.data)
+                })
+        })
+    },
 
     createCourse(context, data) {
         return new Promise((resolve, reject) => {

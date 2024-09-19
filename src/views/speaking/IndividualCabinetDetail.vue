@@ -48,59 +48,76 @@ export default defineComponent({
 
   methods: {
     add_student_cabinet(id) {
-
-      this.$store.dispatch("cabinet/addStudentCabinet", id)
-          .then(response => {
-            this.$toast.success(`Add Course`,
-                {
-                  position: "top-right",
-                }
-            );
-          })
-          .catch(error => {
-            if (error.detail === "You already registered for this course") {
-              this.$toast.success(`Вы уже зарегистрировались на этот курс`,
-                  {
-                    position: "top-right",
-                  }
-              );
-            }
-            if (error.detail === "Course is fulled") {
-              this.$toast.error(`Курс заполнен`,
-                  {
-                    position: "top-right",
-                  }
-              );
-            }
-            if (error.detail === "Please verify your email!") {
-              this.$toast.error(`Пожалуйста, подтвердите свой адрес электронной почты!`,
-                  {
-                    position: "top-right",
-                  }
-              );
-            }
-            if (error.detail === "Authentication credentials were not provided.") {
-              this.$toast.error(`Учетные данные для аутентификации не были предоставлены.`,
-                  {
-                    position: "top-right",
-                  }
-              );
-            }
-            if (error.detail === "You can't join this course. Because you are teacher") {
-              this.$toast.error(`Вы не сможете присоединиться к курсу так как вы сам создатель курса.`,
-                  {
-                    position: "top-right",
-                  }
-              );
-            }
-            // Before join this course, you should make the payment
-            if (error.detail === "Before join this course, you should make the payment") {
-              $('#creditModal').modal('show');
+      const data = {
+        course_id:id
+      }
+      this.$store.dispatch("course/subscriptionCourse", data).then(response =>{
+        console.log(response)
+        const link = response?.payment_link; // serverdan kelgan link
+        window.open(link, '_blank'); // yangi tabda ochish
+      }).catch(error =>{
+        this.$toast.success(`${error}`,
+                    {
+                      position: "top-right",
+                    }
+                );
+      })
 
 
-            }
-
-          })
+      // console.log(id)
+      //
+      // this.$store.dispatch("cabinet/addStudentCabinet", id)
+      //     .then(response => {
+      //       this.$toast.success(`Add Course`,
+      //           {
+      //             position: "top-right",
+      //           }
+      //       );
+      //     })
+      //     .catch(error => {
+      //       if (error.detail === "You already registered for this course") {
+      //         this.$toast.success(`Вы уже зарегистрировались на этот курс`,
+      //             {
+      //               position: "top-right",
+      //             }
+      //         );
+      //       }
+      //       if (error.detail === "Course is fulled") {
+      //         this.$toast.error(`Курс заполнен`,
+      //             {
+      //               position: "top-right",
+      //             }
+      //         );
+      //       }
+      //       if (error.detail === "Please verify your email!") {
+      //         this.$toast.error(`Пожалуйста, подтвердите свой адрес электронной почты!`,
+      //             {
+      //               position: "top-right",
+      //             }
+      //         );
+      //       }
+      //       if (error.detail === "Authentication credentials were not provided.") {
+      //         this.$toast.error(`Учетные данные для аутентификации не были предоставлены.`,
+      //             {
+      //               position: "top-right",
+      //             }
+      //         );
+      //       }
+      //       if (error.detail === "You can't join this course. Because you are teacher") {
+      //         this.$toast.error(`Вы не сможете присоединиться к курсу так как вы сам создатель курса.`,
+      //             {
+      //               position: "top-right",
+      //             }
+      //         );
+      //       }
+      //       // Before join this course, you should make the payment
+      //       if (error.detail === "Before join this course, you should make the payment") {
+      //         $('#creditModal').modal('show');
+      //
+      //
+      //       }
+      //
+      //     })
 
     },
     goToTelegram(){

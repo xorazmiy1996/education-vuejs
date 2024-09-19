@@ -166,6 +166,7 @@ export default {
         </div>
         <div class="col-lg-4">
           <div class="card card-link card-height card-hover">
+            <router-link :to="{name:'teachers', query:{skills:'writing'}}">
             <div class="image-cat-2">
               <img src="@/assets/image/views/home/23.png" alt="">
             </div>
@@ -175,23 +176,13 @@ export default {
               <p class="card-text"> * Групповые курсы 50 минут</p>
               <p class="card-text">* 12 занятий в месяц</p>
               <p class="card-text"> * Курс рассчитан на 1 месяца </p>
-<!--              <p class="card-text">-->
-<!--                <router-link to="/task_1">IELTS task 1</router-link>-->
-<!--              </p>-->
-<!--              <p class="card-text">-->
-<!--                <router-link to="/task_2">IELTS task 2</router-link>-->
-<!--              </p>-->
-<!--              <p class="card-text">-->
-<!--                <router-link to="/task_3">MOCK academic writing</router-link>-->
-<!--              </p>-->
-<!--              <p class="card-text">* feedbacks</p>-->
-              <!--              <h5 class="card-title text-center">30.000 / штук</h5>-->
-
             </div>
+            </router-link>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="card card-link card-height card-hover">
+            <router-link :to="{name:'teachers', query:{skills:'general'}}">
             <div class="card-body">
               <h5 class="card-title text-center">General Engilsh</h5>
               <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
@@ -199,6 +190,7 @@ export default {
               <p class="card-text">* 12 занятий в месяц</p>
               <p class="card-text"> * Курс рассчитан на 4 месяца </p>
             </div>
+            </router-link>
           </div>
 
         </div>

@@ -14,12 +14,7 @@ export default {
   },
   methods:{
     detailCourse(type, cabinet_id){
-      if (type === 'individual'){
         return this.$router.push(`/individual_cabinet_detail/${cabinet_id}`)
-
-      }else {
-
-      }
     }
   }
 }
@@ -34,17 +29,14 @@ export default {
       <div  v-for="cabinet in cabinets">
         <div class="col">
           <div class="card">
-            <div @click="detailCourse(cabinet?.course?.type,cabinet?.id )" class="card-image">
+            <div @click="detailCourse(cabinet?.course?.type, cabinet?.id )" class="card-image">
               <img :src="cabinet?.course?.image" alt="">
             </div>
             <div class="card-body">
               <div class="d-flex justify-content-between align-items-center">
                 <div class="level-text" v-if="cabinet?.course?.level === 'A1'"> Уровень выживания (Beginner)</div>
-                <div class="level-text" v-if="cabinet?.course?.level === 'A2'"> Предпороговый уровень (Elementary)</div>
                 <div class="level-text" v-if="cabinet?.course?.level === 'B1'"> Пороговый уровень (Intermediate)</div>
-                <div class="level-text" v-if="cabinet?.course?.level === 'B2'"> Пороговый продвинутый уровень (Upper-Intermediate)</div>
                 <div class="level-text" v-if="cabinet?.course?.level === 'C1'"> Уровень профессионального владения (Advanced)</div>
-                <div class="level-text" v-if="cabinet?.course?.level === 'C2'"> Уровень владения в совершенстве (Proficiency)</div>
 
 
               </div>
