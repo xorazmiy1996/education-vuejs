@@ -117,7 +117,8 @@ export default defineComponent({
               </li>
               <li class="list-group-item d-flex justify-content-center">
                 <div>
-                  <a :href="courses?.room" class="btn btn-primary">Вход в класс</a>
+                  <a v-if="!is_paid" :href="courses?.room" class="btn btn-primary">Вход в класс</a>
+                  <a v-else  class="btn btn-primary">Pul to'lanmagan</a>
                 </div>
               </li>
 

@@ -82,7 +82,13 @@ export default defineComponent({
 
 
           })
-          .catch(error => console.log("course create error", error))
+          .catch(error => {
+            this.$toast.error(`${error}`,
+                {
+                  position: "top-right",
+                }
+            );
+          })
 
 
     },
@@ -94,7 +100,7 @@ export default defineComponent({
         "start_date": this.start_date,
         "weekdays": this.weekDays,
       }
-      console.log(data)
+
       this.$store
           .dispatch("cabinet/createCabinet", data)
           .then(response => {
@@ -113,7 +119,7 @@ export default defineComponent({
             this.card_number = null;
           })
           .catch(error => {
-            this.$toast.error(`Xato`,
+            this.$toast.error(`${error}`,
                 {
                   position: "top-right",
                 }
@@ -522,7 +528,7 @@ export default defineComponent({
       <tbody>
       <tr v-for="course in courses" :key="course.id">
         <th scope="row">{{ course.id }}</th>
-        <td>{{ course?.skills }}</td>
+        <td>{{ course?.skills[0] }}</td>
         <td>{{ course?.name }}</td>
         <td>{{ course?.description }}...</td>
         <td>{{ course?.level }}</td>

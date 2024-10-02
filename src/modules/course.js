@@ -109,7 +109,6 @@ const actions = {
     subscriptionCourse(context, data) {
         return new Promise((resolve, reject) => {
             context.commit("subscriptionCourseStart")
-            console.log("adff")
             CourseService.subscriptionCourse(data)
                 .then(response => {
                     context.commit("subscriptionCourseSuccess")
