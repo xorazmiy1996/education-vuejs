@@ -9,7 +9,7 @@ export default  {
     return{
       filter: {
         page: 1,
-        page_size: 1
+        page_size: 10
       }
     }
   },
@@ -24,7 +24,6 @@ export default  {
   },
   methods:{
     teacherCabinets(id){
-      console.log(this.skills, id)
       if (this.skills === "reading"){
         return this.$router.push({
           name: `cabinets`,
@@ -40,6 +39,20 @@ export default  {
           }
         })
       }else if(this.skills === "speaking"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'speaking',
+          }
+        })
+      }else if(this.skills === "writing"){
+        return this.$router.push({
+          name: `cabinets`,
+          query: {
+            skills: 'speaking',
+          }
+        })
+      }else if(this.skills === "general"){
         return this.$router.push({
           name: `cabinets`,
           query: {
@@ -79,8 +92,12 @@ export default  {
               <h5 class="card-title">{{teacher?.first_name}} {{teacher?.last_name}}</h5>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="">
-                  <h5 class="mt-1">SKILLS:{{teacher?.skills}}</h5>
-                  <!--                  <h5 class="mt-1">IELTS:{{teacher?.ielts}} (ball)</h5>-->
+<!--                  <div class="d-flex justify-content-between">-->
+<!--                    <span>Уровень Английского (IELTS):</span>-->
+<!--                    <span>{{ detailCabinet?.teacher?.ielts }}</span>-->
+<!--                  </div>-->
+<!--                  <h5 class="mt-1">SKILLS:{{teacher?.skills}}</h5>-->
+<!--                                    <h5 class="mt-1">IELTS:{{teacher?.ielts}} (ball)</h5>-->
                 </div>
               </div>
             </div>

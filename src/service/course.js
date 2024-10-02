@@ -1,6 +1,13 @@
 import axios from "@/service/axios";
 
 const CourseService = {
+    subscriptionCourse(data){
+        return axios.post('/subscriptions/craete/', data,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    },
 
     createCourse(data){
         return axios.post('/educations/course/', data,{

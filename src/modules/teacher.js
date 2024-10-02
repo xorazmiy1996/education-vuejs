@@ -71,6 +71,7 @@ const actions = {
                 .then(response => {
                     context.commit('getAllTeachersSuccess', response?.data)
                     resolve(response?.data)
+                    console.log(response?.data)
                 })
                 .catch(error => {
                     context.commit('getAllTeachersFailure', response?.data)

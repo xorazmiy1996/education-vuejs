@@ -13,24 +13,23 @@ export default {
           <h4 class="my-program">
             Наши программы
           </h4>
-          <h6 style="font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
+          <h6 style="margin-top:20px;font-size: 1.5rem;font-weight: 700;text-transform: uppercase;font-family: Poppins;">
             Ознакомьтесь с нашими
             программами
           </h6>
         </div>
         <div class="col-lg-4">
           <div class="card card-height card-hover" style="position: relative;">
-            <router-link to="/individual_speaking">
+            <router-link :to="{name:'teachers', query:{skills:'reading'}}">
               <div class="image-cat-1">
                 <img src="@/assets/image/views/home/39.png" alt="">
               </div>
               <div class="card-body">
-                <h5 class="card-title text-center">IELTS speaking</h5>
-                <p class="card-text"> * Индивидуальные занятия</p>
-                <p class="card-text"> * 3 раза в неделю по 30 минут</p>
+                <h5 class="card-title text-center">IELTS READING</h5>
+                <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
+                <p class="card-text"> * Групповые курсы 50 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
-                <p class="card-text"> * Курс рассчитан на 3 месяца </p>
-                <!--                <h5 class="card-title text-center">400.000 / месяц</h5>-->
+                <p class="card-text"> * Курс рассчитан на 1 месяца </p>
               </div>
             </router-link>
 
@@ -39,18 +38,16 @@ export default {
         </div>
         <div class="col-lg-4">
           <div class="card card-height card-hover">
-            <router-link to="/group_speaking">
+            <router-link :to="{name:'teachers', query:{skills:'speaking'}}">
               <div class="image-cat-2">
                 <img src="@/assets/image/views/home/1.png" alt="">
               </div>
               <div class="card-body">
                 <h5 class="card-title text-center">IELTS speaking</h5>
-                <p class="card-text"> * Групповые занятия (3-4)</p>
-                <p class="card-text">* 3 раза в неделю по 60 минут</p>
+                <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
+                <p class="card-text"> * Групповые курсы 50 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
-                <p class="card-text">* Курс рассчитан на 3 месяца </p>
-                <!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
-
+                <p class="card-text"> * Курс рассчитан на 1 месяца </p>
               </div>
             </router-link>
 
@@ -59,48 +56,51 @@ export default {
       </div>
       <div class="row second-row d-flex">
         <div class="col-lg-4">
-          <div class="card card-height card-hover" style="position: relative">
-            <router-link to="/general_speaking">
-              <div class="image-cat-1">
-                <img src="@/assets/image/views/home/53.png" alt="">
+          <div class="card card-height card-hover">
+            <router-link :to="{name:'teachers', query:{skills:'listening'}}">
+              <div class="image-cat-2">
+                <img src="@/assets/image/views/home/1.png" alt="">
               </div>
-
               <div class="card-body">
-                <h5 class="card-title text-center">General speaking</h5>
-                <p class="card-text">* Групповые занятия</p>
-                <p class="card-text">* 3 раза в неделю по 60 минут</p>
+                <h5 class="card-title text-center">IELTS LISTENING</h5>
+                <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
+                <p class="card-text"> * Групповые курсы 50 минут</p>
                 <p class="card-text">* 12 занятий в месяц</p>
-                <p class="card-text">* Курс рассчитан на 3 месяца </p>
-                <!--                <h5 class="card-title text-center">200.000 / месяц</h5>-->
+                <p class="card-text"> * Курс рассчитан на 1 месяца </p>
+              </div>
+            </router-link>
+
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card card-link card-height card-hover">
+            <router-link :to="{name:'teachers', query:{skills:'writing'}}">
+              <div class="image-cat-2">
+                <img src="@/assets/image/views/home/23.png" alt="">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title text-center">IELTS writing</h5>
+                <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
+                <p class="card-text"> * Групповые курсы 50 минут</p>
+                <p class="card-text">* 12 занятий в месяц</p>
+                <p class="card-text"> * Курс рассчитан на 1 месяца </p>
+              </div>
+            </router-link>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card card-link card-height card-hover">
+            <router-link :to="{name:'teachers', query:{skills:'general'}}">
+              <div class="card-body">
+                <h5 class="card-title text-center">General Engilsh</h5>
+                <p class="card-text"> * Индивидульные курсы рассчитан <span class="ms-3">45 минут</span></p>
+                <p class="card-text"> * Групповые курсы 50 минут</p>
+                <p class="card-text">* 12 занятий в месяц</p>
+                <p class="card-text"> * Курс рассчитан на 4 месяца </p>
               </div>
             </router-link>
           </div>
 
-        </div>
-        <div class="col-lg-4">
-          <div class="card card-height">
-            <div class="card-body">
-              <h5 class="card-title text-center">IELTS</h5>
-              <p class="card-text"> - Позволяет определить уровень и навыки владения английским у людей, для которых он не является родным, учит систематизировать процессы памяти.</p>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-4">
-          <div class="card card-link card-height card-hover">
-            <div class="image-cat-2">
-              <img src="@/assets/image/views/home/23.png" alt="">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title text-center">IELTS writing</h5>
-              <p class="card-text"> <router-link to="/task_1">IELTS task 1</router-link> </p>
-              <p class="card-text"> <router-link to="/task_2">IELTS task 2</router-link> </p>
-              <p class="card-text"><router-link to="/task_3">MOCK academic writing</router-link> </p>
-              <p class="card-text">* feedbacks</p>
-              <!--              <h5 class="card-title text-center">30.000 / штук</h5>-->
-
-            </div>
-          </div>
         </div>
       </div>
     </div>
