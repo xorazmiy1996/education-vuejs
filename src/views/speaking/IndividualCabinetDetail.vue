@@ -80,7 +80,7 @@ export default defineComponent({
           </div>
         </div>
         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 ">
-          <div class="card">
+          <div class="card shadow-sm p-3 rounded">
             <div class="card-body">
               <h5 class="card-title">{{ detailCabinet?.teacher?.first_name }}
                 {{ detailCabinet?.teacher?.last_name }}</h5>
